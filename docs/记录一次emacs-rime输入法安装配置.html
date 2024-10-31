@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-31 四 23:17 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge9f9ec3">1. 记录依次emacs-rime输入法安装配置</a>
+<ul>
+<li><a href="#org666a5e0">1.1. 声明</a></li>
+<li><a href="#org75ea4d9">1.2. 特别感谢</a></li>
+<li><a href="#org7b71c0f">1.3. 当时遇到的问题(现在已经解决好了)</a></li>
+<li><a href="#org7f6d5d5">1.4. 配置方案</a></li>
+<li><a href="#org107a17a">1.5. 安装做法</a>
+<ul>
+<li><a href="#orge8d64f2">1.5.1. 先决条件</a></li>
+<li><a href="#org4397006">1.5.2. 输入方案</a></li>
+<li><a href="#orgf675f85">1.5.3. 在GNU Emacs上的部署</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge9f9ec3" class="outline-2">
+<h2 id="orge9f9ec3"><span class="section-number-2">1.</span> 记录依次emacs-rime输入法安装配置</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org666a5e0" class="outline-3">
+<h3 id="org666a5e0"><span class="section-number-3">1.1.</span> 声明</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+仅在今年4月份是这样，现在怎么样不太清楚。这篇文章写于2024年4月25日
+</p>
+
+<p>
+这是我个人在今年 20240425 写的，当时还是在用着 Emacs 29.3 呢，现在来说不一定有代表性了。
+</p>
+<blockquote>
+<p>
+我自己由于今天 20240425 由于折腾快照的原因，重新安装了一遍系统。在 20240425 21:49 左右，发现 <b>不知道出于什么原因(我个人实在排查不出来，也许是社区里有群佬重新打包了一遍？我自己猜的)</b> 现在的 <code>fcitx5</code> 已经可以在 <code>KDE plasma6 on Wayland(Hyprland WM)</code> 下的 <code>GNU Emacs</code> 应用，按下 <code>C-SPC</code> 能成功地切换到 <code>fcitx5</code> 来键入 <code>CJK字符</code> 了。
+</p>
+
+<p>
+意思就是说。。。。。如果想要在Wayland的GNU Emacs得到fcitx5输入法的输入， <b>下面的笔记都不用看了</b> 直接在Wayland的GNU Emacs里使用fcitx5就好了。
+</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-org75ea4d9" class="outline-3">
+<h3 id="org75ea4d9"><span class="section-number-3">1.2.</span> 特别感谢</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="https://github.com/rime">rime输入法作者: 佛振</a></li>
+<li><a href="https://github.com/DogLooksGood/emacs-rime">狗哥的emacs-rime</a></li>
+<li><a href="https://emacs-china.org/">Emacs China道友</a></li>
+<li><a href="https://github.com/rime/rime-double-pinyin">rime提供的自然码双拼输入方案</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7b71c0f" class="outline-3">
+<h3 id="org7b71c0f"><span class="section-number-3">1.3.</span> 当时遇到的问题(现在已经解决好了)</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+在KDE on Wayland桌面环境(WM: Hyprland)下，在GNU Emacs下，通过按下默认设置的快捷键 <code>C-SPC</code> 来 <b>无法切换到fcitx5</b> 来键入CJK字符
+</p>
+
+<p>
+即使自己已经在 <code>/etc/environment</code> 下设置了 
+#+begin_
+</p>
+
+<p>
+GTK<sub>IM</sub><sub>MODULE</sub>=fcitx         
+QT<sub>IM</sub><sub>MODULE</sub>=fcitx
+XMODIFIERS=@im=fcitx
+SDL<sub>IM</sub><sub>MODULE</sub>=fcitx
+#+end<sub>quote</sub>
+</p>
+
+<p>
+<b>仍然无法切换到fcitx5</b>
+</p>
+
+<p>
+但现在已经解决好了，或者说 <code>2024年04月25日，当天晚上9点30左右</code> 就已经解决好了
+</p>
+
+<p>
+但是对于想在GNU Emacs里面使用emacs-rime的话，真正做到了 <b>all in (GNU) emacs</b> 也可以参考下面的配置流程。
+</p>
+</div>
+</div>
+<div id="outline-container-org7f6d5d5" class="outline-3">
+<h3 id="org7f6d5d5"><span class="section-number-3">1.4.</span> 配置方案</h3>
+<div class="outline-text-3" id="text-1-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">序号</th>
+<th scope="col" class="org-left">配置方案</th>
+<th scope="col" class="org-left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">输入方案</td>
+<td class="org-left">自然码双拼(默认是全拼，我这里使用的是周老开发的自然码双拼，到那个yaml那里改点配置就行了)</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">输入文字</td>
+<td class="org-left">简体中文</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">输入法前端</td>
+<td class="org-left">emacs-rime</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">输入法后端</td>
+<td class="org-left">rime</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org107a17a" class="outline-3">
+<h3 id="org107a17a"><span class="section-number-3">1.5.</span> 安装做法</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-orge8d64f2" class="outline-4">
+<h4 id="orge8d64f2"><span class="section-number-4">1.5.1.</span> 先决条件</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<div class="org-src-container">
+<pre class="src src-sh"># 安装全家桶
+sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-rime fcitx5-material-color
+
+# 编辑开机启动fcitx5
+#		改成=&gt;改成	GTK_IM_MODULE=fcitx
+#		改成=&gt;改成	QT_IM_MODULE=fcitx
+#		改成=&gt;改成	XMODIFIERS=@im=fcitx
+#		改成=&gt;改成       SDL_IM_MODULE=fcitx
+sudo vim /etc/environment
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org4397006" class="outline-4">
+<h4 id="org4397006"><span class="section-number-4">1.5.2.</span> 输入方案</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<p>
+下载 <a href="https://github.com/rime/rime-double-pinyin">rime-double-pinyin仓库地址</a> 提供的 <b>双拼</b> 输入方案
+</p>
+
+<p>
+下载别的输入方案也行，不过我自己尝试过别的，好像感觉不太好安装，没有rime-double-pinyin的安装做法简便
+</p>
+
+<p>
+首先，安装 <a href="https://github.com/rime/rime-double-pinyin/blob/master/double_pinyin.schema.yaml">自然码双拼输入方案</a> 到本机，不出意外的话应该在 <code>/usr/share/rime-data</code> 此路径下
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">cd /usr/share/rime-data
+# 因为是在 /usr/share 路径下
+# 所以需要 sudo 权限创建 新文件(新文件名: double_pinyin.schema.yaml)  
+sudo vim double_pinyin.schema.yaml
+
+# 将 [自然码双拼输入方案] 的文本内容，复制粘贴到这里
+# 保存退出vim
+</pre>
+</div>
+
+<p>
+对于rime官方提供的 <code>双拼</code> 输入方案，在默认部署后，默认是 <code>繁体字</code>
+</p>
+
+<p>
+这是因为默认的 <code>yaml配置文件</code> 的默认部署导致的
+</p>
+
+<p>
+想输入简体字，就要进行下面的做法后，进行 <a href="https://github.com/rime/rime-double-pinyin/issues/3#issuecomment-864338144">设置reset: 1的配置项</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgf675f85" class="outline-4">
+<h4 id="orgf675f85"><span class="section-number-4">1.5.3.</span> 在GNU Emacs上的部署</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<p>
+为什么还要在GNU Emacs上部署?
+</p>
+
+<blockquote>
+<p>
+因为我们之前只是安装好了 <code>输入法后端fcitx5</code> 与 <code>输入方案rime</code> 我们是 *想要在 <code>KDE on Wayland桌面环境上</code> 使用 <code>GNU Emacs</code> 来 <code>切换输入法</code>
+</p>
+
+<p>
+所以还要在GNU Emacs上部署
+</p>
+</blockquote>
+</div>
+<ol class="org-ol">
+<li><a id="org5a23b6d"></a>安装emacs-rime<br />
+<div class="outline-text-5" id="text-1-5-3-1">
+<p>
+具体的安装流程
+</p>
+<blockquote>
+<p>
+<a href="https://github.com/DogLooksGood/emacs-rime/blob/master/INSTALLATION.org">安装emacs-rime</a>
+</p>
+</blockquote>
+
+
+<p>
+个人安装流程
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"># 本机依赖(via ArchLinux)
+pacman -S librime
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; 添加配置到 [GNU Emacs配置文件]
+(use-package rime
+  :custom
+  (default-input-method "rime"))
+
+; 安装rime包
+; M-x list-packages，然后C-s搜 "rime"，按 i 标记，按 x 执行  
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org3444654"></a>部署<br />
+<div class="outline-text-5" id="text-1-5-3-2">
+<div class="org-src-container">
+<pre class="src src-sh"># 默认vim/neovim的那个 leader_key，就是Enter/RETURN上面的那个键。
+# 先按下 C-\，来动态加载rime这个包，然后会提示要在自己的emacs配置文件处，创建rime文件夹。yes就是了
+# 然后 M-x rime-open-configuration 来打开 [部署rime的配置文件]
+# 我个人的配置在 ~/.config/emacs/rime/default.custom.yaml 这里
+# 加上这里的配置
+patch:
+  schema_list:
+    - schema: double_pinyin
+  menu/page_size: 9
+</pre>
+</div>
+
+<p>
+接下来重新配置
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">;; 执行重新部署函数
+M-x rime-deploy
+
+;; 接下来设置默认激活emacs-rime的输入法快捷键
+;; 用 C+SPC 来切换由狗哥开发的Emacs-rime的激活输入法按键(默认是C-\，现在改成C-SPC)
+(global-set-key (kbd "C-SPC")         'toggle-input-method)
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org507c585"></a>启动<br />
+<div class="outline-text-5" id="text-1-5-3-3">
+<p>
+在 GNU Emacs 上按下 <code>C-SPC(Control + Space)</code> 来切换输入法，应该就是没有问题的了。
+</p>
+
+<p>
+愉快地在 <code>KDE on Wayland / Hyprland</code> 上的 <code>GNU Emacs</code> 来享受打字吧！
+</p>
+</div>
+</li>
+<li><a id="orgb3996e2"></a>最后声明<br />
+<div class="outline-text-5" id="text-1-5-3-4">
+<p>
+这是我个人在今年 20240425 写的，当时还是在用着 Emacs 29.3 呢，现在来说不一定有代表性了。
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2024-10-31 四 23:17</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
