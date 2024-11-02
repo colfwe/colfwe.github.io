@@ -1,0 +1,1143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-11-02 六 17:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge8a0c0a">1. 从0开始复现当前的GNU Emacs个人配置</a>
+<ul>
+<li><a href="#org63f0277">1.1. 特别感谢</a></li>
+<li><a href="#orgbbe7355">1.2. 基本信息</a></li>
+<li><a href="#orga4da737">1.3. 安装步骤</a>
+<ul>
+<li><a href="#orgded00ff">1.3.1. 从源码编译一个GNU Emacs</a></li>
+<li><a href="#org9938e85">1.3.2. 使用emacs -Q安装插件</a></li>
+<li><a href="#org2fac969">1.3.3. 外部安装eaf</a></li>
+<li><a href="#orgf6a320d">1.3.4. 更改一些配置文件</a></li>
+<li><a href="#orgf9849ff">1.3.5. 执行一些命令</a></li>
+</ul>
+</li>
+<li><a href="#org0c40884">1.4. 基本用法</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge8a0c0a" class="outline-2">
+<h2 id="orge8a0c0a"><span class="section-number-2">1.</span> 从0开始复现当前的GNU Emacs个人配置</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org63f0277" class="outline-3">
+<h3 id="org63f0277"><span class="section-number-3">1.1.</span> 特别感谢</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+感谢各位为爱付出的作者们，感谢FSF，感谢GNU，感谢RMS！
+</p>
+
+<p>
+感谢大家！♥️
+</p>
+</div>
+</div>
+<div id="outline-container-orgbbe7355" class="outline-3">
+<h3 id="orgbbe7355"><span class="section-number-3">1.2.</span> 基本信息</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+💾 <a href="https://github.com/kitevnn/dotfiles-archlinux">最新仓库地址</a>
+</p>
+
+<p>
+🔨 我自己已在一台全新安装了的Arch Linux上试验过了。
+</p>
+
+<p>
+📰 此文章写于2024年11月02日，不一定具有最新的时效性，请您 <b>自行斟酌</b>
+</p>
+
+<p>
+  演示效果 <br />
+  <a href="../res/screenshot1.png">演示效果1</a>
+  <a href="../res/screenshot2.png">演示效果2</a>
+  <a href="../res/screenshot3.png">演示效果3</a>
+  <a href="../res/screenshot4.png">演示效果4</a>
+</p>
+
+</div>
+</div>
+<div id="outline-container-orga4da737" class="outline-3">
+<h3 id="orga4da737"><span class="section-number-3">1.3.</span> 安装步骤</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orgded00ff" class="outline-4">
+<h4 id="orgded00ff"><span class="section-number-4">1.3.1.</span> 从源码编译一个GNU Emacs</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+先从 <a href="http://alpha.gnu.org/gnu/emacs/pretest">alpha.gnu.org</a> 下载最新版 <code>emacs-30.0.92</code> 的源码
+</p>
+
+<p>
+并添加 <code>编译参数: --with-x-toolkit=gtk3</code> (此flag的目的是为了让 <code>eaf-browser能够聚焦到当前的window</code> )
+</p>
+
+<p>
+当然，您也可以直接复制粘贴下面的命令来完成
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 在 alpha.gnu.org 的 emacs-30.0.92 的基础上，仅仅只是添加了 [--with-x-toolkit=gtk3] 此flag。
+./configure --sysconfdir=/etc --prefix=/usr --libexecdir=/usr/lib --with-tree-sitter --localstatedir=/var --with-cairo --disable-build-details --with-harfbuzz --with-libsystemd --with-modules --with-x-toolkit=gtk3 'CFLAGS=-march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security         -fstack-clash-protection -fcf-protection         -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/emacs/src=/usr/src/debug/emacs -flto=auto' 'LDFLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now          -Wl,-z,pack-relative-relocs -flto=auto'  
+</pre>
+</div>
+
+<p>
+于是就配置好了 <code>GNU Emacs</code> 的 <code>Makefile</code>
+</p>
+
+<p>
+接下来我们开始 <code>构建出二进制产物</code> 并 <code>安装出二进制产物</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 构建出二进制产物
+make
+
+# 安装出二进制产物
+sudo make install
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9938e85" class="outline-4">
+<h4 id="org9938e85"><span class="section-number-4">1.3.2.</span> 使用emacs -Q安装插件</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+在安装好 <code>从源码构建好的emacs 30.0.92</code> 后，若直接打开emacs，一定会 <b>因为加载配置文件的顺序导致一定的差错</b>
+</p>
+
+<p>
+所以我们在命令行里先使用，来打开此文件
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 在命令行里使用 [emacs -Q] 打开此文件
+emacs -Q ~/.config/emacs/elisp/basic/basic-elpa.el  
+</pre>
+</div>
+
+<p>
+然后我们会打开到有 <code>下面这些内容</code> 的文件
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; =======================================
+;; 源设置 basic-elpa.el 
+;; =======================================
+(use-package package
+  :init 
+  (setq package-archives 
+        '(("melpa" . "https://melpa.org/packages/")
+          ("gnu" . "https://elpa.gnu.org/packages/")))
+  (setq package-enable-at-startup nil)
+  (setq use-package-expand-minimally t
+        use-package-verbose t)
+  :autoload
+  (package-initialize));; 🏠我们在最后的括号这里按下 "C-x C-e" 来执行此代码，从而刷新包源 (C，就是 "Ctrl" 的意思，所以是按下 "Ctrl-x" 然后接着按 "Ctrl-e")
+                       ;; ⚠️当然如果melpa或gnu源上不去的话，比如用清华elpa源等我不一定能保证能复现哈！(比如有一些包在清华源上是没有的，比如smartparens.el)
+
+
+(provide 'basic-elpa)  
+</pre>
+</div>
+
+<p>
+然后我们就可以按下 <code>M-x list-packages</code> 来查看 <code>有哪些包可安装</code> 了。
+</p>
+
+<blockquote>
+<p>
+其中，在 <code>*Packages*</code> 里，我们按下 <code>Ctrl+s或Ctrl+r</code> 来搜索文字或反向搜索文字，继续按下 <code>Ctrl+s或Ctrl+r</code> 来搜索下一个文字或反向搜索上一个文字
+</p>
+
+<p>
+按下 <code>i</code> 标记为 <code>即将要安装的标记</code>
+</p>
+
+<p>
+按下 <code>u</code> 取消标记
+</p>
+
+<p>
+按下 <code>x</code> 并按下 <code>y</code> 来执行
+</p>
+</blockquote>
+
+<p>
+然后我们保证只安装以下这些包
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">序号</th>
+<th scope="col" class="org-left">包名</th>
+<th scope="col" class="org-left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">bliss-theme</td>
+<td class="org-left">暗色主题</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">nano-theme</td>
+<td class="org-left">亮色主题</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">cdlatex</td>
+<td class="org-left">快速输入数学符号</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">centaur-tabs</td>
+<td class="org-left">标签页插件</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">dashboard</td>
+<td class="org-left">欢迎界面</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">deadgrep</td>
+<td class="org-left">抓取文本工具</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">dirvish</td>
+<td class="org-left">文件管理器</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-left">corfu</td>
+<td class="org-left">补全</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-left">yasnippet</td>
+<td class="org-left">补全</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-left">yasnippet-snippets</td>
+<td class="org-left">自定义补全指令</td>
+</tr>
+
+<tr>
+<td class="org-right">11</td>
+<td class="org-left">embark</td>
+<td class="org-left">查看当前变量或信息的上下文</td>
+</tr>
+
+<tr>
+<td class="org-right">12</td>
+<td class="org-left">embark-consult</td>
+<td class="org-left">查看当前变量或信息的上下文的依赖</td>
+</tr>
+
+<tr>
+<td class="org-right">13</td>
+<td class="org-left">vertico</td>
+<td class="org-left">交互式候选菜单来选择执行函数</td>
+</tr>
+
+<tr>
+<td class="org-right">14</td>
+<td class="org-left">marginalia</td>
+<td class="org-left">交互式候选菜单来展示执行函数的具体详细信息</td>
+</tr>
+
+<tr>
+<td class="org-right">15</td>
+<td class="org-left">orderless</td>
+<td class="org-left">交互式候选菜单无序搜索</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-left">highlight-indent-guides</td>
+<td class="org-left">高亮显示缩进线</td>
+</tr>
+
+<tr>
+<td class="org-right">17</td>
+<td class="org-left">keycast</td>
+<td class="org-left">实时按键显示</td>
+</tr>
+
+<tr>
+<td class="org-right">18</td>
+<td class="org-left">magit</td>
+<td class="org-left">版本控制git前端工具</td>
+</tr>
+
+<tr>
+<td class="org-right">19</td>
+<td class="org-left">nerd-icons-corfu</td>
+<td class="org-left">给补全corfu使用nf图标</td>
+</tr>
+
+<tr>
+<td class="org-right">20</td>
+<td class="org-left">nerd-icons-dired</td>
+<td class="org-left">给默认的文件管理器使用nf图标</td>
+</tr>
+
+<tr>
+<td class="org-right">21</td>
+<td class="org-left">org-roam-ui</td>
+<td class="org-left">基于org做的org-Roam双链笔记模式</td>
+</tr>
+
+<tr>
+<td class="org-right">22</td>
+<td class="org-left">pdf-tools</td>
+<td class="org-left">通过转换成图片来查看PDF文档</td>
+</tr>
+
+<tr>
+<td class="org-right">23</td>
+<td class="org-left">pkg-info</td>
+<td class="org-left">查看包信息</td>
+</tr>
+
+<tr>
+<td class="org-right">24</td>
+<td class="org-left">restart-emacs</td>
+<td class="org-left">设置快捷键重启</td>
+</tr>
+
+<tr>
+<td class="org-right">25</td>
+<td class="org-left">rime</td>
+<td class="org-left">为了能安装emacs-rime来在Emacs下使用rime输入法</td>
+</tr>
+
+<tr>
+<td class="org-right">26</td>
+<td class="org-left">smartparens</td>
+<td class="org-left">括号匹配</td>
+</tr>
+
+<tr>
+<td class="org-right">27</td>
+<td class="org-left">telega</td>
+<td class="org-left">IM聊天工具</td>
+</tr>
+
+<tr>
+<td class="org-right">28</td>
+<td class="org-left">tree-sitter-langs</td>
+<td class="org-left">语法树</td>
+</tr>
+
+<tr>
+<td class="org-right">29</td>
+<td class="org-left">valign</td>
+<td class="org-left">给org-mode使用的虚拟对齐模式</td>
+</tr>
+
+<tr>
+<td class="org-right">30</td>
+<td class="org-left">auctex</td>
+<td class="org-left">用来编写LaTeX</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+然后我们再按下 "Ctrl-x" 紧接着按下 "Ctrl-c" 退出GNU Emacs
+</p>
+
+<p>
+随后我们需要更改一些配置
+</p>
+</div>
+</div>
+<div id="outline-container-org2fac969" class="outline-4">
+<h4 id="org2fac969"><span class="section-number-4">1.3.3.</span> 外部安装eaf</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+如果您跟我一样，同样也是使用的是 <code>Arch Linux</code> 的话，安装eaf前共需要安装 <code>AUR助手(比如yay，比如paru)，以及pip(python的包管理器)</code>
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org931b345"></a>必要1: paru包管理器的安装<br />
+<div class="outline-text-5" id="text-1-3-3-1">
+<div class="org-src-container">
+<pre class="src src-sh">cd ~/.
+mkdir -p .paru
+git clont https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+
+# 然后等待并且一直Y下去就行了  
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgb997899"></a>必要2: pip包管理器的安装<br />
+<div class="outline-text-5" id="text-1-3-3-2">
+<div class="org-src-container">
+<pre class="src src-sh"># 刷新源到最新版本
+sudo pacman -Sy
+
+# 安装pip
+sudo pacman -S python-pip
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org3dc3634"></a>开始安装eaf<br />
+<div class="outline-text-5" id="text-1-3-3-3">
+<p>
+根据eaf的文档并 <b>根据我个人的路径设置</b>
+</p>
+
+<p>
+<b>在我个人的Emacs配置文件的路径设置里</b>
+</p>
+
+<p>
+eaf 是这样来安装的
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 下载eaf
+git clone --depth=1 -b master https://github.com/emacs-eaf/emacs-application-framework.git ~/.config/emacs/site-lisp/emacs-application-framework/
+
+# 进入到eaf路径
+cd ~/.config/emacs/site-lisp/emacs-application-framework/
+
+# 执行脚本
+./install-eaf.py
+
+# 然后到了此时，我们保证只安装 EAF Browser
+# 当然您也可以安装更多
+# + 只需要下载好对应的依赖
+# + 并在 ~/.config/emacs/elisp/site-lisp/sitelisp-eaf.el 下
++ # 添加上 (require '您要想安装更多的eaf应用的名称) 就行了
+# [EAF] ---------------
+# [EAF] ---------------
+# Installing application dependencies
+# [EAF] (1/27) EAF Browser. A modern, customizable and extensible browser in Emacs - Install? (Y/n): Y
+# 剩余的全部选 "n或N"(否)，因为我个人的配置里面只安装了eaf的eaf-browser应用
+# 剩余的全部选 "n或N"(否)，因为我个人的配置里面只安装了eaf的eaf-browser应用
+# 剩余的全部选 "n或N"(否)，因为我个人的配置里面只安装了eaf的eaf-browser应用
+
+# 通过pip必须安装两个python包，因为eaf-browser是用PyQt写的，所以要安装需要的python包
+pip install sexpdata --break-system-packages
+pip install epc --break-system-packages
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgf6a320d" class="outline-4">
+<h4 id="orgf6a320d"><span class="section-number-4">1.3.4.</span> 更改一些配置文件</h4>
+<div class="outline-text-4" id="text-1-3-4">
+</div>
+<ol class="org-ol">
+<li><a id="org5722a16"></a>更改GNU Emacs的启动目录<br />
+<div class="outline-text-5" id="text-1-3-4-1">
+<p>
+首先，我们打开此文件
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 打开此文件
+emacs -Q ~/.config/emacs/elisp/basic/basic-init.el
+</pre>
+</div>
+
+<p>
+随后在此处更改您自己的GNU Emacs的启动目录
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(setq default-directory "&lt;您自己想要设置的启动目录，比如 ~/. 也可以&gt;")
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orga6fd8b1"></a>更改org-roam双链笔记的存储目录<br />
+<div class="outline-text-5" id="text-1-3-4-2">
+<div class="org-src-container">
+<pre class="src src-sh"># 打开此文件
+emacs -Q ~/.config/emacs/elisp/note/note-orgroam.el
+</pre>
+</div>
+
+<p>
+随后在此处更改您自己的org-roam双链笔记的存储目录
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory "&lt;您自己想要设置的启动目录，比如 ~/. 也可以")
+  .........................)
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgc4fc95a"></a>设置Auto saving&#x2026;..done的存储目录<br />
+<div class="outline-text-5" id="text-1-3-4-3">
+<div class="org-src-container">
+<pre class="src src-sh"># 进入到此目录下，创建名为 "saves" 的目录
+cd ~/.config/emacs/
+mkdir -p saves
+
+# 若不想在此处存储，也可以 emacs -Q ~/.config/emacs/elisp/basic/basic-init 下修改 backup-directory-alist 变量
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgf9849ff" class="outline-4">
+<h4 id="orgf9849ff"><span class="section-number-4">1.3.5.</span> 执行一些命令</h4>
+<div class="outline-text-4" id="text-1-3-5">
+</div>
+<ol class="org-ol">
+<li><a id="org438076c"></a>PDFView的安装<br />
+<div class="outline-text-5" id="text-1-3-5-1">
+<p>
+我们先按下 <code>M-x</code> (即 <code>Alt+x</code>) 来弹出vertico交互式菜单
+</p>
+
+<p>
+并且输入
+</p>
+<blockquote>
+<p>
+pdf-tools-install
+</p>
+</blockquote>
+
+<p>
+来执行 <code>pdf-tools-install</code> 函数，并选择 <code>y</code> 来 <code>编译构建二进制产物</code>
+</p>
+
+<p>
+我们再按下 "Ctrl-x" 紧接着按下 "Ctrl-c" 退出GNU Emacs
+</p>
+</div>
+</li>
+<li><a id="org4881f56"></a>设置modeline信息<br />
+<div class="outline-text-5" id="text-1-3-5-2">
+<p>
+我们到
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 到modeline此处
+cd ~/.config/emacs/elisp/ui/modeline/
+
+# 将所有的modeline脚本全部设置为可执行
+chmod +x *.sh
+</pre>
+</div>
+
+<p>
+并且编辑与替换所有的名为 <code>une</code> 的字符
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"># 到modeline此处
+cd ~/.config/emacs/elisp/ui/modeline/
+
+# 使用emacs -Q打开此文件
+emacs -Q ui-modeline-bar.el
+
+# 并替换所有的une字符，改成 [您的用户名]
+# 比如在我的这台全新安装的ArchLinux上
+# 我的用户名是 kle (如果不知道您的用户名是什么的话，可以在命令行下输入 "whoami" 来查询，查询出来的字符串就是您的用户名)
+# 
+# 于是就将下面的字符
+# (defun update-modeline-output-calendar-month ()
+#   (setq modeline-output-calendar-month (string-trim (shell-command-to-string "/home/une/.config/emacs/elisp/ui/modeline/calendar-month.sh"))))
+# 
+# 更换为下面的字符
+# (defun update-modeline-output-calendar-month ()
+#   (setq modeline-output-calendar-month (string-trim (shell-command-to-string "/home/kle/.config/emacs/elisp/ui/modeline/calendar-month.sh"))))
+#
+# 注意⚠️: 是所有的une字符都需要替换哦！
+</pre>
+</div>
+
+<p>
+我们再设置modeline的CPU温度信息
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 它的路径大概是 cd /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp2_input
+# 其中这个 [hwmon2] 的数字 [2] 可能会随时变化，需要您自己查看您的目标机器的路径设置
+# 因为有些路径是随机的，是视目标机器而定的，所以有时需要自己更改一下
+# 我们打开这个文件，设置您的机器上的正确的路径
+emacs -Q ~/.config/emacs/elisp/ui/modeline/cpu-temperature.sh    
+</pre>
+</div>
+
+<p>
+我们再设置modeline的天气信息
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 客观来说，天气API成本问题，还是存在那里的，所以不要滥用天气API
+# 所以我们不可能说，每次打开一次GNU Emacs，就执行一次脚本来获取天气情况
+# 因此我们的做法是
+# + 设置一个sh脚本，此sh脚本通过curl获取 wttr in 的天气API
+# + 获取到的信息通过 &gt; 符号，将信息保存在本地
+# + 并且用crontab设置每日的定时任务
+# + 最后让Emcas读取此保存在本地的文件来设置modeline天气信息
+
+# 我们在此目录下，设置一个这样的脚本
+cd ~/.config/emacs
+mkdir -p archive &amp;&amp; cd archive  
+
+# 编辑文件，添加下面的内容(前面的 # 去掉)
+# 
+# curl wttr.in/您的所居住的城市名称 &gt; /home/您的用户名/.config/emacs/archive/weather
+#
+# 比如如果您在广州(Guangzhou)的话，于是就是这样的
+#
+# curl wttr.in/Guangzhou &gt; /home/您的用户名/.config/emacs/archive/weather
+emacs -Q weather-wttr.sh
+
+# 设置为可执行脚本
+chmod +x weather-wttr.sh
+
+# 随后我们只要手动执行一次位于 ~/.config/emacs/archive/weather-wttr.sh 此脚本，就能获取到您所居住的城市的天气情况了。(您也可以使用bash alias来执行)
+# 或者您也可以使用crontab设置定时任务来获取当天天气信息
+</pre>
+</div>
+
+<p>
+最后我们再到这里，同样更换 <code>une</code> 字符为您的用户名 (您的用户名可以在命令行使用 <code>whoami</code> 来查看)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">cd ~/.config/emacs/elisp/ui/modeline
+emacs -Q weather-situation.sh
+
+# 然后更换所有的 "une" 字符，改为为您的用户名就可以了。
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgb464eae"></a>设置其余的modeline信息<br />
+<div class="outline-text-5" id="text-1-3-5-3">
+<p>
+如果您遇到了modeline信息的显示不完全等等，您可以到 <code>cd ~/.config/emacs/elisp/ui/modeline/</code> 此处重新设置您的机器上的情况，只要设置几个很简单的 <code>cut -c 'start-end'</code> 的设置(其中的 <code>start, end</code> 是您自己定义的)
+</p>
+</div>
+</li>
+<li><a id="orgf94c65d"></a>设置dashboard的欢迎界面<br />
+<div class="outline-text-5" id="text-1-3-5-4">
+<p>
+您可以在此处 <code>cd ~/.config/emacs/elisp/ui/decorate/</code> 的 <code>ui-decorate-dashboard.el</code> 找到并修改 <code>(setq dashboard-startup-banner "您最喜欢的图片的绝对路径")</code> 设置dashboard的欢迎界面
+</p>
+
+<p>
+您也可以设置成GNU Emacs的logo来使用
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">; 设置成GNU Emacs的logo
+(setq dashboard-startup-banner 'logo)
+</pre>
+</div>
+
+<p>
+您也可以到 <a href="https://www.gnu.org/graphics/graphics.html">请支持GNU/FSF喵</a> 下载您喜欢的logo图片来使用
+</p>
+
+<p>
+同时，当我们进行 <code>M-x custom-load-theme-light(快捷键: C-c t 1)</code> 或 <code>M-x custom-load-theme-dark(快捷键: C-c t 2)</code> 来更换主题时
+</p>
+
+<p>
+我们会默认切换到一个我个人机器下的一个图片文件，因为您的机器一定是没有的这份图片文件的
+</p>
+
+<p>
+所以接下来还需要修改您的 <code>cd ~/.config/emacs/elisp/custom/custom-defun.el</code> 的里面的两行配置
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; 找到并修改下面的两行配置(注意⚠️: 一共有 2 处地方需要您的修改)
+(setq dashboard-startup-banner "您最喜欢的图片的绝对路径")
+(setq dashboard-startup-banner "您最喜欢的图片的绝对路径")
+
+;; 或者您也可以设置成 'logo
+;; 即使用GNU Emacs的logo图片来使用
+(setq dashboard-startup-banner 'logo)
+(setq dashboard-startup-banner 'logo)
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org9ef67ad"></a>配置emacs-rime<br />
+<div class="outline-text-5" id="text-1-3-5-5">
+<p>
+首先，我的输入法方案是这样的
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">序号</th>
+<th scope="col" class="org-left">方案</th>
+<th scope="col" class="org-left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">输入方案</td>
+<td class="org-left">周老开发的自然码双拼</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">输入文字</td>
+<td class="org-left">简体中文</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">输入法后端</td>
+<td class="org-left">rime</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">输入法前端</td>
+<td class="org-left">emacs-rime</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+所以我们需要这样来 <b>一步一步地安装</b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 刷新源到最新版本
+sudo pacman -Sy
+
+# 安装fcitx全家桶
+sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-rime fcitx5-material-color
+
+# 编辑环境配置，并加上这4行字符
+# + GTK_IM_MODULE=fcitx
+# + QT_IM_MODULE=fcitx
+# + XMODIFIERS=@im=fcitx
+# + SDL_IM_MODULE=fcitx
+sudo emacs -Q /etc/environment
+
+# 重启
+reboot
+</pre>
+</div>
+
+<p>
+随后我们到 <a href="https://github.com/rime/rime-double-pinyin">rime提供的输入方案仓库地址</a> 这里下载想要的输入方案
+</p>
+
+<p>
+像我自己这样的话，就习惯了周老的自然码双拼，所以就下载了 <a href="https://github.com/rime/rime-double-pinyin/blob/master/double_pinyin.schema.yaml">rime提供的自然码双拼输入方案</a>
+</p>
+
+<p>
+像我自己的话，我就是需要将 <a href="https://github.com/rime/rime-double-pinyin/blob/master/double_pinyin.schema.yaml">rime提供的自然码双拼输入方案</a> 链接内的文本，复制并粘贴在
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 进入到系统级的rime目录文件夹
+cd /usr/share/rime-data
+
+# 使用sudo vim保存一个文件，文件内容就是我们刚刚所说的复制粘贴的文本
+sudo vim double_pinyin.schema.yaml
+
+# 并且在找到下面这一行，将下面这一行的上面，添加 "reset: 1" 的信息
+#   states: [ 漢字, 汉字 ]
+#
+# 于是最后我们的在/usr/share/rime-data的配置，一定是这样的，就可以输入简体中文了。
+#   reset: 1
+#   states: [ 漢字, 汉字 ]
+</pre>
+</div>
+
+<p>
+随后我们 <b>首次部署安装emacs-rime</b>
+</p>
+
+<blockquote>
+<p>
+我们先打开GNU Emacs，先按下 <code>C-\</code> 再按下 <code>M-x</code> 来执行 <code>rime-deploy</code> 来部署
+</p>
+</blockquote>
+
+<p>
+随后我们再进行 <b>第二次配置</b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 我们再进行第二次配置
+cd ~/.config/emacs/rime/
+
+# 我们使用vim来保存一个文件
+vim default.custom.yaml
+
+# 并往里面添加下面的内容(其中，Control+grave的意思是 [C+`] 的此快捷键)
+patch:
+  schema_list:
+  - schema: double_pinyin
+  menu/page_size: 9
+  switcher:
+    hotkeys:
+      - Control+grave
+</pre>
+</div>
+
+<p>
+我们再打开GNU Emacs，先按下 <code>C-\</code> 再按下 <code>M-x</code> 来执行 <code>rime-deploy</code> 来第二次部署
+</p>
+
+<p>
+<b>最后</b> 我们设置 fcitx5 的默认快捷键 <b>来保证切换输入法的按键C-SPC(Ctrl+Space)，一定是发送send到GNU Emcas内，而不是发送send到fcitx5内</b>
+</p>
+
+<blockquote>
+<p>
+比如，在KDE Plasma 6里面，设置的方式是
+</p>
+
+<p>
+设置 &gt; fcitx5 &gt; 全局配置什么的&#x2026;. &gt; 第一个选项就是了
+</p>
+
+<p>
+我的习惯是 Control+\ 来切换系统的fcitx5输入法，然后在我个人的Emacs配置里，我使用的是 C-SPC 来切换 emacs-rime 输入法
+</p>
+
+<p>
+设置成功就可以了，保证不要将C-SPC，发送send到fcitx5内，我们的目的是要让C-SPC发送send到GNU Emacs内就可以了。
+</p>
+</blockquote>
+</div>
+</li>
+<li><a id="org7967ef1"></a>安装texlive来让auctex获得latex实时编译图片的支持<br />
+<div class="outline-text-5" id="text-1-3-5-6">
+<p>
+我们在命令行里执行
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 刷新源到最新版本  
+sudo pacman -Sy
+
+# 安装TexLive(在Arch Linux上大概是3.8G左右)
+sudo pacman -S texlive
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org83736fb"></a>安装tdlib来使用IM聊天工具<br />
+<div class="outline-text-5" id="text-1-3-5-7">
+<p>
+<a href="https://zevlg.github.io/telega.el/#building-tdlib">telega.el作者提供了非常详细的配置方式</a>
+</p>
+
+<p>
+唯一需要注意的是
+</p>
+<blockquote>
+<p>
+<b>不要自作聪明</b>
+</p>
+
+<p>
+<b>不要使用Cmake3的构建方式</b>
+</p>
+
+<p>
+<b>老老实实使用作者提供的Cmake2的构建方式就可以了，编译一次的话大概洗个澡左右的时间就差不多了</b>
+</p>
+
+<p>
+<b>哦，如果要翻译过来的话，我的意思大概就是说严严格格地跟着作者提供的文档走就行了</b>
+</p>
+</blockquote>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org0c40884" class="outline-3">
+<h3 id="org0c40884"><span class="section-number-3">1.4.</span> 基本用法</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+我的基本快捷键几乎全部在 <code>~/.config/emacs/elisp/key/key-keybindings.el</code> 里
+</p>
+
+<p>
+我的部分快捷键少量存在于 <code>~/.config/emacs/elisp/custom/custom-defun.el</code> 与 <code>~/.bconfig/emacs/elisp/hooks/hooks-hook.elel</code> 里
+</p>
+
+<p>
+💾 <a href="https://github.com/kitevnn/dotfiles-archlinux">最新仓库地址</a>
+</p>
+
+<p>
+♥️ 跟随这里获取最新的快捷键使用方式(或者您也可以自己定义，毕竟GNU Emacs的玩法就是在玩 <b>自定义</b> )
+</p>
+
+<p>
+👋 Peace.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2024-11-02 六 17:41</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
