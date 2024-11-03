@@ -769,11 +769,11 @@ sudo pacman -S archlinuxcn-keyring
 # + 不安装xf86-video-intel时，会默认使用自带的Xorg的modesetting。
 sudo pacman -S mesa     	       			   
 
-# 安装也许是资源占用更少的(KDE更好，但我的电脑内存现在只有4G了)(均使用SDDM桌面管理器)
-sudo pacman -S mesa xorg xfce4 xfce4-goodies sddm network-manager-applet
+# 安装也许是资源占用更少的xfce(KDE更好，但我的电脑内存现在只有4G了)(均使用SDDM桌面管理器)
+sudo pacman -S mesa xorg xfce4 xfce4-goodies sddm network-manager-applet  # ⬆️这两个选一个哈！执行了这里就不要执行下面了。自己来选择是用xfce还是kde哈！
   
 # 安装美丽现代的KDE(均使用SDDM桌面管理器)
-sudo pacman -S xorg plasma kde-applications sddm network-manager-applet
+sudo pacman -S xorg plasma kde-applications sddm network-manager-applet   # ⬇️这两个选一个哈！执行了这里就不要执行上面了。自己来选择是用xfce还是kde哈！
 # + 然后一直RET(Enter)下去就行了，按个大概10来次都确定就行了
 # + 因为 https://www.bilibili.com/video/BV1ag411K725 视频教程也是全部确定的
 </pre>
@@ -849,7 +849,8 @@ sudo vim /etc/locale.conf
 <div class="org-src-container">
 <pre class="src src-sh"># 安装fcitx5全家桶
 sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-rime fcitx5-material-color
-
+sudo pacman -S noto-fonts-emoji
+sudo fc-cache -fv
 # 编辑开机启动fcitx5
 #        	改成=&gt;改成	GTK_IM_MODULE=fcitx
 #        	改成=&gt;改成	QT_IM_MODULE=fcitx
