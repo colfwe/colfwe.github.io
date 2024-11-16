@@ -329,9 +329,10 @@ emacs -Q ~/.config/emacs/elisp/basic/basic-elpa.el
 ;; =======================================
 (use-package package
   :init 
-  (setq package-archives 
-        '(("melpa" . "https://melpa.org/packages/")
-          ("gnu" . "https://elpa.gnu.org/packages/")))
+  (setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ("gnu" . "https://elpa.gnu.org/packages/")
+        ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
   (setq package-enable-at-startup nil)
   (setq use-package-expand-minimally t
         use-package-verbose t)
@@ -486,8 +487,8 @@ emacs -Q ~/.config/emacs/elisp/basic/basic-elpa.el
 
 <tr>
 <td class="org-right">17</td>
-<td class="org-left">keycast</td>
-<td class="org-left">实时按键显示</td>
+<td class="org-left">eat</td>
+<td class="org-left">终端模拟器</td>
 </tr>
 
 <tr>
