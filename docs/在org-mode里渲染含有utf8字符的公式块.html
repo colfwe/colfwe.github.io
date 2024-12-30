@@ -260,7 +260,7 @@
 <div class="outline-text-3" id="text-1-2">
 
 <div id="org2baec66" class="figure">
-<p><img src="../res/大致效果.png" alt="../res/大致效果.png" />
+<p><img src="../res/公式块预览效果.png" alt="../res/公式块预览效果.png" />
 </p>
 </div>
 </div>
@@ -344,7 +344,7 @@
 
 <tr>
 <td class="org-right">5</td>
-<td class="org-left">添加了的usepackage</td>
+<td class="org-left">添加了的eusepackage</td>
 <td class="org-left">fontspec、usenames、amsmath</td>
 </tr>
 </tbody>
@@ -359,7 +359,7 @@
 </p>
 
 <ul class="org-ul">
-<li>如果我们渲染 <b>无utf-8字符</b> 的公式块，那么我们就选择org-mode传统的dvipng、dvisvgm、imagemagick引擎来渲染</li>
+<li>如果我们渲染 <b>无utf-8字符</b> 的公式块，那么我们就选择org-mode默认的dvipng、dvisvgm、imagemagick引擎来渲染</li>
 
 <li>如果我们渲染 <b>有utf-8字符</b> 的公式块，那么我们就选择我们自己定义的xelatex-chinese引擎来渲染</li>
 </ul>
@@ -412,9 +412,9 @@
 </p>
 
 <ul class="org-ul">
-<li>如果在中文字符后紧跟数学分数，那么就会 <b>在我自己当前的环境下</b> 出现比如 “中文 1 \frac{}{2}” 这种真分数的预览效果</li>
+<li>如果在中文字符后紧跟数学分数，那么就会 <b>在我自己当前的环境下</b> 出现比如 “中文 \[ 1 \frac{}{2} \]” 这种真分数的预览效果</li>
 
-<li>对于数学中的一些对称字符，可能会渲染失败，比如如果只写了数学的对称符号的其中一边却没有闭合上，就会出现错误导致渲染不了，比如 \begin{Bmatrix} \begin{bmatrix} 都会造成渲染失败。解决方法是 “闭合上” 就行了</li>
+<li>对于数学中的一些对称字符，可能会渲染失败，比如如果只写了数学的对称符号的其中一边却没有闭合上，就会出现错误导致渲染不了，比如 \[ \begin{Bmatrix} \begin{bmatrix} \] 都会造成渲染失败。解决方法是 “闭合上” 就行了</li>
 
 <li>对于一些字符，也有可能会渲染失败&#x2026;</li>
 </ul>
@@ -453,7 +453,7 @@
       (message "no such equation, please check again..."))))
 
 (defun custom-inside-escaped-bracket-pair-p ()
-  "判断公式块\[ \]的的谓词"
+  "判断公式块\[ \]的谓词"
   (let ((thing (thing-at-point 'line t)))
     (and thing
          (string-match-p "\\[.*\\]" thing))))
