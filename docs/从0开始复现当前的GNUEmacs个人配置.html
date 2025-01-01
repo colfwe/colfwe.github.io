@@ -271,9 +271,14 @@
 </p>
 
 <p>
-并添加 <code>编译参数: --with-x-toolkit=gtk3</code> (此flag的目的是为了让 <code>eaf-browser能够聚焦到当前的window</code> )
+并添加 <code>编译参数: --with-x-toolkit=gtk3</code> (此option的目的是为了让 <code>eaf-browser能够聚焦到当前的window</code> )
 </p>
 
+<p>
+但听说<code>编译参数: --with-x-toolkit=no --with-cairo</code> （此option的目的是为了在X下获得更好的性能，前提是如果自己不使用eaf的话）
+</p>
+
+  
 <p>
 当然，您也可以直接复制粘贴下面的命令来完成
 </p>
@@ -281,6 +286,12 @@
 <div class="org-src-container">
 <pre class="src src-sh"># 在 alpha.gnu.org 的 emacs-30.0.92 的基础上，仅仅只是添加了 [--with-x-toolkit=gtk3] 此flag。
 ./configure --sysconfdir=/etc --prefix=/usr --libexecdir=/usr/lib --with-tree-sitter --localstatedir=/var --with-cairo --disable-build-details --with-harfbuzz --with-libsystemd --with-modules --with-x-toolkit=gtk3 'CFLAGS=-march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security         -fstack-clash-protection -fcf-protection         -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/emacs/src=/usr/src/debug/emacs -flto=auto' 'LDFLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now          -Wl,-z,pack-relative-relocs -flto=auto'  
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 在 alpha.gnu.org 的 emacs-30.0.92 的基础上，仅仅只是添加了 [--with-x-toolkit=gtk3] 此flag。
+./configure --sysconfdir=/etc --prefix=/usr --libexecdir=/usr/lib --with-tree-sitter --localstatedir=/var --disable-build-details --with-harfbuzz --with-libsystemd --with-modules --with-x-toolkit=no --with-cairo 'CFLAGS=-march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security         -fstack-clash-protection -fcf-protection         -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/emacs/src=/usr/src/debug/emacs -flto=auto' 'LDFLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now          -Wl,-z,pack-relative-relocs -flto=auto'  
 </pre>
 </div>
 
@@ -535,8 +546,8 @@ emacs -Q ~/.config/emacs/elisp/basic/basic-elpa.el
 
 <tr>
 <td class="org-right">25</td>
-<td class="org-left">rime</td>
-<td class="org-left">为了能安装emacs-rime来在Emacs下使用rime输入法</td>
+<td class="org-left">cmake-mode</td>
+<td class="org-left">基于ts的语法高亮显示</td>
 </tr>
 
 <tr>
