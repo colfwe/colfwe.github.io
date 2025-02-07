@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-07 五 13:52 -->
+<!-- 2025-02-07 五 14:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -199,18 +199,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8729fb3">1. 在Linux上编译emacs-scratch-igc</a>
+<li><a href="#org00e45d0">1. 在Linux上编译emacs-scratch-igc</a>
 <ul>
-<li><a href="#org6e41f6e">1.1. 1. 基本介绍</a>
+<li><a href="#orgdc2d15d">1.1. 1. 基本介绍</a>
 <ul>
-<li><a href="#orgbc83078">1.1.1. (1) 什么是igc？</a></li>
+<li><a href="#org118731e">1.1.1. (1) 什么是igc？</a></li>
 </ul>
 </li>
-<li><a href="#org2c1dec1">1.2. 2. 安装方法</a>
+<li><a href="#orgdcdc627">1.2. 2. 安装方法</a>
 <ul>
-<li><a href="#orgf17c910">1.2.1. (1) 外部库文件libmps的安装</a></li>
-<li><a href="#org5289962">1.2.2. 2. 编译选项</a></li>
-<li><a href="#orge792ee8">1.2.3. 检验是否安装成功</a></li>
+<li><a href="#orgb3cc541">1.2.1. (1) 外部库文件libmps的安装</a></li>
+<li><a href="#orgb1af624">1.2.2. 2. 编译选项</a></li>
+<li><a href="#orgf69f2ef">1.2.3. 检验是否安装成功</a></li>
 </ul>
 </li>
 </ul>
@@ -218,40 +218,35 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org8729fb3" class="outline-2">
-<h2 id="org8729fb3"><span class="section-number-2">1.</span> 在Linux上编译emacs-scratch-igc</h2>
+<div id="outline-container-org00e45d0" class="outline-2">
+<h2 id="org00e45d0"><span class="section-number-2">1.</span> 在Linux上编译emacs-scratch-igc</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org6e41f6e" class="outline-3">
-<h3 id="org6e41f6e"><span class="section-number-3">1.1.</span> 1. 基本介绍</h3>
+<div id="outline-container-orgdc2d15d" class="outline-3">
+<h3 id="orgdc2d15d"><span class="section-number-3">1.1.</span> 1. 基本介绍</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgbc83078" class="outline-4">
-<h4 id="orgbc83078"><span class="section-number-4">1.1.1.</span> (1) 什么是igc？</h4>
+<div id="outline-container-org118731e" class="outline-4">
+<h4 id="org118731e"><span class="section-number-4">1.1.1.</span> (1) 什么是igc？</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 在 <code>真-lisp</code> 的编程语言，比如 scheme、common lisp、elisp 这些 lisp 方言，都是自带了一个 GC 垃圾回收机制的
 </p>
 
-<blockquote>
-<p>
-对！如果您用过现代Cpp，还有Go等编程语言，您就一定清楚它们是自带了一个 GC 垃圾回收机制的。
-</p>
+<div class="org-src-container">
+<pre class="src src-nil">对！如果您用过现代Cpp，还有Go等编程语言，您就一定清楚它们是自带了一个 GC 垃圾回收机制的。
 
-<p>
-然而在 mock-lisp(伪-lisp) 的编程语言下，就没有 GC 机制，比如Rust写的一个eww桌面组件，就是用的 <code>yuck</code> 这门伪lisp编程语言去编写结构的。
-</p>
-</blockquote>
+然而在 mock-lisp(伪-lisp) 的编程语言下，就没有 GC 机制，比如Rust写的一个eww桌面组件，就是用的 ~yuck~ 这门伪lisp编程语言去编写结构的。
+#+end_quote
 
-<p>
 那么这样一来，我们的GNU Emacs用的是elisp，所以我们的GNU Emacs就天生就有了GC机制？
-</p>
+</pre>
+</div>
 
-<blockquote>
-<p>
-对啊！GNU Emacs它天生就有GC机制
-</p>
-</blockquote>
+<div class="org-src-container">
+<pre class="src src-nil">对啊！GNU Emacs它天生就有GC机制
+</pre>
+</div>
 
 <p>
 然后有些佬，嫌这个GC机制控制得不够自由，于是就硬是用Cpp重新造了一个 <code>新的GC机制</code> 的 <code>The (M)emory (P)ool (S)ystem</code> 出来
@@ -267,25 +262,23 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org2c1dec1" class="outline-3">
-<h3 id="org2c1dec1"><span class="section-number-3">1.2.</span> 2. 安装方法</h3>
+<div id="outline-container-orgdcdc627" class="outline-3">
+<h3 id="orgdcdc627"><span class="section-number-3">1.2.</span> 2. 安装方法</h3>
 <div class="outline-text-3" id="text-1-2">
-<blockquote>
-<p>
-BYD，检测 libmps.h 的 ./configure checking 折磨了我贼久
-</p>
-</blockquote>
+<div class="org-src-container">
+<pre class="src src-nil">BYD，检测 libmps.h 的 ./configure checking 折磨了我贼久
+</pre>
 </div>
-<div id="outline-container-orgf17c910" class="outline-4">
-<h4 id="orgf17c910"><span class="section-number-4">1.2.1.</span> (1) 外部库文件libmps的安装</h4>
+</div>
+<div id="outline-container-orgb3cc541" class="outline-4">
+<h4 id="orgb3cc541"><span class="section-number-4">1.2.1.</span> (1) 外部库文件libmps的安装</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
-如果不想安装 <code>homebrew</code> 的话, <code>此仓库 https://github.com/kitevnn/dotfiles-archlinux/tree/main/res/libmps </code> 里也有 <code>2023年版的1.118.0版的Release版本</code> 
+如果不想安装 <code>homebrew</code> 的话, <a href="https://github.com/kitevnn/dotfiles-archlinux/tree/main/res/libmps">此仓库</a> 里也有 <code>2023年版的1.118.0版的Release版本</code> 
 </p>
 
-<blockquote>
-<p>
-libmps
+<div class="org-src-container">
+<pre class="src src-nil">libmps
 .a 静态文件部分
    🔧 libmps.a
    🔧 libmps-debug.a
@@ -306,18 +299,13 @@ libmps
    🔧 mpslib.h
    🔧 mpstd.h
    🔧 mpswin.h
-</p>
-</blockquote>
+#+end_quote
 
-<p>
-首先安装 <code>homebrew</code> 在 Linux 上
-</p>
+首先安装 ~homebrew~ 在 Linux 上
 
-<p>
 然后
-</p>
-<div class="org-src-container">
-<pre class="src src-sh"># 安装2023年版的1.118.0版的mps
+#+begin_src sh
+# 安装2023年版的1.118.0版的mps
 brew install libmps
 
 # 安装最新版的mps
@@ -329,27 +317,23 @@ brew install libmps --HEAD
 最后在 homebrew 的指定目录下，如果在Linux下全部默认的话，会在 <code>/home/linuxbrew/.linuxbrew/Cellar</code> 的 <code>/libmps/1.118.0/</code> 下得到libmps的文件
 </p>
 
-<blockquote>
-<p>
-libmps
+<div class="org-src-container">
+<pre class="src src-nil">libmps
    📁 ./usr
    📁 ./include
-</p>
-</blockquote>
+</pre>
+</div>
 
 <p>
 最后BYD，一定要 <b>复制粘贴</b> 到你自己的 <code>系统级的/usr</code> 与 <code>系统级的/include</code>
 </p>
 
-<blockquote>
-<p>
-我试过无数种添加CFLAGS与LDLAGS的标志的方法，全部无效，它最后全部都会在./configure后提示说: "The libmps is missing"！
-</p>
+<div class="org-src-container">
+<pre class="src src-nil">我试过无数种添加CFLAGS与LDLAGS的标志的方法，全部无效，它最后全部都会在./configure后提示说: "The libmps is missing"！
 
-<p>
 必须要复制到系统级的/usr/lib与系统级的/usr/include配置才能完成！
-</p>
-</blockquote>
+</pre>
+</div>
 
 <p>
 所以，复制到系统级的/us/libr与系统级的/include/include目录下
@@ -365,8 +349,8 @@ sudo cp *.a /usr/lib
 </p>
 </div>
 </div>
-<div id="outline-container-org5289962" class="outline-4">
-<h4 id="org5289962"><span class="section-number-4">1.2.2.</span> 2. 编译选项</h4>
+<div id="outline-container-orgb1af624" class="outline-4">
+<h4 id="orgb1af624"><span class="section-number-4">1.2.2.</span> 2. 编译选项</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 点击直达: <a href="https://github.com/emacs-mirror/emacs/tree/feature/igc">emacs-scratch-igc</a>
@@ -421,8 +405,8 @@ sudo cp *.a /usr/lib
 </p>
 </div>
 </div>
-<div id="outline-container-orge792ee8" class="outline-4">
-<h4 id="orge792ee8"><span class="section-number-4">1.2.3.</span> 检验是否安装成功</h4>
+<div id="outline-container-orgf69f2ef" class="outline-4">
+<h4 id="orgf69f2ef"><span class="section-number-4">1.2.3.</span> 检验是否安装成功</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
 进入GNU Emacs后，执行 <code>M-x igc-stats</code> 并在打开的新buffer上，按 <code>wasd 的 s</code>
@@ -432,17 +416,16 @@ sudo cp *.a /usr/lib
 如果能出现
 </p>
 
-<blockquote>
-<p>
-IGC<sub>OBJ</sub><sub>BLV</sub>                                854           40992         48            48
-IGC<sub>OBJ</sub><sub>BUILTIN</sub><sub>SUBR</sub>                         0               0          0             0
-IGC<sub>OBJ</sub><sub>BUILTIN</sub><sub>SYMBOL</sub>                       0               0          0             0
-IGC<sub>OBJ</sub><sub>BUILTIN</sub><sub>THREAD</sub>                       0               0          0             0
-IGC<sub>OBJ</sub><sub>BYTES</sub>                                0               0          0             0
-IGC<sub>OBJ</sub><sub>CONS</sub>                           1876951        45046824         24            24
-&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;
-</p>
-</blockquote>
+<div class="org-src-container">
+<pre class="src src-nil">IGC_OBJ_BLV                                854           40992         48            48
+IGC_OBJ_BUILTIN_SUBR                         0               0          0             0
+IGC_OBJ_BUILTIN_SYMBOL                       0               0          0             0
+IGC_OBJ_BUILTIN_THREAD                       0               0          0             0
+IGC_OBJ_BYTES                                0               0          0             0
+IGC_OBJ_CONS                           1876951        45046824         24            24
+.......................................................................................
+</pre>
+</div>
 
 <p>
 这样的提示文字，就能说明 mps 起效果了！
@@ -461,7 +444,7 @@ IGC<sub>OBJ</sub><sub>CONS</sub>                           1876951        450468
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-02-07 五 13:52</p>
+<p class="date">Created: 2025-02-07 五 14:07</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
