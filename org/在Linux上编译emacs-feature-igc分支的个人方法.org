@@ -1,0 +1,132 @@
+* 在Linux上编译emacs-feature-igc分支的个人方法
+
+** 基本介绍
+
+*** 什么是 igc？什么是 mps？
+
+首先在 ~真-lisp~ 的编程语言，都是自带了一个 *GC 垃圾回收机制*
+
+#+begin_src 
+比如 scheme、common lisp、elisp 这些 lisp 方言，都自带了 GC 垃圾回收机制
+#+end_src
+
+然而在 ~mock-lisp(伪-lisp)~ 的编程语言下就 *没有GC垃圾回收机制*
+
+#+begin_src
+比如Rust写的一个eww桌面组件，就是用的 [yuck] 这门伪lisp编程语言去编写结构的
+#+end_src
+
+那么这样一来，我们的GNU Emacs用的是elisp，所以我们的GNU Emacs就天生就有了GC机制？
+
+#+begin_src  
+对啊！GNU Emacs它天生就有GC机制  
+#+end_src
+
+然后有些佬，嫌这个GNU Emacs的GC机制控制得不够自由，于是就硬是用Cpp重新造了一个 ~新的GC机制 的 The (M)emory (P)ool (S)ystem~ 出来
+
+于是这个 *新的GC机制 就称呼为 (I)ncremental GC* 
+
+语义为 ~增量GC，Delta GC~ 的意思，简称I-G-C，所以最后简称igc
+
+它用到的库文件，叫做 The (M)emory (P)ool (S)ystem 的 mps 所以一会要安装 libmps 就是这么来的
+
+
+** 安装方法
+
+#+begin_src
+BYD，检测 libmps.h 的 ./configure checking 折磨了我贼久  
+#+end_src
+
+*** libmps库文件的安装
+
+#+begin_src 
+libmps大致信息
+  
+.a 静态文件部分
+   🔧 libmps.a
+   🔧 libmps-debug.a
+.h 头文件部分
+   🔧 mpsacl.h
+   🔧 mpsavm.h
+   🔧 mpscamc.h
+   🔧 mpscams.h
+   🔧 mpscawl.h
+   🔧 mpsclo.h
+   🔧 mpscmfs.h
+   🔧 mpscmv2.h
+   🔧 mpscmvff.h
+   🔧 mpscmvt.h
+   🔧 mpscsnc.h
+   🔧 mps.h
+   🔧 mpsio.h
+   🔧 mpslib.h
+   🔧 mpstd.h
+   🔧 mpswin.h
+#+end_src
+
+需要安装homebrew来安装libmps，如果不想安装homebrew的话，[[https://github.com/colfwe/dotfiles/tree/main/libmps][此仓库]] 里也有 _2023年7月11日发布的1.118.0版的Release版本_
+
+#+begin_src sh
+  # 首先在 Linux 上安装 homebrew
+
+  
+  # 安装2023年版的1.118.0版的mps
+  brew install libmps
+
+  # 安装最新版的mps
+  brew install libmps --HEAD  
+#+end_src
+
+随后可以在 ~/home/linuxbrew/.linuxbrew/Cellar 的 /libmps/1.118.0/~ 下得到libmps的文件
+
+然后再将 libmps 放到linux系统级的目录下，就完成了libmps的安装
+
+#+begin_src sh
+  # 很抱歉我说得这么绝对，但必须要复制到系统级的/usr/lib与/usr/include
+  # 这是我碰壁无数次后得出的 [唯一] 最终解决做法
+  # 因为编译emacs时添加关于libmps文件的CFLAGS与LDFLAGS选项在我这里是没有任何效果的！    
+
+  sudo cp *.h /usr/include
+  sudo cp *.a /usr/lib
+#+end_src
+  
+*** emacs-feature-igc的编译选项
+
+点击直达: [[https://github.com/emacs-mirror/emacs/tree/feature/igc][emacs-feature-igc]]
+
+而且推荐: ~6654ac61342a0a2ffef50435d026cae09314ad5c~  这个提交点的emacs [[https://github.com/emacs-mirror/emacs/tree/6654ac61342a0a2ffef50435d026cae09314ad5c][点击直达]]，因为运行十分稳定，在 [我个人的配置上] 在非配置情况下一次也没有崩溃过
+
+先运行 ~autogen.sh~ 从而得到 ~configure~
+
+然后再直接运行，来让 ~./configure~ 获得相关的 ~编译选项: option~
+#+begin_src sh
+CFLAGS="-fmax-errors=1000" ./configure --sysconfdir=/etc --prefix=/usr --libexecdir=/usr/lib --with-tree-sitter=ifavailable --localstatedir=/var --disable-build-details --with-harfbuzz --with-libsystemd --with-modules --with-x-toolkit=no --with-mps=yes 'CFLAGS=-march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/emacs/src=/usr/src/debug/emacs -flto=auto' 'LDFLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs -flto=auto'  
+#+end_src
+
+然后等待配置完成就行了
+
+- *期间一定要注意: 必须是 mps.h…..yes，不能是The libmps is missing！才算识别到mps库文件！！*
+- *期间一定要注意: 必须是 mps.h…..yes，不能是The libmps is missing！才算识别到mps库文件！！*  
+- *期间一定要注意: 必须是 mps.h…..yes，不能是The libmps is missing！才算识别到mps库文件！！*
+
+*** 检验是否安装成功
+
+进入GNU Emacs后，执行 ~M-x igc-stats~ 并在打开的新buffer上，按 ~wasd~ 的 ~s~
+
+如果能出现
+
+#+begin_src
+IGC_OBJ_BLV                                854           40992         48            48
+IGC_OBJ_BUILTIN_SUBR                         0               0          0             0
+IGC_OBJ_BUILTIN_SYMBOL                       0               0          0             0
+IGC_OBJ_BUILTIN_THREAD                       0               0          0             0
+IGC_OBJ_BYTES                                0               0          0             0
+IGC_OBJ_CONS                           1876951        45046824         24            24
+.......................................................................................  
+#+end_src
+
+这样的提示文字，就能说明 mps 起效果了！
+
+如果是 ~The Symbol igc-stats is void~ 的话，那么 *一定是你自己在 emacs-feature-igc 分支源码包下的 ./configure 内，没有让它识别到libmps库文件！请你自己重新查看文档安装！*
+
+

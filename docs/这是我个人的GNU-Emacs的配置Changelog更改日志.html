@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-10-31 四 22:53 -->
+<!-- 2025-03-17 一 13:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -199,123 +199,180 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6d17b61">1. 修复MicrosoftDCB键盘的蓝牙问题</a>
+<li><a href="#orgc59c04d">1. 这是我个人的GNU Emacs的配置Changelog更改日志</a>
 <ul>
-<li><a href="#orgc529500">1.1. 特别感谢</a></li>
-<li><a href="#orga44699b">1.2. 发生了什么问题？</a></li>
-<li><a href="#orgb136c7c">1.3. 解决做法: 重启bluetooth服务 + 命令行bluetoothctl</a></li>
-<li><a href="#org4d5e5af">1.4. 原因猜测:</a>
-<ul>
-<li><a href="#orgb8cc1a7">1.4.1. (1) archlinux.bbs的2位用户都有这把DCB键盘的回答</a></li>
-<li><a href="#orgb3dd733">1.4.2. (2) 我个人的猜测</a></li>
-</ul>
-</li>
+<li><a href="#orgcef4e83">1.1. 2025年(今年)</a></li>
+<li><a href="#org8a9f574">1.2. 2024年</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6d17b61" class="outline-2">
-<h2 id="org6d17b61"><span class="section-number-2">1.</span> 修复MicrosoftDCB键盘的蓝牙问题</h2>
+<div id="outline-container-orgc59c04d" class="outline-2">
+<h2 id="orgc59c04d"><span class="section-number-2">1.</span> 这是我个人的GNU Emacs的配置Changelog更改日志</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgc529500" class="outline-3">
-<h3 id="orgc529500"><span class="section-number-3">1.1.</span> 特别感谢</h3>
+<div id="outline-container-orgcef4e83" class="outline-3">
+<h3 id="orgcef4e83"><span class="section-number-3">1.1.</span> 2025年(今年)</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li><a href="https://wiki.archlinuxcn.org/wiki/%E8%93%9D%E7%89%99">ArchWiki的使用bluetoothctl前需要安装的依赖</a></li>
-<li><a href="https://bbs.archlinux.org/viewtopic.php?id=243659">ArchlinuxForum帖子1</a></li>
-<li><a href="https://bbs.archlinux.org/viewtopic.php?pid=1866662#p1866662">ArchlinuxForum帖子2</a></li>
-<li><a href="https://bbs.archlinux.org/viewtopic.php?pid=1866662#p1866662">possum的回答</a></li>
-<li><a href="https://bbs.archlinux.org/viewtopic.php?pid=1883397#p1883397">原帖</a></li>
+<li>20250316
+
+<ul class="org-ul">
+<li>添加了 org-download 从而可以在截图后再按下快捷键来完成 <code>粘贴保存、重命名、删除</code> 图片文件的操作了。</li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>20250315
+
+<ul class="org-ul">
+<li>添加了一个生成git提交信息的简易模板，提交信息能写得更便捷了</li>
+
+<li>添加了emms音乐播放器，同时彻底优化了 global-mode-string 将其放在 mode-line-format 上，并将 modeline 不需要长期展示的信息放在了一个名为 <code>*Status Monitor*</code> 的 buffer 里</li>
+
+<li>添加了 nano-light 与 bliss-theme 在 <code>magit</code> 的基础 face 颜色</li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>20250207
+
+<ul class="org-ul">
+<li>从 master 分支，迁移到了 feature/igc 分支(非常感谢水群龙王ee的宣传与力推♥️)，运行速度得到了爆炸性的提升💥 (强烈推荐 <code>6654ac61342a0a2ffef50435d026cae09314ad5c</code> 此提交点，在我个人的配置上相当稳定！⚡)</li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>20250125
+
+<ul class="org-ul">
+<li>添加了一个有趣的实现: 能统计使用GNU Emacs的使用累计总时长，就像这样 <code>Accompanying With GNU Emacs: 131 hours, 35 minutes, 59 seconds</code> 并将其显示在 modeline 上，就像这样 <code>Acc: 131h 35m</code></li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>20250122
+
+<ul class="org-ul">
+<li>添加了能统计 agenda-file 特定文件里的 TODO、DOING、WAIT数量的函数，并将数量实时显示在 modeline 上</li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>20250120
+
+<ul class="org-ul">
+<li>添加了 nerd-icon-ibuffer 图标包</li>
+
+<li>开始接触 GTD(Get Things Done) 概念，并且同时使用了 org-agenda 作为议程安排</li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>20250112
+
+<ul class="org-ul">
+<li>添加了Emacs China坛友开发的vertico-posframe(相当好用，感谢坛友！♥️)</li>
+</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga44699b" class="outline-3">
-<h3 id="orga44699b"><span class="section-number-3">1.2.</span> 发生了什么问题？</h3>
+<div id="outline-container-org8a9f574" class="outline-3">
+<h3 id="org8a9f574"><span class="section-number-3">1.2.</span> 2024年</h3>
 <div class="outline-text-3" id="text-1-2">
-<p>
-可以配对(pair)，但就是在配对后
-</p>
+<ul class="org-ul">
+<li>20241226
 
-<p>
-按下 <b>任意键</b> 就会直接断开与键盘的蓝牙连接
-</p>
+<ul class="org-ul">
+<li>自定义了一个函数，终于可以在 org-mode 下渲染 <code>中文LaTeX片段(C-z C-z C-l)</code> 了</li>
 
-<p>
-再次按下 <b>任意键</b> 就会直接重新连接上键盘
-</p>
+<li>修改了几乎所有快捷键，更改成了用 <code>C-z C-*</code> 作为个人风格的快捷键</li>
+</ul></li>
+</ul>
 
-<p>
-然后重复循环，像个 <code>莫比乌斯环一样</code> 导致键盘按下的内容，都无法通过蓝牙有效地输入到系统内。
-</p>
 
-<p>
-<b>导致一直都是卡在蓝牙连接这里，造成可以配对，但无法通过蓝牙使用键盘的问题</b>
-</p>
-</div>
-</div>
-<div id="outline-container-orgb136c7c" class="outline-3">
-<h3 id="orgb136c7c"><span class="section-number-3">1.3.</span> 解决做法: 重启bluetooth服务 + 命令行bluetoothctl</h3>
-<div class="outline-text-3" id="text-1-3">
-<div class="org-src-container">
-<pre class="src src-sh"># 这个 bluetoothctl 是 bluez bluez-utils 的前端工具，在 pacman -S bluez bluez-utils 后就可以 systemctl start bluetooth.service 来开启这个前端工具了。
-sudo systemctl restart bluetooth
-bluetoothctl
+<ul class="org-ul">
+<li>20241115
 
-# 这个&lt;DEVICE&gt;是比如 "00:00:FF:FF:00:00" 这样的名称，在KDE Plasma 6下使用GUI的蓝色界面，同时开着终端就能看到要连接的键盘的&lt;DEVICE&gt;是叫做什么名称
-remove &lt;DEVICE&gt;
-power off
-agent KeyboardDisplay
-default-agent
-power on
-scan on
-trust &lt;DEVICE&gt;
-pair &lt;DEVICE&gt; 
-connect &lt;DEVICE&gt;
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-org4d5e5af" class="outline-3">
-<h3 id="org4d5e5af"><span class="section-number-3">1.4.</span> 原因猜测:</h3>
-<div class="outline-text-3" id="text-1-4">
-</div>
-<div id="outline-container-orgb8cc1a7" class="outline-4">
-<h4 id="orgb8cc1a7"><span class="section-number-4">1.4.1.</span> (1) <a href="https://bbs.archlinux.org/viewtopic.php?id=243659">archlinux.bbs的2位用户都有这把DCB键盘的回答</a></h4>
-<div class="outline-text-4" id="text-1-4-1">
-<p>
-其中一位的回答
-</p>
-<blockquote>
-<p>
-嘛，我一直都认为其实Microsoft会不会偷偷在你用这把键盘在windows10上的时候，会不会偷偷下载一些firmware下来，导致你的键盘无法正常使用这样说。
-</p>
-</blockquote>
+<ul class="org-ul">
+<li>添加了 eat (emulate a terminal) 终端模拟器插件</li>
+</ul></li>
+</ul>
 
-<p>
-其中二位的回答
-</p>
-<blockquote>
-<p>
-&gt; 它莫名其妙就好了&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;我也不知道咋回事，这把键盘手感比机械键盘好多了。（PostScript: 确实，我自己也这么觉得，实在是一把非常不错的键盘）
-</p>
-</blockquote>
-</div>
-</div>
-<div id="outline-container-orgb3dd733" class="outline-4">
-<h4 id="orgb3dd733"><span class="section-number-4">1.4.2.</span> (2) 我个人的猜测</h4>
-<div class="outline-text-4" id="text-1-4-2">
-<p>
-<b>没有设置sudo权限</b> 就这样
-</p>
-</div>
+
+<ul class="org-ul">
+<li>20241101
+
+<ul class="org-ul">
+<li>配置了狗哥 (DogLooksGood) 的 emacs-rime，同时也配置了亮暗主题色，但最后因在一些 minibuffer 上切换不过去，同时自己也不会给 rime 添加词库故还是不需要了</li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>20241031
+
+<ul class="org-ul">
+<li>可在 modeline 显示当地当天的天气信息</li>
+
+<li>尝试了 eaf (emacs-application-framework)，但最后因笔记本内存不够大故不需要了</li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>20241030
+
+<ul class="org-ul">
+<li>尝试并添加了org-roam笔记漫游插件</li>
+
+<li>添加了telega.el聊天IM插件(非常感谢作者zevlg♥️)</li>
+
+<li>设置了自己糊出来的 modeline 信息(通过site-lisp的bash脚本完成，同时感谢GPT 4o mini♥️)</li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>20241010
+
+<ul class="org-ul">
+<li>将 helm(大而全插件) 换成了vertico、marginalia、embark、consult、orderless(小而精插件)</li>
+
+<li>将补全插件从 company 换成了 corfu</li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>20241009
+
+<ul class="org-ul">
+<li>重构了原来的所有配置文件</li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>20240420
+
+<ul class="org-ul">
+<li>开始接触并使用 GNU Emacs 29.4，并根据 <code>Emacs China坛友: Cabins</code> (即 <code>b站up主: 第253页图灵笔记</code>) 组织配置文件结构，并尝试并使用各种插件</li>
+</ul></li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2024-10-31 四 22:53</p>
+<p class="date">Created: 2025-03-17 一 13:46</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

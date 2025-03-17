@@ -1,0 +1,96 @@
+* 这是我个人的GNU Emacs的配置Changelog更改日志
+
+** 2025年(今年)
+
+- 20250316
+  
+  + 添加了 org-download 从而可以在截图后再按下快捷键来完成 ~粘贴保存、重命名、删除~ 图片文件的操作了。
+
+    
+- 20250315
+
+  + 添加了一个生成git提交信息的简易模板，提交信息能写得更便捷了
+
+  + 添加了emms音乐播放器，同时彻底优化了 global-mode-string 将其放在 mode-line-format 上，并将 modeline 不需要长期展示的信息放在了一个名为 ~*Status Monitor*~ 的 buffer 里    
+
+  + 添加了 nano-light 与 bliss-theme 在 ~magit~ 的基础 face 颜色
+
+    
+- 20250207
+
+  + 从 master 分支，迁移到了 feature/igc 分支(非常感谢水群龙王ee的宣传与力推♥️)，运行速度得到了爆炸性的提升💥 (强烈推荐 ~6654ac61342a0a2ffef50435d026cae09314ad5c~ 此提交点，在我个人的配置上相当稳定！⚡)
+
+    
+- 20250125
+
+  + 添加了一个有趣的实现: 能统计使用GNU Emacs的使用累计总时长，就像这样 ~Accompanying With GNU Emacs: 131 hours, 35 minutes, 59 seconds~ 并将其显示在 modeline 上，就像这样 ~Acc: 131h 35m~
+
+    
+- 20250122
+
+  + 添加了能统计 agenda-file 特定文件里的 TODO、DOING、WAIT数量的函数，并将数量实时显示在 modeline 上
+
+    
+- 20250120
+
+  + 添加了 nerd-icon-ibuffer 图标包
+
+  + 开始接触 GTD(Get Things Done) 概念，并且同时使用了 org-agenda 作为议程安排
+
+    
+- 20250112
+
+  + 添加了Emacs China坛友开发的vertico-posframe(相当好用，感谢坛友！♥️)
+
+    
+** 2024年
+
+- 20241226
+
+  + 自定义了一个函数，终于可以在 org-mode 下渲染 ~中文LaTeX片段(C-z C-z C-l)~ 了
+
+  + 修改了几乎所有快捷键，更改成了用 ~C-z C-*~ 作为个人风格的快捷键
+
+    
+- 20241115
+
+  + 添加了 eat (emulate a terminal) 终端模拟器插件
+
+    
+- 20241101
+
+  + 配置了狗哥 (DogLooksGood) 的 emacs-rime，同时也配置了亮暗主题色，但最后因在一些 minibuffer 上切换不过去，同时自己也不会给 rime 添加词库故还是不需要了
+
+    
+- 20241031
+
+  + 可在 modeline 显示当地当天的天气信息
+
+  + 尝试了 eaf (emacs-application-framework)，但最后因笔记本内存不够大故不需要了
+
+    
+- 20241030
+
+  + 尝试并添加了org-roam笔记漫游插件
+
+  + 添加了telega.el聊天IM插件(非常感谢作者zevlg♥️)
+
+  + 设置了自己糊出来的 modeline 信息(通过site-lisp的bash脚本完成，同时感谢GPT 4o mini♥️)
+
+    
+- 20241010
+
+  + 将 helm(大而全插件) 换成了vertico、marginalia、embark、consult、orderless(小而精插件)
+
+  + 将补全插件从 company 换成了 corfu
+
+    
+- 20241009
+
+  + 重构了原来的所有配置文件
+
+    
+- 20240420
+
+  + 开始接触并使用 GNU Emacs 29.4，并根据 ~Emacs China坛友: Cabins~ (即 ~b站up主: 第253页图灵笔记~) 组织配置文件结构，并尝试并使用各种插件
+ 

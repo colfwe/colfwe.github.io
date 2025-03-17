@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-26 日 01:07 -->
+<!-- 2025-03-17 一 16:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -199,158 +199,90 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgbaaca71">1. 我自己这一生的编辑器只需要有GNU Emasc就足够了(20250123)</a>
+<li><a href="#orgdc5a482">1. 解决Microsoft-Designer-Compact-Keyboard-设计师键盘的蓝牙问题</a>
 <ul>
-<li><a href="#orgd049e74">1.1. 特别感谢</a></li>
-<li><a href="#orgd680793">1.2. 使用效果</a></li>
-<li><a href="#orga1fb138">1.3. 亮点内容</a></li>
-<li><a href="#orga897ff3">1.4. 安装方法</a></li>
-<li><a href="#org8d5f120">1.5. 使用用法</a></li>
+<li><a href="#org8d86c12">1.1. 基本说明</a></li>
+<li><a href="#orgffaa7ec">1.2. 问题描述</a></li>
+<li><a href="#org5b3309f">1.3. 解决做法: 需要用户手动用sudo信任一下</a></li>
+<li><a href="#orgac77cef">1.4. 附赠说明</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbaaca71" class="outline-2">
-<h2 id="orgbaaca71"><span class="section-number-2">1.</span> 我自己这一生的编辑器只需要有GNU Emasc就足够了(20250123)</h2>
+<div id="outline-container-orgdc5a482" class="outline-2">
+<h2 id="orgdc5a482"><span class="section-number-2">1.</span> 解决Microsoft-Designer-Compact-Keyboard-设计师键盘的蓝牙问题</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgd049e74" class="outline-3">
-<h3 id="orgd049e74"><span class="section-number-3">1.1.</span> 特别感谢</h3>
+<div id="outline-container-org8d86c12" class="outline-3">
+<h3 id="org8d86c12"><span class="section-number-3">1.1.</span> 基本说明</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-感谢各位为爱付出的作者们，感谢FSF，感谢GNU，感谢RMS！
+严格来说，这并不是Microsoft-Designer-Compact-Keyboard-设计师键盘的蓝牙问题，而应该是 <b>任意蓝牙键盘，与KDE蓝牙服务，的通信连接信任问题</b>
 </p>
 
 <p>
-感谢大家！♥️
+这一行为并不是BUG，而是正常来说就应该是这样的，只不过 <b>需要用户手动用sudo信任一下</b> 就可以了 (应该是任意蓝牙键盘都是这样的)
 </p>
 </div>
 </div>
-<div id="outline-container-orgd680793" class="outline-3">
-<h3 id="orgd680793"><span class="section-number-3">1.2.</span> 使用效果</h3>
+<div id="outline-container-orgffaa7ec" class="outline-3">
+<h3 id="orgffaa7ec"><span class="section-number-3">1.2.</span> 问题描述</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-logo图片暂不提供，请见谅。
+可以配对(pair)，但就是在配对后
 </p>
 
 <p>
-但您可以选择一张您喜欢的 <b>矢量图</b> 并通过如KolourPaint(KDE画图工具)等 <b>绘图软件</b> 
+按下 <code>任意键</code> 就会直接断开与键盘的蓝牙连接，再次按下 <code>任意键</code> 就会直接重新连接上键盘
 </p>
 
 <p>
-在 <b>1个主题对应1张图片</b> 的前提下(<b>共2张logo图片</b>)设置两张logo图片的颜色
-</p>
-
-<p>
-在这里 <code>亮色主题</code> 底色为 <code>#FFFFFF</code>
-</p>
-
-<p>
-在这里 <code>暗色主题</code> 底色为 <code>#191919</code>
-</p>
-
-<p>
-您可以使用绘图软件的 <code>墨水桶</code> 工具设置底色
-</p>
-
-<p>
-另外，您也可以到 <a href="https://www.gnu.org/graphics/graphics.html">请支持GNU/FSF喵</a> 下载您所需要的 <b>矢量图</b>
-</p>
-
-<p>
-<img src="../res/预览效果.png" alt="预览效果.png" />  (亮色主题background底色: <code>#FFFFFF</code>) (暗色主题background底色: <code>#191919</code>)
+然后重复循环，像个 <code>莫比乌斯环一样的</code> 导致键盘按下的内容，都无法通过蓝牙有效地输入到系统内。
 </p>
 </div>
 </div>
-<div id="outline-container-orga1fb138" class="outline-3">
-<h3 id="orga1fb138"><span class="section-number-3">1.3.</span> 亮点内容</h3>
+<div id="outline-container-org5b3309f" class="outline-3">
+<h3 id="org5b3309f"><span class="section-number-3">1.3.</span> 解决做法: 需要用户手动用sudo信任一下</h3>
 <div class="outline-text-3" id="text-1-3">
-<p>
-在使用此配置下，您可以获得
-</p>
+<div class="org-src-container">
+<pre class="src src-sh">
+# 此 bluetoothctl 是 bluez bluez-utils 的前端工具
+# 在 pacman -S bluez bluez-utils 后就可以 systemctl start bluetooth.service 来开启这个前端工具了
+sudo systemctl restart bluetooth
+bluetoothctl
 
-<ul class="org-ul">
-<li><p>
-在org-mode下，可以通过xetex引擎来渲染含有utf8的LaTeX代码
-</p>
-
-
-<div id="org314edc7" class="figure">
-<p><img src="../res/亮点内容1.png" alt="亮点内容1.png" /> 
-</p>
-</div></li>
-
-<li><p>
-丰富的modeline(状态栏)信息全局显示
-</p>
-
-
-<div id="org8e13cb1" class="figure">
-<p><img src="../res/亮点内容2.png" alt="亮点内容2.png" /> 
-</p>
-</div></li>
-
-<li><p>
-几乎不需要方向键↑↓←→并使用C-z作为前缀风格的组合快捷键
-</p>
-
-
-<div id="orga33133c" class="figure">
-<p><img src="../res/亮点内容3.png" alt="亮点内容3.png" /> 
-</p>
-</div></li>
-</ul>
+# 这个&lt;DEVICE&gt;是比如 "00:00:FF:FF:00:00" 这样的名称，在KDE Plasma 6下使用GUI的蓝色界面，同时开着终端就能看到要连接的键盘的&lt;DEVICE&gt;是叫做什么名称
+remove &lt;DEVICE&gt;
+power off
+agent KeyboardDisplay
+default-agent
+power on
+scan on
+trust &lt;DEVICE&gt;
+pair &lt;DEVICE&gt; 
+connect &lt;DEVICE&gt;
+</pre>
 </div>
 </div>
-<div id="outline-container-orga897ff3" class="outline-3">
-<h3 id="orga897ff3"><span class="section-number-3">1.4.</span> 安装方法</h3>
+</div>
+<div id="outline-container-orgac77cef" class="outline-3">
+<h3 id="orgac77cef"><span class="section-number-3">1.4.</span> 附赠说明</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-请您悉知，毕竟此配置暂无测试以后会补充案例
+如果使用 <code>Microsoft-Designer-Compact-Keyboard-设计师键盘</code> 3个蓝牙设备全部满了怎么办？
 </p>
 
-<p>
-<del>请先阅读 <a href="https://github.com/kitevnn/dotfiles-archlinux/blob/main/org/dotfiles.org">dotfiles.org</a> 完成依赖安装</del>
-</p>
-
-<p>
-<del>再请下载 <a href="https://github.com/kitevnn/dotfiles-archlinux/blob/main/org/dotfiles.org">dotfiles.org</a> 并通过 GNU Emacs 打开，并执行 <code>M-x org-babel-tangle</code> 函数等待执行完毕，完成安装</del>
-</p>
-
-<p>
-请移步到 <code>all/emacs/</code> 下载最新代码获取安装，因个人任务议程安排暂无此 <code>dotfiles.org</code> 的 <code>org-babel-tangle</code> 的测试用例，请见谅。 (以后很快会补充上的)
-</p>
-
-<p>
-同时，必须在 <code>basic-file.el</code> 更改默认 <b>必需的文件夹路径或文件路径</b>  (因为您机器上的路径与我自己机器上的路径一定不一致)
-</p>
-
-<p>
-紧接着，也必须在 <code>elisp/site-lisp/ui/</code> 下设置为可执行脚本 <code>chmod +x *.sh</code>
-</p>
+<div class="org-src-container">
+<pre class="src src-nil">扣4个纽扣电池(CR2032)下来，并静置键盘10分钟以上，从而来触发还原出厂设置功能，然后就可以重新连接了。
+</pre>
 </div>
-</div>
-<div id="outline-container-org8d5f120" class="outline-3">
-<h3 id="org8d5f120"><span class="section-number-3">1.5.</span> 使用用法</h3>
-<div class="outline-text-3" id="text-1-5">
-<p>
-您可以在 <code>key-keybindings.el</code> 下，查看各种组合快捷键的详细用法
-</p>
-
-<p>
-<a href="https://github.com/kitevnn/dotfiles-archlinux/tree/main/org">仓库最新地址</a>
-</p>
-
-<p>
-👋 Peace. 
-</p>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-01-26 日 01:07</p>
+<p class="date">Created: 2025-03-17 一 16:28</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

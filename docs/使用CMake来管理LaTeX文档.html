@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-10-31 四 23:35 -->
+<!-- 2025-03-17 一 16:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -192,38 +192,6 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<script>
-  window.MathJax = {
-    tex: {
-      ams: {
-        multlineWidth: '85%'
-      },
-      tags: 'ams',
-      tagSide: 'right',
-      tagIndent: '.8em'
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    svg: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    output: {
-      font: 'mathjax-modern',
-      displayOverflow: 'overflow'
-    }
-  };
-</script>
-
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 </head>
 <body>
 <div id="content" class="content">
@@ -231,94 +199,167 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org9feec88">1. 记录一次在org-mode里渲染含有utf-8字符的equation的做法但个人不推荐因为不好看</a>
+<li><a href="#orge795187">1. 使用CMake来管理LaTeX文档</a>
 <ul>
-<li><a href="#org083ef13">1.1. 特别感谢</a></li>
-<li><a href="#org845dceb">1.2. 是什么原因导致的？</a>
-<ul>
-<li><a href="#orgbd06a1e">1.2.1. 下面这是一段文本</a></li>
-<li><a href="#orgaa905ad">1.2.2. 下面这是两张图片(对上面文本的截图)</a></li>
-</ul>
-</li>
+<li><a href="#org8d9a388">1.1. 使用动机</a></li>
+<li><a href="#orgb2468ad">1.2. 单文件管理</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9feec88" class="outline-2">
-<h2 id="org9feec88"><span class="section-number-2">1.</span> 记录一次在org-mode里渲染含有utf-8字符的equation的做法但个人不推荐因为不好看</h2>
+<div id="outline-container-orge795187" class="outline-2">
+<h2 id="orge795187"><span class="section-number-2">1.</span> 使用CMake来管理LaTeX文档</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org083ef13" class="outline-3">
-<h3 id="org083ef13"><span class="section-number-3">1.1.</span> 特别感谢</h3>
+<div id="outline-container-org8d9a388" class="outline-3">
+<h3 id="org8d9a388"><span class="section-number-3">1.1.</span> 使用动机</h3>
 <div class="outline-text-3" id="text-1-1">
-<ul class="org-ul">
-<li>非常感谢 <a href="https://emacs-china.org/t/emacs-org-mode-inline-latex/27450">Emacs China 坛友</a> ！</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org845dceb" class="outline-3">
-<h3 id="org845dceb"><span class="section-number-3">1.2.</span> 是什么原因导致的？</h3>
-<div class="outline-text-3" id="text-1-2">
-<ul class="org-ul">
-<li><p>
-需要添加 <code>必要的 #latex_header</code> 来完成
+<p>
+我想在非Emacs环境下，通过执行命令，来在渲染LaTeX文档后通过脚本自动化地完成一些事情
+</p>
+
+<p>
+比如我想在每次编译完成后，都能 <code>自动地</code> 通过 <code>Sumatra PDF</code> 来直接打开渲染后pdf的文档 
+</p>
+
+<p>
+同时为了考虑跨平台的原因，故选择用CMake来管理LaTeX文档
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">;; orgmode行间公式查看中文
-;; from https://emacs-china.org/t/emacs-org-mode-inline-latex/27450
-(add-to-list 'org-preview-latex-process-alist
-                     '(xelatex-chinese
-                       :programs ("xelatex" "convert")
-                       :description "XeLaTeX with Chinese support dvi &gt; png"
-                       :message "you need to install the programs: xelatex and divpng."
-                       :image-input-type "pdf"
-                       :image-output-type "png"
-                       :image-size-adjust (1.7 . 1.6)
-
-                       ;; 下面这一步最关键
-                       ; 比如我个人在写LaTeX时
-                       ; 经常用会到 fontspec包 与 Noto Serif CJK TC和Noto Sans CJK TC字体、
-                       ; 所以必须要添加
-                       ; \usepackage{fontspec}
-                       ; \setmainfont{Noto Serif CJK TC}
-                       ; \setsansfont{Noto Sans CJK TC}                       
-                       :latex-header "\\documentclass[11pt]{standalone}\n\\usepackage{fontspec}\n\\setmainfont{Noto Serif CJK TC}\\setsansfont{Noto Sans CJK TC}\n\\usepackage[usenames]{color}\n\\usepackage{amsmath}\n\\pagestyle{empty}" ;; pagestyle{empty} 是必须的
-
-                       :latex-compiler ("xelatex -interaction nonstopmode -output-directory %o %f")
-                       :image-converter ("convert -density 150 %f %O")))
-
-(setq org-preview-latex-default-process 'xelatex-chinese)  ; 设置默认的预览过程
+<pre class="src src-nil">但如果是在Emacs环境下，使用Emacs的AUCTeX，对我自己来说一定是足够用的！
 </pre>
-</div></li>
-</ul>
 </div>
-<div id="outline-container-orgbd06a1e" class="outline-4">
-<h4 id="orgbd06a1e"><span class="section-number-4">1.2.1.</span> 下面这是一段文本</h4>
-<div class="outline-text-4" id="text-1-2-1">
+</div>
+</div>
+<div id="outline-container-orgb2468ad" class="outline-3">
+<h3 id="orgb2468ad"><span class="section-number-3">1.2.</span> 单文件管理</h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
-所以我现在可以 \[f(x) = \begin{bmatrix} 1 & \frac{1}{你好} \\ \end{bmatrix}\] 来进行输入了
+首先，在某文件夹下，它必须需要这样的目录结构
 </p>
+
+<div class="org-src-container">
+<pre class="src src-nil">./某文件夹
+    CMakeLists.txt
+    ./src
+    ./build  
+</pre>
 </div>
-</div>
-<div id="outline-container-orgaa905ad" class="outline-4">
-<h4 id="orgaa905ad"><span class="section-number-4">1.2.2.</span> 下面这是两张图片(对上面文本的截图)</h4>
-<div class="outline-text-4" id="text-1-2-2">
+
 <p>
-<a href="../res/大致效果图片1.png">大致效果1</a>
+然后，这是通过cmake单文件管理LaTeX文档的配置文件
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cmake">  # 基本信息
+  # + 20241229
+  # + emacs-cmake-latex
+  cmake_minimum_required(VERSION 3.31.3)
+  project(EMACS_CMAKE_LATEX)
+
+  # 源码管理(硬编码管理)
+  include_directories(${EMACS_CMAKE_LATEX_SOURCE_DIR}/src)
+  set(SOURCE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src)
+  set(BUILD_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build)
+
+  # 必要变量
+  set(BASENAME "main")  # 编译单个LaTeX文档的basename基本名称，比如这里是 "main.tex"
+  set(READER "")        # 文档查看器
+
+  # 检测环境
+  # + 检测构建环境
+  if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/src)
+      message(WARNING "[自定义消息]: 没有发现 ./src 源码文件夹，停止构建")
+      exit()    
+  endif()
+  if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/build)
+      message(WARNING "[自定义消息]: 没有发现 ./build 构建文件夹，停止构建")
+      exit()
+  endif()
+  # + 设置阅读器
+  if(WIN32)
+      set(READER "start firefox")
+  else()
+      set(READER "firefox")
+  endif()         
+
+  # 目标制作
+  # + latexmk引擎
+  add_custom_target(mk_run
+      COMMAND ${CMAKE_COMMAND} -E echo "正在使用您的本机环境编译指定的LaTeX文档"
+      COMMAND ${CMAKE_COMMAND} -E echo "以下是日志信息"
+      COMMAND latexmk -silent -pdf ${SOURCE_DIRECTORY}/${BASENAME}.tex
+      WORKING_DIRECTORY ${BUILD_DIRECTORY}
+      COMMAND ${READER} "${BUILD_DIRECTORY}/${BASENAME}.pdf"
+  )
+  add_custom_target(mk_clean
+      COMMAND ${CMAKE_COMMAND} -E echo "正在使用您的本机环境清理指定的LaTeX文档的中间文件"
+      COMMAND ${CMAKE_COMMAND} -E echo ""        
+      COMMAND ${CMAKE_COMMAND} -E echo "以下是日志信息"
+      COMMAND ${CMAKE_COMMAND} -E echo ""        
+      COMMAND latexmk -c ${SOURCE_DIRECTORY}/${BASENAME}.tex
+      WORKING_DIRECTORY ${BUILD_DIRECTORY}
+  )
+  # + xelatex引擎
+  add_custom_target(xe_run
+      COMMAND ${CMAKE_COMMAND} -E echo "正在使用您的本机环境编译指定的LaTeX文档"
+      COMMAND ${CMAKE_COMMAND} -E echo ""        
+      COMMAND ${CMAKE_COMMAND} -E echo "以下是日志信息"
+      COMMAND ${CMAKE_COMMAND} -E echo ""        
+      COMMAND xelatex ${SOURCE_DIRECTORY}/${BASENAME}.tex
+      WORKING_DIRECTORY ${BUILD_DIRECTORY}
+      COMMAND ${READER} "${BUILD_DIRECTORY}/${BASENAME}.pdf"
+  )
+  add_custom_target(xe_clean
+      COMMAND ${CMAKE_COMMAND} -E echo "个人目前暂找不到xelatex引擎的除系统执行指令之外的清洁方法，所以停止清理"
+      COMMAND ${CMAKE_COMMAND} -E echo ""        
+  )
+  # + luatex引擎
+  add_custom_target(lua_run
+      COMMAND ${CMAKE_COMMAND} -E echo "正在使用您的本机环境编译指定的LaTeX文档"
+      COMMAND ${CMAKE_COMMAND} -E echo ""        
+      COMMAND ${CMAKE_COMMAND} -E echo "以下是日志信息"
+      COMMAND ${CMAKE_COMMAND} -E echo ""        
+      COMMAND luatex ${SOURCE_DIRECTORY}/${BASENAME}.tex
+      WORKING_DIRECTORY ${BUILD_DIRECTORY}
+      COMMAND ${READER} "${BUILD_DIRECTORY}/${BASENAME}.pdf"
+  )
+  add_custom_target(lua_clean
+      COMMAND ${CMAKE_COMMAND} -E echo "个人目前暂找不到luatex引擎的除系统执行指令之外的清洁方法，所以停止清理"
+      COMMAND ${CMAKE_COMMAND} -E echo ""        
+  )
+
+# 但引用与文献暂时还没加，以后再加.....  
+</pre>
+</div>
+
+
+<p>
+✅ 已经在一台Arch Linux系统的电脑测试过了，目前来看，我个人暂无问题
 </p>
 
 <p>
-<a href="../res/大致效果图片2.png">大致效果2</a>
+最后，我们输入以下命令，来执行相应的目标就可以了
 </p>
+
+<div class="org-src-container">
+<pre class="src src-sh">cmake -B build
+cmake --build build --target mk_run     # 使用latexmk -silent -pdf来编译LaTeX文档
+cmake --build build --target xe_run     # 使用xelatex来编译LaTeX文档
+cmake --build build --target lua_run    # 使用luatex来编译LaTeX文档
+cmake --build build --target mk_clean   # 使用latexmk -c来清理LaTeX文档中间文件 
+cmake --build build --target xe_clean   # 目前暂找不到xelatex引擎的除系统执行指令之外的清洁方法，也许未来会通过特定系统的命令来完成
+cmake --build build --target lua_clean  # 目前暂找不到xelatex引擎的除系统执行指令之外的清洁方法，也许未来会通过特定系统的命令来完成    
+</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2024-10-31 四 23:35</p>
+<p class="date">Created: 2025-03-17 一 16:02</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

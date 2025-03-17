@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-10-31 四 23:24 -->
+<!-- 2025-03-17 一 16:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -199,77 +199,44 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6f37c82">1. Windows10下使用MSVC编译器并脱离VisualStudio</a>
+<li><a href="#orgd30f843">1. 记录一次安装狗哥的emacs-rime输入法过程记录</a>
 <ul>
-<li><a href="#org117ec4a">1.1. 原因</a></li>
-<li><a href="#org45e58ba">1.2. 做法</a>
+<li><a href="#org436745b">1.1. 特别感谢</a></li>
+<li><a href="#orgc73d5ed">1.2. 配置方案</a></li>
+<li><a href="#org27c06a7">1.3. 安装方法</a>
 <ul>
-<li><a href="#orga8a1b11">1.2.1. 安装MSVC编译器(即cl.exe)</a></li>
-<li><a href="#org73d86e4">1.2.2. 在cmd设置cl.exe的环境变量</a></li>
-<li><a href="#org8c98548">1.2.3. 答疑解惑</a></li>
+<li><a href="#org541036f">1.3.1. 先决条件</a></li>
+<li><a href="#org263e4c8">1.3.2. 输入方案</a></li>
+<li><a href="#org7876a87">1.3.3. 再在GNU Emacs上部署</a></li>
 </ul>
 </li>
+<li><a href="#orge8ad041">1.4. 最后声明</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6f37c82" class="outline-2">
-<h2 id="org6f37c82"><span class="section-number-2">1.</span> Windows10下使用MSVC编译器并脱离VisualStudio</h2>
+<div id="outline-container-orgd30f843" class="outline-2">
+<h2 id="orgd30f843"><span class="section-number-2">1.</span> 记录一次安装狗哥的emacs-rime输入法过程记录</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org117ec4a" class="outline-3">
-<h3 id="org117ec4a"><span class="section-number-3">1.1.</span> 原因</h3>
+<div id="outline-container-org436745b" class="outline-3">
+<h3 id="org436745b"><span class="section-number-3">1.1.</span> 特别感谢</h3>
 <div class="outline-text-3" id="text-1-1">
-<p>
-为什么要脱离VisualStudio?
-</p>
-<blockquote>
-<p>
-答: 用不惯，VisualStudio是用C#写的界面，挺卡的。
-</p>
-</blockquote>
+<ul class="org-ul">
+<li><a href="https://github.com/rime">rime输入法作者: 佛振</a></li>
+
+<li><a href="https://github.com/DogLooksGood/emacs-rime">狗哥的emacs-rime</a></li>
+
+<li><a href="https://emacs-china.org/">Emacs China论坛及坛友</a></li>
+
+<li><a href="https://github.com/rime/rime-double-pinyin">rime提供的自然码双拼输入方案</a></li>
+</ul>
 </div>
 </div>
-<div id="outline-container-org45e58ba" class="outline-3">
-<h3 id="org45e58ba"><span class="section-number-3">1.2.</span> 做法</h3>
+<div id="outline-container-orgc73d5ed" class="outline-3">
+<h3 id="orgc73d5ed"><span class="section-number-3">1.2.</span> 配置方案</h3>
 <div class="outline-text-3" id="text-1-2">
-</div>
-<div id="outline-container-orga8a1b11" class="outline-4">
-<h4 id="orga8a1b11"><span class="section-number-4">1.2.1.</span> 安装MSVC编译器(即cl.exe)</h4>
-<div class="outline-text-4" id="text-1-2-1">
-<p>
-从这里下载MSVC编译器: <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">VSBT包含了一堆开发环境与编译器</a>
-</p>
-</div>
-</div>
-<div id="outline-container-org73d86e4" class="outline-4">
-<h4 id="org73d86e4"><span class="section-number-4">1.2.2.</span> 在cmd设置cl.exe的环境变量</h4>
-<div class="outline-text-4" id="text-1-2-2">
-<p>
-因为Windows典型的销售产品策略
-</p>
-
-<p>
-默认msvc的编译链接器是cl.exe，只能通过VS这个IDE上的CLI来启动，就是这么无语
-</p>
-
-<p>
-但是如果想在命令行(也就是非VS编辑器上)上，使用msvc，那就遵循下面的步骤或 <a href="https://learn.microsoft.com/zh-cn/cpp/build/building-on-the-command-line?view=msvc-170">看文档</a>
-</p>
-
-<p>
-首先，这个东西是强依赖自己的机器配置的。所以如果在一台新的Windows机上复制粘贴下面的字符串是没卵用的。
-</p>
-
-<p>
-在安装VSBT 2022版之后，应该在 <code>C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\</code>
-</p>
-
-<p>
-能看到有 <code>vcvars32.bat</code> 与 <code>vcvars64.bat</code> 和 <code>vcvarsall.bat</code> 这几个给Windows cmd运行的脚本文件。
-</p>
-
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -283,178 +250,174 @@
 <thead>
 <tr>
 <th scope="col" class="org-right">序号</th>
-<th scope="col" class="org-left">批处理脚本</th>
-<th scope="col" class="org-left">作用</th>
+<th scope="col" class="org-left">配置方案</th>
+<th scope="col" class="org-left">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="org-right">1</td>
-<td class="org-left">vcvars32.bat</td>
-<td class="org-left">将会在cmd当前会话下，可用cl.exe来生成x86的32位的产物。</td>
+<td class="org-left">输入方案</td>
+<td class="org-left">周老开发的自然码双拼</td>
 </tr>
 
 <tr>
 <td class="org-right">2</td>
-<td class="org-left">vcvars64.bat</td>
-<td class="org-left">将会在cmd当前会话下，可用cl.exe来生成x86的64位的产物。</td>
+<td class="org-left">输入文字</td>
+<td class="org-left">简体中文</td>
 </tr>
 
 <tr>
 <td class="org-right">3</td>
-<td class="org-left">vcvarsall.bat</td>
-<td class="org-left">没试过，但应该能可用cl.exe来生成x86的32位与64位的产物。(但看名字感觉是)</td>
+<td class="org-left">输入法前端</td>
+<td class="org-left">emacs-rime</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">输入法后端</td>
+<td class="org-left">rime</td>
 </tr>
 </tbody>
 </table>
-
-<p>
-所以我个人的机器上，要给cmd执行的可执行脚本文件，是这样的
-</p>
-
-<p>
-<b>请不要复制粘贴我自己的，原因是这个东西是强依赖自己的机器配置的</b>
-</p>
-
-<div class="org-src-container">
-<pre class="src src-cmd">%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
-</pre>
 </div>
-
-<p>
-在执行了后，等一下会提示说当前执行的脚本，将会产物什么位的产物，接下来就可以在cmd下用
-</p>
-
-<div class="org-src-container">
-<pre class="src src-cmd">cl.exe /?
-</pre>
 </div>
-
+<div id="outline-container-org27c06a7" class="outline-3">
+<h3 id="org27c06a7"><span class="section-number-3">1.3.</span> 安装方法</h3>
+<div class="outline-text-3" id="text-1-3">
 <p>
-来查看cl.exe该编译链接器的用法了。
+安装困难的地方，主要唯一的是在于 <code>rime</code> 的部署，因为 <code>rime官方文档</code> 是用繁体字所写的，对于我自己来说，较难看懂
 </p>
-
-<p>
-接下来，就在当前会话下，可以使用 <code>cl.exe</code> 了
-</p>
-
+</div>
+<div id="outline-container-org541036f" class="outline-4">
+<h4 id="org541036f"><span class="section-number-4">1.3.1.</span> 先决条件</h4>
+<div class="outline-text-4" id="text-1-3-1">
 <div class="org-src-container">
-<pre class="src src-cmd">cl.exe 114514.c
+<pre class="src src-sh"># 安装fcitx5全家桶
+sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-rime fcitx5-material-color
+
+# 同时在 ArchLinux 下编辑 /etc/environment 文件
+# 添加 GTK_IM_MODULE=fcitx
+# 添加 QT_IM_MODULE=fcitx
+# 添加 XMODIFIERS=@im=fcitx
+# 添加 SDL_IM_MODULE=fcitx
+sudo vim /etc/environment    
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org8c98548" class="outline-4">
-<h4 id="org8c98548"><span class="section-number-4">1.2.3.</span> 答疑解惑</h4>
-<div class="outline-text-4" id="text-1-2-3">
-<ul class="org-ul">
-<li><p>
-更多请看详细文档
-</p>
-
-<blockquote>
+<div id="outline-container-org263e4c8" class="outline-4">
+<h4 id="org263e4c8"><span class="section-number-4">1.3.2.</span> 输入方案</h4>
+<div class="outline-text-4" id="text-1-3-2">
 <p>
-<a href="https://learn.microsoft.com/zh-cn/cpp/build/building-on-the-command-line?view=msvc-170">  详细文档</a> 
-</p>
-</blockquote></li>
-
-<li><p>
-什么是 <code>MSBuild</code>
+首先，先复制 <a href="https://github.com/rime/rime-double-pinyin/blob/master/double_pinyin.schema.yaml">rime提供的自然码双拼输入方案</a> 的所有文字到 <code>/usr/share/rime-data</code> 下
 </p>
 
-<blockquote>
-<p>
-相当于Windows下的makefile。Linux下Makefile/GNUMakefile，那么相对的，在Win32平台上自然就有它对应的"makefile"了。称为MSBuild。cmake的跨平台性是通过MSBuild来在Win32来构建源码的。
-</p>
-</blockquote></li>
-
-<li><p>
-嗯，接下来配置CMake
-</p>
-
-<p>
-文件结构
-</p>
 <div class="org-src-container">
-<pre class="src src-nil">./clcpp
-   ./src
-   CMakeLists.txt
+<pre class="src src-sh">cd /usr/share/rime-data
+# 因为是在 /usr/share 路径下
+# 所以需要 sudo 权限创建 新文件(新文件名: double_pinyin.schema.yaml)  
+sudo vim double_pinyin.schema.yaml
+
+# 将 [rime提供的自然码双拼输入方案] 的文本内容，复制粘贴到这里
+# 保存退出vim (:wq)
 </pre>
 </div>
 
 <p>
-CMakeLists.txt单文件的个人配置
+在默认部署后，默认输入的文字是 <b>繁体字</b> 这是因为 <b>yaml配置文件导致的</b>
 </p>
+
+<p>
+想要设置简体字，就进行 <a href="https://github.com/rime/rime-double-pinyin/issues/3#issuecomment-864338144">设置reset: 1的简体字配置项</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org7876a87" class="outline-4">
+<h4 id="org7876a87"><span class="section-number-4">1.3.3.</span> 再在GNU Emacs上部署</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+<code>输入法后端rime</code> 的问题我们解决了，我们还剩下 <code>输入法前端emacs-rime</code> 的事情
+</p>
+
+<p>
+这是我当时的安装流程，现在不知道是否还是这样 (但当时我自己这样操作是可以 <b>成功部署</b> 的)
+</p>
+
+<p>
+首先安装 <a href="https://github.com/DogLooksGood/emacs-rime/blob/master/INSTALLATION.org">emacs-rime</a>
+</p>
+
+<p>
+再命令行安装librime
+</p>
+
 <div class="org-src-container">
-<pre class="src src-cmake">cmake_minimum_required(VERSION 3.30.0)
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_BUILD_TYPE Debug)
-
-project(clcpp LANGUAGES CXX)
-
-if (WIN32)
-   add_definitions(-DNOMINMAX -DUSE_MATH_DEFINES)
-endif()
-
-include_directories(
-  ${clcpp_SOURCE_DIR}/src
-)
-
-file(GLOB sources CONFIGURE_DEPENDS
-  "${clcpp_SOURCE_DIR}/src/hello.cpp"
-)
-
-add_executable(main ${sources})
-add_custom_target(run COMMAND $&lt;TARGET_FILE:main&gt;)
+<pre class="src src-sh"># 
+# 本机依赖(via ArchLinux)
+pacman -S librime  
 </pre>
 </div>
 
 <p>
-运行与使用
+而且添加.el配置文件
 </p>
+
 <div class="org-src-container">
-<pre class="src src-cmd"># 在当前cmd会话下，运行
-%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
-
-# 配置cmake
-cmake -B build
-
-# cmake利用MSBuild来在Win32下构建产物
-cmake --build build
-
-# 运行(需要CMakeLists.txt写一个链接)链接
-cmake --build build --targer run
-
-# 接下来应该就能看到输出了。
+<pre class="src src-elisp">;; 安装rime包
+;; M-x list-packages，然后C-s搜 "rime"，按 i 标记，按 x 执行      
+(use-package rime
+  :ensure t
+  :defer nil
+  :custom
+  (default-input-method "rime"))
 </pre>
-</div></li>
-
-<li><p>
-初见感受: 略不满
-</p>
-
-<blockquote>
-<p>
-夹了很多C#私货
-</p>
-
-<p>
-哎，毕竟环境就是要用VSBT来部署环境的，就别抱怨这抱怨那了
-</p>
-
-<p>
-使用上手才是对于我自己的一个普通得不能再普通的普通人的首要目标
-</p>
-</blockquote></li>
-</ul>
 </div>
+
+<p>
+然后再部署，执行必要的脚本，来使用 <code>rime提供的自然码双拼输入方案</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil"># 按下 "\" 键(反斜杠键)，来动态加载rime这个包
+# 然后会提示要在自己的emacs配置文件处，创建rime文件夹。yes就是了
+# 然后 M-x rime-open-configuration ，从而来打开 “部署rime的配置文件”
+# 我个人的配置在 ~/.config/emacs/rime/default.custom.yaml 这里
+# 最后使用任意编辑器，加上这里的配置，就可以使用这里的rime提供的自然码双拼输入方案
+patch:
+  schema_list:
+    - schema: double_pinyin
+  menu/page_size: 9  
+</pre>
+</div>
+
+<p>
+最后重新部署
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; 打开GNU Emacs后，先执行重新部署函数(rime-deploy)
+;; 接下来设置默认激活emacs-rime的输入法快捷键
+;; 用 C+SPC 来切换由狗哥开发的Emacs-rime的激活输入法按键(默认是C-\，现在改成C-SPC)
+;; 同时保证自己的fcitx5的切换键，不是C-SPC就可以了。(可以在 “KDE &gt; 输入法” 此处设置快捷键)
+(global-set-key (kbd "C-SPC")         'toggle-input-method)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge8ad041" class="outline-3">
+<h3 id="orge8ad041"><span class="section-number-3">1.4.</span> 最后声明</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+这是我个人在 <code>2024年04月25日</code> 写的，当时还是在用着 <code>Emacs 29.3</code> 呢，现在来说个人不知道这样做还有没有效果&#x2026;&#x2026;&#x2026;&#x2026;
+</p>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2024-10-31 四 23:24</p>
+<p class="date">Created: 2025-03-17 一 16:21</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

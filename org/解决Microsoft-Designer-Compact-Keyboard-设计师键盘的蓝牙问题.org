@@ -1,0 +1,45 @@
+* 解决Microsoft-Designer-Compact-Keyboard-设计师键盘的蓝牙问题
+
+** 基本说明
+
+严格来说，这并不是Microsoft-Designer-Compact-Keyboard-设计师键盘的蓝牙问题，而应该是 *任意蓝牙键盘，与KDE蓝牙服务，的通信连接信任问题*
+
+这一行为并不是BUG，而是正常来说就应该是这样的，只不过 *需要用户手动用sudo信任一下* 就可以了 (应该是任意蓝牙键盘都是这样的)
+
+** 问题描述
+
+可以配对(pair)，但就是在配对后
+
+按下 ~任意键~ 就会直接断开与键盘的蓝牙连接，再次按下 ~任意键~ 就会直接重新连接上键盘
+
+然后重复循环，像个 ~莫比乌斯环一样的~ 导致键盘按下的内容，都无法通过蓝牙有效地输入到系统内。
+
+** 解决做法: 需要用户手动用sudo信任一下
+
+#+begin_src sh
+
+  # 此 bluetoothctl 是 bluez bluez-utils 的前端工具
+  # 在 pacman -S bluez bluez-utils 后就可以 systemctl start bluetooth.service 来开启这个前端工具了
+  sudo systemctl restart bluetooth
+  bluetoothctl
+
+  # 这个<DEVICE>是比如 "00:00:FF:FF:00:00" 这样的名称，在KDE Plasma 6下使用GUI的蓝色界面，同时开着终端就能看到要连接的键盘的<DEVICE>是叫做什么名称
+  remove <DEVICE>
+  power off
+  agent KeyboardDisplay
+  default-agent
+  power on
+  scan on
+  trust <DEVICE>
+  pair <DEVICE> 
+  connect <DEVICE>
+#+end_src
+
+** 附赠说明
+
+如果使用 ~Microsoft-Designer-Compact-Keyboard-设计师键盘~ 3个蓝牙设备全部满了怎么办？
+
+#+begin_src
+  扣4个纽扣电池(CR2032)下来，并静置键盘10分钟以上，从而来触发还原出厂设置功能，然后就可以重新连接了。
+#+end_src
+

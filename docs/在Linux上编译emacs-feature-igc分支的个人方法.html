@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-12-29 日 23:01 -->
+<!-- 2025-03-17 一 15:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -199,189 +199,223 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7ab9adb">1. 使用cmake来管理LaTeX文档</a>
+<li><a href="#orgbd6d685">1. 在Linux上编译emacs-feature-igc分支的个人方法</a>
 <ul>
-<li><a href="#org28109d8">1.1. 动机原因</a></li>
-<li><a href="#org2b40c4c">1.2. 单文件管理LaTeX文档</a></li>
-<li><a href="#orgae32cb6">1.3. <span class="todo TODO">TODO</span> </a></li>
+<li><a href="#org8632a88">1.1. 基本介绍</a>
+<ul>
+<li><a href="#orge44f181">1.1.1. 什么是 igc？什么是 mps？</a></li>
+</ul>
+</li>
+<li><a href="#org1bcb294">1.2. 安装方法</a>
+<ul>
+<li><a href="#org80ed1f9">1.2.1. libmps库文件的安装</a></li>
+<li><a href="#orgf2cbe33">1.2.2. emacs-feature-igc的编译选项</a></li>
+<li><a href="#orgc1a7d1a">1.2.3. 检验是否安装成功</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7ab9adb" class="outline-2">
-<h2 id="org7ab9adb"><span class="section-number-2">1.</span> 使用cmake来管理LaTeX文档</h2>
+<div id="outline-container-orgbd6d685" class="outline-2">
+<h2 id="orgbd6d685"><span class="section-number-2">1.</span> 在Linux上编译emacs-feature-igc分支的个人方法</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org28109d8" class="outline-3">
-<h3 id="org28109d8"><span class="section-number-3">1.1.</span> 动机原因</h3>
+<div id="outline-container-org8632a88" class="outline-3">
+<h3 id="org8632a88"><span class="section-number-3">1.1.</span> 基本介绍</h3>
 <div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orge44f181" class="outline-4">
+<h4 id="orge44f181"><span class="section-number-4">1.1.1.</span> 什么是 igc？什么是 mps？</h4>
+<div class="outline-text-4" id="text-1-1-1">
 <p>
-其实，对于我个人来说，Emacs AUCTeX已经足够用了，因为使用它来用于编辑 <b>自己</b> 的LaTeX文档时体验已经是非常之好的了(听说Emacs AUCTeX是默认 <b>只</b> 使用latexmk引擎去渲染pdf)。
+首先在 <code>真-lisp</code> 的编程语言，都是自带了一个 <b>GC 垃圾回收机制</b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">比如 scheme、common lisp、elisp 这些 lisp 方言，都自带了 GC 垃圾回收机制
+</pre>
+</div>
+
+<p>
+然而在 <code>mock-lisp(伪-lisp)</code> 的编程语言下就 <b>没有GC垃圾回收机制</b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">比如Rust写的一个eww桌面组件，就是用的 [yuck] 这门伪lisp编程语言去编写结构的
+</pre>
+</div>
+
+<p>
+那么这样一来，我们的GNU Emacs用的是elisp，所以我们的GNU Emacs就天生就有了GC机制？
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">对啊！GNU Emacs它天生就有GC机制  
+</pre>
+</div>
+
+<p>
+然后有些佬，嫌这个GNU Emacs的GC机制控制得不够自由，于是就硬是用Cpp重新造了一个 <code>新的GC机制 的 The (M)emory (P)ool (S)ystem</code> 出来
 </p>
 
 <p>
-但是，有时候我自己想看看别人的LaTeX文档时，有可能会 <b>因为别人使用了不同的LaTeX渲染引擎，而导致自己这边使用Emacs AUCTeX渲染时有可能会导致些微的排版混乱</b>
+于是这个 <b>新的GC机制 就称呼为 (I)ncremental GC</b> 
 </p>
 
 <p>
-同时，我自己还想通过脚本来 <b>自动</b> 地完成一些后续事情，就比如我想在编译完成后，想要 <b>自动地</b> 通过 <code>Sumatra PDF</code> 来直接打开渲染后pdf的文档
+语义为 <code>增量GC，Delta GC</code> 的意思，简称I-G-C，所以最后简称igc
 </p>
 
 <p>
-于是，就在个人面对各种构建工具下，选择了跨平台的cmake3作为构建工具。(<b>因为还是习惯cmake，而且cmake它几乎什么都能管</b>)
+它用到的库文件，叫做 The (M)emory (P)ool (S)ystem 的 mps 所以一会要安装 libmps 就是这么来的
 </p>
 </div>
 </div>
-<div id="outline-container-org2b40c4c" class="outline-3">
-<h3 id="org2b40c4c"><span class="section-number-3">1.2.</span> 单文件管理LaTeX文档</h3>
+</div>
+<div id="outline-container-org1bcb294" class="outline-3">
+<h3 id="org1bcb294"><span class="section-number-3">1.2.</span> 安装方法</h3>
 <div class="outline-text-3" id="text-1-2">
-<p>
-首先，在某文件夹下，它必须需要这样的目录结构
-</p>
-
 <div class="org-src-container">
-<pre class="src src-text">./某文件夹
-    CMakeLists.txt
-    ./src
-    ./build
+<pre class="src src-nil">BYD，检测 libmps.h 的 ./configure checking 折磨了我贼久  
+</pre>
+</div>
+</div>
+<div id="outline-container-org80ed1f9" class="outline-4">
+<h4 id="org80ed1f9"><span class="section-number-4">1.2.1.</span> libmps库文件的安装</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<div class="org-src-container">
+<pre class="src src-nil">libmps大致信息
+
+.a 静态文件部分
+   🔧 libmps.a
+   🔧 libmps-debug.a
+.h 头文件部分
+   🔧 mpsacl.h
+   🔧 mpsavm.h
+   🔧 mpscamc.h
+   🔧 mpscams.h
+   🔧 mpscawl.h
+   🔧 mpsclo.h
+   🔧 mpscmfs.h
+   🔧 mpscmv2.h
+   🔧 mpscmvff.h
+   🔧 mpscmvt.h
+   🔧 mpscsnc.h
+   🔧 mps.h
+   🔧 mpsio.h
+   🔧 mpslib.h
+   🔧 mpstd.h
+   🔧 mpswin.h
 </pre>
 </div>
 
 <p>
-然后，这是通过cmake单文件管理LaTeX文档的配置文件
+需要安装homebrew来安装libmps，如果不想安装homebrew的话，<a href="https://github.com/colfwe/dotfiles/tree/main/libmps">此仓库</a> 里也有 <span class="underline">2023年7月11日发布的1.118.0版的Release版本</span>
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cmake">  # 基本信息
-  # + 20241229
-  # + emacs-cmake-latex
-  cmake_minimum_required(VERSION 3.31.3)
-  project(EMACS_CMAKE_LATEX)
+<pre class="src src-sh"># 首先在 Linux 上安装 homebrew
 
-  # 源码管理(硬编码管理)
-  include_directories(${EMACS_CMAKE_LATEX_SOURCE_DIR}/src)
-  set(SOURCE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src)
-  set(BUILD_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build)
 
-  # 必要变量
-  set(BASENAME "main")  # 编译单个LaTeX文档的basename基本名称，比如这里是 "main.tex"
-  set(READER "")        # 文档查看器
+# 安装2023年版的1.118.0版的mps
+brew install libmps
 
-  # 检测环境
-  # + 检测构建环境
-  if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/src)
-      message(WARNING "[自定义消息]: 没有发现 ./src 源码文件夹，停止构建")
-      exit()    
-  endif()
-  if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/build)
-      message(WARNING "[自定义消息]: 没有发现 ./build 构建文件夹，停止构建")
-      exit()
-  endif()
-  # + 设置阅读器
-  if(WIN32)
-      set(READER "start firefox")
-  else()
-      set(READER "firefox")
-  endif()         
-
-  # 目标制作
-  # + latexmk引擎
-  add_custom_target(mk_run
-      COMMAND ${CMAKE_COMMAND} -E echo "正在使用您的本机环境编译指定的LaTeX文档"
-      COMMAND ${CMAKE_COMMAND} -E echo "以下是日志信息"
-      COMMAND latexmk -silent -pdf ${SOURCE_DIRECTORY}/${BASENAME}.tex
-      WORKING_DIRECTORY ${BUILD_DIRECTORY}
-      COMMAND ${READER} "${BUILD_DIRECTORY}/${BASENAME}.pdf"
-  )
-  add_custom_target(mk_clean
-      COMMAND ${CMAKE_COMMAND} -E echo "正在使用您的本机环境清理指定的LaTeX文档的中间文件"
-      COMMAND ${CMAKE_COMMAND} -E echo ""        
-      COMMAND ${CMAKE_COMMAND} -E echo "以下是日志信息"
-      COMMAND ${CMAKE_COMMAND} -E echo ""        
-      COMMAND latexmk -c ${SOURCE_DIRECTORY}/${BASENAME}.tex
-      WORKING_DIRECTORY ${BUILD_DIRECTORY}
-  )
-  # + xelatex引擎
-  add_custom_target(xe_run
-      COMMAND ${CMAKE_COMMAND} -E echo "正在使用您的本机环境编译指定的LaTeX文档"
-      COMMAND ${CMAKE_COMMAND} -E echo ""        
-      COMMAND ${CMAKE_COMMAND} -E echo "以下是日志信息"
-      COMMAND ${CMAKE_COMMAND} -E echo ""        
-      COMMAND xelatex ${SOURCE_DIRECTORY}/${BASENAME}.tex
-      WORKING_DIRECTORY ${BUILD_DIRECTORY}
-      COMMAND ${READER} "${BUILD_DIRECTORY}/${BASENAME}.pdf"
-  )
-  add_custom_target(xe_clean
-      COMMAND ${CMAKE_COMMAND} -E echo "个人目前暂找不到xelatex引擎的除系统执行指令之外的清洁方法，所以停止清理"
-      COMMAND ${CMAKE_COMMAND} -E echo ""        
-  )
-  # + luatex引擎
-  add_custom_target(lua_run
-      COMMAND ${CMAKE_COMMAND} -E echo "正在使用您的本机环境编译指定的LaTeX文档"
-      COMMAND ${CMAKE_COMMAND} -E echo ""        
-      COMMAND ${CMAKE_COMMAND} -E echo "以下是日志信息"
-      COMMAND ${CMAKE_COMMAND} -E echo ""        
-      COMMAND luatex ${SOURCE_DIRECTORY}/${BASENAME}.tex
-      WORKING_DIRECTORY ${BUILD_DIRECTORY}
-      COMMAND ${READER} "${BUILD_DIRECTORY}/${BASENAME}.pdf"
-  )
-  add_custom_target(lua_clean
-      COMMAND ${CMAKE_COMMAND} -E echo "个人目前暂找不到luatex引擎的除系统执行指令之外的清洁方法，所以停止清理"
-      COMMAND ${CMAKE_COMMAND} -E echo ""        
-  )
-
-# 但引用与文献暂时还没加，以后再加.....
+# 安装最新版的mps
+brew install libmps --HEAD  
 </pre>
 </div>
 
 <p>
-✅ 已经在一台Arch Linux系统的电脑测试过了，目前来看，我个人暂无问题
+随后可以在 <code>/home/linuxbrew/.linuxbrew/Cellar 的 /libmps/1.118.0/</code> 下得到libmps的文件
 </p>
 
 <p>
-最后，我们输入以下命令，来执行相应的目标就可以了
+然后再将 libmps 放到linux系统级的目录下，就完成了libmps的安装
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">cmake -B build
-cmake --build build --target mk_run     # 使用latexmk -silent -pdf来编译LaTeX文档
-cmake --build build --target xe_run     # 使用xelatex来编译LaTeX文档
-cmake --build build --target lua_run    # 使用luatex来编译LaTeX文档
-cmake --build build --target mk_clean   # 使用latexmk -c来清理LaTeX文档中间文件 
-cmake --build build --target xe_clean   # 目前暂找不到xelatex引擎的除系统执行指令之外的清洁方法，也许未来会通过特定系统的命令来完成
-cmake --build build --target lua_clean  # 目前暂找不到xelatex引擎的除系统执行指令之外的清洁方法，也许未来会通过特定系统的命令来完成
+<pre class="src src-sh"># 很抱歉我说得这么绝对，但必须要复制到系统级的/usr/lib与/usr/include
+# 这是我碰壁无数次后得出的 [唯一] 最终解决做法
+# 因为编译emacs时添加关于libmps文件的CFLAGS与LDFLAGS选项在我这里是没有任何效果的！    
+
+sudo cp *.h /usr/include
+sudo cp *.a /usr/lib
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgae32cb6" class="outline-3">
-<h3 id="orgae32cb6"><span class="section-number-3">1.3.</span> <span class="todo TODO">TODO</span> </h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-orgf2cbe33" class="outline-4">
+<h4 id="orgf2cbe33"><span class="section-number-4">1.2.2.</span> emacs-feature-igc的编译选项</h4>
+<div class="outline-text-4" id="text-1-2-2">
 <p>
-到时候，也许会弄一个在eat(emacs emulate-a-terminal)的自动补充文本，这样就可以在Emacs里直接补充文本了，而不用每次都输入那么长的命令或要设置特定系统的环境变量了。
+点击直达: <a href="https://github.com/emacs-mirror/emacs/tree/feature/igc">emacs-feature-igc</a>
 </p>
 
 <p>
-稍微尝试了下通过 <code>custom-eat-add-cmake-build-text</code> 的在 <code>eat</code> 里使用自定义函数
+而且推荐: <code>6654ac61342a0a2ffef50435d026cae09314ad5c</code>  这个提交点的emacs <a href="https://github.com/emacs-mirror/emacs/tree/6654ac61342a0a2ffef50435d026cae09314ad5c">点击直达</a>，因为运行十分稳定，在 [我个人的配置上] 在非配置情况下一次也没有崩溃过
 </p>
 
+<p>
+先运行 <code>autogen.sh</code> 从而得到 <code>configure</code>
+</p>
+
+<p>
+然后再直接运行，来让 <code>./configure</code> 获得相关的 <code>编译选项: option</code>
+</p>
 <div class="org-src-container">
-<pre class="src src-elisp">(defun custom-eat-add-cmake-build-text ()
-  (interactive)
-  (eat-self-input "cmake -B build"))
+<pre class="src src-sh">CFLAGS="-fmax-errors=1000" ./configure --sysconfdir=/etc --prefix=/usr --libexecdir=/usr/lib --with-tree-sitter=ifavailable --localstatedir=/var --disable-build-details --with-harfbuzz --with-libsystemd --with-modules --with-x-toolkit=no --with-mps=yes 'CFLAGS=-march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/emacs/src=/usr/src/debug/emacs -flto=auto' 'LDFLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs -flto=auto'  
 </pre>
 </div>
 
 <p>
-最后还是失败了，也许我自己的一些send的命令没写准吧，暂时就以后再弄了。
+然后等待配置完成就行了
 </p>
+
+<ul class="org-ul">
+<li><b>期间一定要注意: 必须是 mps.h…..yes，不能是The libmps is missing！才算识别到mps库文件！！</b></li>
+<li><b>期间一定要注意: 必须是 mps.h…..yes，不能是The libmps is missing！才算识别到mps库文件！！</b></li>
+<li><b>期间一定要注意: 必须是 mps.h…..yes，不能是The libmps is missing！才算识别到mps库文件！！</b></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc1a7d1a" class="outline-4">
+<h4 id="orgc1a7d1a"><span class="section-number-4">1.2.3.</span> 检验是否安装成功</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+进入GNU Emacs后，执行 <code>M-x igc-stats</code> 并在打开的新buffer上，按 <code>wasd</code> 的 <code>s</code>
+</p>
+
+<p>
+如果能出现
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">IGC_OBJ_BLV                                854           40992         48            48
+IGC_OBJ_BUILTIN_SUBR                         0               0          0             0
+IGC_OBJ_BUILTIN_SYMBOL                       0               0          0             0
+IGC_OBJ_BUILTIN_THREAD                       0               0          0             0
+IGC_OBJ_BYTES                                0               0          0             0
+IGC_OBJ_CONS                           1876951        45046824         24            24
+.......................................................................................  
+</pre>
+</div>
+
+<p>
+这样的提示文字，就能说明 mps 起效果了！
+</p>
+
+<p>
+如果是 <code>The Symbol igc-stats is void</code> 的话，那么 <b>一定是你自己在 emacs-feature-igc 分支源码包下的 ./configure 内，没有让它识别到libmps库文件！请你自己重新查看文档安装！</b>
+</p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2024-12-29 日 23:01</p>
+<p class="date">Created: 2025-03-17 一 15:51</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

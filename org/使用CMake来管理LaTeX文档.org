@@ -1,0 +1,125 @@
+* 使用CMake来管理LaTeX文档
+
+** 使用动机
+
+我想在非Emacs环境下，通过执行命令，来在渲染LaTeX文档后通过脚本自动化地完成一些事情
+
+比如我想在每次编译完成后，都能 ~自动地~ 通过 ~Sumatra PDF~ 来直接打开渲染后pdf的文档 
+
+同时为了考虑跨平台的原因，故选择用CMake来管理LaTeX文档
+
+#+begin_src
+但如果是在Emacs环境下，使用Emacs的AUCTeX，对我自己来说一定是足够用的！
+#+end_src
+
+** 单文件管理
+
+首先，在某文件夹下，它必须需要这样的目录结构
+
+#+begin_src
+./某文件夹
+    CMakeLists.txt
+    ./src
+    ./build  
+#+end_src
+
+然后，这是通过cmake单文件管理LaTeX文档的配置文件
+
+#+begin_src cmake
+    # 基本信息
+    # + 20241229
+    # + emacs-cmake-latex
+    cmake_minimum_required(VERSION 3.31.3)
+    project(EMACS_CMAKE_LATEX)
+
+    # 源码管理(硬编码管理)
+    include_directories(${EMACS_CMAKE_LATEX_SOURCE_DIR}/src)
+    set(SOURCE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src)
+    set(BUILD_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build)
+
+    # 必要变量
+    set(BASENAME "main")  # 编译单个LaTeX文档的basename基本名称，比如这里是 "main.tex"
+    set(READER "")        # 文档查看器
+
+    # 检测环境
+    # + 检测构建环境
+    if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/src)
+        message(WARNING "[自定义消息]: 没有发现 ./src 源码文件夹，停止构建")
+        exit()    
+    endif()
+    if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/build)
+        message(WARNING "[自定义消息]: 没有发现 ./build 构建文件夹，停止构建")
+        exit()
+    endif()
+    # + 设置阅读器
+    if(WIN32)
+        set(READER "start firefox")
+    else()
+        set(READER "firefox")
+    endif()         
+
+    # 目标制作
+    # + latexmk引擎
+    add_custom_target(mk_run
+        COMMAND ${CMAKE_COMMAND} -E echo "正在使用您的本机环境编译指定的LaTeX文档"
+        COMMAND ${CMAKE_COMMAND} -E echo "以下是日志信息"
+        COMMAND latexmk -silent -pdf ${SOURCE_DIRECTORY}/${BASENAME}.tex
+        WORKING_DIRECTORY ${BUILD_DIRECTORY}
+        COMMAND ${READER} "${BUILD_DIRECTORY}/${BASENAME}.pdf"
+    )
+    add_custom_target(mk_clean
+        COMMAND ${CMAKE_COMMAND} -E echo "正在使用您的本机环境清理指定的LaTeX文档的中间文件"
+        COMMAND ${CMAKE_COMMAND} -E echo ""        
+        COMMAND ${CMAKE_COMMAND} -E echo "以下是日志信息"
+        COMMAND ${CMAKE_COMMAND} -E echo ""        
+        COMMAND latexmk -c ${SOURCE_DIRECTORY}/${BASENAME}.tex
+        WORKING_DIRECTORY ${BUILD_DIRECTORY}
+    )
+    # + xelatex引擎
+    add_custom_target(xe_run
+        COMMAND ${CMAKE_COMMAND} -E echo "正在使用您的本机环境编译指定的LaTeX文档"
+        COMMAND ${CMAKE_COMMAND} -E echo ""        
+        COMMAND ${CMAKE_COMMAND} -E echo "以下是日志信息"
+        COMMAND ${CMAKE_COMMAND} -E echo ""        
+        COMMAND xelatex ${SOURCE_DIRECTORY}/${BASENAME}.tex
+        WORKING_DIRECTORY ${BUILD_DIRECTORY}
+        COMMAND ${READER} "${BUILD_DIRECTORY}/${BASENAME}.pdf"
+    )
+    add_custom_target(xe_clean
+        COMMAND ${CMAKE_COMMAND} -E echo "个人目前暂找不到xelatex引擎的除系统执行指令之外的清洁方法，所以停止清理"
+        COMMAND ${CMAKE_COMMAND} -E echo ""        
+    )
+    # + luatex引擎
+    add_custom_target(lua_run
+        COMMAND ${CMAKE_COMMAND} -E echo "正在使用您的本机环境编译指定的LaTeX文档"
+        COMMAND ${CMAKE_COMMAND} -E echo ""        
+        COMMAND ${CMAKE_COMMAND} -E echo "以下是日志信息"
+        COMMAND ${CMAKE_COMMAND} -E echo ""        
+        COMMAND luatex ${SOURCE_DIRECTORY}/${BASENAME}.tex
+        WORKING_DIRECTORY ${BUILD_DIRECTORY}
+        COMMAND ${READER} "${BUILD_DIRECTORY}/${BASENAME}.pdf"
+    )
+    add_custom_target(lua_clean
+        COMMAND ${CMAKE_COMMAND} -E echo "个人目前暂找不到luatex引擎的除系统执行指令之外的清洁方法，所以停止清理"
+        COMMAND ${CMAKE_COMMAND} -E echo ""        
+    )
+
+  # 但引用与文献暂时还没加，以后再加.....  
+#+end_src
+
+
+ ✅ 已经在一台Arch Linux系统的电脑测试过了，目前来看，我个人暂无问题
+
+最后，我们输入以下命令，来执行相应的目标就可以了
+
+#+begin_src sh  
+  cmake -B build
+  cmake --build build --target mk_run     # 使用latexmk -silent -pdf来编译LaTeX文档
+  cmake --build build --target xe_run     # 使用xelatex来编译LaTeX文档
+  cmake --build build --target lua_run    # 使用luatex来编译LaTeX文档
+  cmake --build build --target mk_clean   # 使用latexmk -c来清理LaTeX文档中间文件 
+  cmake --build build --target xe_clean   # 目前暂找不到xelatex引擎的除系统执行指令之外的清洁方法，也许未来会通过特定系统的命令来完成
+  cmake --build build --target lua_clean  # 目前暂找不到xelatex引擎的除系统执行指令之外的清洁方法，也许未来会通过特定系统的命令来完成    
+#+end_src
+
+

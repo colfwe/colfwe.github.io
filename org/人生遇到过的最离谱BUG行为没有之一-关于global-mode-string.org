@@ -1,0 +1,136 @@
+* 人生遇到过的最离谱BUG行为没有之一-关于global-mode-string
+
+** 解决了
+
+好了，我大致明白了。同时我也能解释啥昨晚那个逆天离谱bug行为了
+
+因为在 ~以前~
+
+有 global-mode-string 是管理全局的 modeline 信息，然后 mode-line-format 是管理局部的modeline信息，两者互不干扰
+
+以前我希望状态信息能一直显示所以一直都使用的 global-mode-string
+
+但是昨晚pacman -Syu更新系统后，变成了mode-line-format管理global-mode-string，两者一个管理另一个
+
+所以在 ~现在~
+
+对待 ~global-mode-string~ 与 ~mode-line-format~ 的话，同时要设置 =状态栏 modeline 信息= 的话，那么就比如这样来设置就可以了
+
+#+begin_src elisp
+  (defun kivnn/update-modeline-with-all-scripts ()
+   "显示modeline信息"
+
+   ;; 将 global-mode-string 作为 “副modeline信息” 来使用
+   (setq global-mode-string
+         (list
+          "  "
+          (format "󰄒 TODO %d " modeline-agenda-todo-count)
+          (format "󱞿 DOING %d " modeline-agenda-doing-count)
+          (format "󰝕 WAIT %d " modeline-agenda-wait-count)
+          "-  "
+          modeline-agenda-file-name))
+
+   ;; 将 mode-line-format 作为 “主modeline信息” 来使用   
+   (setq-default mode-line-format
+                 '("%e"
+                   mode-line-mule-info
+                   mode-line-client
+                   mode-line-modified
+                   mode-line-remote
+                   mode-line-frame-identification
+                   mode-line-buffer-identification
+                   mode-line-position
+                   (vc-mode vc-mode)
+                   mode-line-modes
+                   modeline-calendar-month
+                   modeline-calendar-day
+                   modeline-time-hour
+                   modeline-time-minute
+                   modeline-battery-percentage
+                   modeline-cpu-temperature
+                   modeline-ram-usage
+                   
+                   ;; 主mode-line-format，使用了，副mode-line-format
+                   global-mode-string
+                   mode-line-format-right-align
+                   modeline-emacs-uptime
+                   emms-mode-line-string)))
+#+end_src
+
+*但这里唯一值得好奇的地方在于: 为什么我pacman -Syu滚系统，却会影响到通过emacs-mirros源码安装的GNU Emacs？*
+
+** 背景材料
+
+我所使用的 GNU Emacs，是从 ~emacs-mirror~ 下拉取用 ~make~ 安装的
+
+所以不存在任何被 ~pacman -Syu~ 滚的原因
+
+同时我也没有使用 ~package.el~ 的 ~package-upgrade-all~ 所以不存在升级el包导致的问题
+
+** 复现情景
+
+当时我在 pacman -Syu 后，我一打开 emacs，结果 BYD 整条 global-mode-string 都不显示了！
+
+然而 ~C-h v global-mode-string~ 是有值的，但是却不显示，必须要 setq global-mode-string 才能显示！
+
+后来我想了很久，发现是一个类似这样的函数没有执行导致的
+
+#+begin_src elisp
+  ;; 没有在 after-init-hook 执行此 foobar 函数
+  (defun foobar ()
+    (interactive)
+    (setq global-mode-string (list)))
+#+end_src
+
+可关键的地方在于 *我在pacman -Syu之前同样也是没有执行 foobar 函数的，为什么之前在升级系统前反而一切正常？*
+
+同时，我又发现了一个问题(*其实一部分是我自己乱写导致的，一部分就是因为这个setq global-mode-string导致的*) 
+
+首先在我自己这里 ~emms-mode-line-string~ 同时被两个函数控制
+
+#+begin_src elisp
+  ;; 其一
+  (defun kivnn/format-emms-mode-line ()
+  "格式化 emms-mode-line-string 来提取音乐纯文件名"
+  (interactive)
+  (when (stringp emms-mode-line-string)
+    ;; 去掉属性
+    (let* ((clean-str (substring-no-properties emms-mode-line-string)))
+      (when (string-match ".*/\\([^/]+\\) ]" clean-str)
+        (setq emms-mode-line-string
+              ;; 去掉后缀 ".mp3"
+              (replace-regexp-in-string "\\.mp3$" "" (match-string 1 clean-str)))))))
+
+  ;; 其二(当时把emms-mode-line-string给嵌入地写到kivnn/update-modeline-play-music里面去了，逻辑太乱了，这同样给我自己后面Debug时埋了颗巨雷)
+  (run-at-time "0 sec" 30    'kivnn/update-modeline-play-music)          ; 每30秒更新一次当前正在播放的音乐名
+#+end_src
+
+然后我就疯狂地思考我的代码哪里写错了，Debug从晚上12点到凌晨2点过后
+
+发现都不是！代码逻辑最多就是混乱了点，但绝对没有任何逻辑问题！就是 setq global-mode-string 导致的
+
+于是我就通过曲线救国的方式，通过设置 ~钩子加载顺序~ 终于是把这一 setq global-mode-string 才能显示 modeline 的问题解决了😭
+
+#+begin_src elisp
+   ;; 此处的 :append 是曲线救国地来解决 global-mode-string 的关键
+   (add-hook 'emms-player-started-hook #'kivnn/format-emms-mode-line)
+   (add-hook 'emms-player-started-hook #'kivnn/update-modeline-all-information :append)
+#+end_src
+
+费了九牛二虎之力，我还以为折腾了一晚上的配置会不翼而飞了😭
+
+感谢GPT😭♥️🙏
+
+** 离谱出处
+
+*升级A的二进制文件，却影响到了B的二进制文件，的配置文件的特定变量*
+
+我只进行了 pacman -Syu，我也没进行 upgrade-package-all
+
+却单独却只影响到了从 emacs-mirror 下拉取用 make 安装的 GNU Emacs 的 global-mode-string
+
+更逆天的在于: 我的 global-mode-string 是有值的，但是却非要 setq 才能显示
+
+*升级A的二进制文件，却影响到了B的二进制文件，的配置文件的特定变量*
+
+人生遇见过的最离谱BUG行为，真的没有之一😢

@@ -1,0 +1,112 @@
+* 记录一次安装狗哥的emacs-rime输入法过程记录
+
+** 特别感谢
+
+- [[https://github.com/rime][rime输入法作者: 佛振]]
+
+- [[https://github.com/DogLooksGood/emacs-rime][狗哥的emacs-rime]]
+  
+- [[https://emacs-china.org/][Emacs China论坛及坛友]]
+  
+- [[https://github.com/rime/rime-double-pinyin][rime提供的自然码双拼输入方案]]
+
+** 配置方案
+
+| 序号 | 配置方案   | 说明               |
+|------+-----------+--------------------|
+|    1 | 输入方案   | 周老开发的自然码双拼 |
+|    2 | 输入文字   | 简体中文            |
+|    3 | 输入法前端 | emacs-rime         |
+|    4 | 输入法后端 | rime               |
+
+** 安装方法
+
+安装困难的地方，主要唯一的是在于 ~rime~ 的部署，因为 ~rime官方文档~ 是用繁体字所写的，对于我自己来说，较难看懂
+
+*** 先决条件
+
+#+begin_src sh  
+  # 安装fcitx5全家桶
+  sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-rime fcitx5-material-color
+
+  # 同时在 ArchLinux 下编辑 /etc/environment 文件
+  # 添加 GTK_IM_MODULE=fcitx
+  # 添加 QT_IM_MODULE=fcitx
+  # 添加 XMODIFIERS=@im=fcitx
+  # 添加 SDL_IM_MODULE=fcitx
+  sudo vim /etc/environment    
+#+end_src
+
+*** 输入方案
+
+首先，先复制 [[https://github.com/rime/rime-double-pinyin/blob/master/double_pinyin.schema.yaml][rime提供的自然码双拼输入方案]] 的所有文字到 ~/usr/share/rime-data~ 下
+
+#+begin_src sh  
+  cd /usr/share/rime-data
+  # 因为是在 /usr/share 路径下
+  # 所以需要 sudo 权限创建 新文件(新文件名: double_pinyin.schema.yaml)  
+  sudo vim double_pinyin.schema.yaml
+
+  # 将 [rime提供的自然码双拼输入方案] 的文本内容，复制粘贴到这里
+  # 保存退出vim (:wq)
+#+end_src
+
+在默认部署后，默认输入的文字是 *繁体字* 这是因为 *yaml配置文件导致的*
+
+想要设置简体字，就进行 [[https://github.com/rime/rime-double-pinyin/issues/3#issuecomment-864338144][设置reset: 1的简体字配置项]]
+
+*** 再在GNU Emacs上部署
+
+~输入法后端rime~ 的问题我们解决了，我们还剩下 ~输入法前端emacs-rime~ 的事情
+
+这是我当时的安装流程，现在不知道是否还是这样 (但当时我自己这样操作是可以 *成功部署* 的)
+
+首先安装 [[https://github.com/DogLooksGood/emacs-rime/blob/master/INSTALLATION.org][emacs-rime]]
+
+再命令行安装librime
+ 
+#+begin_src sh
+  # 
+  # 本机依赖(via ArchLinux)
+  pacman -S librime  
+#+end_src
+
+而且添加.el配置文件
+
+#+begin_src elisp
+  ;; 安装rime包
+  ;; M-x list-packages，然后C-s搜 "rime"，按 i 标记，按 x 执行      
+  (use-package rime
+    :ensure t
+    :defer nil
+    :custom
+    (default-input-method "rime"))
+#+end_src
+
+然后再部署，执行必要的脚本，来使用 ~rime提供的自然码双拼输入方案~
+
+#+begin_src  
+# 按下 "\" 键(反斜杠键)，来动态加载rime这个包
+# 然后会提示要在自己的emacs配置文件处，创建rime文件夹。yes就是了
+# 然后 M-x rime-open-configuration ，从而来打开 “部署rime的配置文件”
+# 我个人的配置在 ~/.config/emacs/rime/default.custom.yaml 这里
+# 最后使用任意编辑器，加上这里的配置，就可以使用这里的rime提供的自然码双拼输入方案
+patch:
+  schema_list:
+    - schema: double_pinyin
+  menu/page_size: 9  
+#+end_src
+
+最后重新部署
+
+#+begin_src elisp
+  ;; 打开GNU Emacs后，先执行重新部署函数(rime-deploy)
+  ;; 接下来设置默认激活emacs-rime的输入法快捷键
+  ;; 用 C+SPC 来切换由狗哥开发的Emacs-rime的激活输入法按键(默认是C-\，现在改成C-SPC)
+  ;; 同时保证自己的fcitx5的切换键，不是C-SPC就可以了。(可以在 “KDE > 输入法” 此处设置快捷键)
+  (global-set-key (kbd "C-SPC")         'toggle-input-method)
+#+end_src
+
+** 最后声明
+
+这是我个人在 ~2024年04月25日~ 写的，当时还是在用着 ~Emacs 29.3~ 呢，现在来说个人不知道这样做还有没有效果............
