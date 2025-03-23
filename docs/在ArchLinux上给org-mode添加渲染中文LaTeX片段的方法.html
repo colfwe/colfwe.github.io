@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-03-24 一 02:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org464de42">1. 在ArchLinux上给org-mode添加渲染中文LaTeX片段的方法</a>
+<ul>
+<li><a href="#orgb568d32">1.1. 折腾动机</a></li>
+<li><a href="#orgcee808d">1.2. 方案选择</a>
+<ul>
+<li><a href="#orga4b65ba">1.2.1. 问题1: 输出了png而非svg</a></li>
+<li><a href="#org0182ec1">1.2.2. 问题2: \!\!\!的符号过多</a></li>
+</ul>
+</li>
+<li><a href="#orgd1f55cd">1.3. 另类实现方法（千万别学！要渲染中文LaTeX片段请看上面！）</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org464de42" class="outline-2">
+<h2 id="org464de42"><span class="section-number-2">1.</span> 在ArchLinux上给org-mode添加渲染中文LaTeX片段的方法</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgb568d32" class="outline-3">
+<h3 id="orgb568d32"><span class="section-number-3">1.1.</span> 折腾动机</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+由于 <b>因为自己在过去写的一些在org-mode里渲染LaTeX中文片段的函数，实在是写得过于另类猎奇</b> (文章最后有说怎么实现的，总之就是非常另类，主打一个能用就行)
+</p>
+
+<p>
+同时 <b>因为自己没有使用 extpfeil 宏包，反而是转而使用甚至滥用下面这种抽象到炸裂的原生双向箭头</b> 
+</p>
+
+<p>
+导致当org文件出现大量的 <code>\!\!\!</code> 时，自己的Emacs在解析卡到爆炸💥（是的，即使是 feature/igc 也受不住那种，即使用了 narrow 也还是卡卡的那种。）
+</p>
+
+<p>
+<b>我必须承认表示这就是我的责任，别想多了</b>
+</p>
+</div>
+</div>
+<div id="outline-container-orgcee808d" class="outline-3">
+<h3 id="orgcee808d"><span class="section-number-3">1.2.</span> 方案选择</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+询问GPT后，GPT说，卡顿的原因主要是 <b>[输出了png而非svg] 与 [符号过多]</b> 的问题。那么接下来就是 <b>问题1: 输出了png而非svg</b> 与 <b>问题2: \!\!\!的符号过多</b>
+</p>
+</div>
+<div id="outline-container-orga4b65ba" class="outline-4">
+<h4 id="orga4b65ba"><span class="section-number-4">1.2.1.</span> 问题1: 输出了png而非svg</h4>
+<div class="outline-text-4" id="text-1-2-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgaa1003a"></a>svg 的优势之处<br />
+<div class="outline-text-5" id="text-1-2-1-1">
+<p>
+GPT 回答说，使用 <code>SVG</code> 的好处是
+</p>
+
+<ul class="org-ul">
+<li>SVG 是矢量图，渲染成本低，不需要用PNG的像素点描述，而是SVG使用路径描述，所以不会占用过多的显存或CPU，SVG渲染成本低，SVG适合大量公式的方案</li>
+
+<li>现在的 Emacs 本身对 SVG 的支持较好</li>
+
+<li>SVG 不需要缓存大量图片，当公式特别多的时候，处理 SVG 需要的内存小，加载快</li>
+</ul>
+
+<p>
+所以使用 <b>SVG</b> 而非 PNG，在我自己这里，迫在眉睫。
+</p>
+</div>
+</li>
+<li><a id="orgd65bed3"></a>输出 能渲染中文LaTeX 的 SVG 的方法<br />
+<div class="outline-text-5" id="text-1-2-1-2">
+<p>
+在 org-mode 里，默认支持 dvipng、dvisvgm、imagemagick 三种渲染 LaTeX 的方式，它们 <code>输出可显示图片(PNG 或 SVG)</code> 的方案如下
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">序号</th>
+<th scope="col" class="org-left">方案</th>
+<th scope="col" class="org-left">最终输出内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left"><b>dvipng</b>: <code>LaTeX &gt; .dvi &gt; dvipng &gt; PNG</code></td>
+<td class="org-left">PNG</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left"><b>dvisvgm</b>: <code>LaTeX &gt; .dvi &gt; SVG</code></td>
+<td class="org-left">SVG</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left"><b>imagemagick</b>: <code>LaTeX &gt; DVI &gt; PostScript &gt; ImageMagick (convert) &gt; PNG</code></td>
+<td class="org-left">PNG</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+然后 org-mode <b>默认使用的是 dvipng(PNG)</b> 的原因是
+</p>
+
+<blockquote>
+<p>
+因为在早期的 Emacs，Emacs 24 几乎不支持 svg，Emacs 25-25 有支持但不稳定。
+</p>
+
+<p>
+一直到 <b>Emacs 27+ 才稳定支持</b> 
+</p>
+
+<p>
+<b>所以当初为了可以使用可以实现就足够了，同时现在还能向下兼容过去已经养成的习惯(毕竟适合自己的才是最好的)</b> 于是默认设置 dvipng 为默认渲染 LaTeX片段 的方式
+</p>
+</blockquote>
+
+<p>
+虽然 <code>dvisvgm</code> 可以 <code>输出SVG</code> 但 <b>问题的关键是: 无论是不是 dvisvgm(SVG)，这三种方式都默认不支持 [中文LaTeX片段] 的渲染(也许加宏包可以完成，但我自己是真的怎么找都找不到，而且我自己实在是不想折腾了)</b>
+</p>
+
+<p>
+于是使用对中文支持友好的 <code>XeTeX(我自己选择的)</code> 与 <code>LuaTeX</code> (它们的安装方式都在 <code>sudo pacman -S texlive</code> 里面)
+</p>
+</div>
+</li>
+<li><a id="org3e9b16e"></a>让 XeTeX 输出 SVG<br />
+<div class="outline-text-5" id="text-1-2-1-3">
+<p>
+在 XeTeX 里面 <b>一定是PDF转其它</b> 不存在XDV转其它 (XDV，就是DVI的XeTeX包装版，虽然XDV看上去是DVI的变种，但是实际上XDV还是PDF的实现方法，并不能完成 XDV to 其它的方法，所以 <b>只能是PDF to 其它*(*反正我自己目前了解到的是这样</b>))
+</p>
+
+<p>
+所以在 <b>PDF转其它</b> 的方案下，就需要 <b>pdf2svg</b> 此依赖，在 archlinux 下，可以通过
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># pdf2svg依赖，来让XeTeX，完成PDF转SVG的方案
+sudo pacman -S pdf2svg
+</pre>
+</div>
+
+<p>
+然后执行下面，如果能看到 114514.svg 就是成功的。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># sh
+xelatex -no-pdf -output-directory . 114514.tex   # 114514.tex 生成 114514.xdv
+xdvipdfmx -E -o 114514.pdf 114514.xdv            # 114514.xdv 直接转换成 114514.pdf
+pdf2svg 114514.pdf 114514.svg                    # 114514.pdf 再转换成 114514.svg
+</pre>
+</div>
+
+<p>
+然后下一步到 <b>让 XeTeX 支持字体</b>
+</p>
+</div>
+</li>
+<li><a id="orge28c106"></a>让 XeTeX 支持 中文字体和西文字体混用<br />
+<div class="outline-text-5" id="text-1-2-1-4">
+<p>
+首先有 el 的实现
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; ========================================  
+;; 使用 xelatex 渲染 latex-fragment
+;; ========================================
+(add-to-list 'org-preview-latex-process-alist
+             '(xelatex-chinese
+               :programs ("xelatex" "pdf2svg")
+               :description "XeLaTeX with Chinese support (PDF &gt; SVG)"
+               :message "You need to install: xelatex and pdf2svg."
+               ;; 方案: pdf 转 svg
+               :image-input-type "pdf"
+               :image-output-type "svg"
+               :image-size-adjust (1.7 . 1.5)
+               ;; 字体: 中文 Noto Sans CJK SC 1.3倍, 西文 CMU Bright 1.0倍
+               :latex-header "\\documentclass[11pt]{standalone}
+                               \\usepackage{fontspec}
+                               \\setmainfont{Noto Sans CJK SC}[Scale=1.3]
+                               \\setsansfont{CMU Bright}[Scale=1.0]
+                               \\usepackage[usenames]{color}
+                               \\usepackage{amsmath}
+                               \\usepackage{mhchem}
+                               \\usepackage{extpfeil}
+                               \\pagestyle{empty}"
+               :latex-compiler ("xelatex -interaction nonstopmode -output-directory %o %f")
+               ;; 依赖: pacman -S pdf2svg
+               :image-converter ("pdf2svg %f %O")))
+;; 永久设置org-preview-latex的默认进程为上面的xelatex-chinese
+(setq org-preview-latex-default-process 'xelatex-chinese)  
+</pre>
+</div>
+
+<p>
+然后在这里，需要详细解释，因为 <b>这涉及到一个 archlinux 字体存放所有目录的修改</b> 问题 (我自己只测试过在archlinux发行版上是这样的，并不知道其它发行版的字体配置文件是不是在 <code>/etc/fonts/</code> 下) 
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">\\setmainfont{Noto Sans CJK SC}[Scale=1.3]
+\\setsansfont{CMU Bright}[Scale=1.0]  
+</pre>
+</div>
+
+<p>
+在中文LaTeX片段的 <b>字体选择方案: 中文字体 + 西文字体</b> 里，GPT 回答说
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">序号</th>
+<th scope="col" class="org-left">中文字体（CJK）</th>
+<th scope="col" class="org-left">主要字体（西文部分）</th>
+<th scope="col" class="org-left">适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">Source Han Serif CN</td>
+<td class="org-left">CMU Serif</td>
+<td class="org-left">适合 正式论文、书籍</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">Source Han Sans CN</td>
+<td class="org-left">CMU Sans Serif</td>
+<td class="org-left">适合 PPT、现代排版</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">Noto Serif CJK SC</td>
+<td class="org-left">Times New Roman</td>
+<td class="org-left">适合 英文学术文章</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">FandolSong</td>
+<td class="org-left">CMU Serif</td>
+<td class="org-left">默认 LaTeX 兼容性好</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left"><b>Noto Sans CJK SC</b></td>
+<td class="org-left"><b>Computer Modern Bright</b></td>
+<td class="org-left"><b>现代风格、学术报告</b></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+我选择了方案5，中文使用Noto Sans CJK SC[1.3倍]、西文使用Computer Modern Bright[1.0倍] （其中，倍数的调整是在LaTeX导言区里面调整，这里仅作说明解释）
+</p>
+
+<p>
+因为在 Emacs 里 <b>org-mode使用了TeX引擎的内置字体</b> 并且GPT回答说，这是使用了 <b>Computer Modern字体，很漂亮</b> 来完成 <b>西文LaTeX片段的渲染的</b> 
+</p>
+
+<p>
+所以我自己的字体方案是，西文最好是 Computer Modern 就是最好的。
+</p>
+
+<p>
+然后关于这些字体的安装，首先要说明的是，这些字体已经在 <b>安装好texlive完全体版后一律附赠了</b>
+</p>
+
+<p>
+如果都是使用 archlinux 使用 pacman 来安装的话，它会在 <code>/usr/share/texmf-dist/fonts/</code> 这里有安装texlive附赠的所有的字体
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orge4976e5"></a>省流版<br />
+<div class="outline-text-6" id="text-1-2-1-4-1">
+<p>
+<a href="https://tex.stackexchange.com/questions/619573/problem-setting-a-main-font/619577#619577">XeTeX默认不识别texlive的额外字体的解决方法</a>
+</p>
+</div>
+</li>
+<li><a id="org082e270"></a>详细版<br />
+<div class="outline-text-6" id="text-1-2-1-4-2">
+<p>
+<b>前提声明: 我自己只测试了 archlinux 是这样的，我自己并不知道其它发行版也是不是这样。</b>
+</p>
+
+<p>
+<img src="../res/texdoc-texlive-手册.png" alt="texdoc-texlive-手册.png" />  (其中，手册是命令行执行 <code>texdoc texlive</code> 得到的)
+</p>
+
+<p>
+而且这里也有详细的解释
+</p>
+
+<div class="org-src-container">
+<pre class="src src-xml">&lt;!-- bash --&gt;
+&lt;!-- cat /etc/fonts/fonts.conf --&gt;
+
+&lt;!--
+        DO NOT EDIT THIS FILE.
+        IT WILL BE REPLACED WHEN FONTCONFIG IS UPDATED.
+        LOCAL CHANGES BELONG IN 'local.conf'.
+
+        The intent of this standard configuration file is to be adequate for
+        most environments.  If you have a reasonably normal environment and
+        have found problems with this configuration, they are probably
+        things that others will also want fixed.  Please submit any problems
+        to the fontconfig issue tracking system located at fontconfig.org
+
+        Note that the normal 'make install' procedure for fontconfig is to
+        replace any existing fonts.conf file with the new version.  Place
+        any local customizations in local.conf which this file references.
+
+        Keith Packard
+--&gt;  
+</pre>
+</div>
+
+<p>
+所以做法就是，先创建文件 <code>sudo vim /etc/fonts/local.conf</code> ，并添加以下的内容(<b>而且 <code>&lt;?xml version="1.0"?&gt;</code> 必须在文件的第1行</b>)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-xml">&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE fontconfig SYSTEM "fonts.dtd"&gt;
+&lt;fontconfig&gt;
+  &lt;!-- Font directory list --&gt;
+
+  &lt;!-- 如果只添加安装texlive附赠的单独一种字体 (Compter Modern Unicode)，就弄到对应的子文件夹 --&gt;
+  &lt;dir&gt;/usr/share/texmf-dist/fonts/opentype/public/cm-unicode&lt;/dir&gt;
+
+  &lt;!-- 如果只添加安装texlive附赠的所有字体，就弄到根文件夹 --&gt;
+  &lt;dir&gt;/usr/share/texmf-dist/fonts/opentype&lt;/dir&gt;    
+&lt;/fontconfig&gt;  
+</pre>
+</div>
+
+
+<p>
+然后执行 <code>fc-cache -fsv</code> 就会看到，就说明安装好了 (<b>我这里是只安装了 CMU 这一个字体</b>)
+</p>
+
+<pre class="example" id="org9631ae5">
+Font directories:
+        /usr/share/fonts
+        /usr/local/share/fonts
+        /usr/share/texmf-dist/fonts/opentype/public/cm-unicode
+        .......................................................
+</pre>
+
+<p>
+于是，查看所有安装好的 CMU 字体
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># bash
+fc-list | grep '^/usr/share/texmf-dist/fonts/opentype/public/cm-unicode/'  
+</pre>
+</div>
+
+<p>
+然后接下来回到 Emacs 的配置，于是就有
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; ========================================  
+;; 使用 xelatex 渲染 latex-fragment
+;; ========================================
+(add-to-list 'org-preview-latex-process-alist
+             '(xelatex-chinese
+               :programs ("xelatex" "pdf2svg")
+               :description "XeLaTeX with Chinese support (PDF &gt; SVG)"
+               :message "You need to install: xelatex and pdf2svg."
+               ;; 方案: pdf 转 svg
+               :image-input-type "pdf"
+               :image-output-type "svg"
+               :image-size-adjust (1.7 . 1.5)
+               ;; 字体: 中文 Noto Sans CJK SC 1.3倍, 西文 CMU Bright 1.0倍
+               :latex-header "\\documentclass[11pt]{standalone}
+                               \\usepackage{fontspec}
+                               \\setmainfont{Noto Sans CJK SC}[Scale=1.3]
+                               \\setsansfont{CMU Bright}[Scale=1.0]
+                               \\usepackage[usenames]{color}
+                               \\usepackage{amsmath}
+                               \\usepackage{mhchem}
+                               \\usepackage{extpfeil}
+                               \\pagestyle{empty}"
+               :latex-compiler ("xelatex -interaction nonstopmode -output-directory %o %f")
+               ;; 依赖: pacman -S pdf2svg
+               :image-converter ("pdf2svg %f %O")))
+;; 永久设置org-preview-latex的默认进程为上面的xelatex-chinese
+(setq org-preview-latex-default-process 'xelatex-chinese)  
+</pre>
+</div>
+
+<p>
+就可以生效了，接下来打开 GNU Emacs，然后 <code>执行 org-latex-preview</code> 或 <code>按下 C-c C-x C-l</code> 就可以渲染所有的中文西文混合的LaTeX片段了
+</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org0182ec1" class="outline-4">
+<h4 id="org0182ec1"><span class="section-number-4">1.2.2.</span> 问题2: \!\!\!的符号过多</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+造成这样的原因 <b>仅仅只是我过去过于懒惰导致的，不愿意加宏包，导致非常夸张的编辑卡顿问题</b>
+</p>
+
+<p>
+方法就是加入宏包就是了: <b>在上面的 xelatex-chinese 加入 extpfeil</b> 宏包，并且在cdlatex里加入类似的快速指令，比如 <code>ae, ar, al</code> 等(这个自己设置哈！)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">("ae" "" "\\stackrel{\\text{ ? }}{\\underset{\\text{  }}{\\xLeftrightarrow{\\hspace{3cm}}}} " cdlatex-position-cursor nil nil t)
+("al" "" "\\stackrel{\\text{ ? }}{\\underset{\\text{  }}{\\xLeftarrow{\\hspace{3cm}}}} " cdlatex-position-cursor nil nil t)
+("ar" "" "\\stackrel{\\text{ ? }}{\\underset{\\text{  }}{\\xRightarrow{\\hspace{3cm}}}} " cdlatex-position-cursor nil nil t)  
+</pre>
+</div>
+
+<p>
+于是一切就 OK 了
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd1f55cd" class="outline-3">
+<h3 id="orgd1f55cd"><span class="section-number-3">1.3.</span> 另类实现方法（千万别学！要渲染中文LaTeX片段请看上面！）</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+先设置一个 <b>xelatex-chinese</b> 的自定义设置
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; ========================================  
+;; 使用 xelatex 渲染 latex-fragment
+;; ========================================
+(add-to-list 'org-preview-latex-process-alist
+             '(xelatex-chinese
+               :programs ("xelatex" "convert")
+               :description "XeLaTeX with Chinese support dvi &gt; png"
+               :message "you need to install the programs: xelatex and divpng."
+               :image-input-type "pdf"
+               :image-output-type "png"
+               :image-size-adjust (1.7 . 1.5)
+               :latex-header "\\documentclass[11pt]{standalone}
+                                      \\usepackage{fontspec}
+                                      \\setmainfont{Source Han Sans CN}
+                                      \\setsansfont{Source Han Sans CN}
+                                      \\usepackage[usenames]{color}
+                                      \\usepackage{amsmath}
+                                      \\pagestyle{empty}"
+               :latex-compiler ("xelatex -interaction nonstopmode -output-directory %o %f")
+               :image-converter ("convert -density 90 -background '#FFFFFF' -flatten -quality 100 %f %O")))  
+</pre>
+</div>
+
+<p>
+再设置一个如果在LaTeX片段中遇到中文，就 <b>需要自己手动按下快捷键来执行函数</b> 的函数
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; =======================================
+;; 动态选择引擎来渲染
+;; =======================================
+(defun kivnn/format-org-latex-preview-with-utf8 ()
+  "渲染在org-mode下渲染含有utf-8字符的LaTeX片段之前的格式化准备"
+  (interactive)
+  ;; 找到左边界
+  (let ((thing (thing-at-point 'line t)))
+    (if (and thing (string-match (concat variable-latex-fragment-left-bound ".*" variable-latex-fragment-right-bound) thing))
+        (search-backward variable-latex-fragment-left-bound nil t)
+      (message "no such equation, please check again...")))
+  (forward-char 2)
+  (delete-all-space)
+  ;; 找到右边界
+  (let ((thing (thing-at-point 'line t)))
+    (if (and thing (string-match (concat variable-latex-fragment-left-bound ".*" variable-latex-fragment-right-bound) thing))
+        (search-forward variable-latex-fragment-right-bound nil t)
+      (message "no such equation, please check again...")))
+  (backward-char 3)
+  (delete-all-space))
+
+(defun kivnn/org-latex-preview-with-utf8 ()
+  "在org-mode下渲染含有utf-8字符的LaTeX片段"
+  (interactive)
+  (let* ((latex-code (thing-at-point 'line t))
+         (is-utf8 (and latex-code
+                       (string-match (concat variable-latex-fragment-left-bound ".*" variable-latex-fragment-right-bound) latex-code)
+                       (string-match-p "[^\x00-\x7F]" latex-code))))
+    (if is-utf8
+        ;; 如果包含 UTF-8 字符，就使用 xelatex-chinese 引擎
+        (progn
+          (setq org-preview-latex-default-process 'xelatex-chinese)
+          (message "目前使用了xelatex-chinese引擎渲染此LaTeX片段"))
+      ;; 如果不包含 UTF-8 字符，就使用 dvipng、dvisvgm、imagemagick 引擎
+      (setq org-preview-latex-default-process 'dvipng)                       
+      (message "目前使用了org-mode默认的dvipng、dvisvgm、imagemagick引擎渲染此LaTeX片段"))
+    (org-latex-preview)
+    ;; 每次执行完毕后都恢复为 dvipng、dvisvgm、imagemagick 引擎
+    (setq org-preview-latex-default-process 'dvipng)
+    (message "Creating Latex previews in section...(and recover dvipng...) done.")))
+
+(defun kivnn/render-latex-fragment-utf8 ()
+  "在org-mode下渲染含有utf-8字符的LaTeX片段的组合函数"
+  (interactive)
+  (kivnn/format-org-latex-preview-with-utf8)
+  (kivnn/org-latex-preview-with-utf8))  
+</pre>
+</div>
+
+<p>
+缺点（用到现在更换了以后我才明白，这有多不方便，这有多么恶心 ´_&gt;）
+</p>
+
+<ul class="org-ul">
+<li>必须自己手动一个一个按 \\( 光标必须放在此上下文范围里面，然后再按下快捷键执行 \\) 更换成最上面的实现后，我才发现这有多么不方便 (´_&gt;)</li>
+
+<li>必须自己实现 \\(删除左边界空格    删除右边界空格\\) 的函数，否则就会出现 <b>LaTeX片段自带空格</b> 的情况  (´_&gt;)</li>
+
+<li>如果因为什么事情，要重新渲染所有LaTeX片段的话，那么将光标放在一个一个的 \\( \\) 范围里面手动按快捷键，按得人都麻了。我以为以前这样就是最完美的，但是现在才知道以前有多么不方便呢  (´_&gt;)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2025-03-24 一 02:49</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
