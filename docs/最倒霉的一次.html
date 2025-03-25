@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-03-25 二 17:33 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org719a4cc">1. 最倒霉的一次</a>
+<ul>
+<li><a href="#org57a7d14">1.1. 事发原因</a></li>
+<li><a href="#org7522770">1.2. 事情经过</a>
+<ul>
+<li><a href="#org54a2a8d">1.2.1. 折腾 ctex 导致 LaTeX 本地环境全部爆炸(未知原因)</a></li>
+<li><a href="#org7105033">1.2.2. 深夜用着血丝遍布的眼睛，导致重装系统导致忘记了一步(我的原因)</a></li>
+<li><a href="#org2f55d21">1.2.3. 赖在电脑上3年都不肯走的赛博牛皮藓，最后同归于尽全部一键清空(另类发行版的原因)</a></li>
+<li><a href="#org29a6f28">1.2.4. 刚醒来甚至都没有刷牙就开干，导致差点变砖(我的原因)</a></li>
+</ul>
+</li>
+<li><a href="#org622defc">1.3. 个人教训</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org719a4cc" class="outline-2">
+<h2 id="org719a4cc"><span class="section-number-2">1.</span> 最倒霉的一次</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org57a7d14" class="outline-3">
+<h3 id="org57a7d14"><span class="section-number-3">1.1.</span> 事发原因</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+看到Emacs China上有坛友轻轻松松通过 ctex 宏包 <a href="https://emacs-china.org/t/emacs-org-mode-inline-latex/27450/11">成功案例</a>，而且还能成功完成 \( \begin{vmatrix} \textbf{xdv} \to \textbf{svg} \\ pdf \to svg  \end{vmatrix} \) 这样的在XeTeX上几乎不可能完成的操作。
+</p>
+
+<p>
+BYD 反正我自己前两天折腾了6个小时，嗯是不可能绕过 pdf，于是放弃了，损失点性能就损失点性能吧，于是使用了 pdf2svg 来进行 pdf to svg。
+</p>
+
+<p>
+不过倒是很羡慕他可以通过使用 ctex 宏包，渲染中文LaTeX片段 <code>(´_&gt;)</code>
+</p>
+
+<p>
+但 ctex.sty 的大名岂不是浪得虚名的，我对 ctex 宏包的最大印象就是
+</p>
+
+<pre class="example" id="org3d8c34b">
+ctex.sty was not found!
+</pre>
+
+<p>
+但是看到坛友轻轻松松就能使用 ctex 来分别渲染中文与西文，于是按耐不住心情，还是尝试去配置了 <code>(´_&gt;)</code>
+</p>
+
+<p>
+首先我必须声明一点的是，我是LaTeX萌新 <code>( &gt;﹏&lt;。)</code> 可能很多东西都没有那种使用了十几年的佬那么强
+</p>
+
+<p>
+然后因为在我个人的配置情况下，使用org-latex-preview，(在我个人的配置下)它是不支持 <code>\\usepackage{xeCJK}</code> 的
+</p>
+
+<p>
+org-latex-preview 它只支持 <code>\\usepackage{fontspec}</code> 只能设置 <code>\\setmainfont{}, \\setsansfont{}, \\setmonofont{}</code>
+</p>
+
+<p>
+(早知道我就不折腾了，弄了那么多最后还是回到原点，还弄得一身麻烦 <code>´_&gt;</code> )
+</p>
+
+<p>
+于是还是去折腾了 ctex，即往 org-preview-latex-process-alist 里面添加了 <code>:latex-header "......  \\usepackage{ctex}  ........"</code> 的设置
+</p>
+
+<p>
+然后就是理所当然的 <code>File /tmp/1145141919810.svg was not produced. Please adjust xxxxxxx</code> 的错误提示了。
+</p>
+
+<p>
+这当然啊，因为
+</p>
+
+<pre class="example" id="org0c04a6a">
+ctex.sty was not found!
+</pre>
+
+<p>
+然后我想那还是回归到 ctex 的问题上，于是接下来就惹到了一身麻烦了。
+</p>
+</div>
+</div>
+<div id="outline-container-org7522770" class="outline-3">
+<h3 id="org7522770"><span class="section-number-3">1.2.</span> 事情经过</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org54a2a8d" class="outline-4">
+<h4 id="org54a2a8d"><span class="section-number-4">1.2.1.</span> 折腾 ctex 导致 LaTeX 本地环境全部爆炸(未知原因)</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+然后理所当然的就是 <code>tlmgr install ctex</code> 对吧？这是 TeXLive 的安装宏包的方式没错吧？
+</p>
+
+<p>
+然后得到的回应就是 <b>ctex.sty is already exist!</b> 然后不让我重新安装。
+</p>
+
+<p>
+然后我就千方百计地找到了 <b>搜索ctex的命令: tlmgr search &#x2013;global</b> 啥啥啥的
+</p>
+
+<p>
+然后它告诉我说在 <code>/usr/share/texmf-dist/什么public/什么fonts/</code> 下面
+</p>
+
+<p>
+然后我就去那寻找，并且 <code>ls ctex/ctex.sty</code> 得到的消息居然是 <b>ls: 无法访问 'ctex/ctex.sty': 没有那个文件或目录</b> (我当时看到这里都气笑了😁)
+</p>
+
+<p>
+然后我就让 tlmgr 强制安装: <code>tlmgr install ctex --reinstall</code>
+</p>
+
+<p>
+<b>结果您猜怎么着？BYD它给我报了满屏幕的Perl错误</b>
+</p>
+
+<pre class="example" id="orgb35e7b3">
+首先，我在思考，这个包不是您们在维护的吗？怎么到头来居然是我刚安装不到2个星期的ArchLinux有问题呢？~¯\_(ツ)_/¯~
+</pre>
+
+<p>
+<b>而且还不止，在它终于结束了 <code>tlmgr install ctex --reinstall</code> 后，它提示说 *什么什么An error occured</b> 的
+</p>
+
+<p>
+<b>然后我这个时候，才发现我的LaTeX本地环境全！部！都！爆！炸！了！</b>
+</p>
+
+<p>
+<b>并且我还检查了 <code>/usr/share/texmf-dist/什么public/什么fonts/</code> 下，只有 ctex 文件夹，没有 ctex.sty！</b>
+</p>
+
+<p>
+<b>最后我还重装了次新的 TexLive <code>sudo pacman -S texlive</code> 结果您猜怎么着？它在安装钩子运行时有几个钩子执行不了，说是什么什么错误</b>
+</p>
+
+<p>
+所以这下完了，org-latex-preview 彻底不能用了
+</p>
+
+<p>
+甚至连西文比如 \\( f(x) = 11451 \\) 的片段都是 <code>File /tmp/1145141919810.svg was not produced. Please adjust xxxxxxx</code> 了
+</p>
+
+<p>
+这下我才知道我当时的处境是什么: <b>不管我再怎么发癫，也不可能把系统还原到折腾 ctex.sty 之前的情况了</b>
+</p>
+</div>
+</div>
+<div id="outline-container-org7105033" class="outline-4">
+<h4 id="org7105033"><span class="section-number-4">1.2.2.</span> 深夜用着血丝遍布的眼睛，导致重装系统导致忘记了一步(我的原因)</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+于是我火速 <code>rufus</code> 了3月镜像，并靠着龟速的小水管手机热点
+</p>
+
+<p>
+终于是在凌晨2点多时 <b>顶着笔记本caps、tab、~、esc键的全部失灵的压力</b> 嗯是完成了新的系统的安装。
+</p>
+
+<p>
+<b>小提示: 虽然tab键坏了bash补不了全是没错，但我们还有 C-i 呀！👍</b>
+</p>
+
+<p>
+真鸡2累，我自己因为 ctex.sty 我已经把我本该是玩游戏的时间、本该是用来休息的时间、本该是用来娱乐的时间，全部浪费在这些无用的地方上了
+</p>
+
+<p>
+然而这个时候我发现了一个严重的问题，因为我实在是太累了，我忘记了重新设置 <code>LANG=zh_CN.UTF-8</code>
+</p>
+
+<p>
+这就导致了几乎所有的应用认定了必须使用英文路径比如 <code>/home/user/Desktop</code> 而不是 <code>/home/user/桌面</code>
+</p>
+
+<p>
+这就导致了非常严重的问题，我的emacs配置文件里有些变量是写死的，如果我硬是要改的话，请问我得改到多久？
+</p>
+
+<p>
+而且就算 emacs 可以改，那请问别的应用呢？可以改吗？答案是: 都不可以改
+</p>
+
+<p>
+比如 firefox 在那样的条件下，是一定认死了是 <code>/home/user/Downloads</code> 而不是 <code>/home/user/下载</code>
+</p>
+
+<p>
+即使自己mv了，即使自己重新设置了浏览器选项，仍然是 <code>/home/user/Downloads</code> 而不是 <code>/home/user/下载</code>
+</p>
+
+<p>
+这时我就头皮发麻了，那这么说来，还是要重新设置 <code>LANG=zh_CN.UTF-8</code>
+</p>
+</div>
+</div>
+<div id="outline-container-org2f55d21" class="outline-4">
+<h4 id="org2f55d21"><span class="section-number-4">1.2.3.</span> 赖在电脑上3年都不肯走的赛博牛皮藓，最后同归于尽全部一键清空(另类发行版的原因)</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+然后我必须要重装系统了，于是回到 Windows 10 的磁盘分区那里，默默删除深夜刚安装的系统
+</p>
+
+<p>
+然后我自己回到 bios/uefi 那里，忽然看到了一张名为 “closeSuSE” 赛博牛皮藓(nickname)，因为过去发生的一些社区事情，导致现在的我自己看它非常不爽
+</p>
+
+<p>
+于是先尝试了 Windows 10 的 bcdedit 工具，没用
+</p>
+
+<p>
+然后再尝试了 bios/uefi 的原厂提供的删除引导文件功能，也没用
+</p>
+
+<p>
+BYD我就怒了😡，于是立即 <code>Windows Media Tools</code> 启动
+</p>
+
+<p>
+而且在等待U盘介质文件的安装过程中，我自己也看着那些3年前笔记本的文件，不由得感慨: <b>过去的我怎么会这么愚蠢呀！🌿</b>
+</p>
+
+<p>
+于是 <b>算是需要清理赛博牛皮藓的需要吧，也算是对自己过去过于愚蠢的正式告别吧</b>
+</p>
+
+<p>
+于是就在 Windows 10 磁盘分区下，点着一个一个分区的删除后，这下终于将自己先前过于愚蠢的一切都可以说是全部灰飞烟灭了。😊
+</p>
+
+<p>
+包括那种看着非常不爽的赛博牛皮藓，包括自己过去3年过于愚蠢留下的痕迹。
+</p>
+
+<p>
+然后这个时候已经凌晨3点多了，我就先睡觉了。
+</p>
+</div>
+</div>
+<div id="outline-container-org29a6f28" class="outline-4">
+<h4 id="org29a6f28"><span class="section-number-4">1.2.4.</span> 刚醒来甚至都没有刷牙就开干，导致差点变砖(我的原因)</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+我愿称，今天为个人大脑的进行了超量级并发的一天。
+</p>
+
+<p>
+于是只睡了5个多小时我就立即起来，甚至牙都没有刷，眼睛都是迷糊的~(´_&gt;)~ 然后开始弄
+</p>
+
+<p>
+然后因为眼睛迷迷糊糊的，忘记了挺重要的一步 <code>grub-mkconfig -o /boot/grub/grub.cfg</code>
+</p>
+
+<p>
+导致进入系统后，直接进入了 <b>grub</b> 模式。
+</p>
+
+<p>
+然后当时看到这个画面时，我心里的各种紧张不安感慢慢涌起来。
+</p>
+
+<p>
+然后在尝试了几个命令后，我忽然意识到，这下情况怎么这么像 <b>那张赛博牛皮藓导致的同款grub问题？</b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">那次赛博牛皮藓导致的同款grub问题，是进入了 grub resure
+
+而不是上面的grub，只是都是进入了grub界面而已，所以这次的非常好解决，但那次也就是下面所说的这次非常难以解决
+
+我记得，当时我自己是因为什么问题，需要重装那张赛博牛皮藓对应的发行版，然后就去Windows磁盘分区那里删除了所在磁盘
+
+但我忘记了重要的一点是: 我忘记了在 bios/uefi 里调整引导文件的加载顺序
+
+于是，当时重装那张赛博牛皮藓对应的发行版，就排在了加载的第一位。
+
+所以我那次在重启电脑后，跳过了 bios/uefi，直接就进入了grub resure救援模式。
+
+在 [电源键按下，到出现grub resure界面] 的过程中
+
+我无法按下任何键进入 bios/uefi！我无法通过 U 盘安装新系统！我无法通过 WinPE或LiveCD 修复！
+
+这就是最恐怖的地方！！它貌似就是必须跟你说：“你必须先给我找到你的赛博牛皮藓对应的发行版系统，你才能过去，否则，一切免谈！！！！！！！！！！！”
+
+然后我折腾了很久很久，当时2023年7月左右最后的解决方法是
+
++ 使用另一台设备，将赛博牛皮藓对应的发行版系统安装到U盘上
+
++ 并等待漫长的安装过程，约3小时左右，最主要还是那赛博牛皮藓并发下载与网速非常慢非常弱导致的
+
++ 在出现问题的电脑上，先插入u盘，然后电源键启动
+
+然后我才能成功进入到那张赛博牛皮藓对应的发行版系统！
+
+然后我检查了一下，我的 Windows 10 系统还在不在，答案是: 在的，而且完完整整好好的。
+
+于是我立即调整引导文件加载顺序，这件事才过去。
+
+这件事足足折腾了我连续20多个小时，我那次又通宵了。
+</pre>
+</div>
+
+<p>
+话说回来，然后到现在的 <b>进入了grub</b> 而不是进入了grub resure 这里。
+</p>
+
+<p>
+我突发奇想，输入了 exit，结果就直接进入了 Windows 10 系统。
+</p>
+
+<p>
+“啊原来是这样啊，那看来没事了。” 看到输入命令后进入了 Windows 10 系统的我，舒了一口长气。
+</p>
+
+<p>
+然后就是重新安装，重新认认真真、完完整整地走了一遍。
+</p>
+
+<p>
+最后是折腾到今天下午4点左右，终于是全部都弄回来了。
+</p>
+
+<p>
+【想到这里，我平时最喜欢吃的 <b>滑蛋牛肉饭、焖五花肉、烧鸡翅</b> 都因为这个原因，导致没时间做呢 ~( &gt;﹏&lt;。)~】
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org622defc" class="outline-3">
+<h3 id="org622defc"><span class="section-number-3">1.3.</span> 个人教训</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+从此我再也不敢再弄 <code>ctex.sty</code> 了 <code>(´_&gt;)</code>
+</p>
+
+<p>
+现在我自己最终还是回到了原点 <code>\\usepackage{fontspec} 的 \\setmainfont{}, \\setsansfont{}, \\setmonofont{}</code> 
+</p>
+
+<p>
+现在我看着这些一切都运行得很好的程序，真的产生了一种：被外面的狂风暴雨击打得踉踉跄跄地回到家，洗了一次彻底的热水澡，然后窝在温暖的小窝喝着热水吃着东西，那样在慢慢恢复的感觉。~(´_&gt;)~
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2025-03-25 二 17:33</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
