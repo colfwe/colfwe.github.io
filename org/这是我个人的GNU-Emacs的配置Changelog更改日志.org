@@ -1,5 +1,45 @@
 * 这是我个人的GNU Emacs的配置Changelog更改日志
 
+** 所有el包
+
+如果有什么遗漏的地方的话，以后再补充..... ~_(:3」∠)_~
+
+| 序号 | el包                    | el包解释                              |
+|------+-------------------------+---------------------------------------|
+|    1 | auctex                  | 写 LaTeX 的                           |
+|    2 | bliss-theme             | 暗色主题                               |
+|    3 | cdlatex                 | 快速补全数学符号                        |
+|    4 | centaur-tabs            | 很美观的标签页                          |
+|    5 | corfu                   | 补全前端                               |
+|    6 | dashboard               | 启动板                                |
+|    7 | deadgrep                | 抓文本工具                             |
+|    8 | denote                  | 本地文件版双链笔记                      |
+|    9 | dirvish                 | 文件管理器                             |
+|   10 | eat                     | 集成终端模拟器                          |
+|   11 | embark-consult          | embark查阅                            |
+|   12 | emms                    | 音乐播放器                             |
+|   13 | highlight-indent-guides | 缩进线                                |
+|   14 | magit                   | 最好的版本控制工具                      |
+|   15 | marginalia              | 显示函数描述信息                        |
+|   16 | nano-theme              | 亮色主题                               |
+|   17 | nerd-icons-completion   | 给minibuffer使用的nf图标               |
+|   18 | nerd-icons-corfu        | 给corfu使用的nf图标                    |
+|   19 | nerd-icons-dired        | 给dired使用的nf图标                    |
+|   20 | nerd-icons-ibuffer      | 给ibuffer使用的nf图标                  |
+|   21 | orderless               | 配合vertico使用的无序搜索               |
+|   22 | org-download            | 从剪贴板粘贴图片                        |
+|   23 | org-preview-html        | 边写边HMR预览org文件                    |
+|   24 | pdf-tools               | 看pdf文档                             |
+|   25 | rainbow-identifiers     | telega的依赖                          |
+|   26 | restart-emacs           | 重启emacs                             |
+|   27 | smartparens             | 括号匹配                               |
+|   28 | telega                  | IM聊天工具                             |
+|   29 | tree-sitter-langs       | 树坐者                                |
+|   30 | valign                  | 给org-table表格使用的虚拟对齐           |
+|   31 | vertico-posframe        | 使用posframe给vertico提供childframe显示 |
+|   32 | yasnippet-snippets      | 补全snippets                          |
+
+
 ** 2025年(今年)
 
 - 20250325
@@ -7,6 +47,8 @@
   + 去除了 cmake-mode.el 因为用不上，或者使用次数非常有限
 
   + 认认真真使用 fontspec 包，以后再！也！不！会！折！腾！ctex 宏包！
+
+  + 给 org-mode 缝了个很好效率的函数，使得可以在 org-mode 下，渲染含有中文utf-8的LaTeX片段
 
 
 - 20250324
