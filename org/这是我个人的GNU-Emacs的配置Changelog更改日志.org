@@ -4,40 +4,52 @@
 
 如果有什么遗漏的地方的话，以后再补充..... ~_(:3」∠)_~
 
-| 序号 | el包                    | el包解释                              |
-|------+-------------------------+---------------------------------------|
-|    1 | auctex                  | 写 LaTeX 的                           |
-|    2 | bliss-theme             | 暗色主题                               |
-|    3 | cdlatex                 | 快速补全数学符号                        |
-|    4 | centaur-tabs            | 很美观的标签页                          |
-|    5 | corfu                   | 补全前端                               |
-|    6 | dashboard               | 启动板                                |
-|    7 | deadgrep                | 抓文本工具                             |
-|    8 | denote                  | 本地文件版双链笔记                      |
-|    9 | dirvish                 | 文件管理器                             |
-|   10 | eat                     | 集成终端模拟器                          |
-|   11 | embark-consult          | embark查阅                            |
-|   12 | emms                    | 音乐播放器                             |
-|   13 | highlight-indent-guides | 缩进线                                |
-|   14 | magit                   | 最好的版本控制工具                      |
-|   15 | marginalia              | 显示函数描述信息                        |
-|   16 | nano-theme              | 亮色主题                               |
-|   17 | nerd-icons-completion   | 给minibuffer使用的nf图标               |
-|   18 | nerd-icons-corfu        | 给corfu使用的nf图标                    |
-|   19 | nerd-icons-dired        | 给dired使用的nf图标                    |
-|   20 | nerd-icons-ibuffer      | 给ibuffer使用的nf图标                  |
-|   21 | orderless               | 配合vertico使用的无序搜索               |
-|   22 | org-download            | 从剪贴板粘贴图片                        |
-|   23 | org-preview-html        | 边写边HMR预览org文件                    |
-|   24 | pdf-tools               | 看pdf文档                             |
-|   25 | rainbow-identifiers     | telega的依赖                          |
-|   26 | restart-emacs           | 重启emacs                             |
-|   27 | smartparens             | 括号匹配                               |
-|   28 | telega                  | IM聊天工具                             |
-|   29 | tree-sitter-langs       | 树坐者                                |
-|   30 | valign                  | 给org-table表格使用的虚拟对齐           |
-|   31 | vertico-posframe        | 使用posframe给vertico提供childframe显示 |
-|   32 | yasnippet-snippets      | 补全snippets                          |
+
+| 序号 | 配置文件的el包           | 配置文件的el包解释      |
+|------+-------------------------+-----------------------|
+|    1 | emms                    | 音乐播放器             |
+|    2 | nano-theme              | 亮色主题               |
+|    3 | bliss-theme             | 暗色主题               |
+|    4 | nerd-icons              | nf图标                |
+|    5 | nerd-icons-corfu        | 给corfu用的图标        |
+|    6 | nerd-icons-dired        | 给dired用的图标        |
+|    7 | nerd-icons-ibuffer      | 给ibuffer用的图标      |
+|    8 | nerd-icons-completion   | 给minibuffer用的图标   |
+|    9 | dashboard               | 启动页                |
+|   10 | denote                  | 本地文件版双链笔记      |
+|   11 | org                     | org-mode本体          |
+|   12 | valign                  | 给org-table用的虚拟对齐 |
+|   13 | org-download            | 从剪贴板粘贴图片        |
+|   14 | org-preview-html        | 边写边HMR预览org文件    |
+|   15 | auctex                  | 写LaTeX用的           |
+|   16 | highlight-indent-guides | 缩进线                |
+|   17 | centaur-tabs            | tab标签页             |
+|   18 | eat                     | 集成终端模拟器          |
+|   19 | pdf-tools               | 看pdf文档             |
+|   20 | magit                   | 最好用的版本控制工具    |
+|   21 | dirvish                 | 文件管理器             |
+|   22 | cdlatex                 | 快速补全数学符号        |
+|   23 | smartparens             | 括号匹配               |
+|   24 | vertico                 | 轻量级ivy或helm        |
+|   25 | orderless               | 无序搜索               |
+|   26 | marginalia              | 展示函数的描述信息      |
+|   27 | embark                  | embark                |
+|   28 | embark-consult          | embark查阅            |
+|   29 | consult                 | 查阅                  |
+|   30 | posframe                | 弹出框的依赖           |
+|   31 | vertico-posframe        | vertico的弹出框        |
+|   32 | restart-emacs           | 重启emacs             |
+|   33 | savehist                | 光标保存               |
+|   34 | saveplace               | 光标保存               |
+|   35 | telega                  | IM聊天工具             |
+|   36 | visual-fill-column      | 给telega用的依赖       |
+|   37 | rainbow-identifiers     | 给telega用的依赖       |
+|   38 | yasnippet               | snippet本体           |
+|   39 | yasnippet-snippets      | snippet自定义片段      |
+|   40 | corfu                   | 补全前端               |
+|   41 | eglot                   | 语言服务器客户端        |
+|   42 | tree-sitter             | 树坐者本体             |
+|   43 | tree-sitter-langs       | 树坐者支持更多的语言    |
 
 
 ** 2025年(今年)

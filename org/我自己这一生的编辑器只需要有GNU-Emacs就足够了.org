@@ -22,6 +22,7 @@ logo图片暂不提供，请见谅。
 
 另外，您也可以到 [[https://www.gnu.org/graphics/graphics.html][请支持GNU/FSF喵]] 下载您所需要的 *矢量图* 
 
+#+attr_html: :width 720px  
 [[file:../res/预览效果.png]]
 
 (亮色主题background底色: ~#FFFFFF~) (暗色主题background底色: ~#191919~)
@@ -30,22 +31,27 @@ logo图片暂不提供，请见谅。
 
 - 在 org-mode 下，可以使用 自定义的xetex引擎 来渲染含有 utf8 的 LaTeX-fragment 片段
   
+  #+attr_html: :width 720px  
   [[file:../res/亮点内容1.png]]  
 
 - 丰富的 modeline 状态栏信息显示(通过 mode-line-format 控制)
 
+  #+attr_html: :width 720px    
   [[file:../res/亮点内容2.png]]  
 
 - 不需要任何方向键 ↑↓←→ 并使用 C-z 作为前缀风格的组合快捷键
-  
+
+  #+attr_html: :width 720px      
   [[file:../res/亮点内容3.png]]  
 
 - 自定义了 org-download-clipboard 从而能使用快捷键完成图片的保存、重命名、删除
 
+  #+attr_html: :width 720px    
   [[file:../res/亮点内容4.png]]  
 
 - 自定义的状态仪表盘
- 
+
+  #+attr_html: :width 720px     
   [[file:../res/亮点内容5.png]]  
   
 ** 安装方法
