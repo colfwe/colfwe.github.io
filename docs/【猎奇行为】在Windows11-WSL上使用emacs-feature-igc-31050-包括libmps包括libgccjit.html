@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-02 Fri 20:15 -->
+<!-- 2025-05-02 Fri 20:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,23 +200,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org61da71e">1. 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</a>
+<li><a href="#org3587feb">1. 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</a>
 <ul>
-<li><a href="#orgd0cd14d">1.1. 无图言雕是吧</a></li>
-<li><a href="#org17ba581">1.2. 原因</a></li>
-<li><a href="#org927f44b">1.3. 方案</a>
+<li><a href="#orgbe14060">1.1. 无图言雕是吧</a></li>
+<li><a href="#org24d5cac">1.2. 原因</a></li>
+<li><a href="#orge5debd3">1.3. 方案</a>
 <ul>
-<li><a href="#org953f364">1.3.1. 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</a></li>
-<li><a href="#org24f8691">1.3.2. 方案2 - MSYS2(Win10用户的选择)</a></li>
-<li><a href="#org8887889">1.3.3. 方案2 - WSL + X Server(Win10用户的选择)</a></li>
-<li><a href="#org18342e0">1.3.4. 方案3 - GNU FTP main Server</a></li>
+<li><a href="#orgf3b37c2">1.3.1. 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</a></li>
+<li><a href="#org83fa5d0">1.3.2. 方案2 - MSYS2(Win10用户的选择)</a></li>
+<li><a href="#org031adfb">1.3.3. 方案2 - WSL + X Server(Win10用户的选择)</a></li>
+<li><a href="#orgfb95a15">1.3.4. 方案3 - GNU FTP main Server</a></li>
 </ul>
 </li>
-<li><a href="#org94cafef">1.4. 转发fc教授的一句话</a></li>
-<li><a href="#orgd8bf5d8">1.5. 个人暴论时刻</a>
+<li><a href="#orgde39881">1.4. 转发fc教授的一句话</a></li>
+<li><a href="#org55c1824">1.5. 个人暴论时刻</a>
 <ul>
-<li><a href="#orgc3d3e85">1.5.1. 【个人暴论】WSL+WSLg只适合GUI应用，不太适合TUI应用</a></li>
-<li><a href="#org10fa90a">1.5.2. 【个人暴论】你说我什么时候会回到linux啊？</a></li>
+<li><a href="#orga77128b">1.5.1. 【个人暴论】WSL+WSLg只适合GUI应用，不太适合TUI应用</a></li>
+<li><a href="#orgdca9da0">1.5.2. 【个人暴论】你说我什么时候会回到linux啊？</a></li>
 </ul>
 </li>
 </ul>
@@ -224,40 +224,40 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org61da71e" class="outline-2">
-<h2 id="org61da71e"><span class="section-number-2">1.</span> 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</h2>
+<div id="outline-container-org3587feb" class="outline-2">
+<h2 id="org3587feb"><span class="section-number-2">1.</span> 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgd0cd14d" class="outline-3">
-<h3 id="orgd0cd14d"><span class="section-number-3">1.1.</span> 无图言雕是吧</h3>
+<div id="outline-container-orgbe14060" class="outline-3">
+<h3 id="orgbe14060"><span class="section-number-3">1.1.</span> 无图言雕是吧</h3>
 <div class="outline-text-3" id="text-1-1">
 
-<div id="orgeedb3f7" class="figure">
+<div id="orge4e7897" class="figure">
 <p><img src="../res/无图言雕是吧1.png" alt="无图言雕是吧1.png" width="720px" />
 </p>
 </div>
 
 
-<div id="org02da7e1" class="figure">
+<div id="org8122aa8" class="figure">
 <p><img src="../res/无图言雕是吧2.png" alt="无图言雕是吧2.png" width="720px" />
 </p>
 </div>
 
 
-<div id="orgad2839e" class="figure">
+<div id="orgf9a25b2" class="figure">
 <p><img src="../res/无图言雕是吧3.png" alt="无图言雕是吧3.png" width="720px" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org17ba581" class="outline-3">
-<h3 id="org17ba581"><span class="section-number-3">1.2.</span> 原因</h3>
+<div id="outline-container-org24d5cac" class="outline-3">
+<h3 id="org24d5cac"><span class="section-number-3">1.2.</span> 原因</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 为什么要这么猎奇，非得要在Windows11上运行emacs-feature-igc？
 </p>
 
-<pre class="example" id="org68be28f">
+<pre class="example" id="org29c1fe2">
 [简单来说]
 + 破烂笔记本，不值得折腾
 + 为了Emacs而使用Linux
@@ -327,8 +327,8 @@
 </pre>
 </div>
 </div>
-<div id="outline-container-org927f44b" class="outline-3">
-<h3 id="org927f44b"><span class="section-number-3">1.3.</span> 方案</h3>
+<div id="outline-container-orge5debd3" class="outline-3">
+<h3 id="orge5debd3"><span class="section-number-3">1.3.</span> 方案</h3>
 <div class="outline-text-3" id="text-1-3">
 <blockquote>
 <p>
@@ -390,8 +390,8 @@
 </tbody>
 </table>
 </div>
-<div id="outline-container-org953f364" class="outline-4">
-<h4 id="org953f364"><span class="section-number-4">1.3.1.</span> 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</h4>
+<div id="outline-container-orgf3b37c2" class="outline-4">
+<h4 id="orgf3b37c2"><span class="section-number-4">1.3.1.</span> 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 要做比较多的前提知识的准备，但是如果您是Emacs老登的话，那相信这些对您来说不过就是小儿科哈！ <code>&lt;(￣︶￣)↗[GO!]</code>
@@ -427,7 +427,7 @@ checking for mps.h... yes
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgc656078"></a>wsl安装archlinux<br />
+<li><a id="org55d5a3d"></a>wsl安装archlinux<br />
 <div class="outline-text-5" id="text-1-3-1-1">
 <div class="org-src-container">
 <pre class="src src-sh"># powershell管理员身份打开，输入完 "wsl" 加上 "--install"，然后重启
@@ -450,7 +450,7 @@ wsl --install -d archlinux
 </div>
 </div>
 </li>
-<li><a id="org9cf0893"></a>wsl配置archlinux<br />
+<li><a id="org5e32937"></a>wsl配置archlinux<br />
 <div class="outline-text-5" id="text-1-3-1-2">
 <div class="org-src-container">
 <pre class="src src-sh"># 设置本地语言
@@ -499,7 +499,7 @@ weston --backend=headless-backend.so &amp;
 </div>
 </div>
 </li>
-<li><a id="orgaec18ca"></a>wsl编译emacs-feature-igc<br />
+<li><a id="orgc6516d8"></a>wsl编译emacs-feature-igc<br />
 <div class="outline-text-5" id="text-1-3-1-3">
 <p>
 在编译之前，需要安装一些依赖，依赖管理让wsl-archlinux来操作就行，这里属于是“命中关键词”来安装。
@@ -685,9 +685,13 @@ IGC_OBJ_CONS                           2618570        62845680         24       
 </li>
 </ol>
 </div>
-<div id="outline-container-org24f8691" class="outline-4">
-<h4 id="org24f8691"><span class="section-number-4">1.3.2.</span> 方案2 - MSYS2(Win10用户的选择)</h4>
+<div id="outline-container-org83fa5d0" class="outline-4">
+<h4 id="org83fa5d0"><span class="section-number-4">1.3.2.</span> 方案2 - MSYS2(Win10用户的选择)</h4>
 <div class="outline-text-4" id="text-1-3-2">
+<p>
+其实这个方案的灵感，来自于 <a href="https://emacs-china.org/t/windows-dev-drive-emacs/29362">在 Windows 的开发人员驱动器 (Dev Drive) 中安装 Emacs「続」</a>这里，下面是我个人的尝试。
+</p>
+
 <p>
 这里下载 <a href="https://www.msys2.org/">msys2.org</a> 软软的msys2，然后相比与WSL来说 <b>MSYS2更多偏向 Windows完全操纵Linux</b> 然而 <b>WSL更多偏向Linux操纵Windows</b>
 </p>
@@ -735,8 +739,8 @@ pacman -S mingw-w64-ucrt-x86_64-gcc
 </p>
 </div>
 </div>
-<div id="outline-container-org8887889" class="outline-4">
-<h4 id="org8887889"><span class="section-number-4">1.3.3.</span> 方案2 - WSL + X Server(Win10用户的选择)</h4>
+<div id="outline-container-org031adfb" class="outline-4">
+<h4 id="org031adfb"><span class="section-number-4">1.3.3.</span> 方案2 - WSL + X Server(Win10用户的选择)</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平，一些性能不够WSLg那样直接，不过更重点的地方，在于如果X Server第三方应用出现了点什么bug，就不太好甩锅。
@@ -747,8 +751,8 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 </p>
 </div>
 </div>
-<div id="outline-container-org18342e0" class="outline-4">
-<h4 id="org18342e0"><span class="section-number-4">1.3.4.</span> 方案3 - GNU FTP main Server</h4>
+<div id="outline-container-orgfb95a15" class="outline-4">
+<h4 id="orgfb95a15"><span class="section-number-4">1.3.4.</span> 方案3 - GNU FTP main Server</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 可以到 <a href="https://ftp.gnu.org/gnu/emacs/windows/">https://ftp.gnu.org/gnu/emacs/windows/</a> 这里下载（请支持 GNU/FSF 喵）
@@ -780,10 +784,10 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 </div>
 </div>
 </div>
-<div id="outline-container-org94cafef" class="outline-3">
-<h3 id="org94cafef"><span class="section-number-3">1.4.</span> 转发fc教授的一句话</h3>
+<div id="outline-container-orgde39881" class="outline-3">
+<h3 id="orgde39881"><span class="section-number-3">1.4.</span> 转发fc教授的一句话</h3>
 <div class="outline-text-3" id="text-1-4">
-<pre class="example" id="org6000a10">
+<pre class="example" id="orgcd8686b">
 回到wsl，我觉得有两种可能:
   
 1. 微软内部员工也厌倦了 Windows 作为开发平台不好用的事实，同时微软的合作伙伴们也希望微软平台能有兼容 Linux 用户空间程序的方案。来自 macos 抢占开发者平台市场估有率的压力也很大，以及 Windows Mobile 计划失败之后对 wsa 的需求，所以微软需要 wsl。
@@ -792,18 +796,18 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd8bf5d8" class="outline-3">
-<h3 id="orgd8bf5d8"><span class="section-number-3">1.5.</span> 个人暴论时刻</h3>
+<div id="outline-container-org55c1824" class="outline-3">
+<h3 id="org55c1824"><span class="section-number-3">1.5.</span> 个人暴论时刻</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-orgc3d3e85" class="outline-4">
-<h4 id="orgc3d3e85"><span class="section-number-4">1.5.1.</span> 【个人暴论】WSL+WSLg只适合GUI应用，不太适合TUI应用</h4>
+<div id="outline-container-orga77128b" class="outline-4">
+<h4 id="orga77128b"><span class="section-number-4">1.5.1.</span> 【个人暴论】WSL+WSLg只适合GUI应用，不太适合TUI应用</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
 因为在我个人的操作过程中，我在一个 git 仓库下，执行 <code>git log</code> 会出现这样的 <b>错误提示</b>
 </p>
 
-<pre class="example" id="orga85f199">
+<pre class="example" id="org992496d">
 error: cannot run less: No such file or directory
 fatal: unable to execute pager 'less'
 </pre>
@@ -812,13 +816,13 @@ fatal: unable to execute pager 'less'
 然而，如果我使用 magit 的话，一切正常，而且正常无比。速度响应之快完全就像在 Linux 环境下运行一样，完全就不是在 Windows 下运行的
 </p>
 
-<pre class="example" id="orgb19e7d9">
+<pre class="example" id="orgc284ff4">
 暴论：怀疑软软内部也有用Emacs的自己人，不然不可能怎么就在【默认情况的WSL】下只有magit能用，然而git不能用的 ~∑(￣口￣||~  要么就只有是magit提前预料到开发好了 ~(～￣▽￣)～~ 
 </pre>
 </div>
 </div>
-<div id="outline-container-org10fa90a" class="outline-4">
-<h4 id="org10fa90a"><span class="section-number-4">1.5.2.</span> 【个人暴论】你说我什么时候会回到linux啊？</h4>
+<div id="outline-container-orgdca9da0" class="outline-4">
+<h4 id="orgdca9da0"><span class="section-number-4">1.5.2.</span> 【个人暴论】你说我什么时候会回到linux啊？</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
 可能等我什么时候有钱买台高配笔记本，且不心疼钱财的时候，那个时候可能会回归，不过现在来看，那恐怕是一段很漫长的时间了，因为现在这个更好用，玩玩Emacs的同时还能打游戏 <code>&lt;(￣︶￣)&gt;</code>
@@ -830,7 +834,7 @@ fatal: unable to execute pager 'less'
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: kle</p>
-<p class="date">Created: 2025-05-02 Fri 20:15</p>
+<p class="date">Created: 2025-05-02 Fri 20:30</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

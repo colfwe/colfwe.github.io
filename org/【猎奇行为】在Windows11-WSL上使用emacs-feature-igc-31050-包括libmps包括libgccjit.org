@@ -261,6 +261,8 @@ CFLAGS="-fmax-errors=1000" ./configure --sysconfdir=/etc --prefix=/usr --libexec
 
 *** 方案2 - MSYS2(Win10用户的选择)
 
+其实这个方案的灵感，来自于 [[https://emacs-china.org/t/windows-dev-drive-emacs/29362][在 Windows 的开发人员驱动器 (Dev Drive) 中安装 Emacs「続」]]这里，下面是我个人的尝试。
+
 这里下载 [[https://www.msys2.org/][msys2.org]] 软软的msys2，然后相比与WSL来说 *MSYS2更多偏向 Windows完全操纵Linux* 然而 *WSL更多偏向Linux操纵Windows*
 
 所以对于Windows的Win10用户，在使用emacs-feature-igc上，还是推荐升级Win11来使用 ~<(￣︶￣)>~
