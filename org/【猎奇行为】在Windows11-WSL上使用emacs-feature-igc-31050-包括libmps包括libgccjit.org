@@ -24,6 +24,7 @@
 + 心累了
 
 [详细来说]
+
 + 破烂笔记本，不值得折腾
 
   因为我自己的笔记本过于垃圾，即使我买来一些外设来弥补相差的体验，但它那台破烂笔记本仍然就是那个破烂样。
@@ -42,7 +43,7 @@
 
   电池寿命只有38%且容量只有2340mA的笔记本，长达一年的Emacs使用时间吗？
 
-  我甚至因为tab键坏了，至今都还保持者在bash里面 ~C-i~ 来补全的行为
+  我甚至因为tab键坏了，至今都还保持着在bash里面 C-i 来补全的行为
 
   我甚至因为那两个usb 2.0接口经常松动，导致我如果要插u盘进去都是要看运气的，甚至今天2025年5月2日才发现，原来过去我保存到u盘里的文件
 
@@ -72,7 +73,7 @@
   
 + 打游戏同时心累了
  
-  再加上我实在不想，每几天打开那台屏幕垃圾得很的笔记本，然后每隔几天就要pacman -Syu一下
+  再加上我实在不想，每几天打开那台屏幕垃圾得很的笔记本，原因只是我不想看到这垃圾笔记本，然后每隔几天就要pacman -Syu一下
 
   我实在是不想滚了，我本来想找到一个不可变的arch的或类似的，但除了manjaro那个即将释出的，就实在找不到了。
 
@@ -174,6 +175,8 @@ checking for mps.h... yes
 
 
 
+  
+
   # 使用WSLg，从而使得让Linux的GUI应用，可以rdp到Windows界面上
   # 他WSLg说的默认支持，是因为他是默认支持在ubuntu上，你看他WSLg的宣传界面都是ubuntu的皇冠界面，可我这是archlinux啊，所以就需要一些设置
   # 我也是询问AI后，几乎绝望之后才知道的
@@ -183,8 +186,35 @@ checking for mps.h... yes
   pacman -S xdg-desktop-portal-wlr pipewire wireplumber weston dbus
   # 运行，目的其实是Wayland协议跑XWayland应用。
   weston --backend=headless-backend.so &
-
   # 然后运行这一次就可以了
+  # 奇怪了，我明明昨天必须要这么输入才可以进行下去的，今天输入了后就说 could not load dnd-move/dnd-copy 什么的，然后不用管这个直接运行WSLg就可以了
+
+
+
+
+
+  # 方法来自于 https://www.cnblogs.com/ThousandPine/p/18616359
+  # 还有一点的就是，好像是要创建 socket 双向长久连接
+  # 手动创建链接，WSL 每次重启都要重新输入
+  # 稍后会介绍自动创建链接的方法
+  sudo rm -r /tmp/.X11-unix                   # 删除未链接的文件
+  ln -s /mnt/wslg/.X11-unix /tmp/.X11-unix    # 重新创建文件链接
+  # 然后就会有个名称为 "X0" 的 socket 文件
+  # 然后每次打开WSL，都创建这个文件
+  # 在 /etc/tmpfiles.d/wslg.conf 写
+  #  This file is part of the debianisation of systemd.
+  #
+  #  systemd is free software; you can redistribute it and/or modify it
+  #  under the terms of the GNU General Public License as published by
+  #  the Free Software Foundation; either version 2 of the License, or
+  #  (at your option) any later version.
+
+  # See tmpfiles.d(5) for details
+
+  # Type Path           Mode UID  GID  Age Argument
+  L+     /tmp/.X11-unix -    -    -    -   /mnt/wslg/.X11-unix
+
+
 
 
 
@@ -266,8 +296,6 @@ CFLAGS="-fmax-errors=1000" ./configure --sysconfdir=/etc --prefix=/usr --libexec
 
 *** 方案2 - MSYS2(Win10用户的选择)
 
-其实这个方案的灵感，来自于 [[https://emacs-china.org/t/windows-dev-drive-emacs/29362][在 Windows 的开发人员驱动器 (Dev Drive) 中安装 Emacs「続」]]这里，下面是我个人的尝试。
-
 这里下载 [[https://www.msys2.org/][msys2.org]] 软软的msys2，然后相比与WSL来说 *MSYS2更多偏向 Windows完全操纵Linux* 然而 *WSL更多偏向Linux操纵Windows*
 
 所以对于Windows的Win10用户，在使用emacs-feature-igc上，还是推荐升级Win11来使用 ~<(￣︶￣)>~
@@ -301,7 +329,7 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 
 *** 方案3 - GNU FTP main Server
 
-可以到 https://ftp.gnu.org/gnu/emacs/windows/ 这里下载（请支持 GNU/FSF 喵）
+可以到 https://ftp.gnu.org/gnu/emacs/windows/ 这里下载已经支持 native-comp 的 Emacs 30.1 Windows版（请支持 GNU/FSF 喵）
 
 我的记忆是，当时Windows的Emacs是不维护的了，然后最新版本停在 Emacs 28.1，这就使得很多地方都很难操作。
 
@@ -327,7 +355,7 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 
 ** 个人暴论时刻
 
-*** 【个人暴论】WSL+WSLg只适合GUI应用，不太适合TUI应用
+*** 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用
 
 因为在我个人的操作过程中，我在一个 git 仓库下，执行 ~git log~ 会出现这样的 *错误提示*
 
@@ -339,7 +367,7 @@ fatal: unable to execute pager 'less'
 然而，如果我使用 magit 的话，一切正常，而且正常无比。速度响应之快完全就像在 Linux 环境下运行一样，完全就不是在 Windows 下运行的
 
 #+begin_example
-暴论：怀疑软软内部也有用Emacs的自己人，不然不可能怎么就在【默认情况的WSL】下只有magit能用，然而git不能用的 ~∑(￣口￣||~  要么就只有是magit提前预料到开发好了 ~(～￣▽￣)～~ 
+暴论：怀疑软软内部也有用Emacs的自己人，不然不可能怎么就在【默认情况的WSL】下只有magit能用，然而git不能用的 ∑(￣口￣||  要么就只有是magit提前预料到开发好了 (～￣▽￣)～
 #+end_example
 
 *** 【个人暴论】你说我什么时候会回到linux啊？
