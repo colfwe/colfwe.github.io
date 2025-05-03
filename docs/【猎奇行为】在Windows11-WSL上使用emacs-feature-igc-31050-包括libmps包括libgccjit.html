@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-03 Sat 14:20 -->
+<!-- 2025-05-03 Sat 14:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,23 +200,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4ebfea9">1. 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</a>
+<li><a href="#org0fc5f3a">1. 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</a>
 <ul>
-<li><a href="#orgf11db8f">1.1. 无图言雕是吧</a></li>
-<li><a href="#org93e153a">1.2. 原因</a></li>
-<li><a href="#orgd120767">1.3. 方案</a>
+<li><a href="#orgb9cb2e3">1.1. 无图言雕是吧</a></li>
+<li><a href="#org1d20a0b">1.2. 原因</a></li>
+<li><a href="#org530c16e">1.3. 方案</a>
 <ul>
-<li><a href="#org3627186">1.3.1. 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</a></li>
-<li><a href="#org5da0b73">1.3.2. 方案2 - MSYS2(Win10用户的选择)</a></li>
-<li><a href="#org89c12d4">1.3.3. 方案2 - WSL + X Server(Win10用户的选择)</a></li>
-<li><a href="#org32eee12">1.3.4. 方案3 - GNU FTP main Server</a></li>
+<li><a href="#org9b63336">1.3.1. 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</a></li>
+<li><a href="#org5ac5dfa">1.3.2. 方案2 - MSYS2(Win10用户的选择)</a></li>
+<li><a href="#org639bc61">1.3.3. 方案2 - WSL + X Server(Win10用户的选择)</a></li>
+<li><a href="#orgd8f7fe0">1.3.4. 方案3 - GNU FTP main Server</a></li>
 </ul>
 </li>
-<li><a href="#org3544b43">1.4. 转发fc教授的一句话</a></li>
-<li><a href="#org99a05d6">1.5. 个人暴论时刻</a>
+<li><a href="#orgc45dfcb">1.4. 转发fc教授的一句话</a></li>
+<li><a href="#org6ee6884">1.5. 个人暴论时刻</a>
 <ul>
-<li><a href="#org8ade600">1.5.1. 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用</a></li>
-<li><a href="#org00d9d92">1.5.2. 【个人暴论】你说我什么时候会回到linux啊？</a></li>
+<li><a href="#org98ff32b">1.5.1. 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用</a></li>
+<li><a href="#orga35e50b">1.5.2. 【个人暴论】你说我什么时候会回到linux啊？</a></li>
 </ul>
 </li>
 </ul>
@@ -224,40 +224,40 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org4ebfea9" class="outline-2">
-<h2 id="org4ebfea9"><span class="section-number-2">1.</span> 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</h2>
+<div id="outline-container-org0fc5f3a" class="outline-2">
+<h2 id="org0fc5f3a"><span class="section-number-2">1.</span> 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgf11db8f" class="outline-3">
-<h3 id="orgf11db8f"><span class="section-number-3">1.1.</span> 无图言雕是吧</h3>
+<div id="outline-container-orgb9cb2e3" class="outline-3">
+<h3 id="orgb9cb2e3"><span class="section-number-3">1.1.</span> 无图言雕是吧</h3>
 <div class="outline-text-3" id="text-1-1">
 
-<div id="org17e2156" class="figure">
+<div id="org77240bb" class="figure">
 <p><img src="../res/无图言雕是吧1.png" alt="无图言雕是吧1.png" width="720px" />
 </p>
 </div>
 
 
-<div id="org802657c" class="figure">
+<div id="orgded48fe" class="figure">
 <p><img src="../res/无图言雕是吧2.png" alt="无图言雕是吧2.png" width="720px" />
 </p>
 </div>
 
 
-<div id="org0fecf14" class="figure">
+<div id="org86b79cc" class="figure">
 <p><img src="../res/无图言雕是吧3.png" alt="无图言雕是吧3.png" width="720px" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org93e153a" class="outline-3">
-<h3 id="org93e153a"><span class="section-number-3">1.2.</span> 原因</h3>
+<div id="outline-container-org1d20a0b" class="outline-3">
+<h3 id="org1d20a0b"><span class="section-number-3">1.2.</span> 原因</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 为什么要这么猎奇，非得要在Windows11上运行emacs-feature-igc？
 </p>
 
-<pre class="example" id="org32bcb17">
+<pre class="example" id="orgbcfc9b1">
 [简单来说]
 + 破烂笔记本，不值得折腾
 + 为了Emacs而使用Linux
@@ -333,8 +333,8 @@
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd120767" class="outline-3">
-<h3 id="orgd120767"><span class="section-number-3">1.3.</span> 方案</h3>
+<div id="outline-container-org530c16e" class="outline-3">
+<h3 id="org530c16e"><span class="section-number-3">1.3.</span> 方案</h3>
 <div class="outline-text-3" id="text-1-3">
 <blockquote>
 <p>
@@ -396,8 +396,8 @@
 </tbody>
 </table>
 </div>
-<div id="outline-container-org3627186" class="outline-4">
-<h4 id="org3627186"><span class="section-number-4">1.3.1.</span> 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</h4>
+<div id="outline-container-org9b63336" class="outline-4">
+<h4 id="org9b63336"><span class="section-number-4">1.3.1.</span> 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 要做比较多的前提知识的准备，但是如果您是Emacs老登的话，那相信这些对您来说不过就是小儿科哈！ <code>&lt;(￣︶￣)↗[GO!]</code>
@@ -433,7 +433,7 @@ checking for mps.h... yes
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org58d7fcd"></a>wsl安装archlinux<br />
+<li><a id="orgadf26d9"></a>wsl安装archlinux<br />
 <div class="outline-text-5" id="text-1-3-1-1">
 <div class="org-src-container">
 <pre class="src src-sh"># powershell管理员身份打开，输入完 "wsl" 加上 "--install"，然后重启
@@ -456,7 +456,7 @@ wsl --install -d archlinux
 </div>
 </div>
 </li>
-<li><a id="org37040f1"></a>wsl配置archlinux<br />
+<li><a id="orgf73c4f6"></a>wsl配置archlinux<br />
 <div class="outline-text-5" id="text-1-3-1-2">
 <div class="org-src-container">
 <pre class="src src-sh"># 设置本地语言
@@ -534,7 +534,7 @@ L+     /tmp/.X11-unix -    -    -    -   /mnt/wslg/.X11-unix
 </div>
 </div>
 </li>
-<li><a id="org92df8f4"></a>wsl编译emacs-feature-igc<br />
+<li><a id="org0ef745f"></a>wsl编译emacs-feature-igc<br />
 <div class="outline-text-5" id="text-1-3-1-3">
 <p>
 在编译之前，需要安装一些依赖，依赖管理让wsl-archlinux来操作就行，这里属于是“命中关键词”来安装。
@@ -720,8 +720,8 @@ IGC_OBJ_CONS                           2618570        62845680         24       
 </li>
 </ol>
 </div>
-<div id="outline-container-org5da0b73" class="outline-4">
-<h4 id="org5da0b73"><span class="section-number-4">1.3.2.</span> 方案2 - MSYS2(Win10用户的选择)</h4>
+<div id="outline-container-org5ac5dfa" class="outline-4">
+<h4 id="org5ac5dfa"><span class="section-number-4">1.3.2.</span> 方案2 - MSYS2(Win10用户的选择)</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 这里下载 <a href="https://www.msys2.org/">msys2.org</a> 软软的msys2，然后相比与WSL来说 <b>MSYS2更多偏向 Windows完全操纵Linux</b> 然而 <b>WSL更多偏向Linux操纵Windows</b>
@@ -766,8 +766,8 @@ pacman -S mingw-w64-ucrt-x86_64-gcc
 </p>
 </div>
 </div>
-<div id="outline-container-org89c12d4" class="outline-4">
-<h4 id="org89c12d4"><span class="section-number-4">1.3.3.</span> 方案2 - WSL + X Server(Win10用户的选择)</h4>
+<div id="outline-container-org639bc61" class="outline-4">
+<h4 id="org639bc61"><span class="section-number-4">1.3.3.</span> 方案2 - WSL + X Server(Win10用户的选择)</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平，一些性能不够WSLg那样直接，不过更重点的地方，在于如果X Server第三方应用出现了点什么bug，就不太好甩锅。
@@ -778,8 +778,8 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 </p>
 </div>
 </div>
-<div id="outline-container-org32eee12" class="outline-4">
-<h4 id="org32eee12"><span class="section-number-4">1.3.4.</span> 方案3 - GNU FTP main Server</h4>
+<div id="outline-container-orgd8f7fe0" class="outline-4">
+<h4 id="orgd8f7fe0"><span class="section-number-4">1.3.4.</span> 方案3 - GNU FTP main Server</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 可以到 <a href="https://ftp.gnu.org/gnu/emacs/windows/">https://ftp.gnu.org/gnu/emacs/windows/</a> 这里下载已经支持 native-comp 的 Emacs 30.1 Windows版（请支持 GNU/FSF 喵）
@@ -811,10 +811,10 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 </div>
 </div>
 </div>
-<div id="outline-container-org3544b43" class="outline-3">
-<h3 id="org3544b43"><span class="section-number-3">1.4.</span> 转发fc教授的一句话</h3>
+<div id="outline-container-orgc45dfcb" class="outline-3">
+<h3 id="orgc45dfcb"><span class="section-number-3">1.4.</span> 转发fc教授的一句话</h3>
 <div class="outline-text-3" id="text-1-4">
-<pre class="example" id="org2e2e307">
+<pre class="example" id="orgf7d588c">
 回到wsl，我觉得有两种可能:
   
 1. 微软内部员工也厌倦了 Windows 作为开发平台不好用的事实，同时微软的合作伙伴们也希望微软平台能有兼容 Linux 用户空间程序的方案。来自 macos 抢占开发者平台市场估有率的压力也很大，以及 Windows Mobile 计划失败之后对 wsa 的需求，所以微软需要 wsl。
@@ -823,18 +823,18 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 </pre>
 </div>
 </div>
-<div id="outline-container-org99a05d6" class="outline-3">
-<h3 id="org99a05d6"><span class="section-number-3">1.5.</span> 个人暴论时刻</h3>
+<div id="outline-container-org6ee6884" class="outline-3">
+<h3 id="org6ee6884"><span class="section-number-3">1.5.</span> 个人暴论时刻</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-org8ade600" class="outline-4">
-<h4 id="org8ade600"><span class="section-number-4">1.5.1.</span> 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用</h4>
+<div id="outline-container-org98ff32b" class="outline-4">
+<h4 id="org98ff32b"><span class="section-number-4">1.5.1.</span> 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
 因为在我个人的操作过程中，我在一个 git 仓库下，执行 <code>git log</code> 会出现这样的 <b>错误提示</b>
 </p>
 
-<pre class="example" id="orgc102892">
+<pre class="example" id="org007cbaa">
 error: cannot run less: No such file or directory
 fatal: unable to execute pager 'less'
 </pre>
@@ -843,13 +843,25 @@ fatal: unable to execute pager 'less'
 然而，如果我使用 magit 的话，一切正常，而且正常无比。速度响应之快完全就像在 Linux 环境下运行一样，完全就不是在 Windows 下运行的
 </p>
 
-<pre class="example" id="orgc8ef3e5">
+<p>
+同时在我个人的操作过程中，船新打开的 wsl (就是比如在 cmd 或 powershell 执行 wsl 得到的 wsl-archlinux 环境)
+</p>
+
+<p>
+它默认情况下，是不会自动加载 <code>~/.bashrc</code> 的，所以我的一些 alias 就没办法自动加载，必须手动一下 <code>source ~/.bashrc</code> 才能加载
+</p>
+
+<p>
+然而，如果我使用 emacs 上的 eat，那么就会是 <b>自动加载 /.bashrc</b> 的，不知道是什么原因，总之很好用就是了。
+</p>
+
+<pre class="example" id="orgdfeda11">
 暴论：怀疑软软内部也有用Emacs的自己人，不然不可能怎么就在【默认情况的WSL】下只有magit能用，然而git不能用的 ∑(￣口￣||  要么就只有是magit提前预料到开发好了 (～￣▽￣)～
 </pre>
 </div>
 </div>
-<div id="outline-container-org00d9d92" class="outline-4">
-<h4 id="org00d9d92"><span class="section-number-4">1.5.2.</span> 【个人暴论】你说我什么时候会回到linux啊？</h4>
+<div id="outline-container-orga35e50b" class="outline-4">
+<h4 id="orga35e50b"><span class="section-number-4">1.5.2.</span> 【个人暴论】你说我什么时候会回到linux啊？</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
 可能等我什么时候有钱买台高配笔记本，且不心疼钱财的时候，那个时候可能会回归，不过现在来看，那恐怕是一段很漫长的时间了，因为现在这个更好用，玩玩Emacs的同时还能打游戏 <code>&lt;(￣︶￣)&gt;</code>
@@ -861,7 +873,7 @@ fatal: unable to execute pager 'less'
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: kle</p>
-<p class="date">Created: 2025-05-03 Sat 14:20</p>
+<p class="date">Created: 2025-05-03 Sat 14:48</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

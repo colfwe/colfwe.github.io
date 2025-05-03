@@ -366,6 +366,12 @@ fatal: unable to execute pager 'less'
 
 然而，如果我使用 magit 的话，一切正常，而且正常无比。速度响应之快完全就像在 Linux 环境下运行一样，完全就不是在 Windows 下运行的
 
+同时在我个人的操作过程中，船新打开的 wsl (就是比如在 cmd 或 powershell 执行 wsl 得到的 wsl-archlinux 环境)
+
+它默认情况下，是不会自动加载 =~/.bashrc= 的，所以我的一些 alias 就没办法自动加载，必须手动一下 =source ~/.bashrc= 才能加载
+
+然而，如果我使用 emacs 上的 eat，那么就会是 *自动加载 /.bashrc* 的，不知道是什么原因，总之很好用就是了。
+
 #+begin_example
 暴论：怀疑软软内部也有用Emacs的自己人，不然不可能怎么就在【默认情况的WSL】下只有magit能用，然而git不能用的 ∑(￣口￣||  要么就只有是magit提前预料到开发好了 (～￣▽￣)～
 #+end_example
