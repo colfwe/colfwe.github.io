@@ -1,5 +1,32 @@
 * 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit
 
+*伟大无需多言*
+
+#+begin_quote
+现在，在 ArchLinux Dev 与 软软Windows工作人员，的共同努力下，现在的 Windows11 真的成为了 Linux最佳发行版（个人观点）
+
+不过我这个比喻就像是在描述 GNU Emacs 是最伟大的编辑器一样: 哪里有一个生产数据可脚本化的地方，GNU Emacs的大手就伸到哪里。
+#+end_quote
+
+*打破刻板印象了(对我个人来说)*
+
+#+begin_quote
+过去，Windows 给人的刻板印象是: 现代又好用的智能家具，但不允许用户改动一丝。
+
+现在，Windows 11(WSL+WSLg) 给人的船新感受是: 现代又好用的智能家具，贼省心，用户可以随便魔改，就像我下面这个猎奇需求一样。
+
+暴论一句: 如果用不顺心了，还可以甩锅甩给 WSL 不是嘛 ~o(≧▽≦)o~
+
+但 BYD 现在这个事情真的很爽！这下的兼容性是真tm牛逼！
+#+end_quote
+
+感谢 GNU
+
+感谢 ArchLinux Dev
+
+感谢软软 Windows 工作人员
+
+
 ** 无图言雕是吧
 
 #+attr_html: :width 720px  
@@ -370,7 +397,7 @@ fatal: unable to execute pager 'less'
 
 它默认情况下，是不会自动加载 =~/.bashrc= 的，所以我的一些 alias 就没办法自动加载，必须手动一下 =source ~/.bashrc= 才能加载
 
-然而，如果我使用 emacs 上的 eat，那么就会是 *自动加载 /.bashrc* 的，不知道是什么原因，总之很好用就是了。
+然而，如果我使用 emacs 上的 eat，那么就会是 *【自动加载 ~/.bashrc】* 的，不知道是什么原因，总之很好用就是了。
 
 #+begin_example
 暴论：怀疑软软内部也有用Emacs的自己人，不然不可能怎么就在【默认情况的WSL】下只有magit能用，然而git不能用的 ∑(￣口￣||  要么就只有是magit提前预料到开发好了 (～￣▽￣)～
