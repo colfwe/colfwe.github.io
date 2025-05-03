@@ -19,6 +19,7 @@
 [简单来说]
 + 破烂笔记本，不值得折腾
 + 为了Emacs而使用Linux
++ WSL-archlinux有arch官方支持，更有保障了
 + 打游戏
 + 心累了
 
@@ -65,6 +66,10 @@
 
   坏的Linux的话就会讨论很多非Linux的话题，然后资料也是不公开的或者说不允许外人编辑这样，同时安装软件包的包名让人非常难以理解等等
 
++ WSL-archlinux有arch官方支持，更有保障了
+
+  结合WSL2只是 “虚拟机” 的优势，我再也不用担心单显卡drm下带来的各种奇怪小问题了，涉及到非QT的图形界面应用时。
+  
 + 打游戏同时心累了
  
   再加上我实在不想，每几天打开那台屏幕垃圾得很的笔记本，然后每隔几天就要pacman -Syu一下
@@ -266,8 +271,6 @@ CFLAGS="-fmax-errors=1000" ./configure --sysconfdir=/etc --prefix=/usr --libexec
 这里下载 [[https://www.msys2.org/][msys2.org]] 软软的msys2，然后相比与WSL来说 *MSYS2更多偏向 Windows完全操纵Linux* 然而 *WSL更多偏向Linux操纵Windows*
 
 所以对于Windows的Win10用户，在使用emacs-feature-igc上，还是推荐升级Win11来使用 ~<(￣︶￣)>~
-
-(当然也可以直接原生Linux环境使用，但那样对于我个人来说，就玩不了游戏了，比如一些需要反作弊验证的游戏那真的没办法玩，呃，比如三角洲行动？ ~(。・^・)ノ)~
 
 然后下载 MSYS2 *他自己维护的包名* 因为这个环境是 MSYS2，所以一些资料是很不好找的！反正就是没有Linux(这里特指archlinux)那样好找就是了 ~[]~(￣▽￣)~*~
 
