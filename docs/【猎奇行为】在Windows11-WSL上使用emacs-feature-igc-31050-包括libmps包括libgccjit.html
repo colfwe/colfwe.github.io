@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-04 Sun 15:55 -->
+<!-- 2025-05-04 Sun 16:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -193,6 +193,38 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
@@ -200,23 +232,28 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org72c8347">1. 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</a>
+<li><a href="#org63b9a5a">1. 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</a>
 <ul>
-<li><a href="#org28a6842">1.1. 无图言雕是吧</a></li>
-<li><a href="#org89d14f0">1.2. 原因</a></li>
-<li><a href="#org965ce47">1.3. 方案</a>
+<li><a href="#org4c70c5f">1.1. 无图言雕是吧</a></li>
+<li><a href="#orga3855c4">1.2. 原因</a></li>
+<li><a href="#org1e4501c">1.3. 方案</a>
 <ul>
-<li><a href="#org9f0553c">1.3.1. 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</a></li>
-<li><a href="#org436d9ce">1.3.2. 方案2 - MSYS2(Win10用户的选择)</a></li>
-<li><a href="#org1201527">1.3.3. 方案2 - WSL + X Server(Win10用户的选择)</a></li>
-<li><a href="#org5c8561b">1.3.4. 方案3 - GNU FTP main Server</a></li>
+<li><a href="#org53fe4a2">1.3.1. 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</a></li>
+<li><a href="#org9672b14">1.3.2. 方案2 - MSYS2(Win10用户的选择)</a></li>
+<li><a href="#orgeea0b1d">1.3.3. 方案2 - WSL + X Server(Win10用户的选择)</a></li>
+<li><a href="#orgb5f6c04">1.3.4. 方案3 - GNU FTP main Server</a></li>
 </ul>
 </li>
-<li><a href="#org00e939e">1.4. 转发fc教授的一句话</a></li>
-<li><a href="#orgf050320">1.5. 个人暴论时刻</a>
+<li><a href="#org2419ed1">1.4. 转发fc教授的一句话</a></li>
+<li><a href="#org3d741b8">1.5. 个人暴论时刻</a>
 <ul>
-<li><a href="#orgf19163b">1.5.1. 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用</a></li>
-<li><a href="#org571814c">1.5.2. 【个人暴论】你说我什么时候会回到linux啊？</a></li>
+<li><a href="#orgc565620">1.5.1. 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用</a></li>
+<li><a href="#orgb54b158">1.5.2. 【个人暴论】你说我什么时候会回到linux啊？</a></li>
+</ul>
+</li>
+<li><a href="#org420b0a2">1.6. 已知问题</a>
+<ul>
+<li><a href="#org00d0029">1.6.1. 【闲谈】emacs-rime 的 posframe 会很卡很卡</a></li>
 </ul>
 </li>
 </ul>
@@ -224,8 +261,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org72c8347" class="outline-2">
-<h2 id="org72c8347"><span class="section-number-2">1.</span> 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</h2>
+<div id="outline-container-org63b9a5a" class="outline-2">
+<h2 id="org63b9a5a"><span class="section-number-2">1.</span> 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <b>伟大无需多言</b>
@@ -275,113 +312,185 @@
 感谢软软 Windows 工作人员
 </p>
 </div>
-<div id="outline-container-org28a6842" class="outline-3">
-<h3 id="org28a6842"><span class="section-number-3">1.1.</span> 无图言雕是吧</h3>
+<div id="outline-container-org4c70c5f" class="outline-3">
+<h3 id="org4c70c5f"><span class="section-number-3">1.1.</span> 无图言雕是吧</h3>
 <div class="outline-text-3" id="text-1-1">
 
-<div id="org1ff86c3" class="figure">
+<div id="org72c1507" class="figure">
 <p><img src="../res/无图言雕是吧1.png" alt="无图言雕是吧1.png" width="720px" />
 </p>
 </div>
 
 
-<div id="org3744950" class="figure">
+<div id="org8a732a6" class="figure">
 <p><img src="../res/无图言雕是吧2.png" alt="无图言雕是吧2.png" width="720px" />
 </p>
 </div>
 
 
-<div id="org3b607fe" class="figure">
+<div id="orgd0c4902" class="figure">
 <p><img src="../res/无图言雕是吧3.png" alt="无图言雕是吧3.png" width="720px" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org89d14f0" class="outline-3">
-<h3 id="org89d14f0"><span class="section-number-3">1.2.</span> 原因</h3>
+<div id="outline-container-orga3855c4" class="outline-3">
+<h3 id="orga3855c4"><span class="section-number-3">1.2.</span> 原因</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 为什么要这么猎奇，非得要在Windows11上运行emacs-feature-igc？
 </p>
 
-<pre class="example" id="orgd413ba1">
+<blockquote>
+<p>
 [简单来说]
-+ 破烂笔记本，不值得折腾
-+ 为了Emacs而使用Linux
-+ WSL-archlinux有arch官方支持，更有保障了
-+ 打游戏
-+ 心累了
+</p>
+<ul class="org-ul">
+<li>破烂笔记本，不值得折腾</li>
+<li>为了Emacs而使用Linux</li>
+<li>WSL-archlinux有arch官方支持，更有保障了</li>
+<li>打游戏</li>
+<li>心累了</li>
+</ul>
 
+<p>
 [详细来说]
+</p>
 
-+ 破烂笔记本，不值得折腾
+<ul class="org-ul">
+<li><p>
+破烂笔记本，不值得折腾
+</p>
 
-  因为我自己的笔记本过于垃圾，即使我买来一些外设来弥补相差的体验，但它那台破烂笔记本仍然就是那个破烂样。
+<p>
+因为我自己的笔记本过于垃圾，即使我买来一些外设来弥补相差的体验，但它那台破烂笔记本仍然就是那个破烂样。
+</p>
 
-  我可以保证说，在同样的外部环境下，安装同样的系统，我的笔记本报出的错误，绝对比任何人的设备都要多。
+<p>
+我可以保证说，在同样的外部环境下，安装同样的系统，我的笔记本报出的错误，绝对比任何人的设备都要多。
+</p>
 
-  毕竟使用这台笔记本，会因为网卡是螃蟹最次的那种网卡，而导致网速慢(而且是非常慢！最高速度只有20Mbps！)安装不上一些包
+<p>
+毕竟使用这台笔记本，会因为网卡是螃蟹最次的那种网卡，而导致网速慢(而且是非常慢！最高速度只有20Mbps！)安装不上一些包
+</p>
 
-  从而导致一路上都要手动签名*( ￣皿￣)/#，甚至即使安装好后，平常滚动时都时不时来一下下载速度过于缓慢的断流问题，简直气死个人
+<p>
+从而导致一路上都要手动签名*( ￣皿￣)/#，甚至即使安装好后，平常滚动时都时不时来一下下载速度过于缓慢的断流问题，简直气死个人
+</p>
 
-  你能想象到，有什么会因为网卡过于垃圾，导致有些包装不上，导致了很莫名其妙的错误吗？（别人都没有我这么倒霉过！）
+<p>
+你能想象到，有什么会因为网卡过于垃圾，导致有些包装不上，导致了很莫名其妙的错误吗？（别人都没有我这么倒霉过！）
+</p>
 
-  再加上，我实在是受不了那破烂笔记本的硬件了，我回顾了一下
+<p>
+再加上，我实在是受不了那破烂笔记本的硬件了，我回顾了一下
+</p>
 
-  我居然使用了一台8G(板载4G+插拔4G)内存、45%ntsc屏幕色域、键盘的capslock、tab、escape、f2全部失灵
+<p>
+我居然使用了一台8G(板载4G+插拔4G)内存、45%ntsc屏幕色域、键盘的capslock、tab、escape、f2全部失灵
+</p>
 
-  电池寿命只有38%且容量只有2340mA的笔记本，长达一年的Emacs使用时间吗？
+<p>
+电池寿命只有38%且容量只有2340mA的笔记本，长达一年的Emacs使用时间吗？
+</p>
 
-  我甚至因为tab键坏了，至今都还保持着在bash里面 C-i 来补全的行为
+<p>
+我甚至因为tab键坏了，至今都还保持着在bash里面 C-i 来补全的行为
+</p>
 
-  我甚至因为那两个usb 2.0接口经常松动，导致我如果要插u盘进去都是要看运气的，甚至今天2025年5月2日才发现，原来过去我保存到u盘里的文件
+<p>
+我甚至因为那两个usb 2.0接口经常松动，导致我如果要插u盘进去都是要看运气的，甚至今天2025年5月2日才发现，原来过去我保存到u盘里的文件
+</p>
 
-  从2024年10月5日之后，就全部都是压缩失效的了。也就是说.....我2024年10月5日在linux上的数据，统统都看不了了.......
-  
-  我甚至还因为f2键坏了，导致我bios/uefi firmware都甚至按不进去（您觉得因为键盘坏了主板设置都BYD进不去的笔记本能有多逆天？）
+<p>
+从2024年10月5日之后，就全部都是压缩失效的了。也就是说&#x2026;..我2024年10月5日在linux上的数据，统统都看不了了&#x2026;&#x2026;.
+</p>
 
-  我想，应该没有人比我使用的个人设备(单片机另说哈!)还要差的了！我超，想想当时还是被电脑城奸商6199元买来的。
+<p>
+我甚至还因为f2键坏了，导致我bios/uefi firmware都甚至按不进去（您觉得因为键盘坏了主板设置都BYD进不去的笔记本能有多逆天？）
+</p>
 
-  当时我想着，虽然这台笔记本硬件各方面过于垃圾，但它的剪刀脚键盘手感很好，于是就继续忍着使用了。
+<p>
+我想，应该没有人比我使用的个人设备(单片机另说哈!)还要差的了！我超，想想当时还是被电脑城奸商6199元买来的。
+</p>
 
-  但我现在有Microsoft Designer Compact Keyboard，甚至还有两把，要比这破烂笔记本更爽，做工更好，价格还便宜软软代购只要159元
- 
-  那破烂笔记本赶紧扔了得了，我甚至断言一下，正是这台破烂笔记本，让我个人浪费了很多时间在无意义的事情上  
+<p>
+当时我想着，虽然这台笔记本硬件各方面过于垃圾，但它的剪刀脚键盘手感很好，于是就继续忍着使用了。
+</p>
 
-+ 为了Emacs而使用Linux
+<p>
+但我现在有Microsoft Designer Compact Keyboard，甚至还有两把，要比这破烂笔记本更爽，做工更好，价格还便宜软软代购只要159元
+</p>
 
-  对于我个人来说，我对Linux的态度，仅仅只是Emacs启动器。
+<p>
+那破烂笔记本赶紧扔了得了，我甚至断言一下，正是这台破烂笔记本，让我个人浪费了很多时间在无意义的事情上  
+</p></li>
 
-  但Linux发行版也是有好坏之分的哈，好的Linux安装软件特别方便，而且资料也是公开的，甚至不会的话还可以找热心群友帮忙
+<li><p>
+为了Emacs而使用Linux
+</p>
 
-  坏的Linux的话就会讨论很多非Linux的话题，然后资料也是不公开的或者说不允许外人编辑这样，同时安装软件包的包名让人非常难以理解等等
+<p>
+对于我个人来说，我对Linux的态度，仅仅只是Emacs启动器。
+</p>
 
-+ WSL-archlinux有arch官方支持，更有保障了
+<p>
+但Linux发行版也是有好坏之分的哈，好的Linux安装软件特别方便，而且资料也是公开的，甚至不会的话还可以找热心群友帮忙
+</p>
 
-  结合WSL2只是 “虚拟机” 的优势，我再也不用担心单显卡drm下带来的各种奇怪小问题了，涉及到非QT的图形界面应用时。
-  
-+ 打游戏同时心累了
- 
-  再加上我实在不想，每几天打开那台屏幕垃圾得很的笔记本，原因只是我不想看到这垃圾笔记本，然后每隔几天就要pacman -Syu一下
+<p>
+坏的Linux的话就会讨论很多非Linux的话题，然后资料也是不公开的或者说不允许外人编辑这样，同时安装软件包的包名让人非常难以理解等等
+</p></li>
 
-  我实在是不想滚了，我本来想找到一个不可变的arch的或类似的，但除了manjaro那个即将释出的，就实在找不到了。
+<li><p>
+WSL-archlinux有arch官方支持，更有保障了
+</p>
 
-  我也想过，要不要上可以一劳永逸的声明式系统nixos或guix
+<p>
+结合WSL2只是 “虚拟机” 的优势，我再也不用担心单显卡drm下带来的各种奇怪小问题了，涉及到非QT的图形界面应用时。
+</p></li>
 
-  可是nixos的nix强是强但不够爽，没有guix os的scm那样从头爽到尾的感觉。
+<li><p>
+打游戏同时心累了
+</p>
 
-  可是guix的sju的镜像，很抽象很抽象，以至于在我自己的网络环境下面，是不！可！能！成功安装上的。（尝试过很多遍了）
+<p>
+再加上我实在不想，每几天打开那台屏幕垃圾得很的笔记本，原因只是我不想看到这垃圾笔记本，然后每隔几天就要pacman -Syu一下
+</p>
 
-  最后，我就是想找一个all in one的
+<p>
+我实在是不想滚了，我本来想找到一个不可变的arch的或类似的，但除了manjaro那个即将释出的，就实在找不到了。
+</p>
 
-  即既可以打游戏比如星露谷欧卡赛车游戏等等，又可以时不时看一下我个人的【打开linux就仅仅是为了emacs】的个人要求
+<p>
+我也想过，要不要上可以一劳永逸的声明式系统nixos或guix
+</p>
 
-  所以，最后因为就是要打游戏（同时我也只剩下台式机这个机器了），所以那么必须要 Windows 了。所以才出来个这么猎奇的想法 ~^_^~
-</pre>
+<p>
+可是nixos的nix强是强但不够爽，没有guix os的scm那样从头爽到尾的感觉。
+</p>
+
+<p>
+可是guix的sju的镜像，很抽象很抽象，以至于在我自己的网络环境下面，是不！可！能！成功安装上的。（尝试过很多遍了）
+</p>
+
+<p>
+最后，我就是想找一个all in one的
+</p>
+
+<p>
+即既可以打游戏比如星露谷欧卡赛车游戏等等，又可以时不时看一下我个人的【打开linux就仅仅是为了emacs】的个人要求
+</p>
+
+<p>
+所以，最后因为就是要打游戏（同时我也只剩下台式机这个机器了），所以那么必须要 Windows 了。所以才出来个这么猎奇的想法 <code>^_^</code>
+</p></li>
+</ul>
+</blockquote>
 </div>
 </div>
-<div id="outline-container-org965ce47" class="outline-3">
-<h3 id="org965ce47"><span class="section-number-3">1.3.</span> 方案</h3>
+<div id="outline-container-org1e4501c" class="outline-3">
+<h3 id="org1e4501c"><span class="section-number-3">1.3.</span> 方案</h3>
 <div class="outline-text-3" id="text-1-3">
 <blockquote>
 <p>
@@ -443,8 +552,8 @@
 </tbody>
 </table>
 </div>
-<div id="outline-container-org9f0553c" class="outline-4">
-<h4 id="org9f0553c"><span class="section-number-4">1.3.1.</span> 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</h4>
+<div id="outline-container-org53fe4a2" class="outline-4">
+<h4 id="org53fe4a2"><span class="section-number-4">1.3.1.</span> 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 要做比较多的前提知识的准备，但是如果您是Emacs老登的话，那相信这些对您来说不过就是小儿科哈！ <code>&lt;(￣︶￣)↗[GO!]</code>
@@ -480,7 +589,7 @@ checking for mps.h... yes
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgf2799bc"></a>wsl安装archlinux<br />
+<li><a id="orgaa954ca"></a>wsl安装archlinux<br />
 <div class="outline-text-5" id="text-1-3-1-1">
 <div class="org-src-container">
 <pre class="src src-sh"># powershell管理员身份打开，输入完 "wsl" 加上 "--install"，然后重启
@@ -503,7 +612,7 @@ wsl --install -d archlinux
 </div>
 </div>
 </li>
-<li><a id="orgd7b2d38"></a>wsl配置archlinux<br />
+<li><a id="org68a2853"></a>wsl配置archlinux<br />
 <div class="outline-text-5" id="text-1-3-1-2">
 <div class="org-src-container">
 <pre class="src src-sh"># 设置本地语言
@@ -585,7 +694,7 @@ L+     /tmp/.X11-unix -    -    -    -   /mnt/wslg/.X11-unix
 </div>
 </div>
 </li>
-<li><a id="org17b0f03"></a>wsl编译emacs-feature-igc<br />
+<li><a id="org9d0f2e9"></a>wsl编译emacs-feature-igc<br />
 <div class="outline-text-5" id="text-1-3-1-3">
 <p>
 在编译之前，需要安装一些依赖，依赖管理让wsl-archlinux来操作就行，这里属于是“命中关键词”来安装。
@@ -777,8 +886,8 @@ IGC_OBJ_CONS                           2618570        62845680         24       
 </li>
 </ol>
 </div>
-<div id="outline-container-org436d9ce" class="outline-4">
-<h4 id="org436d9ce"><span class="section-number-4">1.3.2.</span> 方案2 - MSYS2(Win10用户的选择)</h4>
+<div id="outline-container-org9672b14" class="outline-4">
+<h4 id="org9672b14"><span class="section-number-4">1.3.2.</span> 方案2 - MSYS2(Win10用户的选择)</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 这里下载 <a href="https://www.msys2.org/">msys2.org</a> 软软的msys2，然后相比与WSL来说 <b>MSYS2更多偏向 Windows完全操纵Linux</b> 然而 <b>WSL更多偏向Linux操纵Windows</b>
@@ -823,8 +932,8 @@ pacman -S mingw-w64-ucrt-x86_64-gcc
 </p>
 </div>
 </div>
-<div id="outline-container-org1201527" class="outline-4">
-<h4 id="org1201527"><span class="section-number-4">1.3.3.</span> 方案2 - WSL + X Server(Win10用户的选择)</h4>
+<div id="outline-container-orgeea0b1d" class="outline-4">
+<h4 id="orgeea0b1d"><span class="section-number-4">1.3.3.</span> 方案2 - WSL + X Server(Win10用户的选择)</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平，一些性能不够WSLg那样直接，不过更重点的地方，在于如果X Server第三方应用出现了点什么bug，就不太好甩锅。
@@ -835,8 +944,8 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 </p>
 </div>
 </div>
-<div id="outline-container-org5c8561b" class="outline-4">
-<h4 id="org5c8561b"><span class="section-number-4">1.3.4.</span> 方案3 - GNU FTP main Server</h4>
+<div id="outline-container-orgb5f6c04" class="outline-4">
+<h4 id="orgb5f6c04"><span class="section-number-4">1.3.4.</span> 方案3 - GNU FTP main Server</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 可以到 <a href="https://ftp.gnu.org/gnu/emacs/windows/">https://ftp.gnu.org/gnu/emacs/windows/</a> 这里下载已经支持 native-comp 的 Emacs 30.1 Windows版（请支持 GNU/FSF 喵）
@@ -868,10 +977,10 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 </div>
 </div>
 </div>
-<div id="outline-container-org00e939e" class="outline-3">
-<h3 id="org00e939e"><span class="section-number-3">1.4.</span> 转发fc教授的一句话</h3>
+<div id="outline-container-org2419ed1" class="outline-3">
+<h3 id="org2419ed1"><span class="section-number-3">1.4.</span> 转发fc教授的一句话</h3>
 <div class="outline-text-3" id="text-1-4">
-<pre class="example" id="orge18ead8">
+<pre class="example" id="org34367e5">
 回到wsl，我觉得有两种可能:
   
 1. 微软内部员工也厌倦了 Windows 作为开发平台不好用的事实，同时微软的合作伙伴们也希望微软平台能有兼容 Linux 用户空间程序的方案。来自 macos 抢占开发者平台市场估有率的压力也很大，以及 Windows Mobile 计划失败之后对 wsa 的需求，所以微软需要 wsl。
@@ -880,18 +989,18 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf050320" class="outline-3">
-<h3 id="orgf050320"><span class="section-number-3">1.5.</span> 个人暴论时刻</h3>
+<div id="outline-container-org3d741b8" class="outline-3">
+<h3 id="org3d741b8"><span class="section-number-3">1.5.</span> 个人暴论时刻</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-orgf19163b" class="outline-4">
-<h4 id="orgf19163b"><span class="section-number-4">1.5.1.</span> 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用</h4>
+<div id="outline-container-orgc565620" class="outline-4">
+<h4 id="orgc565620"><span class="section-number-4">1.5.1.</span> 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
 因为在我个人的操作过程中，我在一个 git 仓库下，执行 <code>git log</code> 会出现这样的 <b>错误提示</b>
 </p>
 
-<pre class="example" id="orgb304ad8">
+<pre class="example" id="org242bbd6">
 error: cannot run less: No such file or directory
 fatal: unable to execute pager 'less'
 </pre>
@@ -912,16 +1021,57 @@ fatal: unable to execute pager 'less'
 然而，如果我使用 emacs 上的 eat，那么就会是 <b>【自动加载 ~/.bashrc】</b> 的，不知道是什么原因，总之很好用就是了。
 </p>
 
-<pre class="example" id="org84e55ec">
+<pre class="example" id="org3a91651">
 暴论：怀疑软软内部也有用Emacs的自己人，不然不可能怎么就在【默认情况的WSL】下只有magit能用，然而git不能用的 ∑(￣口￣||  要么就只有是magit提前预料到开发好了 (～￣▽￣)～
 </pre>
 </div>
 </div>
-<div id="outline-container-org571814c" class="outline-4">
-<h4 id="org571814c"><span class="section-number-4">1.5.2.</span> 【个人暴论】你说我什么时候会回到linux啊？</h4>
+<div id="outline-container-orgb54b158" class="outline-4">
+<h4 id="orgb54b158"><span class="section-number-4">1.5.2.</span> 【个人暴论】你说我什么时候会回到linux啊？</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
 可能等我什么时候有钱买台高配笔记本，且不心疼钱财的时候，那个时候可能会回归，不过现在来看，那恐怕是一段很漫长的时间了，因为现在这个更好用，玩玩Emacs的同时还能打游戏 <code>&lt;(￣︶￣)&gt;</code>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org420b0a2" class="outline-3">
+<h3 id="org420b0a2"><span class="section-number-3">1.6.</span> 已知问题</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-org00d0029" class="outline-4">
+<h4 id="org00d0029"><span class="section-number-4">1.6.1.</span> 【闲谈】emacs-rime 的 posframe 会很卡很卡</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<p>
+在 WSL 上使用 emacs-rime 的 posframe 跟随光标，会非常非常卡
+</p>
+
+<p>
+卡顿的程度，就约等于是用我那破烂笔记本写大概 6000 行 org inline LaTeX 带中文字符且是超长公式的那种程度，大致是那个卡顿程度，很难受
+</p>
+
+<p>
+这么说的话，看来 WSLg 下的 emacs-rime 的候选区放在 <b>回显区Message</b> 看来是非常有道理的 <code>(～￣▽￣)～</code>
+</p>
+
+<p>
+候选区放在回显区，唯一的缺点，应该就是不好选词，因为眼睛要一边看上屏的首选文字，一边看双拼里面可能会重码的词。可能会比较累
+</p>
+
+<p>
+但双拼可以通过打词组来规避这一问题，如果非要彻底解决的话，就上手重码率低的五笔吧
+</p>
+
+<p>
+不过五笔对于我个人的不好之处，是在于 【学习成本是真的高，更适合看打不适合想打，更适合打单字】
+</p>
+
+<p>
+对于我个人来说，学习五笔的最大问题，可能还是在打非古文文章时，打字速度可能还不如双拼的 \( \frac{1}{4} \) 倍的速度
+</p>
+
+<p>
+毕竟自己练习了那么久，却只有几乎不到50 cpm的输入，是很难受的。所以我放弃了五笔，还是双拼最好 <code>╰(*°▽°*)╯</code>
 </p>
 </div>
 </div>
@@ -930,7 +1080,7 @@ fatal: unable to execute pager 'less'
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: kle</p>
-<p class="date">Created: 2025-05-04 Sun 15:55</p>
+<p class="date">Created: 2025-05-04 Sun 16:27</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
