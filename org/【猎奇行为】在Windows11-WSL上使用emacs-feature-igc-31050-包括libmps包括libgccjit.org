@@ -202,19 +202,23 @@ checking for mps.h... yes
 
 
 
-  
+
 
   # 使用WSLg，从而使得让Linux的GUI应用，可以rdp到Windows界面上
   # 他WSLg说的默认支持，是因为他是默认支持在ubuntu上，你看他WSLg的宣传界面都是ubuntu的皇冠界面，可我这是archlinux啊，所以就需要一些设置
   # 我也是询问AI后，几乎绝望之后才知道的
-  # 总结起来的意思是，让Weston(一个Wayland窗口管理器跑在X11上，或让Wayland协议跑XWayland应用)
+  # 总结起来的意思是，让Weston(一个Wayland窗口管理器)跑在X11上，或让Wayland协议跑XWayland应用
 
   # 安装
   pacman -S xdg-desktop-portal-wlr pipewire wireplumber weston dbus
   # 运行，目的其实是Wayland协议跑XWayland应用。
   weston --backend=headless-backend.so &
   # 然后运行这一次就可以了
-  # 奇怪了，我明明昨天必须要这么输入才可以进行下去的，今天输入了后就说 could not load dnd-move/dnd-copy 什么的，然后不用管这个直接运行WSLg就可以了
+
+
+  
+  # 奇怪了，我明明昨天必须要这么输入才可以进行下去的
+  # 今天输入了后就说 could not load dnd-move/dnd-copy 什么的，然后不用管这个直接运行WSLg就可以了
 
 
 
@@ -319,6 +323,10 @@ CFLAGS="-fmax-errors=1000" ./configure --sysconfdir=/etc --prefix=/usr --libexec
 #+end_src
 
 这样就安装好了，这是方案1 - WSLg
+
+#+begin_quote
+[对我个人说的话]: 如果要使用 deadgrep.el 的话，需要安装 pacman -S ripgrep 依赖
+#+end_quote
 
 
 *** 方案2 - MSYS2(Win10用户的选择)
