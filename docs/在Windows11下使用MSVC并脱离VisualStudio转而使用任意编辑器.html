@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-02 Mon 11:40 -->
+<!-- 2025-06-02 Mon 11:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,16 +200,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf990041">1. 使用MSVC并脱离VisualStudio转而使用任意编辑器在Windows11下.org</a>
+<li><a href="#org0af63c9">1. 使用MSVC并脱离VisualStudio转而使用任意编辑器在Windows11下.org</a>
 <ul>
-<li><a href="#org235fd81">1.1. 1. 为什么要使用MSVC并脱离VisualStudio？</a></li>
-<li><a href="#org53af717">1.2. 2. 使用做法</a>
+<li><a href="#orgfee9149">1.1. 1. 为什么要使用MSVC并脱离VisualStudio？</a></li>
+<li><a href="#org1f70308">1.2. 2. 使用做法</a>
 <ul>
-<li><a href="#org59876d5">1.2.1. (1) 下载安装</a></li>
-<li><a href="#orga4e4ff5">1.2.2. (2) 基本介绍</a></li>
-<li><a href="#org384e896">1.2.3. (3) 设置环境变量(临时)</a></li>
-<li><a href="#org9d6b3b4">1.2.4. (4) 使用MSVC(cl.exe)</a></li>
-<li><a href="#orgcd45170">1.2.5. (5) "IDE"集成</a></li>
+<li><a href="#org37e073d">1.2.1. (1) 下载安装</a></li>
+<li><a href="#org7b17c6a">1.2.2. (2) 基本介绍</a></li>
+<li><a href="#org851ea20">1.2.3. (3) 设置环境变量(临时)</a></li>
+<li><a href="#org95448e0">1.2.4. (4) 使用MSVC(cl.exe)</a></li>
+<li><a href="#orgebf2d7c">1.2.5. (5) "IDE"集成</a></li>
 </ul>
 </li>
 </ul>
@@ -217,24 +217,24 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf990041" class="outline-2">
-<h2 id="orgf990041"><span class="section-number-2">1.</span> 使用MSVC并脱离VisualStudio转而使用任意编辑器在Windows11下.org</h2>
+<div id="outline-container-org0af63c9" class="outline-2">
+<h2 id="org0af63c9"><span class="section-number-2">1.</span> 使用MSVC并脱离VisualStudio转而使用任意编辑器在Windows11下.org</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org235fd81" class="outline-3">
-<h3 id="org235fd81"><span class="section-number-3">1.1.</span> 1. 为什么要使用MSVC并脱离VisualStudio？</h3>
+<div id="outline-container-orgfee9149" class="outline-3">
+<h3 id="orgfee9149"><span class="section-number-3">1.1.</span> 1. 为什么要使用MSVC并脱离VisualStudio？</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 我想试试MSVC在cpp20实现的模块(module)特性，但我用不习惯VisualStudio这个定制性较差的IDE
 </p>
 </div>
 </div>
-<div id="outline-container-org53af717" class="outline-3">
-<h3 id="org53af717"><span class="section-number-3">1.2.</span> 2. 使用做法</h3>
+<div id="outline-container-org1f70308" class="outline-3">
+<h3 id="org1f70308"><span class="section-number-3">1.2.</span> 2. 使用做法</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org59876d5" class="outline-4">
-<h4 id="org59876d5"><span class="section-number-4">1.2.1.</span> (1) 下载安装</h4>
+<div id="outline-container-org37e073d" class="outline-4">
+<h4 id="org37e073d"><span class="section-number-4">1.2.1.</span> (1) 下载安装</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 从 <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools">软软VSBT</a> 下载(V)isual (S)tudio (B)uild (T)ools 套件，其中VSBT就包含了MSVC(cl.exe)的编译器
@@ -249,8 +249,8 @@
 </p>
 </div>
 </div>
-<div id="outline-container-orga4e4ff5" class="outline-4">
-<h4 id="orga4e4ff5"><span class="section-number-4">1.2.2.</span> (2) 基本介绍</h4>
+<div id="outline-container-org7b17c6a" class="outline-4">
+<h4 id="org7b17c6a"><span class="section-number-4">1.2.2.</span> (2) 基本介绍</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 找到 <code>vcvars32.bat, vcvars64.bat, vcvarsall.bat</code> 批处理脚本
@@ -312,15 +312,15 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org384e896" class="outline-4">
-<h4 id="org384e896"><span class="section-number-4">1.2.3.</span> (3) 设置环境变量(临时)</h4>
+<div id="outline-container-org851ea20" class="outline-4">
+<h4 id="org851ea20"><span class="section-number-4">1.2.3.</span> (3) 设置环境变量(临时)</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
 打开cmd窗口，执行 <code>%comspec% /k "vcvars32.bat或vcvars64.bat或vcvarsall.bat的所在路径"</code> 来 <b>设置临时环境变量</b> 让 <code>cl.exe</code> 在当前会话中可用
 </p>
 
 <p>
-其中 <code>comspec</code> 的语义是 <code>compiler specification(编译器规格说明书)</code> 的意思
+其中 <code>comspec</code> 的语义应该是 <code>compiler specification(编译器规格说明书)</code> 的意思
 </p>
 
 <p>
@@ -339,8 +339,8 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org9d6b3b4" class="outline-4">
-<h4 id="org9d6b3b4"><span class="section-number-4">1.2.4.</span> (4) 使用MSVC(cl.exe)</h4>
+<div id="outline-container-org95448e0" class="outline-4">
+<h4 id="org95448e0"><span class="section-number-4">1.2.4.</span> (4) 使用MSVC(cl.exe)</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
 等待一会，就可以使用 MSVC(cl.exe) 了
@@ -358,8 +358,8 @@ cl.exe /?
 </p>
 </div>
 </div>
-<div id="outline-container-orgcd45170" class="outline-4">
-<h4 id="orgcd45170"><span class="section-number-4">1.2.5.</span> (5) "IDE"集成</h4>
+<div id="outline-container-orgebf2d7c" class="outline-4">
+<h4 id="orgebf2d7c"><span class="section-number-4">1.2.5.</span> (5) "IDE"集成</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <p>
 我们使用 cmake 来在任意编辑器上，做到给人一种IDE很集成的效果
@@ -475,7 +475,7 @@ endfunction
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: kle</p>
-<p class="date">Created: 2025-06-02 Mon 11:40</p>
+<p class="date">Created: 2025-06-02 Mon 11:54</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

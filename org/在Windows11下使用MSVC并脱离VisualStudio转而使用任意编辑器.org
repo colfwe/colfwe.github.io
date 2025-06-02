@@ -38,7 +38,7 @@ C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Buil
 
 打开cmd窗口，执行 ~%comspec% /k "vcvars32.bat或vcvars64.bat或vcvarsall.bat的所在路径"~ 来 *设置临时环境变量* 让 ~cl.exe~ 在当前会话中可用
 
-其中 ~comspec~ 的语义是 ~compiler specification(编译器规格说明书)~ 的意思
+其中 ~comspec~ 的语义应该是 ~compiler specification(编译器规格说明书)~ 的意思
 
 比如
 
