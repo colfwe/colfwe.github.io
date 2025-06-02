@@ -1,0 +1,141 @@
+* 使用MSVC并脱离VisualStudio转而使用任意编辑器在Windows11下.org
+
+** 1. 为什么要使用MSVC并脱离VisualStudio？
+
+我想试试MSVC在cpp20实现的模块(module)特性，但我用不习惯VisualStudio这个定制性较差的IDE
+
+** 2. 使用做法
+
+*** (1) 下载安装
+
+从 [[https://visualstudio.microsoft.com/visual-cpp-build-tools][软软VSBT]] 下载(V)isual (S)tudio (B)uild (T)ools 套件，其中VSBT就包含了MSVC(cl.exe)的编译器
+
+其中，商业名称叫 ~MSVC~
+
+实际名称叫 ~cl.exe~ 因为 *cl代表着 "(c) compiler and (l)ink"(C语言编译器与链接器)* 的意思
+
+*** (2) 基本介绍
+
+找到 ~vcvars32.bat, vcvars64.bat, vcvarsall.bat~ 批处理脚本
+
+其中，它们的作用是
+
+| 序号 | 批处理脚本    | 作用                                        |
+|------+---------------+---------------------------------------------|
+|    1 | vcvars32.bat  | 生成32位的abi产物                           |
+|    2 | vcvars64.bat  | 生成64位的abi产物                           |
+|    3 | vcvarsall.bat | 没试过，但可能是同时生成32位与64位的abi产物 |
+
+比如在我个人的电脑是这样的（不要滥抄，在我的电脑上是这个路径，在你的电脑是不一定是这个路径）
+
+#+begin_src
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\
+#+end_src
+
+反正通过任何文件搜索工具，搜索到名为 ~vcvars32.bat, vcvars64.bat, vcvarsall.bat~ 的所在目录就行
+
+*** (3) 设置环境变量(临时)
+
+打开cmd窗口，执行 ~%comspec% /k "vcvars32.bat或vcvars64.bat或vcvarsall.bat的所在路径"~ 来 *设置临时环境变量* 让 ~cl.exe~ 在当前会话中可用
+
+其中 ~comspec~ 的语义是 ~compiler specification(编译器规格说明书)~ 的意思
+
+比如
+
+#+begin_src
+%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars32.bat"  
+%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat"  
+#+end_src
+
+这跟 Visual Studio 上的 ~生成32位构建文件(x86)、生成64位构建文件(x64)~ 的作用是一样的，只不过这是 *从IDE快捷指令，转变成了cmd命令* 这样
+
+*** (4) 使用MSVC(cl.exe)
+
+等待一会，就可以使用 MSVC(cl.exe) 了
+
+#+begin_src
+# 其中，"/" 是msdos特有的参数前缀名
+# 实际上，它就相当于说 cl.exe -?(短参数) 或 cl.exe --?(长参数) 的这样的效果
+cl.exe /?
+#+end_src
+
+于是就可以正常使用了，比如 ~cl.exe 114514.c~ 比如 ~cl.exe 1919810.cpp~
+
+*** (5) "IDE"集成
+
+我们使用 cmake 来在任意编辑器上，做到给人一种IDE很集成的效果
+
+比如说在
+
+#+begin_src
+./clcpp
+  ./src
+  CmakeLists.txt
+#+end_src
+
+我们可以写一个这样的单文件配置
+
+#+begin_src cmake
+# CMAKE基本信息
+cmake_minimum_required(VERSION 3.30.0)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_BUILD_TYPE_Debug)
+
+# 项目名称(clcpp)
+project(clcpp LANGUAGES CXX)
+
+# 进入到指定目录
+include_directories(
+  ${clcpp_SOURCE_DIR}/src
+)
+
+# 进入到指定文件
+file(GLOB sources CONFIGURE_DEFENDS
+  "${clcpp_SOURCE_DIR}/src/hello.cpp"
+)
+
+# 编译执行
+add_executable(main ${sources})
+
+# 添加目标(target)，运行后钩子
+add_custom_target(run COMMAND $<TARGET_FILE:main>)
+#+end_src
+
+于是我们在执行完 ~%comspec% /k "vcvars32.bat或vcvars64.bat或vcvarsall.bat的所在路径~ 后
+
+并保证cmake环境确保正确后，就可以使用 *cmake + MSVC(cl.exe) + 任意编辑器的命令行窗口* 来得到一种类似集成IDE的使用体验了
+
+#+begin_src
+# cmake3 的使用方法  
+cmake -B build                      # cmake配置当前项目
+cmake --build build                 # cmake编译当前项目
+cmake --build build --target run    # cmake编译当前项目并运行  
+#+end_src
+
+有人说，我这样介绍了这么多篇幅的cmake，其实最终只想得到类似集成IDE的体验？那我为啥不去用VS？
+
+#+begin_quote
+首先还是那个习惯问题，我不喜欢VS的原因，是它【定制性很差】。
+
+虽然我主力编辑器不用vim模态编辑哈，但如果去用VS的vim插件的话，只能安装名为 "vs vim" 的插件来使用
+
+然后虽说基本的vim使用体验是有了，但它只是一个编辑模式，好像找不到能用vimscript去进行一些基本的定制
+
+比如说我想这样，在VS的右下角显示实时时间
+
+function! UpdateTime()
+    let g:current_time = strftime("%H %M")
+    redrawstatus
+endfunction
+
+我记得我当时配置是配置了，但没有任何显示效果在VS上。
+
+还有就是，我这个过程
+
+其实就是在从 ~VS + MSBuild + MSVC~ 的生态中，迁移到了 ~任意编辑器 + CMake + MSVC~ 的生态
+
+总之，大家喜欢哪个生态就去尝试用哪个咯.....
+#+end_quote
+

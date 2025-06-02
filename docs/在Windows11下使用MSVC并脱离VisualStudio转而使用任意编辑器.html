@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-06-02 Mon 11:40 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="kle" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf990041">1. 使用MSVC并脱离VisualStudio转而使用任意编辑器在Windows11下.org</a>
+<ul>
+<li><a href="#org235fd81">1.1. 1. 为什么要使用MSVC并脱离VisualStudio？</a></li>
+<li><a href="#org53af717">1.2. 2. 使用做法</a>
+<ul>
+<li><a href="#org59876d5">1.2.1. (1) 下载安装</a></li>
+<li><a href="#orga4e4ff5">1.2.2. (2) 基本介绍</a></li>
+<li><a href="#org384e896">1.2.3. (3) 设置环境变量(临时)</a></li>
+<li><a href="#org9d6b3b4">1.2.4. (4) 使用MSVC(cl.exe)</a></li>
+<li><a href="#orgcd45170">1.2.5. (5) "IDE"集成</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf990041" class="outline-2">
+<h2 id="orgf990041"><span class="section-number-2">1.</span> 使用MSVC并脱离VisualStudio转而使用任意编辑器在Windows11下.org</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org235fd81" class="outline-3">
+<h3 id="org235fd81"><span class="section-number-3">1.1.</span> 1. 为什么要使用MSVC并脱离VisualStudio？</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+我想试试MSVC在cpp20实现的模块(module)特性，但我用不习惯VisualStudio这个定制性较差的IDE
+</p>
+</div>
+</div>
+<div id="outline-container-org53af717" class="outline-3">
+<h3 id="org53af717"><span class="section-number-3">1.2.</span> 2. 使用做法</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org59876d5" class="outline-4">
+<h4 id="org59876d5"><span class="section-number-4">1.2.1.</span> (1) 下载安装</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+从 <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools">软软VSBT</a> 下载(V)isual (S)tudio (B)uild (T)ools 套件，其中VSBT就包含了MSVC(cl.exe)的编译器
+</p>
+
+<p>
+其中，商业名称叫 <code>MSVC</code>
+</p>
+
+<p>
+实际名称叫 <code>cl.exe</code> 因为 <b>cl代表着 "(c) compiler and (l)ink"(C语言编译器与链接器)</b> 的意思
+</p>
+</div>
+</div>
+<div id="outline-container-orga4e4ff5" class="outline-4">
+<h4 id="orga4e4ff5"><span class="section-number-4">1.2.2.</span> (2) 基本介绍</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+找到 <code>vcvars32.bat, vcvars64.bat, vcvarsall.bat</code> 批处理脚本
+</p>
+
+<p>
+其中，它们的作用是
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">序号</th>
+<th scope="col" class="org-left">批处理脚本</th>
+<th scope="col" class="org-left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">vcvars32.bat</td>
+<td class="org-left">生成32位的abi产物</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">vcvars64.bat</td>
+<td class="org-left">生成64位的abi产物</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">vcvarsall.bat</td>
+<td class="org-left">没试过，但可能是同时生成32位与64位的abi产物</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+比如在我个人的电脑是这样的（不要滥抄，在我的电脑上是这个路径，在你的电脑是不一定是这个路径）
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\
+</pre>
+</div>
+
+<p>
+反正通过任何文件搜索工具，搜索到名为 <code>vcvars32.bat, vcvars64.bat, vcvarsall.bat</code> 的所在目录就行
+</p>
+</div>
+</div>
+<div id="outline-container-org384e896" class="outline-4">
+<h4 id="org384e896"><span class="section-number-4">1.2.3.</span> (3) 设置环境变量(临时)</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+打开cmd窗口，执行 <code>%comspec% /k "vcvars32.bat或vcvars64.bat或vcvarsall.bat的所在路径"</code> 来 <b>设置临时环境变量</b> 让 <code>cl.exe</code> 在当前会话中可用
+</p>
+
+<p>
+其中 <code>comspec</code> 的语义是 <code>compiler specification(编译器规格说明书)</code> 的意思
+</p>
+
+<p>
+比如
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars32.bat"  
+%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat"  
+</pre>
+</div>
+
+<p>
+这跟 Visual Studio 上的 <code>生成32位构建文件(x86)、生成64位构建文件(x64)</code> 的作用是一样的，只不过这是 <b>从IDE快捷指令，转变成了cmd命令</b> 这样
+</p>
+</div>
+</div>
+<div id="outline-container-org9d6b3b4" class="outline-4">
+<h4 id="org9d6b3b4"><span class="section-number-4">1.2.4.</span> (4) 使用MSVC(cl.exe)</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+等待一会，就可以使用 MSVC(cl.exe) 了
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil"># 其中，"/" 是msdos特有的参数前缀名
+# 实际上，它就相当于说 cl.exe -?(短参数) 或 cl.exe --?(长参数) 的这样的效果
+cl.exe /?
+</pre>
+</div>
+
+<p>
+于是就可以正常使用了，比如 <code>cl.exe 114514.c</code> 比如 <code>cl.exe 1919810.cpp</code>
+</p>
+</div>
+</div>
+<div id="outline-container-orgcd45170" class="outline-4">
+<h4 id="orgcd45170"><span class="section-number-4">1.2.5.</span> (5) "IDE"集成</h4>
+<div class="outline-text-4" id="text-1-2-5">
+<p>
+我们使用 cmake 来在任意编辑器上，做到给人一种IDE很集成的效果
+</p>
+
+<p>
+比如说在
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">./clcpp
+  ./src
+  CmakeLists.txt
+</pre>
+</div>
+
+<p>
+我们可以写一个这样的单文件配置
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cmake"># CMAKE基本信息
+cmake_minimum_required(VERSION 3.30.0)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_BUILD_TYPE_Debug)
+
+# 项目名称(clcpp)
+project(clcpp LANGUAGES CXX)
+
+# 进入到指定目录
+include_directories(
+  ${clcpp_SOURCE_DIR}/src
+)
+
+# 进入到指定文件
+file(GLOB sources CONFIGURE_DEFENDS
+  "${clcpp_SOURCE_DIR}/src/hello.cpp"
+)
+
+# 编译执行
+add_executable(main ${sources})
+
+# 添加目标(target)，运行后钩子
+add_custom_target(run COMMAND $&lt;TARGET_FILE:main&gt;)
+</pre>
+</div>
+
+<p>
+于是我们在执行完 <code>%comspec% /k "vcvars32.bat或vcvars64.bat或vcvarsall.bat的所在路径</code> 后
+</p>
+
+<p>
+并保证cmake环境确保正确后，就可以使用 <b>cmake + MSVC(cl.exe) + 任意编辑器的命令行窗口</b> 来得到一种类似集成IDE的使用体验了
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil"># cmake3 的使用方法  
+cmake -B build                      # cmake配置当前项目
+cmake --build build                 # cmake编译当前项目
+cmake --build build --target run    # cmake编译当前项目并运行  
+</pre>
+</div>
+
+<p>
+有人说，我这样介绍了这么多篇幅的cmake，其实最终只想得到类似集成IDE的体验？那我为啥不去用VS？
+</p>
+
+<blockquote>
+<p>
+首先还是那个习惯问题，我不喜欢VS的原因，是它【定制性很差】。
+</p>
+
+<p>
+虽然我主力编辑器不用vim模态编辑哈，但如果去用VS的vim插件的话，只能安装名为 "vs vim" 的插件来使用
+</p>
+
+<p>
+然后虽说基本的vim使用体验是有了，但它只是一个编辑模式，好像找不到能用vimscript去进行一些基本的定制
+</p>
+
+<p>
+比如说我想这样，在VS的右下角显示实时时间
+</p>
+
+<p>
+function! UpdateTime()
+    let g:current<sub>time</sub> = strftime("%H %M")
+    redrawstatus
+endfunction
+</p>
+
+<p>
+我记得我当时配置是配置了，但没有任何显示效果在VS上。
+</p>
+
+<p>
+还有就是，我这个过程
+</p>
+
+<p>
+其实就是在从 <code>VS + MSBuild + MSVC</code> 的生态中，迁移到了 <code>任意编辑器 + CMake + MSVC</code> 的生态
+</p>
+
+<p>
+总之，大家喜欢哪个生态就去尝试用哪个咯&#x2026;..
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: kle</p>
+<p class="date">Created: 2025-06-02 Mon 11:40</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
