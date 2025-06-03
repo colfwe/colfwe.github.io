@@ -134,7 +134,9 @@ endfunction
 
 还有就是，我这个过程
 
-其实就是在从 ~VS + MSBuild + MSVC~ 的生态中，迁移到了 ~任意编辑器 + CMake + MSVC~ 的生态
+其实意思是，在保持MSVC(cl.exe)编译器、MSBuild(构建文件模板)都不变的情况下
+
+从 ~VS + VSBT~ 的生态中，迁移到了 ~任意编辑器 + CMake~ 的生态
 
 总之，大家喜欢哪个生态就去尝试用哪个咯.....
 #+end_quote
