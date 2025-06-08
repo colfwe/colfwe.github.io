@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-08 Sun 12:38 -->
+<!-- 2025-06-08 Sun 13:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,17 +200,17 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd7bb384">1. 也许concept能比SFINAE好的一些个人思考-从一些很有趣的哲学角度上出发</a>
+<li><a href="#orgce29a58">1. 也许concept能比SFINAE好的一些个人思考-从一些很有趣的哲学角度上出发</a>
 <ul>
-<li><a href="#org0f69328">1.1. SFINAE</a></li>
-<li><a href="#orgffb76df">1.2. concept</a></li>
+<li><a href="#orgb26383a">1.1. SFINAE</a></li>
+<li><a href="#org7a092c4">1.2. concept</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd7bb384" class="outline-2">
-<h2 id="orgd7bb384"><span class="section-number-2">1.</span> 也许concept能比SFINAE好的一些个人思考-从一些很有趣的哲学角度上出发</h2>
+<div id="outline-container-orgce29a58" class="outline-2">
+<h2 id="orgce29a58"><span class="section-number-2">1.</span> 也许concept能比SFINAE好的一些个人思考-从一些很有趣的哲学角度上出发</h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -234,8 +234,8 @@
 <b>也或者说从暴论角度上去看一看这种技术是什么原因实现出来的</b>
 </p>
 </div>
-<div id="outline-container-org0f69328" class="outline-3">
-<h3 id="org0f69328"><span class="section-number-3">1.1.</span> SFINAE</h3>
+<div id="outline-container-orgb26383a" class="outline-3">
+<h3 id="orgb26383a"><span class="section-number-3">1.1.</span> SFINAE</h3>
 <div class="outline-text-3" id="text-1-1">
 <blockquote>
 <p>
@@ -276,8 +276,8 @@
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orgffb76df" class="outline-3">
-<h3 id="orgffb76df"><span class="section-number-3">1.2.</span> concept</h3>
+<div id="outline-container-org7a092c4" class="outline-3">
+<h3 id="org7a092c4"><span class="section-number-3">1.2.</span> concept</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 关于 concept 的意思，想看八股的可以去看 cppreference (毕竟我当时也是从这个网站上了解到的)
@@ -374,7 +374,7 @@ concept
 </p>
 
 <p>
-我想说的是：*对啊，所以现在要你自己如何组合concept啊，你自己如何组合这些concept* 决定了最后究竟是 “华强北小卖部” 还是 “大型商超CBD” 啊。这些都是要看 <b>你自己如何组合出来的</b>
+我想说的是: <b>对啊，所以现在要你自己如何组合concept啊，你自己如何组合这些concept</b> 决定了最后究竟是 “华强北小卖部” 还是 “大型商超CBD” 啊。这些都是要看 <b>你自己如何组合出来的</b>
 </p>
 
 <p>
@@ -398,7 +398,15 @@ concept
 </ul>
 
 <p>
-反正就是组合成，当前对你家附近的商圈，能用最方便的方式买到这些东西的 <b>最优解</b> 才是正确的啊。
+这些不同的店铺，完全可以开在你家附近的商圈里啊，只要能要你用最方便的方式去完成购买需求，得到最优解才是正确的啊。
+</p>
+
+<p>
+反正这要看你自己如何组合这些零散、距离贼远的具体case情况，组合成concept新概念一样，然后放在适当的地方这样咯
+</p>
+
+<p>
+哎呀，反正就是组合成，当前对你家附近的商圈，能用最方便的方式买到这些东西的 <b>最优解</b> 才是正确的啊。
 </p>
 </blockquote>
 
@@ -447,7 +455,7 @@ concept
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: kle</p>
-<p class="date">Created: 2025-06-08 Sun 12:38</p>
+<p class="date">Created: 2025-06-08 Sun 13:09</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
