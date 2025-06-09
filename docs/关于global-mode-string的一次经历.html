@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-06-10 Tue 01:08 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="kle" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org5866f31">1. 关于global-mode-string的一次经历</a>
+<ul>
+<li><a href="#org67afe0f">1.1. 这才是真正的原因(2025-06-10 Thu 00:32)</a>
+<ul>
+<li><a href="#org05a984c">1.1.1. 原因解释</a></li>
+<li><a href="#org5a2fb0f">1.1.2. 所以我现在的modeline是如何操作的呢？</a></li>
+<li><a href="#org3549ca9">1.1.3. 懵了足足一年半才知道的事情(关于mode-line-*)</a></li>
+<li><a href="#org82621c5">1.1.4. 顺便这里贴一下chatGPT 4o给出的关于mode-line-*的preset预设的代码</a></li>
+</ul>
+</li>
+<li><a href="#orgead66f0">1.2. 这里原因判断出错了，但碰巧解决了问题(2025-05-03 Sat 14:25)</a></li>
+<li><a href="#org2ff19f6">1.3. 背景材料</a></li>
+<li><a href="#org4647508">1.4. 复现情景</a></li>
+<li><a href="#orgb04ac61">1.5. 离谱出处</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5866f31" class="outline-2">
+<h2 id="org5866f31"><span class="section-number-2">1.</span> 关于global-mode-string的一次经历</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org67afe0f" class="outline-3">
+<h3 id="org67afe0f"><span class="section-number-3">1.1.</span> 这才是真正的原因(2025-06-10 Thu 00:32)</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org05a984c" class="outline-4">
+<h4 id="org05a984c"><span class="section-number-4">1.1.1.</span> 原因解释</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+BYD根本就不是之前说的那样
+</p>
+
+<p>
+但我唯一觉得还是挺离谱的地方是，在某次 <code>pacman -Syu</code> 更新后，我拉取emacs-feature-igc分支
+</p>
+
+<p>
+在手动make编译出来的emacs后，它的global-mode-string失去它原来的效果了
+</p>
+
+<blockquote>
+<p>
+global-mode-string原本的效果: 
+</p>
+
+<p>
+全局显示mode-line-format信息，即无论在哪个mode下，都可以全局显示用global-mode-string设置出来的信息
+</p>
+
+<p>
+global-mode-string在某次更新后到现在的效果:
+</p>
+
+<p>
+没有任何效果，如果非要设置一个 (setq global-mode-string list) 来使用，那Emacs只能识别它就是一个 [你自己不知道从哪里定义出来的变量]
+</p>
+
+<p>
+也就是说，global-mode-string，它的功能，在某次 <code>pacman -Syu</code> 后，就失效了
+</p>
+</blockquote>
+
+<p>
+所以才会有之前所说的现象
+</p>
+</div>
+</div>
+<div id="outline-container-org5a2fb0f" class="outline-4">
+<h4 id="org5a2fb0f"><span class="section-number-4">1.1.2.</span> 所以我现在的modeline是如何操作的呢？</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<div class="org-src-container">
+<pre class="src src-elisp">(defun kivnn/update-modeline-with-all-scripts ()
+  "手动搓出modeline信息"
+  ;;; 变量modeline信息放外边setq
+  (setq kivnn/mode-line-modified
+        '(:eval (cond (buffer-read-only "%")
+                      ((buffer-modified-p) "*")
+                      (t "-"))))
+  (setq kivnn/mode-line-position
+        '(:eval
+          (let* ((percent (format-mode-line "%p"))
+                 (line (format-mode-line "%l"))
+                 (col (format-mode-line "%c"))
+                 (safe-percent (replace-regexp-in-string "%" "%%" percent)))
+            (format "%s,%s(%s)" line col safe-percent))))
+  (setq kivnn/mode-line-agenda-info
+        (list
+         " "
+         (format "󰄒 TODO %d " modeline-agenda-todo-count)
+         (format "󱞿 DOING %d " modeline-agenda-doing-count)
+         (format "󰝕 WAIT %d " modeline-agenda-wait-count)
+         "-  "
+         modeline-agenda-file-name))
+  ;;; 常量modeline信息放里面setq-default
+  (setq-default mode-line-format
+                (list
+                 ;; 左对齐
+                 '(:eval mode-line-mule-info)
+                 '(:eval kivnn/mode-line-modified)
+                 "  "
+                 '(:eval mode-line-buffer-identification)
+                 '(:eval (when vc-mode vc-mode))
+                 "   "
+                 '(:eval (format "%s" modeline-calendar-month))
+                 '(:eval (format "%s" modeline-calendar-day))
+                 "("
+                 '(:eval (format "%s" modeline-calendar-week))
+                 ")"
+                 "   "
+                 '(:eval (format "%s" modeline-time-hour))
+                 ":"
+                 '(:eval (format "%s" modeline-time-minute))
+                 " 󰄨 "
+                 '(:eval (format "%s" modeline-ram-usage))
+                 " "
+                 '(:eval kivnn/mode-line-agenda-info)
+                 ;; 右对齐
+                 'mode-line-format-right-align
+                 '(:eval (format "%s" modeline-keybinding-style))
+                 "   Acc "
+                 '(:eval (format "%s" modeline-emacs-uptime))
+                 "  󰽉 "
+                 '(:eval kivnn/mode-line-position)
+                 "  󰎆 M "
+                 '(:eval (format "%s" emms-mode-line-string))
+                 '(:eval (format "%s" emms-playing-time-string)))))  
+</pre>
+</div>
+
+<p>
+这样来操作
+</p>
+</div>
+</div>
+<div id="outline-container-org3549ca9" class="outline-4">
+<h4 id="org3549ca9"><span class="section-number-4">1.1.3.</span> 懵了足足一年半才知道的事情(关于mode-line-*)</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+原来我才知道，我之前这么来设置mode-line-format
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; 之前这样来设置mode-line-format
+; 虽然没有错误，但是这里用的是preset预制
+; 也就是说，控制自定义的信息不够强力
+; 比如它会显示成 "   L3     ALL  " 的信息
+
+;; 原因是因为
+; 因为Emacs 设计早期就预设了一些老的 spacing 风格
+; 为了适配终端环境，用了很多 padding 来补空格。在现代配置中，几乎都会要让自己定义行列位置这一栏
+ (setq-default mode-line-format
+               '("%e"
+                 mode-line-position))  
+</pre>
+</div>
+
+<p>
+但是现在，我是这么来设置mode-line-format的
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; 而这，就是让自己定义行列位置这一栏
+; 顺带一提，原来(format)与(:eval)进行手搓modeline信息
+; 原来早就在 Emacs 22 (2007年) 就有的事情
+; 我自己这个小登还真的不知道有这么个东西..
+; 难怪论坛上原来有人是通过这样来设置modeline信息的...
+(setq kivnn/mode-line-position
+      '(:eval
+        (let* ((percent (format-mode-line "%p"))
+               (line (format-mode-line "%l"))
+               (col (format-mode-line "%c"))
+               (safe-percent (replace-regexp-in-string "%" "%%" percent)))
+          (format "%s,%s(%s)" line col safe-percent))))  
+(setq-default mode-line-format
+              (list
+               '(:eval kivnn/mode-line-position)))
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org82621c5" class="outline-4">
+<h4 id="org82621c5"><span class="section-number-4">1.1.4.</span> 顺便这里贴一下chatGPT 4o给出的关于mode-line-*的preset预设的代码</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<blockquote>
+<p>
+<i>要不有GPT 4o，我真的查不到一点资料</i>
+</p>
+
+<p>
+<i>而且C-h v那些mode-line-*得到的Value，是一堆超长列表，我这种菜鸡就根本看不下去那种</i>
+</p>
+</blockquote>
+
+<p>
+这下面指的是，不用preset预制，而是用 <code>(format)</code> 与 <code>(:eval)</code> 自己从0手搓出来，来替代
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org70d122f"></a>mode-line-mule-info<br />
+<div class="outline-text-5" id="text-1-1-4-1">
+<div class="org-src-container">
+<pre class="src src-elisp">;; 将会看到的是
+; "U"
+; 代表字符编码 
+(setq my/mule-info
+      '(:eval (format "U:%s%s"
+                      (if (coding-system-p buffer-file-coding-system)
+                          (symbol-name (coding-system-base buffer-file-coding-system))
+                        "??")
+                      (if buffer-file-coding-system '"" "-"))))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgdabddd2"></a>mode-line-cilent<br />
+<div class="outline-text-5" id="text-1-1-4-2">
+<div class="org-src-container">
+<pre class="src src-elisp">;; 将会看到的是
+; @@
+; 代表用emacscilent去连ssh远程时的状态信息
+(setq my/client-info
+      '(:eval (if (and (boundp 'server-buffer-clients) server-buffer-clients)
+                  "@@"
+                "")))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orge12b316"></a>mode-line-modified<br />
+<div class="outline-text-5" id="text-1-1-4-3">
+<div class="org-src-container">
+<pre class="src src-elisp">;; 将会看到的是
+; **，代表已修改当前buffer
+; --，代表已修改当前buffer
+; %%，代表不让修改当前buffer，只读
+(setq my/modified-info
+      '(:eval (cond (buffer-read-only "%%")   ; 只读
+                    ((buffer-modified-p) "**") ; 有修改
+                    (t "--"))))                ; 干净状态  
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgc68cd76"></a>mode-line-remote<br />
+<div class="outline-text-5" id="text-1-1-4-4">
+<div class="org-src-container">
+<pre class="src src-elisp">;; 将会看到的是
+; @host
+; 代表是否是远程连接 buffer（如 tramp），会显示 @host  
+; 代表远程到的主机名
+(setq my/remote-info
+      '(:eval (when (file-remote-p default-directory)
+                (format "@%s" (file-remote-p default-directory 'host)))))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org9197c3b"></a>mode-line-identification<br />
+<div class="outline-text-5" id="text-1-1-4-5">
+<div class="org-src-container">
+<pre class="src src-elisp">;; 将会看到的是
+; 多个frame时 (C-x 5 1) 使用时，显示不同的frame名
+; 也就是(如果使用带标题的GUI界面时，显示的是上面的GUI标题名称
+; 比如我这里是 "关于global-mode-string的一次经历.org - GNU Emacs at kle"
+(setq my/frame-id
+      '(:eval (if (boundp 'mode-line-frame-identification)
+                  (format "%s" (frame-parameter nil 'name))
+                "")))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org5681851"></a>mode-line-buffer-identification<br />
+<div class="outline-text-5" id="text-1-1-4-6">
+<div class="org-src-container">
+<pre class="src src-elisp">;; 将会看到的是
+; 具体的buffer名称，默认的占位符为 "%12b"
+(setq my/buffer-id
+      '(:eval (format "[%s]" (buffer-name))))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org66fdcca"></a>mode-line-position<br />
+<div class="outline-text-5" id="text-1-1-4-7">
+<div class="org-src-container">
+<pre class="src src-elisp">;; 将会看到的是
+; ALL L3
+; TOP L114514
+(setq my/pos
+      '(:eval (format "L%d:%d" (line-number-at-pos) (current-column))))
+</pre>
+</div>
+
+<p>
+然后开始缝就是了，不会的地方，对着ai调试就行了，也就是vibe coding。
+</p>
+
+<p>
+(chatGPT 4o是真的牛逼 <code>ψ(｀∇´)ψ</code>)
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgead66f0" class="outline-3">
+<h3 id="orgead66f0"><span class="section-number-3">1.2.</span> 这里原因判断出错了，但碰巧解决了问题(2025-05-03 Sat 14:25)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+好了，我大致明白了。同时我也能解释啥昨晚那个逆天离谱bug行为了
+</p>
+
+<p>
+因为在 <code>以前</code>
+</p>
+
+<p>
+有 global-mode-string 是管理全局的 modeline 信息，然后 mode-line-format 是管理局部的modeline信息，两者互不干扰
+</p>
+
+<p>
+以前我希望状态信息能一直显示所以一直都使用的 global-mode-string
+</p>
+
+<p>
+但是昨晚pacman -Syu更新系统后，变成了mode-line-format管理global-mode-string，两者一个管理另一个
+</p>
+
+<p>
+所以在 <code>现在</code>
+</p>
+
+<p>
+对待 <code>global-mode-string</code> 与 <code>mode-line-format</code> 的话，同时要设置 <code>状态栏 modeline 信息</code> 的话，那么就比如这样来设置就可以了
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(defun kivnn/update-modeline-with-all-scripts ()
+ "显示modeline信息"
+
+ ;; 将 global-mode-string 作为 “副modeline信息” 来使用
+ (setq global-mode-string
+       (list
+        "  "
+        (format "󰄒 TODO %d " modeline-agenda-todo-count)
+        (format "󱞿 DOING %d " modeline-agenda-doing-count)
+        (format "󰝕 WAIT %d " modeline-agenda-wait-count)
+        "-  "
+        modeline-agenda-file-name))
+
+ ;; 将 mode-line-format 作为 “主modeline信息” 来使用   
+ (setq-default mode-line-format
+               '("%e"
+                 mode-line-mule-info
+                 mode-line-client
+                 mode-line-modified
+                 mode-line-remote
+                 mode-line-frame-identification
+                 mode-line-buffer-identification
+                 mode-line-position
+                 (vc-mode vc-mode)
+                 mode-line-modes
+                 modeline-calendar-month
+                 modeline-calendar-day
+                 modeline-time-hour
+                 modeline-time-minute
+                 modeline-battery-percentage
+                 modeline-cpu-temperature
+                 modeline-ram-usage
+
+                 ;; 主mode-line-format，使用了，副mode-line-format
+                 global-mode-string
+                 mode-line-format-right-align
+                 modeline-emacs-uptime
+                 emms-mode-line-string)))
+</pre>
+</div>
+
+<p>
+<b>但这里唯一值得好奇的地方在于: 为什么我pacman -Syu滚系统，却会影响到通过emacs-mirros源码安装的GNU Emacs？</b>
+</p>
+</div>
+</div>
+<div id="outline-container-org2ff19f6" class="outline-3">
+<h3 id="org2ff19f6"><span class="section-number-3">1.3.</span> 背景材料</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+我所使用的 GNU Emacs，是从 <code>emacs-mirror</code> 下拉取用 <code>make</code> 安装的
+</p>
+
+<p>
+所以不存在任何被 <code>pacman -Syu</code> 滚的原因
+</p>
+
+<p>
+同时我也没有使用 <code>package.el</code> 的 <code>package-upgrade-all</code> 所以不存在升级el包导致的问题
+</p>
+</div>
+</div>
+<div id="outline-container-org4647508" class="outline-3">
+<h3 id="org4647508"><span class="section-number-3">1.4.</span> 复现情景</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+当时我在 pacman -Syu 后，我一打开 emacs，结果 BYD 整条 global-mode-string 都不显示了！
+</p>
+
+<p>
+然而 <code>C-h v global-mode-string</code> 是有值的，但是却不显示，必须要 setq global-mode-string 才能显示！
+</p>
+
+<p>
+后来我想了很久，发现是一个类似这样的函数没有执行导致的
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; 没有在 after-init-hook 执行此 foobar 函数
+(defun foobar ()
+  (interactive)
+  (setq global-mode-string (list)))
+</pre>
+</div>
+
+<p>
+可关键的地方在于 <b>我在pacman -Syu之前同样也是没有执行 foobar 函数的，为什么之前在升级系统前反而一切正常？</b>
+</p>
+
+<p>
+同时，我又发现了一个问题(<b>其实一部分是我自己乱写导致的，一部分就是因为这个setq global-mode-string导致的</b>) 
+</p>
+
+<p>
+首先在我自己这里 <code>emms-mode-line-string</code> 同时被两个函数控制
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; 其一
+(defun kivnn/format-emms-mode-line ()
+"格式化 emms-mode-line-string 来提取音乐纯文件名"
+(interactive)
+(when (stringp emms-mode-line-string)
+  ;; 去掉属性
+  (let* ((clean-str (substring-no-properties emms-mode-line-string)))
+    (when (string-match ".*/\\([^/]+\\) ]" clean-str)
+      (setq emms-mode-line-string
+            ;; 去掉后缀 ".mp3"
+            (replace-regexp-in-string "\\.mp3$" "" (match-string 1 clean-str)))))))
+
+;; 其二(当时把emms-mode-line-string给嵌入地写到kivnn/update-modeline-play-music里面去了，逻辑太乱了，这同样给我自己后面Debug时埋了颗巨雷)
+(run-at-time "0 sec" 30    'kivnn/update-modeline-play-music)          ; 每30秒更新一次当前正在播放的音乐名
+</pre>
+</div>
+
+<p>
+然后我就疯狂地思考我的代码哪里写错了，Debug从晚上12点到凌晨2点过后
+</p>
+
+<p>
+发现都不是！代码逻辑最多就是混乱了点，但绝对没有任何逻辑问题！就是 setq global-mode-string 导致的
+</p>
+
+<p>
+于是我就通过曲线救国的方式，通过设置 <code>钩子加载顺序</code> 终于是把这一 setq global-mode-string 才能显示 modeline 的问题解决了😭
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; 此处的 :append 是曲线救国地来解决 global-mode-string 的关键
+(add-hook 'emms-player-started-hook #'kivnn/format-emms-mode-line)
+(add-hook 'emms-player-started-hook #'kivnn/update-modeline-all-information :append)
+</pre>
+</div>
+
+<p>
+费了九牛二虎之力，我还以为折腾了一晚上的配置会不翼而飞了😭
+</p>
+
+<p>
+感谢GPT😭♥️🙏
+</p>
+</div>
+</div>
+<div id="outline-container-orgb04ac61" class="outline-3">
+<h3 id="orgb04ac61"><span class="section-number-3">1.5.</span> 离谱出处</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+<b>升级A的二进制文件，却影响到了B的二进制文件，的配置文件的特定变量</b>
+</p>
+
+<p>
+我只进行了 pacman -Syu，我也没进行 upgrade-package-all
+</p>
+
+<p>
+却单独却只影响到了从 emacs-mirror 下拉取用 make 安装的 GNU Emacs 的 global-mode-string
+</p>
+
+<p>
+更逆天的在于: 我的 global-mode-string 是有值的，但是却非要 setq 才能显示
+</p>
+
+<p>
+<b>升级A的二进制文件，却影响到了B的用make编译的二进制文件，的配置文件的特定变量</b>
+</p>
+
+<p>
+人生遇见过的最离谱BUG行为，真的没有之一😢
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: kle</p>
+<p class="date">Created: 2025-06-10 Tue 01:08</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

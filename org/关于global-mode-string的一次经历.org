@@ -1,0 +1,353 @@
+* 关于global-mode-string的一次经历
+
+** 这才是真正的原因(2025-06-10 Thu 00:32)
+
+*** 原因解释
+
+BYD根本就不是之前说的那样
+
+但我唯一觉得还是挺离谱的地方是，在某次 ~pacman -Syu~ 更新后，我拉取emacs-feature-igc分支
+
+在手动make编译出来的emacs后，它的global-mode-string失去它原来的效果了
+
+#+begin_quote
+global-mode-string原本的效果: 
+
+全局显示mode-line-format信息，即无论在哪个mode下，都可以全局显示用global-mode-string设置出来的信息
+
+global-mode-string在某次更新后到现在的效果:
+
+没有任何效果，如果非要设置一个 (setq global-mode-string list) 来使用，那Emacs只能识别它就是一个 [你自己不知道从哪里定义出来的变量]
+
+也就是说，global-mode-string，它的功能，在某次 ~pacman -Syu~ 后，就失效了
+#+end_quote
+
+所以才会有之前所说的现象
+
+
+*** 所以我现在的modeline是如何操作的呢？
+
+#+begin_src elisp
+(defun kivnn/update-modeline-with-all-scripts ()
+  "手动搓出modeline信息"
+  ;;; 变量modeline信息放外边setq
+  (setq kivnn/mode-line-modified
+        '(:eval (cond (buffer-read-only "%")
+                      ((buffer-modified-p) "*")
+                      (t "-"))))
+  (setq kivnn/mode-line-position
+        '(:eval
+          (let* ((percent (format-mode-line "%p"))
+                 (line (format-mode-line "%l"))
+                 (col (format-mode-line "%c"))
+                 (safe-percent (replace-regexp-in-string "%" "%%" percent)))
+            (format "%s,%s(%s)" line col safe-percent))))
+  (setq kivnn/mode-line-agenda-info
+        (list
+         " "
+         (format "󰄒 TODO %d " modeline-agenda-todo-count)
+         (format "󱞿 DOING %d " modeline-agenda-doing-count)
+         (format "󰝕 WAIT %d " modeline-agenda-wait-count)
+         "-  "
+         modeline-agenda-file-name))
+  ;;; 常量modeline信息放里面setq-default
+  (setq-default mode-line-format
+                (list
+                 ;; 左对齐
+                 '(:eval mode-line-mule-info)
+                 '(:eval kivnn/mode-line-modified)
+                 "  "
+                 '(:eval mode-line-buffer-identification)
+                 '(:eval (when vc-mode vc-mode))
+                 "   "
+                 '(:eval (format "%s" modeline-calendar-month))
+                 '(:eval (format "%s" modeline-calendar-day))
+                 "("
+                 '(:eval (format "%s" modeline-calendar-week))
+                 ")"
+                 "   "
+                 '(:eval (format "%s" modeline-time-hour))
+                 ":"
+                 '(:eval (format "%s" modeline-time-minute))
+                 " 󰄨 "
+                 '(:eval (format "%s" modeline-ram-usage))
+                 " "
+                 '(:eval kivnn/mode-line-agenda-info)
+                 ;; 右对齐
+                 'mode-line-format-right-align
+                 '(:eval (format "%s" modeline-keybinding-style))
+                 "   Acc "
+                 '(:eval (format "%s" modeline-emacs-uptime))
+                 "  󰽉 "
+                 '(:eval kivnn/mode-line-position)
+                 "  󰎆 M "
+                 '(:eval (format "%s" emms-mode-line-string))
+                 '(:eval (format "%s" emms-playing-time-string)))))  
+#+end_src
+
+这样来操作
+
+*** 懵了足足一年半才知道的事情(关于mode-line-*)
+
+原来我才知道，我之前这么来设置mode-line-format
+
+#+begin_src elisp
+  ;; 之前这样来设置mode-line-format
+  ; 虽然没有错误，但是这里用的是preset预制
+  ; 也就是说，控制自定义的信息不够强力
+  ; 比如它会显示成 "   L3     ALL  " 的信息
+  
+  ;; 原因是因为
+  ; 因为Emacs 设计早期就预设了一些老的 spacing 风格
+  ; 为了适配终端环境，用了很多 padding 来补空格。在现代配置中，几乎都会要让自己定义行列位置这一栏
+   (setq-default mode-line-format
+                 '("%e"
+                   mode-line-position))  
+#+end_src
+
+但是现在，我是这么来设置mode-line-format的
+
+#+begin_src elisp
+  ;; 而这，就是让自己定义行列位置这一栏
+  ; 顺带一提，原来(format)与(:eval)进行手搓modeline信息
+  ; 原来早就在 Emacs 22 (2007年) 就有的事情
+  ; 我自己这个小登还真的不知道有这么个东西..
+  ; 难怪论坛上原来有人是通过这样来设置modeline信息的...
+  (setq kivnn/mode-line-position
+        '(:eval
+          (let* ((percent (format-mode-line "%p"))
+                 (line (format-mode-line "%l"))
+                 (col (format-mode-line "%c"))
+                 (safe-percent (replace-regexp-in-string "%" "%%" percent)))
+            (format "%s,%s(%s)" line col safe-percent))))  
+  (setq-default mode-line-format
+                (list
+                 '(:eval kivnn/mode-line-position)))
+
+#+end_src
+
+*** 顺便这里贴一下chatGPT 4o给出的关于mode-line-*的preset预设的代码
+
+#+begin_quote
+/要不有GPT 4o，我真的查不到一点资料/
+
+/而且C-h v那些mode-line-*得到的Value，是一堆超长列表，我这种菜鸡就根本看不下去那种/
+#+end_quote
+
+这下面指的是，不用preset预制，而是用 ~(format)~ 与 ~(:eval)~ 自己从0手搓出来，来替代
+
+**** mode-line-mule-info
+#+begin_src elisp
+;; 将会看到的是
+; "U"
+; 代表字符编码 
+(setq my/mule-info
+      '(:eval (format "U:%s%s"
+                      (if (coding-system-p buffer-file-coding-system)
+                          (symbol-name (coding-system-base buffer-file-coding-system))
+                        "??")
+                      (if buffer-file-coding-system '"" "-"))))
+#+end_src
+
+**** mode-line-cilent
+#+begin_src elisp
+;; 将会看到的是
+; @@
+; 代表用emacscilent去连ssh远程时的状态信息
+(setq my/client-info
+      '(:eval (if (and (boundp 'server-buffer-clients) server-buffer-clients)
+                  "@@"
+                "")))
+#+end_src
+
+**** mode-line-modified
+#+begin_src elisp
+;; 将会看到的是
+; **，代表已修改当前buffer
+; --，代表已修改当前buffer
+; %%，代表不让修改当前buffer，只读
+(setq my/modified-info
+      '(:eval (cond (buffer-read-only "%%")   ; 只读
+                    ((buffer-modified-p) "**") ; 有修改
+                    (t "--"))))                ; 干净状态  
+#+end_src
+
+**** mode-line-remote
+#+begin_src elisp
+;; 将会看到的是
+; @host
+; 代表是否是远程连接 buffer（如 tramp），会显示 @host  
+; 代表远程到的主机名
+(setq my/remote-info
+      '(:eval (when (file-remote-p default-directory)
+                (format "@%s" (file-remote-p default-directory 'host)))))
+#+end_src
+
+
+**** mode-line-identification
+#+begin_src elisp
+;; 将会看到的是
+; 多个frame时 (C-x 5 1) 使用时，显示不同的frame名
+; 也就是(如果使用带标题的GUI界面时，显示的是上面的GUI标题名称
+; 比如我这里是 "关于global-mode-string的一次经历.org - GNU Emacs at kle"
+(setq my/frame-id
+      '(:eval (if (boundp 'mode-line-frame-identification)
+                  (format "%s" (frame-parameter nil 'name))
+                "")))
+#+end_src
+
+**** mode-line-buffer-identification
+#+begin_src elisp
+;; 将会看到的是
+; 具体的buffer名称，默认的占位符为 "%12b"
+(setq my/buffer-id
+      '(:eval (format "[%s]" (buffer-name))))
+#+end_src
+
+**** mode-line-position
+#+begin_src elisp
+;; 将会看到的是
+; ALL L3
+; TOP L114514
+(setq my/pos
+      '(:eval (format "L%d:%d" (line-number-at-pos) (current-column))))
+#+end_src
+
+然后开始缝就是了，不会的地方，对着ai调试就行了，也就是vibe coding。
+
+(chatGPT 4o是真的牛逼 ~ψ(｀∇´)ψ~)
+
+** 这里原因判断出错了，但碰巧解决了问题(2025-05-03 Sat 14:25)
+
+好了，我大致明白了。同时我也能解释啥昨晚那个逆天离谱bug行为了
+
+因为在 ~以前~
+
+有 global-mode-string 是管理全局的 modeline 信息，然后 mode-line-format 是管理局部的modeline信息，两者互不干扰
+
+以前我希望状态信息能一直显示所以一直都使用的 global-mode-string
+
+但是昨晚pacman -Syu更新系统后，变成了mode-line-format管理global-mode-string，两者一个管理另一个
+
+所以在 ~现在~
+
+对待 ~global-mode-string~ 与 ~mode-line-format~ 的话，同时要设置 =状态栏 modeline 信息= 的话，那么就比如这样来设置就可以了
+
+#+begin_src elisp
+  (defun kivnn/update-modeline-with-all-scripts ()
+   "显示modeline信息"
+
+   ;; 将 global-mode-string 作为 “副modeline信息” 来使用
+   (setq global-mode-string
+         (list
+          "  "
+          (format "󰄒 TODO %d " modeline-agenda-todo-count)
+          (format "󱞿 DOING %d " modeline-agenda-doing-count)
+          (format "󰝕 WAIT %d " modeline-agenda-wait-count)
+          "-  "
+          modeline-agenda-file-name))
+
+   ;; 将 mode-line-format 作为 “主modeline信息” 来使用   
+   (setq-default mode-line-format
+                 '("%e"
+                   mode-line-mule-info
+                   mode-line-client
+                   mode-line-modified
+                   mode-line-remote
+                   mode-line-frame-identification
+                   mode-line-buffer-identification
+                   mode-line-position
+                   (vc-mode vc-mode)
+                   mode-line-modes
+                   modeline-calendar-month
+                   modeline-calendar-day
+                   modeline-time-hour
+                   modeline-time-minute
+                   modeline-battery-percentage
+                   modeline-cpu-temperature
+                   modeline-ram-usage
+                   
+                   ;; 主mode-line-format，使用了，副mode-line-format
+                   global-mode-string
+                   mode-line-format-right-align
+                   modeline-emacs-uptime
+                   emms-mode-line-string)))
+#+end_src
+
+*但这里唯一值得好奇的地方在于: 为什么我pacman -Syu滚系统，却会影响到通过emacs-mirros源码安装的GNU Emacs？*
+
+** 背景材料
+
+我所使用的 GNU Emacs，是从 ~emacs-mirror~ 下拉取用 ~make~ 安装的
+
+所以不存在任何被 ~pacman -Syu~ 滚的原因
+
+同时我也没有使用 ~package.el~ 的 ~package-upgrade-all~ 所以不存在升级el包导致的问题
+
+** 复现情景
+
+当时我在 pacman -Syu 后，我一打开 emacs，结果 BYD 整条 global-mode-string 都不显示了！
+
+然而 ~C-h v global-mode-string~ 是有值的，但是却不显示，必须要 setq global-mode-string 才能显示！
+
+后来我想了很久，发现是一个类似这样的函数没有执行导致的
+
+#+begin_src elisp
+  ;; 没有在 after-init-hook 执行此 foobar 函数
+  (defun foobar ()
+    (interactive)
+    (setq global-mode-string (list)))
+#+end_src
+
+可关键的地方在于 *我在pacman -Syu之前同样也是没有执行 foobar 函数的，为什么之前在升级系统前反而一切正常？*
+
+同时，我又发现了一个问题(*其实一部分是我自己乱写导致的，一部分就是因为这个setq global-mode-string导致的*) 
+
+首先在我自己这里 ~emms-mode-line-string~ 同时被两个函数控制
+
+#+begin_src elisp
+  ;; 其一
+  (defun kivnn/format-emms-mode-line ()
+  "格式化 emms-mode-line-string 来提取音乐纯文件名"
+  (interactive)
+  (when (stringp emms-mode-line-string)
+    ;; 去掉属性
+    (let* ((clean-str (substring-no-properties emms-mode-line-string)))
+      (when (string-match ".*/\\([^/]+\\) ]" clean-str)
+        (setq emms-mode-line-string
+              ;; 去掉后缀 ".mp3"
+              (replace-regexp-in-string "\\.mp3$" "" (match-string 1 clean-str)))))))
+
+  ;; 其二(当时把emms-mode-line-string给嵌入地写到kivnn/update-modeline-play-music里面去了，逻辑太乱了，这同样给我自己后面Debug时埋了颗巨雷)
+  (run-at-time "0 sec" 30    'kivnn/update-modeline-play-music)          ; 每30秒更新一次当前正在播放的音乐名
+#+end_src
+
+然后我就疯狂地思考我的代码哪里写错了，Debug从晚上12点到凌晨2点过后
+
+发现都不是！代码逻辑最多就是混乱了点，但绝对没有任何逻辑问题！就是 setq global-mode-string 导致的
+
+于是我就通过曲线救国的方式，通过设置 ~钩子加载顺序~ 终于是把这一 setq global-mode-string 才能显示 modeline 的问题解决了😭
+
+#+begin_src elisp
+   ;; 此处的 :append 是曲线救国地来解决 global-mode-string 的关键
+   (add-hook 'emms-player-started-hook #'kivnn/format-emms-mode-line)
+   (add-hook 'emms-player-started-hook #'kivnn/update-modeline-all-information :append)
+#+end_src
+
+费了九牛二虎之力，我还以为折腾了一晚上的配置会不翼而飞了😭
+
+感谢GPT😭♥️🙏
+
+** 离谱出处
+
+*升级A的二进制文件，却影响到了B的二进制文件，的配置文件的特定变量*
+
+我只进行了 pacman -Syu，我也没进行 upgrade-package-all
+
+却单独却只影响到了从 emacs-mirror 下拉取用 make 安装的 GNU Emacs 的 global-mode-string
+
+更逆天的在于: 我的 global-mode-string 是有值的，但是却非要 setq 才能显示
+
+*升级A的二进制文件，却影响到了B的用make编译的二进制文件，的配置文件的特定变量*
+
+人生遇见过的最离谱BUG行为，真的没有之一😢
