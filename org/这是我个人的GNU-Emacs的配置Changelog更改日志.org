@@ -5,61 +5,79 @@
 如果有什么遗漏的地方的话，以后再补充..... ~_(:3」∠)_~
 
 
-| 序号 | 配置文件的el包           | 配置文件的el包解释                   |
-|------+-------------------------+------------------------------------|
-|    1 | emms                    | 音乐播放器                          |
-|    2 | nano-theme              | 亮色主题                            |
-|    3 | bliss-theme             | 暗色主题                            |
-|    4 | nerd-icons              | nf图标                             |
-|    5 | nerd-icons-corfu        | 给corfu用的图标                     |
-|    6 | nerd-icons-dired        | 给dired用的图标                     |
-|    7 | nerd-icons-ibuffer      | 给ibuffer用的图标                   |
-|    8 | nerd-icons-completion   | 给minibuffer用的图标                |
-|    9 | dashboard               | 启动页                             |
-|   10 | denote                  | 本地文件版双链笔记                   |
-|   11 | org                     | org-mode本体                       |
-|   12 | valign                  | 给org-table用的虚拟对齐              |
-|   13 | org-download            | 从剪贴板粘贴图片                     |
-|   14 | org-preview-html        | 边写边HMR预览org文件                 |
-|   15 | auctex                  | 写LaTeX用的                        |
-|   16 | highlight-indent-guides | 缩进线                             |
-|   17 | centaur-tabs            | tab标签页                          |
-|   18 | eat                     | 集成终端模拟器                       |
-|   19 | pdf-tools               | 看pdf文档                          |
-|   20 | magit                   | 最好用的版本控制工具                 |
-|   21 | dirvish                 | 文件管理器                          |
-|   22 | cdlatex                 | 快速补全数学符号                     |
-|   23 | smartparens             | 括号匹配                            |
-|   24 | vertico                 | 轻量级ivy或helm                     |
-|   25 | orderless               | 无序搜索                            |
-|   26 | marginalia              | 展示函数的描述信息                   |
-|   27 | embark                  | embark                             |
-|   28 | embark-consult          | embark查阅                         |
-|   29 | consult                 | 查阅                               |
-|   30 | posframe                | 弹出框的依赖                        |
-|   31 | vertico-posframe        | vertico的弹出框                     |
-|   32 | restart-emacs           | 重启emacs                          |
-|   33 | savehist                | 光标保存                            |
-|   34 | saveplace               | 光标保存                            |
-|   35 | telega                  | IM聊天工具                          |
-|   36 | visual-fill-column      | 给telega用的依赖                    |
-|   37 | rainbow-identifiers     | 给telega用的依赖                    |
-|   38 | yasnippet               | snippet本体                        |
-|   39 | yasnippet-snippets      | snippet自定义片段                   |
-|   40 | corfu                   | 补全前端                            |
-|   41 | eglot                   | 语言服务器客户端                     |
-|   42 | tree-sitter             | 树坐者本体                          |
-|   43 | tree-sitter-langs       | 树坐者支持更多的语言                 |
-|   44 | rime                    | [WSL环境]: 让WSLg的GUI Emacs输入中文 |
+| 序号 | 配置文件的el包           | 配置文件的el包解释                                          |
+|------+-------------------------+-----------------------------------------------------------|
+|    1 | emms                    | 音乐播放器                                                 |
+|    2 | nano-theme              | 亮色主题                                                   |
+|    3 | bliss-theme             | 暗色主题                                                   |
+|    4 | nerd-icons              | nf图标                                                    |
+|    5 | nerd-icons-corfu        | 给corfu用的图标                                            |
+|    6 | nerd-icons-dired        | 给dired用的图标                                            |
+|    7 | nerd-icons-ibuffer      | 给ibuffer用的图标                                          |
+|    8 | nerd-icons-completion   | 给minibuffer用的图标                                       |
+|    9 | dashboard               | 启动页                                                    |
+|   10 | denote                  | 本地文件版双链笔记                                          |
+|   11 | org                     | org-mode本体                                              |
+|   12 | valign                  | 给org-table用的虚拟对齐                                     |
+|   13 | org-download            | 从剪贴板粘贴图片                                            |
+|   14 | org-preview-html        | 边写边HMR预览org文件                                        |
+|   15 | auctex                  | 写LaTeX用的                                               |
+|   16 | highlight-indent-guides | 缩进线                                                    |
+|   17 | centaur-tabs            | tab标签页                                                 |
+|   18 | eat                     | 集成终端模拟器                                              |
+|   19 | pdf-tools               | 看pdf文档                                                 |
+|   20 | magit                   | 最好用的版本控制工具                                         |
+|   21 | dirvish                 | 文件管理器                                                 |
+|   22 | cdlatex                 | 快速补全数学符号                                            |
+|   23 | smartparens             | 括号匹配                                                   |
+|   24 | vertico                 | 轻量级ivy或helm                                            |
+|   25 | orderless               | 无序搜索                                                   |
+|   26 | marginalia              | 展示函数的描述信息                                          |
+|   27 | embark                  | embark                                                    |
+|   28 | embark-consult          | embark查阅                                                |
+|   29 | consult                 | 查阅                                                      |
+|   30 | posframe                | 弹出框的依赖                                               |
+|   31 | vertico-posframe        | vertico的弹出框                                            |
+|   32 | restart-emacs           | 重启emacs                                                 |
+|   33 | savehist                | 光标保存                                                   |
+|   34 | saveplace               | 光标保存                                                   |
+|   35 | telega                  | IM聊天工具                                                 |
+|   36 | visual-fill-column      | 给telega用的依赖                                           |
+|   37 | rainbow-identifiers     | 给telega用的依赖                                           |
+|   38 | yasnippet               | snippet本体                                               |
+|   39 | yasnippet-snippets      | snippet自定义片段                                          |
+|   40 | corfu                   | 补全前端                                                   |
+|   41 | eglot                   | 语言服务器客户端                                            |
+|   42 | tree-sitter             | 树坐者本体                                                 |
+|   43 | tree-sitter-langs       | 树坐者支持更多的语言                                         |
+|   44 | deadgrep                | 抓取文本工具                                               |
+|   45 | evil                    | 根据现有的el函数，带上vim-motion，弄出一个符合自己习惯的编辑环境 |
+|   46 | rime                    | [WSL环境]: 让WSLg的GUI Emacs输入中文                        |
 
 
 ** 2025年(今年)
 
+- 20250610
+
+  + 用 ~(format)~ 与 ~(:eval)~ 搓出了modeline信息
+
+  + 对自己的配置文件，进行了一些方面的软编码
+
+  + 添加了evil，来在现有积累下来的el函数，配合上vim-layer来随时切换emacs-style与vim-motion，尝试设置一个可能符合自己习惯的编辑环境
+
+   + 添加了一个modeline信息，从而可以监听evil-mode的状态，从而更新并提示当前所使用的keybindings按键风格是emacs-style还是vim-motion
+
+     
+- 202504
+
+  + 经历了一些事情
+
+    
 - 20250325
 
   + 去除了 cmake-mode.el 因为用不上，或者使用次数非常有限
 
-  + 认认真真使用 fontspec 包，以后再！也！不！会！折！腾！ctex 宏包！
+  + 认认真真使用 fontspec 包，以后不会折腾ctex宏包了，没有下次了。
 
   + 给 org-mode 缝了个很好效率的函数，使得可以在 org-mode 下，渲染含有中文utf-8的LaTeX片段
 
