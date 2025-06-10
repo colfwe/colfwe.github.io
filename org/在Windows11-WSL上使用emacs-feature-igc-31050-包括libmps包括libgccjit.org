@@ -60,7 +60,7 @@
 
   毕竟使用这台笔记本，会因为网卡是螃蟹最次的那种网卡，而导致网速慢(而且是非常慢！最高速度只有20Mbps！)安装不上一些包
 
-  从而导致一路上都要手动签名*( ￣皿￣)/#，甚至即使安装好后，平常滚动时都时不时来一下下载速度过于缓慢的断流问题，简直气死个人
+  从而导致一路上都要手动签名 ~*( ￣皿￣)/#~ 甚至即使安装好后，平常滚动时都时不时来一下下载速度过于缓慢的断流问题，简直气死个人
 
   你能想象到，有什么会因为网卡过于垃圾，导致有些包装不上，导致了很莫名其妙的错误吗？（别人都没有我这么倒霉过！）
 
@@ -172,7 +172,10 @@ checking for mps.h... yes
 
   # 安装好之后，在 "wsl settings" 里面，需要将网络通信从NAT改成Mirrored，这样才能使用本地代理
   # 不然就会用默认配置，去连接geo与rack镜像，很卡的，非常卡！因为没有配置上本地代理
-  # 甚至这个提示在windows10下都没有的，所以才说WSL2的方法几乎只适用于windows11 []~(￣▽￣)~*  
+  # 甚至这个提示在windows10下都没有的，所以才说WSL2的方法几乎只适用于windows11 []~(￣▽￣)~*
+
+  # 顺便一说，在wsl上安装卸载linux，那是真的轻松愉快 []~(￣▽￣)~*
+  wsl --unregister linux发行版在wsl -l -o中的键名
 #+end_src
 
 
@@ -204,48 +207,6 @@ checking for mps.h... yes
 
 
 
-  # 使用WSLg，从而使得让Linux的GUI应用，可以rdp到Windows界面上
-  # 他WSLg说的默认支持，是因为他是默认支持在ubuntu上，你看他WSLg的宣传界面都是ubuntu的皇冠界面，可我这是archlinux啊，所以就需要一些设置
-  # 我也是询问AI后，几乎绝望之后才知道的
-  # 总结起来的意思是，让Weston(一个Wayland窗口管理器)跑在X11上，或让Wayland协议跑XWayland应用
-
-  # 安装
-  pacman -S xdg-desktop-portal-wlr pipewire wireplumber weston dbus
-  # 运行，目的其实是Wayland协议跑XWayland应用。
-  weston --backend=headless-backend.so &
-  # 然后运行这一次就可以了
-
-
-  
-  # 奇怪了，我明明昨天必须要这么输入才可以进行下去的
-  # 今天输入了后就说 could not load dnd-move/dnd-copy 什么的，然后不用管这个直接运行WSLg就可以了
-
-
-
-
-
-  # 方法来自于 https://www.cnblogs.com/ThousandPine/p/18616359
-  # 还有一点的就是，好像是要创建 socket 双向长久连接
-  # 手动创建链接，WSL 每次重启都要重新输入
-  # 稍后会介绍自动创建链接的方法
-  sudo rm -r /tmp/.X11-unix                   # 删除未链接的文件
-  ln -s /mnt/wslg/.X11-unix /tmp/.X11-unix    # 重新创建文件链接
-  # 然后就会有个名称为 "X0" 的 socket 文件
-  # 然后每次打开WSL，都创建这个文件
-  # 在 /etc/tmpfiles.d/wslg.conf 写
-  #  This file is part of the debianisation of systemd.
-  #
-  #  systemd is free software; you can redistribute it and/or modify it
-  #  under the terms of the GNU General Public License as published by
-  #  the Free Software Foundation; either version 2 of the License, or
-  #  (at your option) any later version.
-
-  # See tmpfiles.d(5) for details
-
-  # Type Path           Mode UID  GID  Age Argument
-  L+     /tmp/.X11-unix -    -    -    -   /mnt/wslg/.X11-unix
-
-
 
 
 
@@ -261,31 +222,92 @@ checking for mps.h... yes
 在编译之前，需要安装一些依赖，依赖管理让wsl-archlinux来操作就行，这里属于是“命中关键词”来安装。
 #+begin_src sh
 pacman -S giflib libxpm gtk2 gtk3 libgccjit autoconf make texinfo gnutls pkg-config imagemagick libpng libjpeg texlive mpv
+
+# 给编译tdlib用的，编译tdlib后再通过telega.el，实现 “telega for EmacsOS”
+# 这里先说一下，在WSL-archlinux下要玩 “telega for EmacsOS” 的话
+# 因为是WSL环境，所以这里在代理环境上有一个大坑，绝对会掉下去的那种
+# 在下面可选项这里，就可以看到了
+pacman -S gperf cmake
+
+# 给--with-rsvg等的各种显示更具体的图片，的编译选项提供的，一般来说WSL-archlinux已经安装好了
+sudo pacman -S libpng libjpeg-turbo libtiff giflib librsvg
+
+# 【可选项】如果要树坐者的话  
+sudo pacman -S tree-sitter
+
+# 【可选项】给deadgrep.el使用的抓文本后端
+pacman -S ripgrep
+
+# 【可选项】如果在linux原生环境下，有spectacle截图工具可用的话，可以通过xclip来完成org-download操作
+pacman -S xclip
 #+end_src
 
 | 序号 | 包依赖      | 为了Emacs而使用Linux                                              |
-|------+-------------+------------------------------------------------------------------|省级
+|------+-------------+------------------------------------------------------------------|
 |    1 | giflib      | 在Emacs处理gif的库                                                |
 |    2 | libxpm      | 在X11下操作位图的库                                                |
 |    3 | gtk2        | 一会开编译命令 --with-x-toolkit=gtk3 用的                          |
 |    4 | gtk3        | 一会开编译命令 --with-x-toolkit=gtk3 用的                          |
 |    5 | libgccjit   | 开 native-comp 用的，而且是非常重要                                 |
-|    6 | autoconf    | 能够运行emacs源码包的 ./autogen.sh 用的                            |
+|    6 | autoconf    | 能够运行emacs源码包的 ./autogen.sh 用的                             |
 |    7 | make        | 构建工具                                                          |
 |    8 | texinfo     | 在make构建过程时解析文本用的                                        |
-|    9 | gnutls      | 一个tls的gnu工具包，必须要安装，不然不能安全下载从elpa源获取的包        |
+|    9 | gnutls      | 一个tls的gnu工具包，必须要安装，不然不能安全下载从elpa源获取的包         |
 |   10 | pkg-config  | gnutls的依赖，装上pkg-config才能让编译emacs时检测到有gnutls，参考 [[https://www.reddit.com/r/emacs/comments/mqlhcu/building_emacs_on_windows_gnutls_is_not_detected/?rdt=39055）][红迪]] |
-|   11 | imagemagick | 在Emacs下处理一些图像用的                                          |
-|   12 | libpng      | 在Emacs下处理一些png图像用的                                       |
-|   13 | libjpeg     | 在Emacs下处理一些jpeg图像用的                                      |
-|   14 | texlive     | 可选项: 如果要写auctex写LaTeX的话                                  |
+|   11 | imagemagick | 在Emacs下处理一些图像用的                                           |
+|   12 | libpng      | 在Emacs下处理一些png图像用的                                        |
+|   13 | libjpeg     | 在Emacs下处理一些jpeg图像用的                                       |
+|   14 | texlive     | 可选项: 如果要写auctex写LaTeX的话                                   |
 |   15 | mpv         | 可选项: 如果要用emms听音乐的话                                      |
+|   16 | gperf       | 可选项: 如果要用telega-server(tdlib)的话                           |
+|   17 | cmake       | 可选项: 如果要用telega-server(tdlib)的话                           |
 
-然后就是下载 libmps 的库文件，安装方法就是直接暴力复制到 ~/usr/bin/ 与 /usr/include~ 上就行了，libmps的安装参考这里 [[https://colfwe.github.io/docs/%E5%9C%A8Linux%E4%B8%8A%E7%BC%96%E8%AF%91emacs-feature-igc%E5%88%86%E6%94%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%96%B9%E6%B3%95.html][在Linux上编译emacs-feature-igc分支的个人方法]] 
+然后就是下载 libmps 的库文件，libmps库文件规格大概是这样的
+
+#+begin_src 
+libmps大致信息
+  
+.a 静态文件部分
+   🔧 libmps.a
+   🔧 libmps-debug.a
+.h 头文件部分
+   🔧 mpsacl.h
+   🔧 mpsavm.h
+   🔧 mpscamc.h
+   🔧 mpscams.h
+   🔧 mpscawl.h
+   🔧 mpsclo.h
+   🔧 mpscmfs.h
+   🔧 mpscmv2.h
+   🔧 mpscmvff.h
+   🔧 mpscmvt.h
+   🔧 mpscsnc.h
+   🔧 mps.h
+   🔧 mpsio.h
+   🔧 mpslib.h
+   🔧 mpstd.h
+   🔧 mpswin.h
+#+end_src
+
+[[https://github.com/colfwe/dotfiles/tree/main/libmps][我的仓库 ]]或 [[https://github.com/Ravenbrook/mps][作者仓库]] 里也都有 (20230711, v1.118.0, Release)
+
+安装方法就是直接暴力复制到 ~/usr/bin/ 与 /usr/include/~ 上就行了
+
+然后是 emacs-mirror 的 emacs-feature-igc 分支
+
+仓库地址: [[https://github.com/emacs-mirror/emacs/tree/feature/igc][emacs-feature-igc]]
+
+推荐提交点: ~6654ac61342a0a2ffef50435d026cae09314ad5c~
+
+因为运行无论在archlinux原生还是WSL-archlinux环境下，运行都十分稳定
+
+反正在 [我个人的配置上] 在 [非配置情况] 下，一次也没有崩溃过
 
 然后就是编译命令，先 ~chmod +x ./autogen.sh~ 再运行 ~./autogen.sh~ 就得到了 ~./configure~
 
 然后要设置几个构建脚本为可执行，反正这在msys2上是要这么操作的，这里也设置为可执行就是了
+
+/而且我也亲身实验了，即使不在msys2环境上，而是在WSL2环境上，依然也是要进行加权chmod的/ ~(～￣▽￣)～~
 
 #+begin_src sh
 chmod +x ./build-aux/move-if-change
@@ -294,12 +316,74 @@ chmod +x ./build-aux/update-subdirs
 chmod +x ./build-aux/make-info-dir
 #+end_src
 
-然后我的编译选项，就比 [[https://colfwe.github.io/docs/%E5%9C%A8Linux%E4%B8%8A%E7%BC%96%E8%AF%91emacs-feature-igc%E5%88%86%E6%94%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%96%B9%E6%B3%95.html][在Linux上编译emacs-feature-igc分支的个人方法]] 多出了 ~--with-x-toolkit=gtk3 --with-gnutls=ifavailable~ 这两个选项
+然后我的编译选项，是这样的
 
-#+begin_src sh
-CFLAGS="-fmax-errors=1000" ./configure --sysconfdir=/etc --prefix=/usr --libexecdir=/usr/lib --with-tree-sitter=ifavailable --localstatedir=/var --disable-build-details --with-harfbuzz --with-libsystemd --with-modules --with-x-toolkit=gtk3 --with-mps=yes --with-gnutls=ifavailable  'CFLAGS=-march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/emacs/src=/usr/src/debug/emacs -flto=auto' 'LDFLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs -flto=auto'  
+#+begin_src
+CFLAGS="-fmax-errors=1000" ./configure \
+    --sysconfdir=/etc \                   # 配置文件默认安装到 /etc
+    --prefix=/usr \                       # 安装根路径为 /usr（不是 /usr/local）
+    --libexecdir=/usr/lib \               # 内部 helper 程序装到 /usr/lib
+    --localstatedir=/var \                # 本地变量文件路径（如缓存）设为 /var
+    --disable-build-details \             # 不写入构建时间/主机信息，提高构建可重现性
+    --with-harfbuzz \                     # 启用 HarfBuzz，提升字体渲染质量（支持 ligatures）
+    --with-libsystemd \                   # 启用对 systemd 的支持
+    --with-modules \                      # 启用 Emacs 动态模块支持（支持外部模块）
+    --with-x-toolkit=gtk3 \               # 使用 GTK3 图形界面（X11）
+    --with-mps=yes \                      # 启用 memory pool system（Emacs GC 的替代实现）
+    --with-gnutls=ifavailable \           # 启用 GnuTLS 网络安全库（SSL/TLS），如果有的话（在从elpa获取包安装及更新需要用到）
+    --with-rsvg \                         # 开启 rsvg（SVG 支持）
+    --with-imagemagick \                  # 开启 ImageMagick 支持
+    --with-tree-sitter=ifavailable \      # 使用 tree-sitter（语法高亮引擎）如果可用
+    'CFLAGS=-march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/emacs/src=/usr/src/debug/emacs -flto=auto' \
+    'LDFLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs -flto=auto'  
 #+end_src
 
+GPT 4o给出的解释是，你这一定是从Arch等的高级构建模板，已经是非常专业级别的构建选项
+
+#+begin_quote
+BYD还真是，我当时是从 ~GNU Emacs 29.1~ 开始使用的，大概2024年4月
+
+然后我就从 ~pacman -S emacs~ 里，直接复制粘贴pacman包的 ~system-configuration-options~ 得到的
+
+然后就在上面加加减减修改一下这样
+#+end_quote
+
+并且GPT对编译flag做出了解释
+
+#+begin_example
+✅ 高安全性(-D_FORTIFY_SOURCE=3, -Werror=format-security)
+
+✅ 高优化(-O2, LTO, -march, -mtune)
+
+✅ 高可调试性(-g, -fno-omit-frame-pointer)
+
+✅ 支持丰富组件(tree-sitter、GTK3、modules、libsystemd)
+
+===================== 优化、调试、安全相关 =====================
+-march=x86-64                    # 架构通用，兼容大多数 CPU
+-mtune=generic                   # 为通用 CPU 调整
+-O2                              # 优化等级 O2（推荐级别）
+-pipe                            # 用管道而不是临时文件提高编译效率
+-fno-plt                         # 更快的函数调用方式（避免 PLT）
+-fexceptions                     # 支持异常处理（主要用于 C++ 模块）
+-Wp,-D_FORTIFY_SOURCE=3          # 编译期安全检查级别 3（更强）
+-Wformat -Werror=format-security # 格式化字符串必须安全
+-fstack-clash-protection         # 堆栈碰撞保护
+-fcf-protection                  # 控制流保护（CET）
+-fno-omit-frame-pointer          # 保留帧指针，方便调试
+-mno-omit-leaf-frame-pointer     # 同上，兼容 leaf 函数
+-g                               # 启用调试信息
+-ffile-prefix-map=...            # 消除调试信息中的路径依赖
+-flto=auto                       # 启用 LTO（链接时优化）
+===================== 链接器相关优化与安全 =====================
+-Wl,-O1                          # 链接器优化等级 1
+-Wl,--sort-common                # 优化 common symbol 排序
+-Wl,--as-needed                  # 只链接必要的库
+-Wl,-z,relro                     # 只读重定位段（安全）
+-Wl,-z,now                       # 提前绑定（防延迟绑定攻击）
+-Wl,-z,pack-relative-relocs      # 优化位置无关代码重定位
+-flto=auto                       # 启用 LTO 优化链接
+#+end_example
 
 然后 ~make~ 编译，然后 ~make install~ 安装。然后检测两个地方
 
@@ -322,12 +406,152 @@ CFLAGS="-fmax-errors=1000" ./configure --sysconfdir=/etc --prefix=/usr --libexec
   # 就说明igc生效了  
 #+end_src
 
-这样就安装好了，这是方案1 - WSLg
+这样就安装好了emacs-feature-igc
 
-#+begin_quote
-[对我个人说的话]: 如果要使用 deadgrep.el 的话，需要安装 pacman -S ripgrep 依赖
-#+end_quote
+***** 可选项：如果要装上我个人的配置的话
 
+****** bash方面
+
+将来给eat用的
+#+begin_src sh
+  # ~/.bashrc
+  alias l='ls -ail --color'
+  alias rm='rm -i'
+
+  # ~/.bash_profile
+  source ~/.bashrc
+#+end_src
+
+****** telega方面
+
+[[https://zevlg.github.io/telega.el/#building-tdlib][zevlg作者提供了非常直观清晰的编译方法]]
+
+首先编译tdlib(官方的C++库)
+
+#+begin_src sh
+  # 下载
+  git clone https://github.com/tdlib/td.git
+
+  # 配置
+  cd td
+  mkdir build
+  cd build
+  cmake ../
+
+  # 编译
+  make -j4   # 4是CPU核心数
+
+  # 安装
+  make install  
+#+end_src
+
+然后安装telega.el，并且构建build出telega-server(前端)
+
+然后如果默认在WSL下，有可能因为代理的原因，就会出现一个深渊巨坑
+
+我能看到的是，telega-server(前端)显示出来的内容
+
+#+begin_example
+首先能看到的状态是Auth WaitPhoneNumber，同时下面fallback到要通过已登录的用户，对应的账号来登录
+
+(可以在 “三条横线 > 头像名称的下方” 看到自己的账号)
+
+然后当输入完账号后，上方的状态会【立即】变成 Connecting.......，
+
+并且永远都是Connecting，永远都是Connecting，永远都是Connecting.................
+
+永远登不进去。
+#+end_example
+
+为什么呢？
+
+#+begin_example
+这是因为 tdlib 是我们自己拉取通过第三方编译出来的
+
+然后 tdlib 是一个单独的进程，它不识别 Emacs 的环境变量，哪怕你用 export all_proxy=...，tdlib 默认还是会忽略
+
+在WSL环境下
+#+end_example
+
+那要如何操作呢？那就要设置一段神必elisp代码，设置telega.el的 ~telega-proxies~ 变量
+
+#+begin_src elisp
+;; 声明: 我完全不懂这些代理相关的，我只想上去听音乐、看沙雕图、看在花新闻
+;; 声明: 我完全不懂这些代理相关的，我只想上去听音乐、看沙雕图、看在花新闻
+;; 声明: 我完全不懂这些代理相关的，我只想上去听音乐、看沙雕图、看在花新闻
+  
+  ;; 作者zevlg提供的
+  (setq telega-proxies
+        (list
+         `(:server "127.0.0.1"
+           :port 4781   ; 端口是你自己的代理，的后台服务，的端口号。一般来说好的代理软件都会提示服务端口信息。这里是socks服务的端口
+           :enable t
+           :type (:@type "proxyTypeSocks5"
+                         :username ""
+                         :password ""))))
+#+end_src
+
+****** 仪表盘信息相关
+
+天气信息(天气信息来源于wttr.in，不要滥用curl，因为天气API总结起来后，还是挺贵的)
+#+begin_src
+# 随便弄一个sh脚本(保存完下面的文字后，chmod +x 这个脚本.sh)
+# curl wttr.in/当前所居住的城市名称 > /root/.emacs.d/archive/weather
+#
+# 比如如果在广州(Guangzhou)的话，那就是
+#
+# curl wttr.in/Guangzhou > /root/.emacs.d/archive/weather  
+#+end_src
+
+****** 图标字体
+
+(2) 打字体补丁
+
+首先下载字体 [[https://github.com/kitevnn/dotfiles-archlinux/tree/main/res/font][Sauce Code Pro Semibold Nerd Font Complete Mono]]
+
+然后安装fontforge打补丁程序
+
+#+begin_src sh
+  # fontforge打补丁程序
+  pacman -S fontforge
+#+end_src
+
+再下载 [[https://github.com/ryanoasis/nerd-fonts?tab=readme-ov-file#font-patcher][nf作者提供的font-patcher字体脚本文件]]
+
+然后打补丁
+#+begin_src sh
+fontforge --script ./font-patcher --complete 'Sauce Code Pro Semibold Nerd Font Complete Mono.ttf'
+#+end_src
+
+然后安装字体
+#+begin_src sh
+mkdir -p ~/.local/share/fonts/
+mv SauceCodeProNerdFontCompleteMonoNerdFont-SemiBold.ttf ~/.local/share/fonts/
+sudo fc-cache -f
+#+end_src
+
+****** 创建必要的目录及文件
+
+#+begin_src sh
+  cd ~
+  mkdir -p 桌面
+  mkdir -p 音乐
+  cd ./桌面
+  mkdir -p emacs-org                
+  mkdir -p emacs-working-denote     
+  mkdir -p emacs-working-directory
+  cd emacs-org                
+  touch 2025.org
+#+end_src
+
+
+
+
+
+
+
+
+这是方案1 - WSLg
 
 *** 方案2 - MSYS2(Win10用户的选择)
 
@@ -415,7 +639,7 @@ fatal: unable to execute pager 'less'
 
 可能等我什么时候有钱买台高配笔记本，且不心疼钱财的时候，那个时候可能会回归，不过现在来看，那恐怕是一段很漫长的时间了，因为现在这个更好用，玩玩Emacs的同时还能打游戏 ~<(￣︶￣)>~
 
-** 已知问题
+** 一些问题
 
 *** 【闲谈】emacs-rime 的 posframe 会很卡很卡
 
@@ -435,3 +659,102 @@ fatal: unable to execute pager 'less'
 
 毕竟自己练习了那么久，却只有几乎不到50 cpm的输入，是很难受的。所以我放弃了五笔，还是双拼最好 ~╰(*°▽°*)╯~
 
+
+
+***  【闲谈】WSL环境问题: 我当时还需要这样做的，现在不需要了
+
+我不知道原因是啥
+
+但我个人猜测(暴论)
+
+可能是WSL到archlinux的一些桌面服务器没fallback上导致的
+
+*也就是说，如果要通过WSLg直接启动Emacs的话，直接下面这样来打开*
+
+#+begin_src sh
+> emacs  
+#+end_src
+
+*就可以了。也就是说，下面的都不用看了。*
+
+#+begin_src sh
+  # 使用WSLg，从而使得让Linux的GUI应用，可以rdp到Windows界面上
+  # 他WSLg说的默认支持，是因为他是默认支持在ubuntu上，你看他WSLg的宣传界面都是ubuntu的皇冠界面，可我这是archlinux啊，所以就需要一些设置
+  # 我也是询问AI后，几乎绝望之后才知道的
+  # 总结起来的意思是，让Weston(一个Wayland窗口管理器)跑在X11上，或让Wayland协议跑XWayland应用
+
+  # 安装
+  pacman -S xdg-desktop-portal-wlr pipewire wireplumber weston dbus
+  # 运行，目的其实是Wayland协议跑XWayland应用。
+  weston --backend=headless-backend.so &
+  # 然后运行这一次就可以了
+
+
+  
+  # 奇怪了，我明明昨天必须要这么输入才可以进行下去的
+  # 今天输入了后就说 could not load dnd-move/dnd-copy 什么的，然后不用管这个直接运行WSLg就可以了
+
+
+
+
+
+  # 方法来自于 https://www.cnblogs.com/ThousandPine/p/18616359
+  # 还有一点的就是，好像是要创建 socket 双向长久连接
+  # 手动创建链接，WSL 每次重启都要重新输入
+  # 稍后会介绍自动创建链接的方法
+  sudo rm -r /tmp/.X11-unix                   # 删除未链接的文件
+  ln -s /mnt/wslg/.X11-unix /tmp/.X11-unix    # 重新创建文件链接
+  # 然后就会有个名称为 "X0" 的 socket 文件
+  # 然后每次打开WSL，都创建这个文件
+  # 在 /etc/tmpfiles.d/wslg.conf 写
+  #  This file is part of the debianisation of systemd.
+  #
+  #  systemd is free software; you can redistribute it and/or modify it
+  #  under the terms of the GNU General Public License as published by
+  #  the Free Software Foundation; either version 2 of the License, or
+  #  (at your option) any later version.
+
+  # See tmpfiles.d(5) for details
+
+  # Type Path           Mode UID  GID  Age Argument
+  L+     /tmp/.X11-unix -    -    -    -   /mnt/wslg/.X11-unix
+  
+#+end_src
+
+** 一些感受
+
+*** 20250610
+
+BYD配置配到我都麻了，从0608到0610总共3天的时间全在配置上了
+
+是这样的，首先我有一个自己缝出来的uptime函数
+
+它可以记录每次使用了多长的时间
+
+然后通过bash脚本统计并保存在名为uptime的文件上
+
+最后再赋值给elisp的一个变量上
+
+这个变量可以展示一共显示了多久的Emacs使用时长
+
+所以在写这篇文章时，我当前的时长是
+#+begin_example
+Accompanying With GNU Emacs: 46 hours, 46 minutes, 40 seconds
+#+end_example
+
+然后我的uptime文件，全部都是这样的格式
+#+begin_example
+Uptime: xxxxxxxxxxxxxxxxxxxxxxxxxxx
+Uptime: 4 seconds
+Uptime: 1 minute, 39 seconds
+Uptime: 7 minutes, 29 seconds
+Uptime: xxxxxxxxxxxxxxxxxxxxxxxxxxx
+#+end_example
+
+然后我尝试统计，从0608到0610，这3天的时间里，我一共打开关闭了Emacs多少次
+
+结果就是嘛
+#+begin_example
+> cat uptime | wc -l
+708
+#+end_example

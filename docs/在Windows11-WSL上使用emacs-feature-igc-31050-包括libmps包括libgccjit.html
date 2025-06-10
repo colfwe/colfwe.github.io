@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-04 Sun 16:27 -->
+<!-- 2025-06-11 Wed 01:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -232,28 +232,34 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org63b9a5a">1. 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</a>
+<li><a href="#org6d799c2">1. 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</a>
 <ul>
-<li><a href="#org4c70c5f">1.1. 无图言雕是吧</a></li>
-<li><a href="#orga3855c4">1.2. 原因</a></li>
-<li><a href="#org1e4501c">1.3. 方案</a>
+<li><a href="#org48bbb0b">1.1. 无图言雕是吧</a></li>
+<li><a href="#orga69ecc6">1.2. 原因</a></li>
+<li><a href="#org7a2cb24">1.3. 方案</a>
 <ul>
-<li><a href="#org53fe4a2">1.3.1. 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</a></li>
-<li><a href="#org9672b14">1.3.2. 方案2 - MSYS2(Win10用户的选择)</a></li>
-<li><a href="#orgeea0b1d">1.3.3. 方案2 - WSL + X Server(Win10用户的选择)</a></li>
-<li><a href="#orgb5f6c04">1.3.4. 方案3 - GNU FTP main Server</a></li>
+<li><a href="#orgad47014">1.3.1. 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</a></li>
+<li><a href="#org1410ea8">1.3.2. 方案2 - MSYS2(Win10用户的选择)</a></li>
+<li><a href="#orge7d77f6">1.3.3. 方案2 - WSL + X Server(Win10用户的选择)</a></li>
+<li><a href="#orgab9acd9">1.3.4. 方案3 - GNU FTP main Server</a></li>
 </ul>
 </li>
-<li><a href="#org2419ed1">1.4. 转发fc教授的一句话</a></li>
-<li><a href="#org3d741b8">1.5. 个人暴论时刻</a>
+<li><a href="#org8dd1efc">1.4. 转发fc教授的一句话</a></li>
+<li><a href="#org964dcd9">1.5. 个人暴论时刻</a>
 <ul>
-<li><a href="#orgc565620">1.5.1. 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用</a></li>
-<li><a href="#orgb54b158">1.5.2. 【个人暴论】你说我什么时候会回到linux啊？</a></li>
+<li><a href="#orgea05179">1.5.1. 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用</a></li>
+<li><a href="#org221e96e">1.5.2. 【个人暴论】你说我什么时候会回到linux啊？</a></li>
 </ul>
 </li>
-<li><a href="#org420b0a2">1.6. 已知问题</a>
+<li><a href="#orgb925461">1.6. 一些问题</a>
 <ul>
-<li><a href="#org00d0029">1.6.1. 【闲谈】emacs-rime 的 posframe 会很卡很卡</a></li>
+<li><a href="#org7bf9872">1.6.1. 【闲谈】emacs-rime 的 posframe 会很卡很卡</a></li>
+<li><a href="#orgefff1b2">1.6.2. 【闲谈】WSL环境问题: 我当时还需要这样做的，现在不需要了</a></li>
+</ul>
+</li>
+<li><a href="#orga90d2c6">1.7. 一些感受</a>
+<ul>
+<li><a href="#orge0979db">1.7.1. 20250610</a></li>
 </ul>
 </li>
 </ul>
@@ -261,8 +267,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org63b9a5a" class="outline-2">
-<h2 id="org63b9a5a"><span class="section-number-2">1.</span> 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</h2>
+<div id="outline-container-org6d799c2" class="outline-2">
+<h2 id="org6d799c2"><span class="section-number-2">1.</span> 【猎奇行为】在Windows11-WSL上使用emacs-feature-igc-31050-包括libmps包括libgccjit</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <b>伟大无需多言</b>
@@ -312,30 +318,30 @@
 感谢软软 Windows 工作人员
 </p>
 </div>
-<div id="outline-container-org4c70c5f" class="outline-3">
-<h3 id="org4c70c5f"><span class="section-number-3">1.1.</span> 无图言雕是吧</h3>
+<div id="outline-container-org48bbb0b" class="outline-3">
+<h3 id="org48bbb0b"><span class="section-number-3">1.1.</span> 无图言雕是吧</h3>
 <div class="outline-text-3" id="text-1-1">
 
-<div id="org72c1507" class="figure">
+<div id="org5b7c2e6" class="figure">
 <p><img src="../res/无图言雕是吧1.png" alt="无图言雕是吧1.png" width="720px" />
 </p>
 </div>
 
 
-<div id="org8a732a6" class="figure">
+<div id="org2949ff6" class="figure">
 <p><img src="../res/无图言雕是吧2.png" alt="无图言雕是吧2.png" width="720px" />
 </p>
 </div>
 
 
-<div id="orgd0c4902" class="figure">
+<div id="orgcaaf92c" class="figure">
 <p><img src="../res/无图言雕是吧3.png" alt="无图言雕是吧3.png" width="720px" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orga3855c4" class="outline-3">
-<h3 id="orga3855c4"><span class="section-number-3">1.2.</span> 原因</h3>
+<div id="outline-container-orga69ecc6" class="outline-3">
+<h3 id="orga69ecc6"><span class="section-number-3">1.2.</span> 原因</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 为什么要这么猎奇，非得要在Windows11上运行emacs-feature-igc？
@@ -375,7 +381,7 @@
 </p>
 
 <p>
-从而导致一路上都要手动签名*( ￣皿￣)/#，甚至即使安装好后，平常滚动时都时不时来一下下载速度过于缓慢的断流问题，简直气死个人
+从而导致一路上都要手动签名 <code>*( ￣皿￣)/#</code> 甚至即使安装好后，平常滚动时都时不时来一下下载速度过于缓慢的断流问题，简直气死个人
 </p>
 
 <p>
@@ -489,8 +495,8 @@ WSL-archlinux有arch官方支持，更有保障了
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org1e4501c" class="outline-3">
-<h3 id="org1e4501c"><span class="section-number-3">1.3.</span> 方案</h3>
+<div id="outline-container-org7a2cb24" class="outline-3">
+<h3 id="org7a2cb24"><span class="section-number-3">1.3.</span> 方案</h3>
 <div class="outline-text-3" id="text-1-3">
 <blockquote>
 <p>
@@ -552,8 +558,8 @@ WSL-archlinux有arch官方支持，更有保障了
 </tbody>
 </table>
 </div>
-<div id="outline-container-org53fe4a2" class="outline-4">
-<h4 id="org53fe4a2"><span class="section-number-4">1.3.1.</span> 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</h4>
+<div id="outline-container-orgad47014" class="outline-4">
+<h4 id="orgad47014"><span class="section-number-4">1.3.1.</span> 方案1 - WSLg(Win11用户的选择，强烈推荐！！)</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 要做比较多的前提知识的准备，但是如果您是Emacs老登的话，那相信这些对您来说不过就是小儿科哈！ <code>&lt;(￣︶￣)↗[GO!]</code>
@@ -589,7 +595,7 @@ checking for mps.h... yes
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgaa954ca"></a>wsl安装archlinux<br />
+<li><a id="orgb661e02"></a>wsl安装archlinux<br />
 <div class="outline-text-5" id="text-1-3-1-1">
 <div class="org-src-container">
 <pre class="src src-sh"># powershell管理员身份打开，输入完 "wsl" 加上 "--install"，然后重启
@@ -607,12 +613,15 @@ wsl --install -d archlinux
 
 # 安装好之后，在 "wsl settings" 里面，需要将网络通信从NAT改成Mirrored，这样才能使用本地代理
 # 不然就会用默认配置，去连接geo与rack镜像，很卡的，非常卡！因为没有配置上本地代理
-# 甚至这个提示在windows10下都没有的，所以才说WSL2的方法几乎只适用于windows11 []~(￣▽￣)~*  
+# 甚至这个提示在windows10下都没有的，所以才说WSL2的方法几乎只适用于windows11 []~(￣▽￣)~*
+
+# 顺便一说，在wsl上安装卸载linux，那是真的轻松愉快 []~(￣▽￣)~*
+wsl --unregister linux发行版在wsl -l -o中的键名
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org68a2853"></a>wsl配置archlinux<br />
+<li><a id="org31f3c10"></a>wsl配置archlinux<br />
 <div class="outline-text-5" id="text-1-3-1-2">
 <div class="org-src-container">
 <pre class="src src-sh"># 设置本地语言
@@ -640,48 +649,6 @@ pacman -S noto-fonts-emoji
 
 
 
-# 使用WSLg，从而使得让Linux的GUI应用，可以rdp到Windows界面上
-# 他WSLg说的默认支持，是因为他是默认支持在ubuntu上，你看他WSLg的宣传界面都是ubuntu的皇冠界面，可我这是archlinux啊，所以就需要一些设置
-# 我也是询问AI后，几乎绝望之后才知道的
-# 总结起来的意思是，让Weston(一个Wayland窗口管理器)跑在X11上，或让Wayland协议跑XWayland应用
-
-# 安装
-pacman -S xdg-desktop-portal-wlr pipewire wireplumber weston dbus
-# 运行，目的其实是Wayland协议跑XWayland应用。
-weston --backend=headless-backend.so &amp;
-# 然后运行这一次就可以了
-
-
-
-# 奇怪了，我明明昨天必须要这么输入才可以进行下去的
-# 今天输入了后就说 could not load dnd-move/dnd-copy 什么的，然后不用管这个直接运行WSLg就可以了
-
-
-
-
-
-# 方法来自于 https://www.cnblogs.com/ThousandPine/p/18616359
-# 还有一点的就是，好像是要创建 socket 双向长久连接
-# 手动创建链接，WSL 每次重启都要重新输入
-# 稍后会介绍自动创建链接的方法
-sudo rm -r /tmp/.X11-unix                   # 删除未链接的文件
-ln -s /mnt/wslg/.X11-unix /tmp/.X11-unix    # 重新创建文件链接
-# 然后就会有个名称为 "X0" 的 socket 文件
-# 然后每次打开WSL，都创建这个文件
-# 在 /etc/tmpfiles.d/wslg.conf 写
-#  This file is part of the debianisation of systemd.
-#
-#  systemd is free software; you can redistribute it and/or modify it
-#  under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 2 of the License, or
-#  (at your option) any later version.
-
-# See tmpfiles.d(5) for details
-
-# Type Path           Mode UID  GID  Age Argument
-L+     /tmp/.X11-unix -    -    -    -   /mnt/wslg/.X11-unix
-
-
 
 
 
@@ -694,13 +661,31 @@ L+     /tmp/.X11-unix -    -    -    -   /mnt/wslg/.X11-unix
 </div>
 </div>
 </li>
-<li><a id="org9d0f2e9"></a>wsl编译emacs-feature-igc<br />
+<li><a id="org180657a"></a>wsl编译emacs-feature-igc<br />
 <div class="outline-text-5" id="text-1-3-1-3">
 <p>
 在编译之前，需要安装一些依赖，依赖管理让wsl-archlinux来操作就行，这里属于是“命中关键词”来安装。
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">pacman -S giflib libxpm gtk2 gtk3 libgccjit autoconf make texinfo gnutls pkg-config imagemagick libpng libjpeg texlive mpv
+
+# 给编译tdlib用的，编译tdlib后再通过telega.el，实现 “telega for EmacsOS”
+# 这里先说一下，在WSL-archlinux下要玩 “telega for EmacsOS” 的话
+# 因为是WSL环境，所以这里在代理环境上有一个大坑，绝对会掉下去的那种
+# 在下面可选项这里，就可以看到了
+pacman -S gperf cmake
+
+# 给--with-rsvg等的各种显示更具体的图片，的编译选项提供的，一般来说WSL-archlinux已经安装好了
+sudo pacman -S libpng libjpeg-turbo libtiff giflib librsvg
+
+# 【可选项】如果要树坐者的话  
+sudo pacman -S tree-sitter
+
+# 【可选项】给deadgrep.el使用的抓文本后端
+pacman -S ripgrep
+
+# 【可选项】如果在linux原生环境下，有spectacle截图工具可用的话，可以通过xclip来完成org-download操作
+pacman -S xclip
 </pre>
 </div>
 
@@ -811,11 +796,77 @@ L+     /tmp/.X11-unix -    -    -    -   /mnt/wslg/.X11-unix
 <td class="org-left">mpv</td>
 <td class="org-left">可选项: 如果要用emms听音乐的话</td>
 </tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-left">gperf</td>
+<td class="org-left">可选项: 如果要用telega-server(tdlib)的话</td>
+</tr>
+
+<tr>
+<td class="org-right">17</td>
+<td class="org-left">cmake</td>
+<td class="org-left">可选项: 如果要用telega-server(tdlib)的话</td>
+</tr>
 </tbody>
 </table>
 
 <p>
-然后就是下载 libmps 的库文件，安装方法就是直接暴力复制到 <code>/usr/bin/ 与 /usr/include</code> 上就行了，libmps的安装参考这里 <a href="https://colfwe.github.io/docs/%E5%9C%A8Linux%E4%B8%8A%E7%BC%96%E8%AF%91emacs-feature-igc%E5%88%86%E6%94%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%96%B9%E6%B3%95.html">在Linux上编译emacs-feature-igc分支的个人方法</a> 
+然后就是下载 libmps 的库文件，libmps库文件规格大概是这样的
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">libmps大致信息
+
+.a 静态文件部分
+   🔧 libmps.a
+   🔧 libmps-debug.a
+.h 头文件部分
+   🔧 mpsacl.h
+   🔧 mpsavm.h
+   🔧 mpscamc.h
+   🔧 mpscams.h
+   🔧 mpscawl.h
+   🔧 mpsclo.h
+   🔧 mpscmfs.h
+   🔧 mpscmv2.h
+   🔧 mpscmvff.h
+   🔧 mpscmvt.h
+   🔧 mpscsnc.h
+   🔧 mps.h
+   🔧 mpsio.h
+   🔧 mpslib.h
+   🔧 mpstd.h
+   🔧 mpswin.h
+</pre>
+</div>
+
+<p>
+<a href="https://github.com/colfwe/dotfiles/tree/main/libmps">我的仓库 </a>或 <a href="https://github.com/Ravenbrook/mps">作者仓库</a> 里也都有 (20230711, v1.118.0, Release)
+</p>
+
+<p>
+安装方法就是直接暴力复制到 <code>/usr/bin/ 与 /usr/include/</code> 上就行了
+</p>
+
+<p>
+然后是 emacs-mirror 的 emacs-feature-igc 分支
+</p>
+
+<p>
+仓库地址: <a href="https://github.com/emacs-mirror/emacs/tree/feature/igc">emacs-feature-igc</a>
+</p>
+
+<p>
+推荐提交点: <code>6654ac61342a0a2ffef50435d026cae09314ad5c</code>
+</p>
+
+<p>
+因为运行无论在archlinux原生还是WSL-archlinux环境下，运行都十分稳定
+</p>
+
+<p>
+反正在 [我个人的配置上] 在 [非配置情况] 下，一次也没有崩溃过
 </p>
 
 <p>
@@ -824,6 +875,10 @@ L+     /tmp/.X11-unix -    -    -    -   /mnt/wslg/.X11-unix
 
 <p>
 然后要设置几个构建脚本为可执行，反正这在msys2上是要这么操作的，这里也设置为可执行就是了
+</p>
+
+<p>
+<i>而且我也亲身实验了，即使不在msys2环境上，而是在WSL2环境上，依然也是要进行加权chmod的</i> <code>(～￣▽￣)～</code>
 </p>
 
 <div class="org-src-container">
@@ -835,14 +890,86 @@ chmod +x ./build-aux/make-info-dir
 </div>
 
 <p>
-然后我的编译选项，就比 <a href="https://colfwe.github.io/docs/%E5%9C%A8Linux%E4%B8%8A%E7%BC%96%E8%AF%91emacs-feature-igc%E5%88%86%E6%94%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%96%B9%E6%B3%95.html">在Linux上编译emacs-feature-igc分支的个人方法</a> 多出了 <code>--with-x-toolkit=gtk3 --with-gnutls=ifavailable</code> 这两个选项
+然后我的编译选项，是这样的
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">CFLAGS="-fmax-errors=1000" ./configure --sysconfdir=/etc --prefix=/usr --libexecdir=/usr/lib --with-tree-sitter=ifavailable --localstatedir=/var --disable-build-details --with-harfbuzz --with-libsystemd --with-modules --with-x-toolkit=gtk3 --with-mps=yes --with-gnutls=ifavailable  'CFLAGS=-march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/emacs/src=/usr/src/debug/emacs -flto=auto' 'LDFLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs -flto=auto'  
+<pre class="src src-nil">CFLAGS="-fmax-errors=1000" ./configure \
+    --sysconfdir=/etc \                   # 配置文件默认安装到 /etc
+    --prefix=/usr \                       # 安装根路径为 /usr（不是 /usr/local）
+    --libexecdir=/usr/lib \               # 内部 helper 程序装到 /usr/lib
+    --localstatedir=/var \                # 本地变量文件路径（如缓存）设为 /var
+    --disable-build-details \             # 不写入构建时间/主机信息，提高构建可重现性
+    --with-harfbuzz \                     # 启用 HarfBuzz，提升字体渲染质量（支持 ligatures）
+    --with-libsystemd \                   # 启用对 systemd 的支持
+    --with-modules \                      # 启用 Emacs 动态模块支持（支持外部模块）
+    --with-x-toolkit=gtk3 \               # 使用 GTK3 图形界面（X11）
+    --with-mps=yes \                      # 启用 memory pool system（Emacs GC 的替代实现）
+    --with-gnutls=ifavailable \           # 启用 GnuTLS 网络安全库（SSL/TLS），如果有的话（在从elpa获取包安装及更新需要用到）
+    --with-rsvg \                         # 开启 rsvg（SVG 支持）
+    --with-imagemagick \                  # 开启 ImageMagick 支持
+    --with-tree-sitter=ifavailable \      # 使用 tree-sitter（语法高亮引擎）如果可用
+    'CFLAGS=-march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/emacs/src=/usr/src/debug/emacs -flto=auto' \
+    'LDFLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs -flto=auto'  
 </pre>
 </div>
 
+<p>
+GPT 4o给出的解释是，你这一定是从Arch等的高级构建模板，已经是非常专业级别的构建选项
+</p>
+
+<blockquote>
+<p>
+BYD还真是，我当时是从 <code>GNU Emacs 29.1</code> 开始使用的，大概2024年4月
+</p>
+
+<p>
+然后我就从 <code>pacman -S emacs</code> 里，直接复制粘贴pacman包的 <code>system-configuration-options</code> 得到的
+</p>
+
+<p>
+然后就在上面加加减减修改一下这样
+</p>
+</blockquote>
+
+<p>
+并且GPT对编译flag做出了解释
+</p>
+
+<pre class="example" id="org8989159">
+✅ 高安全性(-D_FORTIFY_SOURCE=3, -Werror=format-security)
+
+✅ 高优化(-O2, LTO, -march, -mtune)
+
+✅ 高可调试性(-g, -fno-omit-frame-pointer)
+
+✅ 支持丰富组件(tree-sitter、GTK3、modules、libsystemd)
+
+===================== 优化、调试、安全相关 =====================
+-march=x86-64                    # 架构通用，兼容大多数 CPU
+-mtune=generic                   # 为通用 CPU 调整
+-O2                              # 优化等级 O2（推荐级别）
+-pipe                            # 用管道而不是临时文件提高编译效率
+-fno-plt                         # 更快的函数调用方式（避免 PLT）
+-fexceptions                     # 支持异常处理（主要用于 C++ 模块）
+-Wp,-D_FORTIFY_SOURCE=3          # 编译期安全检查级别 3（更强）
+-Wformat -Werror=format-security # 格式化字符串必须安全
+-fstack-clash-protection         # 堆栈碰撞保护
+-fcf-protection                  # 控制流保护（CET）
+-fno-omit-frame-pointer          # 保留帧指针，方便调试
+-mno-omit-leaf-frame-pointer     # 同上，兼容 leaf 函数
+-g                               # 启用调试信息
+-ffile-prefix-map=...            # 消除调试信息中的路径依赖
+-flto=auto                       # 启用 LTO（链接时优化）
+===================== 链接器相关优化与安全 =====================
+-Wl,-O1                          # 链接器优化等级 1
+-Wl,--sort-common                # 优化 common symbol 排序
+-Wl,--as-needed                  # 只链接必要的库
+-Wl,-z,relro                     # 只读重定位段（安全）
+-Wl,-z,now                       # 提前绑定（防延迟绑定攻击）
+-Wl,-z,pack-relative-relocs      # 优化位置无关代码重定位
+-flto=auto                       # 启用 LTO 优化链接
+</pre>
 
 <p>
 然后 <code>make</code> 编译，然后 <code>make install</code> 安装。然后检测两个地方
@@ -874,20 +1001,208 @@ IGC_OBJ_CONS                           2618570        62845680         24       
 </div>
 
 <p>
-这样就安装好了，这是方案1 - WSLg
+这样就安装好了emacs-feature-igc
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgd519168"></a>可选项：如果要装上我个人的配置的话<br />
+<ol class="org-ol">
+<li><a id="org1d7837d"></a>bash方面<br />
+<div class="outline-text-7" id="text-1-3-1-3-1-1">
+<p>
+将来给eat用的
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"># ~/.bashrc
+alias l='ls -ail --color'
+alias rm='rm -i'
+
+# ~/.bash_profile
+source ~/.bashrc
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orga10d8ca"></a>telega方面<br />
+<div class="outline-text-7" id="text-1-3-1-3-1-2">
+<p>
+<a href="https://zevlg.github.io/telega.el/#building-tdlib">zevlg作者提供了非常直观清晰的编译方法</a>
 </p>
 
-<blockquote>
 <p>
-[对我个人说的话]: 如果要使用 deadgrep.el 的话，需要安装 pacman -S ripgrep 依赖
+首先编译tdlib(官方的C++库)
 </p>
-</blockquote>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 下载
+git clone https://github.com/tdlib/td.git
+
+# 配置
+cd td
+mkdir build
+cd build
+cmake ../
+
+# 编译
+make -j4   # 4是CPU核心数
+
+# 安装
+make install  
+</pre>
+</div>
+
+<p>
+然后安装telega.el，并且构建build出telega-server(前端)
+</p>
+
+<p>
+然后如果默认在WSL下，有可能因为代理的原因，就会出现一个深渊巨坑
+</p>
+
+<p>
+我能看到的是，telega-server(前端)显示出来的内容
+</p>
+
+<pre class="example" id="org40cce64">
+首先能看到的状态是Auth WaitPhoneNumber，同时下面fallback到要通过已登录的用户，对应的账号来登录
+
+(可以在 “三条横线 &gt; 头像名称的下方” 看到自己的账号)
+
+然后当输入完账号后，上方的状态会【立即】变成 Connecting.......，
+
+并且永远都是Connecting，永远都是Connecting，永远都是Connecting.................
+
+永远登不进去。
+</pre>
+
+<p>
+为什么呢？
+</p>
+
+<pre class="example" id="org322bfe8">
+这是因为 tdlib 是我们自己拉取通过第三方编译出来的
+
+然后 tdlib 是一个单独的进程，它不识别 Emacs 的环境变量，哪怕你用 export all_proxy=...，tdlib 默认还是会忽略
+
+在WSL环境下
+</pre>
+
+<p>
+那要如何操作呢？那就要设置一段神必elisp代码，设置telega.el的 <code>telega-proxies</code> 变量
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; 声明: 我完全不懂这些代理相关的，我只想上去听音乐、看沙雕图、看在花新闻
+;; 声明: 我完全不懂这些代理相关的，我只想上去听音乐、看沙雕图、看在花新闻
+;; 声明: 我完全不懂这些代理相关的，我只想上去听音乐、看沙雕图、看在花新闻
+
+  ;; 作者zevlg提供的
+  (setq telega-proxies
+        (list
+         `(:server "127.0.0.1"
+           :port 4781   ; 端口是你自己的代理，的后台服务，的端口号。一般来说好的代理软件都会提示服务端口信息。这里是socks服务的端口
+           :enable t
+           :type (:@type "proxyTypeSocks5"
+                         :username ""
+                         :password ""))))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgac2ba72"></a>仪表盘信息相关<br />
+<div class="outline-text-7" id="text-1-3-1-3-1-3">
+<p>
+天气信息(天气信息来源于wttr.in，不要滥用curl，因为天气API总结起来后，还是挺贵的)
+</p>
+<div class="org-src-container">
+<pre class="src src-nil"># 随便弄一个sh脚本(保存完下面的文字后，chmod +x 这个脚本.sh)
+# curl wttr.in/当前所居住的城市名称 &gt; /root/.emacs.d/archive/weather
+#
+# 比如如果在广州(Guangzhou)的话，那就是
+#
+# curl wttr.in/Guangzhou &gt; /root/.emacs.d/archive/weather  
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org8152b8b"></a>图标字体<br />
+<div class="outline-text-7" id="text-1-3-1-3-1-4">
+<p>
+(2) 打字体补丁
+</p>
+
+<p>
+首先下载字体 <a href="https://github.com/kitevnn/dotfiles-archlinux/tree/main/res/font">Sauce Code Pro Semibold Nerd Font Complete Mono</a>
+</p>
+
+<p>
+然后安装fontforge打补丁程序
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># fontforge打补丁程序
+pacman -S fontforge
+</pre>
+</div>
+
+<p>
+再下载 <a href="https://github.com/ryanoasis/nerd-fonts?tab=readme-ov-file#font-patcher">nf作者提供的font-patcher字体脚本文件</a>
+</p>
+
+<p>
+然后打补丁
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">fontforge --script ./font-patcher --complete 'Sauce Code Pro Semibold Nerd Font Complete Mono.ttf'
+</pre>
+</div>
+
+<p>
+然后安装字体
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">mkdir -p ~/.local/share/fonts/
+mv SauceCodeProNerdFontCompleteMonoNerdFont-SemiBold.ttf ~/.local/share/fonts/
+sudo fc-cache -f
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orge97d139"></a>创建必要的目录及文件<br />
+<div class="outline-text-7" id="text-1-3-1-3-1-5">
+<div class="org-src-container">
+<pre class="src src-sh">cd ~
+mkdir -p 桌面
+mkdir -p 音乐
+cd ./桌面
+mkdir -p emacs-org                
+mkdir -p emacs-working-denote     
+mkdir -p emacs-working-directory
+cd emacs-org                
+touch 2025.org
+</pre>
+</div>
+
+
+
+
+
+
+
+
+<p>
+这是方案1 - WSLg
+</p>
 </div>
 </li>
 </ol>
+</li>
+</ol>
+</li>
+</ol>
 </div>
-<div id="outline-container-org9672b14" class="outline-4">
-<h4 id="org9672b14"><span class="section-number-4">1.3.2.</span> 方案2 - MSYS2(Win10用户的选择)</h4>
+<div id="outline-container-org1410ea8" class="outline-4">
+<h4 id="org1410ea8"><span class="section-number-4">1.3.2.</span> 方案2 - MSYS2(Win10用户的选择)</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 这里下载 <a href="https://www.msys2.org/">msys2.org</a> 软软的msys2，然后相比与WSL来说 <b>MSYS2更多偏向 Windows完全操纵Linux</b> 然而 <b>WSL更多偏向Linux操纵Windows</b>
@@ -932,8 +1247,8 @@ pacman -S mingw-w64-ucrt-x86_64-gcc
 </p>
 </div>
 </div>
-<div id="outline-container-orgeea0b1d" class="outline-4">
-<h4 id="orgeea0b1d"><span class="section-number-4">1.3.3.</span> 方案2 - WSL + X Server(Win10用户的选择)</h4>
+<div id="outline-container-orge7d77f6" class="outline-4">
+<h4 id="orge7d77f6"><span class="section-number-4">1.3.3.</span> 方案2 - WSL + X Server(Win10用户的选择)</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平，一些性能不够WSLg那样直接，不过更重点的地方，在于如果X Server第三方应用出现了点什么bug，就不太好甩锅。
@@ -944,8 +1259,8 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 </p>
 </div>
 </div>
-<div id="outline-container-orgb5f6c04" class="outline-4">
-<h4 id="orgb5f6c04"><span class="section-number-4">1.3.4.</span> 方案3 - GNU FTP main Server</h4>
+<div id="outline-container-orgab9acd9" class="outline-4">
+<h4 id="orgab9acd9"><span class="section-number-4">1.3.4.</span> 方案3 - GNU FTP main Server</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 可以到 <a href="https://ftp.gnu.org/gnu/emacs/windows/">https://ftp.gnu.org/gnu/emacs/windows/</a> 这里下载已经支持 native-comp 的 Emacs 30.1 Windows版（请支持 GNU/FSF 喵）
@@ -977,10 +1292,10 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 </div>
 </div>
 </div>
-<div id="outline-container-org2419ed1" class="outline-3">
-<h3 id="org2419ed1"><span class="section-number-3">1.4.</span> 转发fc教授的一句话</h3>
+<div id="outline-container-org8dd1efc" class="outline-3">
+<h3 id="org8dd1efc"><span class="section-number-3">1.4.</span> 转发fc教授的一句话</h3>
 <div class="outline-text-3" id="text-1-4">
-<pre class="example" id="org34367e5">
+<pre class="example" id="orgb9e16dd">
 回到wsl，我觉得有两种可能:
   
 1. 微软内部员工也厌倦了 Windows 作为开发平台不好用的事实，同时微软的合作伙伴们也希望微软平台能有兼容 Linux 用户空间程序的方案。来自 macos 抢占开发者平台市场估有率的压力也很大，以及 Windows Mobile 计划失败之后对 wsa 的需求，所以微软需要 wsl。
@@ -989,18 +1304,18 @@ Win10用户也可以尝试，但不太推荐，这个属于能跑就行的水平
 </pre>
 </div>
 </div>
-<div id="outline-container-org3d741b8" class="outline-3">
-<h3 id="org3d741b8"><span class="section-number-3">1.5.</span> 个人暴论时刻</h3>
+<div id="outline-container-org964dcd9" class="outline-3">
+<h3 id="org964dcd9"><span class="section-number-3">1.5.</span> 个人暴论时刻</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-orgc565620" class="outline-4">
-<h4 id="orgc565620"><span class="section-number-4">1.5.1.</span> 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用</h4>
+<div id="outline-container-orgea05179" class="outline-4">
+<h4 id="orgea05179"><span class="section-number-4">1.5.1.</span> 【个人暴论】WSL+WSLg只适合GUI应用，不太适合CLI应用</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
 因为在我个人的操作过程中，我在一个 git 仓库下，执行 <code>git log</code> 会出现这样的 <b>错误提示</b>
 </p>
 
-<pre class="example" id="org242bbd6">
+<pre class="example" id="org9c51135">
 error: cannot run less: No such file or directory
 fatal: unable to execute pager 'less'
 </pre>
@@ -1021,13 +1336,13 @@ fatal: unable to execute pager 'less'
 然而，如果我使用 emacs 上的 eat，那么就会是 <b>【自动加载 ~/.bashrc】</b> 的，不知道是什么原因，总之很好用就是了。
 </p>
 
-<pre class="example" id="org3a91651">
+<pre class="example" id="org2fcdcc4">
 暴论：怀疑软软内部也有用Emacs的自己人，不然不可能怎么就在【默认情况的WSL】下只有magit能用，然而git不能用的 ∑(￣口￣||  要么就只有是magit提前预料到开发好了 (～￣▽￣)～
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb54b158" class="outline-4">
-<h4 id="orgb54b158"><span class="section-number-4">1.5.2.</span> 【个人暴论】你说我什么时候会回到linux啊？</h4>
+<div id="outline-container-org221e96e" class="outline-4">
+<h4 id="org221e96e"><span class="section-number-4">1.5.2.</span> 【个人暴论】你说我什么时候会回到linux啊？</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
 可能等我什么时候有钱买台高配笔记本，且不心疼钱财的时候，那个时候可能会回归，不过现在来看，那恐怕是一段很漫长的时间了，因为现在这个更好用，玩玩Emacs的同时还能打游戏 <code>&lt;(￣︶￣)&gt;</code>
@@ -1035,12 +1350,12 @@ fatal: unable to execute pager 'less'
 </div>
 </div>
 </div>
-<div id="outline-container-org420b0a2" class="outline-3">
-<h3 id="org420b0a2"><span class="section-number-3">1.6.</span> 已知问题</h3>
+<div id="outline-container-orgb925461" class="outline-3">
+<h3 id="orgb925461"><span class="section-number-3">1.6.</span> 一些问题</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-org00d0029" class="outline-4">
-<h4 id="org00d0029"><span class="section-number-4">1.6.1.</span> 【闲谈】emacs-rime 的 posframe 会很卡很卡</h4>
+<div id="outline-container-org7bf9872" class="outline-4">
+<h4 id="org7bf9872"><span class="section-number-4">1.6.1.</span> 【闲谈】emacs-rime 的 posframe 会很卡很卡</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 在 WSL 上使用 emacs-rime 的 posframe 跟随光标，会非常非常卡
@@ -1075,12 +1390,149 @@ fatal: unable to execute pager 'less'
 </p>
 </div>
 </div>
+<div id="outline-container-orgefff1b2" class="outline-4">
+<h4 id="orgefff1b2"><span class="section-number-4">1.6.2.</span> 【闲谈】WSL环境问题: 我当时还需要这样做的，现在不需要了</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<p>
+我不知道原因是啥
+</p>
+
+<p>
+但我个人猜测(暴论)
+</p>
+
+<p>
+可能是WSL到archlinux的一些桌面服务器没fallback上导致的
+</p>
+
+<p>
+<b>也就是说，如果要通过WSLg直接启动Emacs的话，直接下面这样来打开</b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">&gt; emacs  
+</pre>
+</div>
+
+<p>
+<b>就可以了。也就是说，下面的都不用看了。</b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># 使用WSLg，从而使得让Linux的GUI应用，可以rdp到Windows界面上
+# 他WSLg说的默认支持，是因为他是默认支持在ubuntu上，你看他WSLg的宣传界面都是ubuntu的皇冠界面，可我这是archlinux啊，所以就需要一些设置
+# 我也是询问AI后，几乎绝望之后才知道的
+# 总结起来的意思是，让Weston(一个Wayland窗口管理器)跑在X11上，或让Wayland协议跑XWayland应用
+
+# 安装
+pacman -S xdg-desktop-portal-wlr pipewire wireplumber weston dbus
+# 运行，目的其实是Wayland协议跑XWayland应用。
+weston --backend=headless-backend.so &amp;
+# 然后运行这一次就可以了
+
+
+
+# 奇怪了，我明明昨天必须要这么输入才可以进行下去的
+# 今天输入了后就说 could not load dnd-move/dnd-copy 什么的，然后不用管这个直接运行WSLg就可以了
+
+
+
+
+
+# 方法来自于 https://www.cnblogs.com/ThousandPine/p/18616359
+# 还有一点的就是，好像是要创建 socket 双向长久连接
+# 手动创建链接，WSL 每次重启都要重新输入
+# 稍后会介绍自动创建链接的方法
+sudo rm -r /tmp/.X11-unix                   # 删除未链接的文件
+ln -s /mnt/wslg/.X11-unix /tmp/.X11-unix    # 重新创建文件链接
+# 然后就会有个名称为 "X0" 的 socket 文件
+# 然后每次打开WSL，都创建这个文件
+# 在 /etc/tmpfiles.d/wslg.conf 写
+#  This file is part of the debianisation of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+
+# See tmpfiles.d(5) for details
+
+# Type Path           Mode UID  GID  Age Argument
+L+     /tmp/.X11-unix -    -    -    -   /mnt/wslg/.X11-unix
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orga90d2c6" class="outline-3">
+<h3 id="orga90d2c6"><span class="section-number-3">1.7.</span> 一些感受</h3>
+<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-orge0979db" class="outline-4">
+<h4 id="orge0979db"><span class="section-number-4">1.7.1.</span> 20250610</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<p>
+BYD配置配到我都麻了，从0608到0610总共3天的时间全在配置上了
+</p>
+
+<p>
+是这样的，首先我有一个自己缝出来的uptime函数
+</p>
+
+<p>
+它可以记录每次使用了多长的时间
+</p>
+
+<p>
+然后通过bash脚本统计并保存在名为uptime的文件上
+</p>
+
+<p>
+最后再赋值给elisp的一个变量上
+</p>
+
+<p>
+这个变量可以展示一共显示了多久的Emacs使用时长
+</p>
+
+<p>
+所以在写这篇文章时，我当前的时长是
+</p>
+<pre class="example" id="orgfe0e335">
+Accompanying With GNU Emacs: 46 hours, 46 minutes, 40 seconds
+</pre>
+
+<p>
+然后我的uptime文件，全部都是这样的格式
+</p>
+<pre class="example" id="orgbffe0f4">
+Uptime: xxxxxxxxxxxxxxxxxxxxxxxxxxx
+Uptime: 4 seconds
+Uptime: 1 minute, 39 seconds
+Uptime: 7 minutes, 29 seconds
+Uptime: xxxxxxxxxxxxxxxxxxxxxxxxxxx
+</pre>
+
+<p>
+然后我尝试统计，从0608到0610，这3天的时间里，我一共打开关闭了Emacs多少次
+</p>
+
+<p>
+结果就是嘛
+</p>
+<pre class="example" id="org172c546">
+&gt; cat uptime | wc -l
+708
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: kle</p>
-<p class="date">Created: 2025-05-04 Sun 16:27</p>
+<p class="date">Created: 2025-06-11 Wed 01:55</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
