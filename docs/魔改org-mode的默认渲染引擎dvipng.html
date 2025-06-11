@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-06-11 Wed 16:57 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="kle" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgfefafe5">1. 魔改org-mode的默认渲染引擎dvipng</a>
+<ul>
+<li><a href="#orgb767946">1.1. 基本介绍</a></li>
+<li><a href="#org258dd70">1.2. 文件已写得十分详细了</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfefafe5" class="outline-2">
+<h2 id="orgfefafe5"><span class="section-number-2">1.</span> 魔改org-mode的默认渲染引擎dvipng</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgb767946" class="outline-3">
+<h3 id="orgb767946"><span class="section-number-3">1.1.</span> 基本介绍</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+在org-mode设定的org-preview-latex-process-alist列表内
+</p>
+
+<p>
+修改了dvipng
+</p>
+
+<blockquote>
+<p>
+通过 <code>C-h v org-preview-latex-default-process</code>
+</p>
+
+<p>
+就能看到 <code>org-mode的默认引擎</code>
+</p>
+
+<p>
+就是 <code>C-h v org-preview-latex-process-alist</code> 里的 <code>dvipng</code>
+</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-org258dd70" class="outline-3">
+<h3 id="org258dd70"><span class="section-number-3">1.2.</span> 文件已写得十分详细了</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-elisp">;; =======================================
+;; 关于variable变量
+;; =======================================
+(defvar variable-ui-fonts-size                       130                                            "[变量]: 默认的字体大小")
+(defvar variable-latex-fragment-quality              100                                            "[变量]: latex-fragment的渲染质量")
+(defvar variable-latex-fragment-adjust-width         1.7                                            "[变量]: latex-fragment的默认长度倍数")
+(defvar variable-latex-fragment-adjust-height        1.5                                            "[变量]: latex-fragment的默认宽度倍数")
+
+
+;; ========================================
+;; note-orgmode-dvipng.el 自定义dvipng引擎
+;; ========================================
+;; 设置dvipng的调整图片大小
+(defvar dvipng-image-size-adjust
+  (read (format "(%f . %f)"
+                variable-latex-fragment-adjust-width
+                variable-latex-fragment-adjust-height)))
+
+;; 设置latex编译器的生成dvi文件的行为
+(defvar dvipng-latex-compiler
+  (concat "latex"                         ; 使用latex编译器来生成.dvi文件
+          " "
+          "-interaction nonstopmode"      ; 编译时遇到错误也不停下，继续编译，防止Emacs因为一些上古LaTeX2e宏包的错误而卡住
+          " "
+          "-output-directory %o"          ; 在当前目录的临时目录下，输出编译出来的产物文件
+          " "
+          "%f"                            ; Emacs临时根据当前latex-fragment生成.tex源文件，并传入到前面的编译器来编译
+          ))
+
+;; 设置dvipng转换图片程序的从dvi生成到png的行为
+(defvar dvipng-image-converter-dpi variable-ui-fonts-size)
+(defvar dvipng-image-converter
+  (concat
+   "dvipng"                               ; 将之前得到的dvi文件，转换为png的引擎程序
+   " "
+   (format "-D %d"
+           dvipng-image-converter-dpi)    ; 设置分辨率
+   " "
+   "-T tight"                             ; 自动裁剪边缘空白，防止出现大面积空白区域
+   " "
+   "-o %O"                                ; 在当前目录的临时目录下，输出编译出来的产物文件
+   " "
+   "%f"                                   ; 输入读取.dvi文件，来在下一步去转换为png文件
+   ))
+
+;; 设置imagemagick转换图片程序从png到更进一步的png的行为
+(defvar dvipng-transparent-image-converter
+  (concat
+   "convert"                              ; convert也就是imagemagick
+   " "
+   (format "-density %d"                  ; 控制像素密度
+         variable-ui-fonts-size)
+   " "
+   (format "-background '%s'"             ; 设置背景颜色
+           variable-latex-fragment-background)
+   " "
+   "-flatten"                             ; 类似PS的合并图层，需要在-background后面使用，目的是将透明区域变成带RGB通道的区域
+   " "
+   (format "-quality %d"                  ; PNG 的压缩质量(对于 PNG 影响不大，对 JPEG 很重要)
+           variable-latex-fragment-quality)
+   " "
+   "%f"                                   ; 输入读取.png文件，来载下一步去转换为magick这里设置出来的png文件
+   " "
+   "%O"                                   ; 输出magick这里设置出来的png文件的文件名占位符
+   ))
+
+
+;; ========================================
+;; dvipng: 渲染非utf-8片段引擎
+;; ========================================
+;; 删除原本的
+(setq org-preview-latex-process-alist
+      (assq-delete-all 'dvipng org-preview-latex-process-alist))
+;; 添加自己的
+(setq org-preview-latex-process-alist
+      `((dvipng
+        :programs ("latex" "dvipng" "convert")
+        :description "dvi &gt; png"
+        :message "you need to install the programs: latex and dvipng."
+        :image-input-type "dvi"
+        :image-output-type "png"
+        :image-size-adjust ,dvipng-image-size-adjust
+        :latex-compiler (,dvipng-latex-compiler)
+        :image-converter (,dvipng-image-converter)
+        :transparent-image-converter (,dvipng-transparent-image-converter))))  
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: kle</p>
+<p class="date">Created: 2025-06-11 Wed 16:57</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

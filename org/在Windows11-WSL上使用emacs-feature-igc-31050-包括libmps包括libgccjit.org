@@ -408,6 +408,8 @@ BYD还真是，我当时是从 ~GNU Emacs 29.1~ 开始使用的，大概2024年4
 
 这样就安装好了emacs-feature-igc
 
+这是方案1 - WSLg
+
 ***** 可选项：如果要装上我个人的配置的话
 
 ****** bash方面
@@ -491,6 +493,26 @@ BYD还真是，我当时是从 ~GNU Emacs 29.1~ 开始使用的，大概2024年4
                          :password ""))))
 #+end_src
 
+
+****** 配置文件
+
+#+begin_src sh
+  # 安装主要配置文件
+  cp -r ~/xxxxxxxxxxx/dotfiles-archlinux/elisp/ ~/.emacs.d
+  cp ~/xxxxxxxxxxx/dotfiles-archlinux/init.el ~/.emacs.d
+  
+  # 设置必要的文件夹
+  cd ~/.emacs.d
+  mkdir -p archive
+  cp ~/xxxxxxxxxxxxxxxx/dotfiles-archlinux/res/logo/dashboard-zoom-out-light.png ~/.emacs.d/archive/
+  cp ~/xxxxxxxxxxxxxxxx/dotfiles-archlinux/res/logo/dashboard-zoom-out-dark.png ~/.emacs.d/archive/
+
+  # 设置历史文件(也就是使用emacs -Q时，会在当前目录下，生成 "xxxx~" 的文件，这里是为了保存这些文件)
+  cd ~/.emacs.d
+  mkdir -p saves
+#+end_src
+
+
 ****** 仪表盘信息相关
 
 天气信息(天气信息来源于wttr.in，不要滥用curl，因为天气API总结起来后，还是挺贵的)
@@ -503,11 +525,14 @@ BYD还真是，我当时是从 ~GNU Emacs 29.1~ 开始使用的，大概2024年4
 # curl wttr.in/Guangzhou > /root/.emacs.d/archive/weather  
 #+end_src
 
+
 ****** 图标字体
 
 (2) 打字体补丁
 
 首先下载字体 [[https://github.com/kitevnn/dotfiles-archlinux/tree/main/res/font][Sauce Code Pro Semibold Nerd Font Complete Mono]]
+
+或者在仓库的 =~/xxxxxxxxxxxxxx/dotfiles-archlinux/res/font/= 下也有这个 =Sauce Code Pro Semibold Nerd Font Complete Mono= 字体文件
 
 然后安装fontforge打补丁程序
 
@@ -530,6 +555,7 @@ mv SauceCodeProNerdFontCompleteMonoNerdFont-SemiBold.ttf ~/.local/share/fonts/
 sudo fc-cache -f
 #+end_src
 
+
 ****** 创建必要的目录及文件
 
 #+begin_src sh
@@ -544,14 +570,103 @@ sudo fc-cache -f
   touch 2025.org
 #+end_src
 
+****** emacs-rime输入法
+
+感谢佛振，感谢rime，感谢[[https://github.com/DogLooksGood][狗哥]]，感谢周老
+
+| 序号 | 方案      | 说明              |
+|------+-----------+-------------------|
+|    1 | 输入方案   | 周老开发的自然码双拼 |
+|    2 | 输入文字   | 简体中文           |
+|    3 | 输入法前端 | emacs-rime        |
+|    4 | 输入法后端 | rime    |
+
+*先决条件*
+
+#+begin_src sh
+  # fcitx5在WSL下的全家桶
+  pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-rime
+
+  # 编辑环境(编辑/etc/environment此文件)
+  # 添加 GTK_IM_MODULE=fcitx
+  # 添加 QT_IM_MODULE=fcitx
+  # 添加 XMODIFIERS=@im=fcitx
+  # 添加 SDL_IM_MODULE=fcitx
+  sudo vim /etc/environment
+#+end_src
+
+*本机写入双拼方案*
+
+#+begin_src sh
+  cd /usr/share/rime-data
+  
+  # 需要 sudo 权限创建 新文件(新文件名: double_pinyin.schema.yaml)  
+  sudo vim double_pinyin.schema.yaml
+
+  # 将 https://github.com/rime/rime-double-pinyin/blob/master/double_pinyin.schema.yaml 的 rime 提供的自然码双拼方案，复制粘贴到此文件里
+
+  # 设置简体中文
+  # 原本是
+  #   - name: simplification
+  #     states: [ 漢字, 汉字 ]
+
+  # 现在是
+  #   - name: simplification
+  #     reset: 1
+  #     states: [ 漢字, 汉字 ]  
+#+end_src
+
+*进行第一次部署*
+
+直接打开emacs，然后执行 ~rime-deploy~ 函数
+
+*再继续配置*
+
+rime(输入法后端)库文件
+
+#+begin_src sh
+  # rime库文件
+  pacman -S librime  
+#+end_src
+
+emacs-rime(输入法前端)配置文件
+
+#+begin_src elisp
+(use-package rime
+  :ensure t
+  :defer nil
+  :custom
+  (default-input-method "rime")
+  :init
+  (setq rime-title    ; 注: 狗哥写的此rime-title变量，可直接集成在mode-line-format上，并动态展示
+        (concat " " "双" " ")))
+#+end_src
+
+【可选项】rime(输入法后端)的进一步配置
+
+#+begin_src yaml
+# 执行 toggle-input-method 函数
+# 然后就会在 ~/.emacs.d/ 下，创建rime文件夹。然后 yes就是了
+# 然后在 ~/.config/emacs/rime/default.custom.yaml
+# 这条路径，是根据 M-x rime-open-configuration ，从而来打开 “部署rime的配置文件” 来查看的  
+# 【可选项】最后任意编辑器，添加下面的 “候选词最多9个” 的yaml配置
+patch:
+  schema_list:
+    - schema: double_pinyin
+  menu/page_size: 9    
+#+end_src
+
+最后重新部署
+
+#+begin_src elisp
+; 打开 GNU Emacs 后，执行 rime-deploy
+; 然后全局改键(默认执行 toggle-input-method 是 C-\\ )
+; 我个人习惯 C-SPC 切换，于是有
+(global-set-key (kbd "C-SPC")         'toggle-input-method)  
+#+end_src
 
 
 
-
-
-
-
-这是方案1 - WSLg
 
 *** 方案2 - MSYS2(Win10用户的选择)
 
@@ -639,7 +754,7 @@ fatal: unable to execute pager 'less'
 
 可能等我什么时候有钱买台高配笔记本，且不心疼钱财的时候，那个时候可能会回归，不过现在来看，那恐怕是一段很漫长的时间了，因为现在这个更好用，玩玩Emacs的同时还能打游戏 ~<(￣︶￣)>~
 
-** 一些问题
+** 一些闲谈
 
 *** 【闲谈】emacs-rime 的 posframe 会很卡很卡
 
@@ -723,7 +838,7 @@ fatal: unable to execute pager 'less'
 
 ** 一些感受
 
-*** 20250610
+*** 【感受】20250610
 
 BYD配置配到我都麻了，从0608到0610总共3天的时间全在配置上了
 
