@@ -103,6 +103,3 @@
         :image-converter (,dvipng-image-converter)
         :transparent-image-converter (,dvipng-transparent-image-converter))))  
 #+end_src
-
-
-

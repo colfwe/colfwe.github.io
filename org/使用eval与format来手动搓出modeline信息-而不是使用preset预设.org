@@ -118,4 +118,3 @@
              'mode-line-format-right-align                   
              '(:eval my/buffer-id)))
 #+end_src
-

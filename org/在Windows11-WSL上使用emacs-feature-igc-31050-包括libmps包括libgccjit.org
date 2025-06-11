@@ -318,7 +318,29 @@ chmod +x ./build-aux/make-info-dir
 
 然后我的编译选项，是这样的
 
-#+begin_src
+#+begin_src sh
+CFLAGS="-fmax-errors=1000" ./configure \
+    --sysconfdir=/etc \
+    --prefix=/usr \
+    --libexecdir=/usr/lib \
+    --localstatedir=/var \
+    --disable-build-details \
+    --with-harfbuzz \
+    --with-libsystemd \
+    --with-modules \
+    --with-x-toolkit=gtk3 \
+    --with-mps=yes \
+    --with-gnutls=ifavailable \
+    --with-rsvg \
+    --with-imagemagick \
+    --with-tree-sitter=ifavailable \
+    'CFLAGS=-march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/emacs/src=/usr/src/debug/emacs -flto=auto' \
+    'LDFLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs -flto=auto'
+#+end_src  
+
+编译选项的说明
+
+#+begin_src sh
 CFLAGS="-fmax-errors=1000" ./configure \
     --sysconfdir=/etc \                   # 配置文件默认安装到 /etc
     --prefix=/usr \                       # 安装根路径为 /usr（不是 /usr/local）
@@ -873,3 +895,4 @@ Uptime: xxxxxxxxxxxxxxxxxxxxxxxxxxx
 > cat uptime | wc -l
 708
 #+end_example
+
