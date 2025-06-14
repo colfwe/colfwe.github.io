@@ -17,7 +17,6 @@
 ** 解决做法: 需要用户手动用sudo信任一下
 
 #+begin_src sh
-
   # 此 bluetoothctl 是 bluez bluez-utils 的前端工具
   # 在 pacman -S bluez bluez-utils 后就可以 systemctl start bluetooth.service 来开启这个前端工具了
   sudo systemctl restart bluetooth

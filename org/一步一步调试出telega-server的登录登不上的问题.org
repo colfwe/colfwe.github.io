@@ -48,7 +48,11 @@ Connecting....
 
 ** 解决方法
 
-设置zevlg作者，在telega.el下提供的telega-proxies变量就行了
+其实是这个原因
+
+[[file:~/.gh/colfwe.github.io/res/telega-server与tdlib不通的原因.png][telega-server与tdlib不通的原因]]
+
+然后设置zevlg作者，在telega.el下提供的telega-proxies变量就行了
 
 #+begin_src elisp
   ;; :port填你主机启动代理服务的端口，一般来说好的
