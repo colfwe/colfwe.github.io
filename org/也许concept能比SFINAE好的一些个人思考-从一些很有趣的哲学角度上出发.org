@@ -12,6 +12,10 @@
 
 *也或者说从暴论角度上去看一看这种技术是什么原因实现出来的*
 
+* TLDR
+
+与SFINAE相比，concept生在 *能组合*
+
 ** SFINAE
 
 #+begin_quote
