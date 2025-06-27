@@ -653,7 +653,7 @@ emacs-rime(输入法前端)配置文件
 #+begin_src yaml
 # 执行 toggle-input-method 函数
 # 然后就会在 ~/.emacs.d/ 下，创建rime文件夹。然后 yes就是了
-# 然后在 ~/.config/emacs/rime/default.custom.yaml
+# 然后在 ~/.emacs.d/rime/default.custom.yaml
 # 这条路径，是根据 M-x rime-open-configuration ，从而来打开 “部署rime的配置文件” 来查看的  
 # 【可选项】最后任意编辑器，添加下面的 “候选词最多9个” 的yaml配置
 patch:
