@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-07-05 Sat 16:50 -->
+<!-- 2025-07-05 Sat 21:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,18 +200,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org702b6aa">1. Haskell的monad单子的个人暴论</a>
+<li><a href="#orgc9e1e3c">1. Haskell的monad单子的个人暴论</a>
 <ul>
-<li><a href="#orgc3d5494">1.1. TLDR</a></li>
-<li><a href="#org8fa1111">1.2. 与哈基米Gemini 2.5f的讨论下，好像悟出了monad是什么</a></li>
-<li><a href="#orgc9b8a0d">1.3. 与C老大Copilot的讨论下，勉强地区分了monad与concept的区别</a></li>
+<li><a href="#org10e1948">1.1. TLDR</a></li>
+<li><a href="#org255bbed">1.2. 与哈基米Gemini 2.5f的讨论下，好像悟出了monad是什么</a></li>
+<li><a href="#orge5ea3a9">1.3. 与C老大Copilot的讨论下，勉强地区分了monad与concept的区别</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org702b6aa" class="outline-2">
-<h2 id="org702b6aa"><span class="section-number-2">1.</span> Haskell的monad单子的个人暴论</h2>
+<div id="outline-container-orgc9e1e3c" class="outline-2">
+<h2 id="orgc9e1e3c"><span class="section-number-2">1.</span> Haskell的monad单子的个人暴论</h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -231,8 +231,8 @@
 <b>也或者说从暴论角度上去看一看这种技术是什么原因实现出来的</b>
 </p>
 </div>
-<div id="outline-container-orgc3d5494" class="outline-3">
-<h3 id="orgc3d5494"><span class="section-number-3">1.1.</span> TLDR</h3>
+<div id="outline-container-org10e1948" class="outline-3">
+<h3 id="org10e1948"><span class="section-number-3">1.1.</span> TLDR</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 monad与concept的目的，【几乎】一模一样，目的都是为了 <b>升级类型，进行 “higher type-hierarchy”
@@ -240,8 +240,8 @@ monad与concept的目的，【几乎】一模一样，目的都是为了 <b>升�
 </p>
 </div>
 </div>
-<div id="outline-container-org8fa1111" class="outline-3">
-<h3 id="org8fa1111"><span class="section-number-3">1.2.</span> 与哈基米Gemini 2.5f的讨论下，好像悟出了monad是什么</h3>
+<div id="outline-container-org255bbed" class="outline-3">
+<h3 id="org255bbed"><span class="section-number-3">1.2.</span> 与哈基米Gemini 2.5f的讨论下，好像悟出了monad是什么</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 对于monad，我个人的理解是
@@ -291,17 +291,23 @@ monad与concept的目的，【几乎】一模一样，目的都是为了 <b>升�
 随后，我突然就意识到
 </p>
 
-<pre class="example" id="org52f8fad">
+<blockquote>
+<p>
 这种 “先有面包痞，再可选番茄还是生菜，变成【番茄蔬菜版的面包痞】或【生菜蔬菜版的面包痞】” 的【组合】
+</p>
 
+<p>
 或者这种 “先有番茄蔬菜版的面包痞，或先有生菜蔬菜版的面包痞，再到下一步可选鸡排还是猪排牛排，变成【番茄蔬菜版加鸡排的面包痞】或【生菜蔬菜版加牛排的面包痞】” 的【组合】
+</p>
 
+<p>
 不就是【concept】吗？一模一样的设计
-</pre>
+</p>
+</blockquote>
 </div>
 </div>
-<div id="outline-container-orgc9b8a0d" class="outline-3">
-<h3 id="orgc9b8a0d"><span class="section-number-3">1.3.</span> 与C老大Copilot的讨论下，勉强地区分了monad与concept的区别</h3>
+<div id="outline-container-orge5ea3a9" class="outline-3">
+<h3 id="orge5ea3a9"><span class="section-number-3">1.3.</span> 与C老大Copilot的讨论下，勉强地区分了monad与concept的区别</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 我当时的问题是说
@@ -402,7 +408,7 @@ Monad（执行层）  优雅顺畅地做出汉堡  实际做出不会报错的�
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: kle</p>
-<p class="date">Created: 2025-07-05 Sat 16:50</p>
+<p class="date">Created: 2025-07-05 Sat 21:50</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
