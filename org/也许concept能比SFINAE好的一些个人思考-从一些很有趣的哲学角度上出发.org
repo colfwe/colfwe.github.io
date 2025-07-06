@@ -14,7 +14,7 @@
 
 * TLDR
 
-与SFINAE相比，concept生在 *能组合*
+与SFINAE相比，concept胜在 *能组合*
 
 ** SFINAE
 

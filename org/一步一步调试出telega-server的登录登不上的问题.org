@@ -50,7 +50,7 @@ Connecting....
 
 其实是这个原因
 
-[[file:~/.gh/colfwe.github.io/res/telega-server与tdlib不通的原因.png][telega-server与tdlib不通的原因]]
+[[file:../res/telega-server与tdlib不通的原因.png]]
 
 然后设置zevlg作者，在telega.el下提供的telega-proxies变量就行了
 

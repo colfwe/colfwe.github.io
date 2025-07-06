@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-14 Sat 11:31 -->
+<!-- 2025-07-06 Sun 14:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,16 +200,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org11e6614">1. 一步一步调试出telega-server的登录登不上的问题</a>
+<li><a href="#org753100a">1. 一步一步调试出telega-server的登录登不上的问题</a>
 <ul>
-<li><a href="#org7438750">1.1. 基本介绍</a></li>
-<li><a href="#orgc498080">1.2. 问题描述</a></li>
-<li><a href="#org1bab419">1.3. 解决方法</a></li>
-<li><a href="#orgb356082">1.4. 调试过程(TLDR)</a>
+<li><a href="#org604375e">1.1. 基本介绍</a></li>
+<li><a href="#orgc8637b2">1.2. 问题描述</a></li>
+<li><a href="#orgdccd29c">1.3. 解决方法</a></li>
+<li><a href="#org0db5bf8">1.4. 调试过程(TLDR)</a>
 <ul>
-<li><a href="#org5b18ae2">1.4.1. 先怀疑是图形桌面服务器的问题，结果不是</a></li>
-<li><a href="#orgf5a9ed4">1.4.2. 到怀疑可能是代理的问题，结果也不是</a></li>
-<li><a href="#org080aeee">1.4.3. 最后确定了，原来是环境问题</a></li>
+<li><a href="#orgb0c5e18">1.4.1. 先怀疑是图形桌面服务器的问题，结果不是</a></li>
+<li><a href="#org6b72e13">1.4.2. 到怀疑可能是代理的问题，结果也不是</a></li>
+<li><a href="#org242bbac">1.4.3. 最后确定了，原来是环境问题</a></li>
 </ul>
 </li>
 </ul>
@@ -217,12 +217,12 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org11e6614" class="outline-2">
-<h2 id="org11e6614"><span class="section-number-2">1.</span> 一步一步调试出telega-server的登录登不上的问题</h2>
+<div id="outline-container-org753100a" class="outline-2">
+<h2 id="org753100a"><span class="section-number-2">1.</span> 一步一步调试出telega-server的登录登不上的问题</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org7438750" class="outline-3">
-<h3 id="org7438750"><span class="section-number-3">1.1.</span> 基本介绍</h3>
+<div id="outline-container-org604375e" class="outline-3">
+<h3 id="org604375e"><span class="section-number-3">1.1.</span> 基本介绍</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 讲述了在WSL环境下，调试telega-server过程，终于是解决了telega-server的登录问题
@@ -237,8 +237,8 @@
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orgc498080" class="outline-3">
-<h3 id="orgc498080"><span class="section-number-3">1.2.</span> 问题描述</h3>
+<div id="outline-container-orgc8637b2" class="outline-3">
+<h3 id="orgc8637b2"><span class="section-number-3">1.2.</span> 问题描述</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 在编译与安装了最新的tdlib后(<code>https://github.com/tdlib/td.git</code>)
@@ -256,7 +256,7 @@
 进入telega.el先是会这样:
 </p>
 
-<pre class="example" id="org8f3e4a3">
+<pre class="example" id="orgf0e18cf">
 Auth WaitPhoneNumber
 
 
@@ -268,7 +268,7 @@ phone number: +
 <p>
 然后在输入了账号名后，会在 <b>一瞬间，立即</b> 变成这样
 </p>
-<pre class="example" id="orga7469eb">
+<pre class="example" id="org1ee306c">
 Connecting....
 
 
@@ -279,7 +279,7 @@ Connecting....
 并且永远都是 <code>Connecting....</code>
 </p>
 
-<pre class="example" id="org3507c7c">
+<pre class="example" id="orgf6fca90">
 Connecting....
 
 
@@ -287,16 +287,18 @@ Connecting....
 </pre>
 </div>
 </div>
-<div id="outline-container-org1bab419" class="outline-3">
-<h3 id="org1bab419"><span class="section-number-3">1.3.</span> 解决方法</h3>
+<div id="outline-container-orgdccd29c" class="outline-3">
+<h3 id="orgdccd29c"><span class="section-number-3">1.3.</span> 解决方法</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 其实是这个原因
 </p>
 
-<p>
-<a href="file:///root/.gh/colfwe.github.io/res/telega-server与tdlib不通的原因.png">telega-server与tdlib不通的原因</a>
+
+<div id="org3c8b132" class="figure">
+<p><img src="../res/telega-server与tdlib不通的原因.png" alt="telega-server与tdlib不通的原因.png" />
 </p>
+</div>
 
 <p>
 然后设置zevlg作者，在telega.el下提供的telega-proxies变量就行了
@@ -316,12 +318,12 @@ Connecting....
 </div>
 </div>
 </div>
-<div id="outline-container-orgb356082" class="outline-3">
-<h3 id="orgb356082"><span class="section-number-3">1.4.</span> 调试过程(TLDR)</h3>
+<div id="outline-container-org0db5bf8" class="outline-3">
+<h3 id="org0db5bf8"><span class="section-number-3">1.4.</span> 调试过程(TLDR)</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-org5b18ae2" class="outline-4">
-<h4 id="org5b18ae2"><span class="section-number-4">1.4.1.</span> 先怀疑是图形桌面服务器的问题，结果不是</h4>
+<div id="outline-container-orgb0c5e18" class="outline-4">
+<h4 id="orgb0c5e18"><span class="section-number-4">1.4.1.</span> 先怀疑是图形桌面服务器的问题，结果不是</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <p>
 一开始我先怀疑的可能是图形桌面服务器的问题，因为现在的环境是 <code>WSL-archlinux是用账户名</code> 登录的，但是在 <code>archlinux下是用二维码</code> 登录的
@@ -358,14 +360,14 @@ scale rotate90
 </p>
 </div>
 </div>
-<div id="outline-container-orgf5a9ed4" class="outline-4">
-<h4 id="orgf5a9ed4"><span class="section-number-4">1.4.2.</span> 到怀疑可能是代理的问题，结果也不是</h4>
+<div id="outline-container-org6b72e13" class="outline-4">
+<h4 id="org6b72e13"><span class="section-number-4">1.4.2.</span> 到怀疑可能是代理的问题，结果也不是</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <p>
 于是我尝试使用账户名登录，但只要一输入手机号按回车后，它就一定会
 </p>
 
-<pre class="example" id="org367e45f">
+<pre class="example" id="orgb96bbc1">
 Connecting....
 
 
@@ -392,7 +394,7 @@ Connecting....
 发现确实是通的，但现在在telega-server(telega.el)下，就一直都是
 </p>
 
-<pre class="example" id="org6686d8b">
+<pre class="example" id="org2bf9d43">
 Connecting....
 
 
@@ -404,8 +406,8 @@ Connecting....
 </p>
 </div>
 </div>
-<div id="outline-container-org080aeee" class="outline-4">
-<h4 id="org080aeee"><span class="section-number-4">1.4.3.</span> 最后确定了，原来是环境问题</h4>
+<div id="outline-container-org242bbac" class="outline-4">
+<h4 id="org242bbac"><span class="section-number-4">1.4.3.</span> 最后确定了，原来是环境问题</h4>
 <div class="outline-text-4" id="text-1-4-3">
 <blockquote>
 <p>
@@ -427,7 +429,7 @@ Connecting....
 去看 <code>*Message*</code> 先是发现在Auth WaitPhoneNumber时，一旦输入账号，就会出现这样的日志
 </p>
 
-<pre class="example" id="org56ae626">
+<pre class="example" id="orgaf864f6">
 OUTPUT: send 33 (:@extra 1 :@type "disableProxy")
 </pre>
 
@@ -446,7 +448,7 @@ OUTPUT: send 33 (:@extra 1 :@type "disableProxy")
 <p>
 附带一下当时的聊天记录(直接从telega.el中复制粘贴出来的)
 </p>
-<pre class="example" id="orgd932181">
+<pre class="example" id="orge86b0f5">
 JJ edited 23.03.24 -'11
 In spain are blocking acces to telegram
 
@@ -490,7 +492,7 @@ ok, thanks
 <p>
 然后就有从
 </p>
-<pre class="example" id="orgc3e5758">
+<pre class="example" id="org25ca48a">
 Connecting....
 
 
@@ -500,7 +502,7 @@ Connecting....
 <p>
 就变成了
 </p>
-<pre class="example" id="orga84f0dd">
+<pre class="example" id="orgdc979db">
 Ready
 
 
@@ -517,7 +519,7 @@ Ready
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: kle</p>
-<p class="date">Created: 2025-06-14 Sat 11:31</p>
+<p class="date">Created: 2025-07-06 Sun 14:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
