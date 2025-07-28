@@ -291,7 +291,7 @@ libmps大致信息
 
 [[https://github.com/colfwe/dotfiles/tree/main/libmps][我的仓库 ]]或 [[https://github.com/Ravenbrook/mps][作者仓库]] 里也都有 (20230711, v1.118.0, Release)
 
-安装方法就是直接暴力复制到 ~/usr/bin/ 与 /usr/include/~ 上就行了
+安装方法就是直接暴力复制到 ~/usr/lib/ 与 /usr/include/~ 上就行了
 
 然后是 emacs-mirror 的 emacs-feature-igc 分支
 

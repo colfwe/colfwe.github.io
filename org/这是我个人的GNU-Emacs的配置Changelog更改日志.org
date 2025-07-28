@@ -25,7 +25,7 @@
 |   16 | highlight-indent-guides | 缩进线                                                    |
 |   17 | centaur-tabs            | tab标签页                                                 |
 |   18 | eat                     | 集成终端模拟器                                              |
-|   19 | pdf-tools               | 看pdf文档                                                 |
+|   19 | +pdf-tools+             | 看pdf文档                                                 |
 |   20 | magit                   | 最好用的版本控制工具                                         |
 |   21 | dirvish                 | 文件管理器                                                 |
 |   22 | cdlatex                 | 快速补全数学符号                                            |
@@ -39,8 +39,8 @@
 |   30 | posframe                | 弹出框的依赖                                               |
 |   31 | vertico-posframe        | vertico的弹出框                                            |
 |   32 | restart-emacs           | 重启emacs                                                 |
-|   33 | savehist                | 光标保存                                                   |
-|   34 | saveplace               | 光标保存                                                   |
+|   33 | +savehist+ (自带)        | 光标保存                                                   |
+|   34 | +saveplace+ (自带)       | 光标保存                                                   |
 |   35 | telega                  | IM聊天工具                                                 |
 |   36 | visual-fill-column      | 给telega用的依赖                                           |
 |   37 | rainbow-identifiers     | 给telega用的依赖                                           |
