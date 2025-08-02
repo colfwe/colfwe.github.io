@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-10 Tue 01:08 -->
+<!-- 2025-08-03 Sun 00:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,35 +200,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5866f31">1. 关于global-mode-string的一次经历</a>
+<li><a href="#orgf731da7">1. 关于global-mode-string的一次经历</a>
 <ul>
-<li><a href="#org67afe0f">1.1. 这才是真正的原因(2025-06-10 Thu 00:32)</a>
+<li><a href="#orgcc8efd0">1.1. 这才是真正的原因(2025-06-10 Thu 00:32)</a>
 <ul>
-<li><a href="#org05a984c">1.1.1. 原因解释</a></li>
-<li><a href="#org5a2fb0f">1.1.2. 所以我现在的modeline是如何操作的呢？</a></li>
-<li><a href="#org3549ca9">1.1.3. 懵了足足一年半才知道的事情(关于mode-line-*)</a></li>
-<li><a href="#org82621c5">1.1.4. 顺便这里贴一下chatGPT 4o给出的关于mode-line-*的preset预设的代码</a></li>
+<li><a href="#org5d2e47e">1.1.1. 原因解释</a></li>
+<li><a href="#org93c6e77">1.1.2. 所以我现在的modeline是如何操作的呢？</a></li>
+<li><a href="#org6eca5f6">1.1.3. 懵了足足一年半才知道的事情(关于mode-line-*)</a></li>
+<li><a href="#orgab49c9d">1.1.4. 关于mode-line-*的preset预设的代码</a></li>
 </ul>
 </li>
-<li><a href="#orgead66f0">1.2. 这里原因判断出错了，但碰巧解决了问题(2025-05-03 Sat 14:25)</a></li>
-<li><a href="#org2ff19f6">1.3. 背景材料</a></li>
-<li><a href="#org4647508">1.4. 复现情景</a></li>
-<li><a href="#orgb04ac61">1.5. 离谱出处</a></li>
+<li><a href="#orgefac5e3">1.2. 这里原因判断出错了，但碰巧解决了问题(2025-05-03 Sat 14:25)</a></li>
+<li><a href="#orgfb948e9">1.3. 背景材料</a></li>
+<li><a href="#org9b837e4">1.4. 复现情景</a></li>
+<li><a href="#org8333f55">1.5. 离谱出处</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5866f31" class="outline-2">
-<h2 id="org5866f31"><span class="section-number-2">1.</span> 关于global-mode-string的一次经历</h2>
+<div id="outline-container-orgf731da7" class="outline-2">
+<h2 id="orgf731da7"><span class="section-number-2">1.</span> 关于global-mode-string的一次经历</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org67afe0f" class="outline-3">
-<h3 id="org67afe0f"><span class="section-number-3">1.1.</span> 这才是真正的原因(2025-06-10 Thu 00:32)</h3>
+<div id="outline-container-orgcc8efd0" class="outline-3">
+<h3 id="orgcc8efd0"><span class="section-number-3">1.1.</span> 这才是真正的原因(2025-06-10 Thu 00:32)</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org05a984c" class="outline-4">
-<h4 id="org05a984c"><span class="section-number-4">1.1.1.</span> 原因解释</h4>
+<div id="outline-container-org5d2e47e" class="outline-4">
+<h4 id="org5d2e47e"><span class="section-number-4">1.1.1.</span> 原因解释</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 BYD根本就不是之前说的那样
@@ -269,8 +269,8 @@ global-mode-string在某次更新后到现在的效果:
 </p>
 </div>
 </div>
-<div id="outline-container-org5a2fb0f" class="outline-4">
-<h4 id="org5a2fb0f"><span class="section-number-4">1.1.2.</span> 所以我现在的modeline是如何操作的呢？</h4>
+<div id="outline-container-org93c6e77" class="outline-4">
+<h4 id="org93c6e77"><span class="section-number-4">1.1.2.</span> 所以我现在的modeline是如何操作的呢？</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <div class="org-src-container">
 <pre class="src src-elisp">(defun kivnn/update-modeline-with-all-scripts ()
@@ -336,8 +336,8 @@ global-mode-string在某次更新后到现在的效果:
 </p>
 </div>
 </div>
-<div id="outline-container-org3549ca9" class="outline-4">
-<h4 id="org3549ca9"><span class="section-number-4">1.1.3.</span> 懵了足足一年半才知道的事情(关于mode-line-*)</h4>
+<div id="outline-container-org6eca5f6" class="outline-4">
+<h4 id="org6eca5f6"><span class="section-number-4">1.1.3.</span> 懵了足足一年半才知道的事情(关于mode-line-*)</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 原来我才知道，我之前这么来设置mode-line-format
@@ -383,25 +383,15 @@ global-mode-string在某次更新后到现在的效果:
 </div>
 </div>
 </div>
-<div id="outline-container-org82621c5" class="outline-4">
-<h4 id="org82621c5"><span class="section-number-4">1.1.4.</span> 顺便这里贴一下chatGPT 4o给出的关于mode-line-*的preset预设的代码</h4>
+<div id="outline-container-orgab49c9d" class="outline-4">
+<h4 id="orgab49c9d"><span class="section-number-4">1.1.4.</span> 关于mode-line-*的preset预设的代码</h4>
 <div class="outline-text-4" id="text-1-1-4">
-<blockquote>
-<p>
-<i>要不有GPT 4o，我真的查不到一点资料</i>
-</p>
-
-<p>
-<i>而且C-h v那些mode-line-*得到的Value，是一堆超长列表，我这种菜鸡就根本看不下去那种</i>
-</p>
-</blockquote>
-
 <p>
 这下面指的是，不用preset预制，而是用 <code>(format)</code> 与 <code>(:eval)</code> 自己从0手搓出来，来替代
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org70d122f"></a>mode-line-mule-info<br />
+<li><a id="orge586859"></a>mode-line-mule-info<br />
 <div class="outline-text-5" id="text-1-1-4-1">
 <div class="org-src-container">
 <pre class="src src-elisp">;; 将会看到的是
@@ -417,7 +407,7 @@ global-mode-string在某次更新后到现在的效果:
 </div>
 </div>
 </li>
-<li><a id="orgdabddd2"></a>mode-line-cilent<br />
+<li><a id="org14a11c7"></a>mode-line-cilent<br />
 <div class="outline-text-5" id="text-1-1-4-2">
 <div class="org-src-container">
 <pre class="src src-elisp">;; 将会看到的是
@@ -431,7 +421,7 @@ global-mode-string在某次更新后到现在的效果:
 </div>
 </div>
 </li>
-<li><a id="orge12b316"></a>mode-line-modified<br />
+<li><a id="org4a417d8"></a>mode-line-modified<br />
 <div class="outline-text-5" id="text-1-1-4-3">
 <div class="org-src-container">
 <pre class="src src-elisp">;; 将会看到的是
@@ -446,7 +436,7 @@ global-mode-string在某次更新后到现在的效果:
 </div>
 </div>
 </li>
-<li><a id="orgc68cd76"></a>mode-line-remote<br />
+<li><a id="orgd12a3c7"></a>mode-line-remote<br />
 <div class="outline-text-5" id="text-1-1-4-4">
 <div class="org-src-container">
 <pre class="src src-elisp">;; 将会看到的是
@@ -460,7 +450,7 @@ global-mode-string在某次更新后到现在的效果:
 </div>
 </div>
 </li>
-<li><a id="org9197c3b"></a>mode-line-identification<br />
+<li><a id="org95d530c"></a>mode-line-identification<br />
 <div class="outline-text-5" id="text-1-1-4-5">
 <div class="org-src-container">
 <pre class="src src-elisp">;; 将会看到的是
@@ -475,7 +465,7 @@ global-mode-string在某次更新后到现在的效果:
 </div>
 </div>
 </li>
-<li><a id="org5681851"></a>mode-line-buffer-identification<br />
+<li><a id="orged805a3"></a>mode-line-buffer-identification<br />
 <div class="outline-text-5" id="text-1-1-4-6">
 <div class="org-src-container">
 <pre class="src src-elisp">;; 将会看到的是
@@ -486,7 +476,7 @@ global-mode-string在某次更新后到现在的效果:
 </div>
 </div>
 </li>
-<li><a id="org66fdcca"></a>mode-line-position<br />
+<li><a id="org1611680"></a>mode-line-position<br />
 <div class="outline-text-5" id="text-1-1-4-7">
 <div class="org-src-container">
 <pre class="src src-elisp">;; 将会看到的是
@@ -500,17 +490,13 @@ global-mode-string在某次更新后到现在的效果:
 <p>
 然后开始缝就是了，不会的地方，对着ai调试就行了，也就是vibe coding。
 </p>
-
-<p>
-(chatGPT 4o是真的牛逼 <code>ψ(｀∇´)ψ</code>)
-</p>
 </div>
 </li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgead66f0" class="outline-3">
-<h3 id="orgead66f0"><span class="section-number-3">1.2.</span> 这里原因判断出错了，但碰巧解决了问题(2025-05-03 Sat 14:25)</h3>
+<div id="outline-container-orgefac5e3" class="outline-3">
+<h3 id="orgefac5e3"><span class="section-number-3">1.2.</span> 这里原因判断出错了，但碰巧解决了问题(2025-05-03 Sat 14:25)</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 好了，我大致明白了。同时我也能解释啥昨晚那个逆天离谱bug行为了
@@ -587,8 +573,8 @@ global-mode-string在某次更新后到现在的效果:
 </p>
 </div>
 </div>
-<div id="outline-container-org2ff19f6" class="outline-3">
-<h3 id="org2ff19f6"><span class="section-number-3">1.3.</span> 背景材料</h3>
+<div id="outline-container-orgfb948e9" class="outline-3">
+<h3 id="orgfb948e9"><span class="section-number-3">1.3.</span> 背景材料</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 我所使用的 GNU Emacs，是从 <code>emacs-mirror</code> 下拉取用 <code>make</code> 安装的
@@ -603,8 +589,8 @@ global-mode-string在某次更新后到现在的效果:
 </p>
 </div>
 </div>
-<div id="outline-container-org4647508" class="outline-3">
-<h3 id="org4647508"><span class="section-number-3">1.4.</span> 复现情景</h3>
+<div id="outline-container-org9b837e4" class="outline-3">
+<h3 id="org9b837e4"><span class="section-number-3">1.4.</span> 复现情景</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 当时我在 pacman -Syu 后，我一打开 emacs，结果 BYD 整条 global-mode-string 都不显示了！
@@ -678,14 +664,10 @@ global-mode-string在某次更新后到现在的效果:
 <p>
 费了九牛二虎之力，我还以为折腾了一晚上的配置会不翼而飞了😭
 </p>
-
-<p>
-感谢GPT😭♥️🙏
-</p>
 </div>
 </div>
-<div id="outline-container-orgb04ac61" class="outline-3">
-<h3 id="orgb04ac61"><span class="section-number-3">1.5.</span> 离谱出处</h3>
+<div id="outline-container-org8333f55" class="outline-3">
+<h3 id="org8333f55"><span class="section-number-3">1.5.</span> 离谱出处</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 <b>升级A的二进制文件，却影响到了B的二进制文件，的配置文件的特定变量</b>
@@ -716,7 +698,7 @@ global-mode-string在某次更新后到现在的效果:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: kle</p>
-<p class="date">Created: 2025-06-10 Tue 01:08</p>
+<p class="date">Created: 2025-08-03 Sun 00:31</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -14,7 +14,7 @@
 
 ** 详细过程
 
-有些函数是我自己积累下来的(包括但不限于，对着GPT Debug，找SOF(stackoverflow)热心网友，找ESE(emacsstackexchange)热心网友等方式)
+有些函数是我自己积累下来的(包括但不限于，对着Debug，找SOF(stackoverflow)热心网友，找ESE(emacsstackexchange)热心网友等方式)
 
 所以有些按键原生用不了正常，因为都没有这个函数，可以到 [[https://github.com/kitevnn/dotfiles-archlinux/tree/main/all/emacs/elisp/custom][个人仓库]] 或 =~/.emacs.d/elisp/custom/custom-defun.el= 下看看具体的函数
 
@@ -312,4 +312,4 @@ evil-mode最爽的地方，是在于它只是提供了一个虚拟layer按键层
 
 于是就选用了最能缝的 evil-mode，在此我个人，感谢为 evil-mode 贡献的各位作者们，感谢您们 =~(￣▽￣)~*=
 
-而且也感谢GPT 4o，没有GPT 4o的话，估计可能截至到写文章的今天，也许还卡在为特定mode配置快捷键的阶段，感谢 =(～￣▽￣)～=
+而且也感谢(我感谢你🐎，傻卵closeai)，没有的话，估计可能截至到写文章的今天，也许还卡在为特定mode配置快捷键的阶段，感谢 =(～￣▽￣)～=

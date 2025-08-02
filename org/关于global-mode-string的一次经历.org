@@ -126,13 +126,7 @@ global-mode-string在某次更新后到现在的效果:
 
 #+end_src
 
-*** 顺便这里贴一下chatGPT 4o给出的关于mode-line-*的preset预设的代码
-
-#+begin_quote
-/要不有GPT 4o，我真的查不到一点资料/
-
-/而且C-h v那些mode-line-*得到的Value，是一堆超长列表，我这种菜鸡就根本看不下去那种/
-#+end_quote
+*** 关于mode-line-*的preset预设的代码
 
 这下面指的是，不用preset预制，而是用 ~(format)~ 与 ~(:eval)~ 自己从0手搓出来，来替代
 
@@ -214,8 +208,6 @@ global-mode-string在某次更新后到现在的效果:
 #+end_src
 
 然后开始缝就是了，不会的地方，对着ai调试就行了，也就是vibe coding。
-
-(chatGPT 4o是真的牛逼 ~ψ(｀∇´)ψ~)
 
 ** 这里原因判断出错了，但碰巧解决了问题(2025-05-03 Sat 14:25)
 
@@ -335,8 +327,6 @@ global-mode-string在某次更新后到现在的效果:
 #+end_src
 
 费了九牛二虎之力，我还以为折腾了一晚上的配置会不翼而飞了😭
-
-感谢GPT😭♥️🙏
 
 ** 离谱出处
 

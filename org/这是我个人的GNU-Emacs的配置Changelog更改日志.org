@@ -174,7 +174,7 @@
 
   + 添加了telega.el聊天IM插件(非常感谢作者zevlg♥️)
 
-  + 设置了自己糊出来的 modeline 信息(通过site-lisp的bash脚本完成，同时感谢GPT 4o mini♥️)
+  + 设置了自己糊出来的 modeline 信息(通过site-lisp的bash脚本完成)
 
 
 - 20241010

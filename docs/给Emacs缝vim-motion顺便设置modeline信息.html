@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-13 Fri 15:44 -->
+<!-- 2025-08-03 Sun 00:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -232,15 +232,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3d26f19">1. 给Emacs缝vim-motion顺便设置modeline信息</a>
+<li><a href="#orgb4b0feb">1. 给Emacs缝vim-motion顺便设置modeline信息</a>
 <ul>
-<li><a href="#org2522d21">1.1. 基本介绍</a></li>
-<li><a href="#org459d800">1.2. 详细过程</a>
+<li><a href="#org579364d">1.1. 基本介绍</a></li>
+<li><a href="#orgd83ec7e">1.2. 详细过程</a>
 <ul>
-<li><a href="#orgd548393">1.2.1. 安装</a></li>
-<li><a href="#org83b9846">1.2.2. 说明</a></li>
-<li><a href="#org57e61ad">1.2.3. 配置(开缝！)</a></li>
-<li><a href="#org747c004">1.2.4. 一些感受</a></li>
+<li><a href="#org30330bd">1.2.1. 安装</a></li>
+<li><a href="#org444ea5e">1.2.2. 说明</a></li>
+<li><a href="#org2f0773b">1.2.3. 配置(开缝！)</a></li>
+<li><a href="#org1d08769">1.2.4. 一些感受</a></li>
 </ul>
 </li>
 </ul>
@@ -248,12 +248,12 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org3d26f19" class="outline-2">
-<h2 id="org3d26f19"><span class="section-number-2">1.</span> 给Emacs缝vim-motion顺便设置modeline信息</h2>
+<div id="outline-container-orgb4b0feb" class="outline-2">
+<h2 id="orgb4b0feb"><span class="section-number-2">1.</span> 给Emacs缝vim-motion顺便设置modeline信息</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org2522d21" class="outline-3">
-<h3 id="org2522d21"><span class="section-number-3">1.1.</span> 基本介绍</h3>
+<div id="outline-container-org579364d" class="outline-3">
+<h3 id="org579364d"><span class="section-number-3">1.1.</span> 基本介绍</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 大概就是，给Emacs添加了 <code>evil-mode.el</code> 并根据自己积累的函数，
@@ -272,25 +272,25 @@
 </p>
 
 
-<div id="org9e6f7b1" class="figure">
+<div id="orge1328d7" class="figure">
 <p><img src="../res/状态栏按键风格的信息差异.png" alt="状态栏按键风格的信息差异.png" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org459d800" class="outline-3">
-<h3 id="org459d800"><span class="section-number-3">1.2.</span> 详细过程</h3>
+<div id="outline-container-orgd83ec7e" class="outline-3">
+<h3 id="orgd83ec7e"><span class="section-number-3">1.2.</span> 详细过程</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-有些函数是我自己积累下来的(包括但不限于，对着GPT Debug，找SOF(stackoverflow)热心网友，找ESE(emacsstackexchange)热心网友等方式)
+有些函数是我自己积累下来的(包括但不限于，对着Debug，找SOF(stackoverflow)热心网友，找ESE(emacsstackexchange)热心网友等方式)
 </p>
 
 <p>
 所以有些按键原生用不了正常，因为都没有这个函数，可以到 <a href="https://github.com/kitevnn/dotfiles-archlinux/tree/main/all/emacs/elisp/custom">个人仓库</a> 或 <code>~/.emacs.d/elisp/custom/custom-defun.el</code> 下看看具体的函数
 </p>
 </div>
-<div id="outline-container-orgd548393" class="outline-4">
-<h4 id="orgd548393"><span class="section-number-4">1.2.1.</span> 安装</h4>
+<div id="outline-container-org30330bd" class="outline-4">
+<h4 id="org30330bd"><span class="section-number-4">1.2.1.</span> 安装</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <div class="org-src-container">
 <pre class="src src-elisp">(use-package evil
@@ -300,8 +300,8 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org83b9846" class="outline-4">
-<h4 id="org83b9846"><span class="section-number-4">1.2.2.</span> 说明</h4>
+<div id="outline-container-org444ea5e" class="outline-4">
+<h4 id="org444ea5e"><span class="section-number-4">1.2.2.</span> 说明</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 evil-mode最爽的地方，是在于它只是提供了一个虚拟layer按键层
@@ -316,9 +316,9 @@ evil-mode最爽的地方，是在于它只是提供了一个虚拟layer按键层
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org5df72b6"></a>说明<br />
+<li><a id="org5331d69"></a>说明<br />
 <ol class="org-ol">
-<li><a id="org06baf20"></a>evil-emacs-state-modes<br />
+<li><a id="org3e2b6d4"></a>evil-emacs-state-modes<br />
 <div class="outline-text-6" id="text-1-2-2-1-1">
 <p>
 默认被emacs接管、默认不能用evil-mode设置vim快捷键，的某些mode，共有 <code>C-h v evil-emacs-state-modes</code> 这些
@@ -365,14 +365,14 @@ evil-mode最爽的地方，是在于它只是提供了一个虚拟layer按键层
 </div>
 </div>
 </li>
-<li><a id="org009e7e8"></a>设置modeline信息<br />
+<li><a id="org977cf94"></a>设置modeline信息<br />
 <div class="outline-text-6" id="text-1-2-2-1-2">
 <p>
 设置modeline信息，提示自己当前正处于什么模式，就像这样
 </p>
 
 
-<div id="org2d22236" class="figure">
+<div id="org616d186" class="figure">
 <p><img src="../res/状态栏按键风格的信息差异.png" alt="状态栏按键风格的信息差异.png" />
 </p>
 </div>
@@ -421,8 +421,8 @@ evil-mode最爽的地方，是在于它只是提供了一个虚拟layer按键层
 </li>
 </ol>
 </div>
-<div id="outline-container-org57e61ad" class="outline-4">
-<h4 id="org57e61ad"><span class="section-number-4">1.2.3.</span> 配置(开缝！)</h4>
+<div id="outline-container-org2f0773b" class="outline-4">
+<h4 id="org2f0773b"><span class="section-number-4">1.2.3.</span> 配置(开缝！)</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <div class="org-src-container">
 <pre class="src src-elisp">;; ========================================
@@ -608,8 +608,8 @@ evil-mode最爽的地方，是在于它只是提供了一个虚拟layer按键层
 </div>
 </div>
 </div>
-<div id="outline-container-org747c004" class="outline-4">
-<h4 id="org747c004"><span class="section-number-4">1.2.4.</span> 一些感受</h4>
+<div id="outline-container-org1d08769" class="outline-4">
+<h4 id="org1d08769"><span class="section-number-4">1.2.4.</span> 一些感受</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
 其实我这样做，是因为我个人，去年不知道在那个平台的帖子(貌似是贴吧？)
@@ -644,7 +644,7 @@ evil-mode最爽的地方，是在于它只是提供了一个虚拟layer按键层
 </p>
 
 <p>
-而且也感谢GPT 4o，没有GPT 4o的话，估计可能截至到写文章的今天，也许还卡在为特定mode配置快捷键的阶段，感谢 <code>(～￣▽￣)～</code>
+而且也感谢(我感谢你🐎，傻卵closeai)，没有的话，估计可能截至到写文章的今天，也许还卡在为特定mode配置快捷键的阶段，感谢 <code>(～￣▽￣)～</code>
 </p>
 </div>
 </div>
@@ -653,7 +653,7 @@ evil-mode最爽的地方，是在于它只是提供了一个虚拟layer按键层
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: kle</p>
-<p class="date">Created: 2025-06-13 Fri 15:44</p>
+<p class="date">Created: 2025-08-03 Sun 00:26</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -344,7 +344,7 @@ CFLAGS="-fmax-errors=1000" ./configure \
     'LDFLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs -flto=auto'  
 #+end_src
 
-GPT 4o给出的解释是，你这一定是从Arch等的高级构建模板，已经是非常专业级别的构建选项
+这一定是从Arch等的高级构建模板，已经是非常专业级别的构建选项
 
 #+begin_quote
 BYD还真是，我当时是从 ~GNU Emacs 29.1~ 开始使用的，大概2024年4月
@@ -354,7 +354,7 @@ BYD还真是，我当时是从 ~GNU Emacs 29.1~ 开始使用的，大概2024年4
 然后就在上面加加减减修改一下这样
 #+end_quote
 
-并且GPT对编译flag做出了解释
+这里是对编译flag做出了解释
 
 #+begin_example
 ✅ 高安全性(-D_FORTIFY_SOURCE=3, -Werror=format-security)

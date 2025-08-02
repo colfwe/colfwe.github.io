@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-24 一 19:39 -->
+<!-- 2025-08-03 Sun 00:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
+<meta name="author" content="kle" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -231,27 +232,27 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgca6a570">1. 在ArchLinux上给org-mode添加渲染中文LaTeX片段的方法</a>
+<li><a href="#org9975761">1. 在ArchLinux上给org-mode添加渲染中文LaTeX片段的方法</a>
 <ul>
-<li><a href="#org2672fa2">1.1. 折腾动机</a></li>
-<li><a href="#orgf8cbe62">1.2. 方案选择</a>
+<li><a href="#org3328c4a">1.1. 折腾动机</a></li>
+<li><a href="#org9f9aa32">1.2. 方案选择</a>
 <ul>
-<li><a href="#org9cea92e">1.2.1. 问题1: 输出了png而非svg</a></li>
-<li><a href="#orgca5e470">1.2.2. 问题2: \!\!\!的符号过多</a></li>
+<li><a href="#orgcf3d7c0">1.2.1. 问题1: 输出了png而非svg</a></li>
+<li><a href="#org7b08adc">1.2.2. 问题2: \!\!\!的符号过多</a></li>
 </ul>
 </li>
-<li><a href="#org68195c5">1.3. 另类实现方法（千万别学！要渲染中文LaTeX片段请看上面！）</a></li>
+<li><a href="#org64df09a">1.3. 另类实现方法（千万别学！要渲染中文LaTeX片段请看上面！）</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgca6a570" class="outline-2">
-<h2 id="orgca6a570"><span class="section-number-2">1.</span> 在ArchLinux上给org-mode添加渲染中文LaTeX片段的方法</h2>
+<div id="outline-container-org9975761" class="outline-2">
+<h2 id="org9975761"><span class="section-number-2">1.</span> 在ArchLinux上给org-mode添加渲染中文LaTeX片段的方法</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org2672fa2" class="outline-3">
-<h3 id="org2672fa2"><span class="section-number-3">1.1.</span> 折腾动机</h3>
+<div id="outline-container-org3328c4a" class="outline-3">
+<h3 id="org3328c4a"><span class="section-number-3">1.1.</span> 折腾动机</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 由于因为自己在过去写的一些在org-mode里渲染LaTeX中文片段的函数 <b>实在是写得过于另类猎奇</b>
@@ -284,26 +285,26 @@
 </p>
 </div>
 </div>
-<div id="outline-container-orgf8cbe62" class="outline-3">
-<h3 id="orgf8cbe62"><span class="section-number-3">1.2.</span> 方案选择</h3>
+<div id="outline-container-org9f9aa32" class="outline-3">
+<h3 id="org9f9aa32"><span class="section-number-3">1.2.</span> 方案选择</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-询问GPT后，大概导致卡顿的原因有两个 <b>[输出了png而非svg] 与 [符号过多]</b>
+大概导致卡顿的原因有两个 <b>[输出了png而非svg] 与 [符号过多]</b>
 </p>
 
 <p>
 那么接下来就是解决 <b>问题1: 输出了png而非svg</b> 与 <b>问题2: \!\!\!的符号过多</b>
 </p>
 </div>
-<div id="outline-container-org9cea92e" class="outline-4">
-<h4 id="org9cea92e"><span class="section-number-4">1.2.1.</span> 问题1: 输出了png而非svg</h4>
+<div id="outline-container-orgcf3d7c0" class="outline-4">
+<h4 id="orgcf3d7c0"><span class="section-number-4">1.2.1.</span> 问题1: 输出了png而非svg</h4>
 <div class="outline-text-4" id="text-1-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="org2aaab0a"></a>svg 的优势之处<br />
+<li><a id="org40f76f7"></a>svg 的优势之处<br />
 <div class="outline-text-5" id="text-1-2-1-1">
 <p>
-GPT 回答说，使用 <code>SVG</code> 的好处是
+使用 <code>SVG</code> 的好处是
 </p>
 
 <ul class="org-ul">
@@ -319,7 +320,7 @@ GPT 回答说，使用 <code>SVG</code> 的好处是
 </p>
 </div>
 </li>
-<li><a id="org96ce0c8"></a>使用 [XeTeX] 输出 [中文LaTeX] 的 [SVG] 的原因<br />
+<li><a id="org9b97959"></a>使用 [XeTeX] 输出 [中文LaTeX] 的 [SVG] 的原因<br />
 <div class="outline-text-5" id="text-1-2-1-2">
 <p>
 首先在 org-mode 里，默认支持 dvipng、dvisvgm、imagemagick 三种渲染 LaTeX 的方式，它们 <code>输出可显示图片(PNG 或 SVG)</code> 的方案如下
@@ -373,7 +374,7 @@ GPT 回答说，使用 <code>SVG</code> 的好处是
 然后 org-mode <b>默认使用的是 dvipng(PNG)</b> 的原因是
 </p>
 
-<pre class="example" id="org7d4bba3">
+<pre class="example" id="org3ae4e0b">
 因为在早期的 Emacs，Emacs 24 几乎不支持 svg，Emacs 25-25 有支持但不稳定。
 
 一直到 Emacs 27+ 才稳定支持
@@ -392,13 +393,13 @@ GPT 回答说，使用 <code>SVG</code> 的好处是
 </p>
 </div>
 </li>
-<li><a id="org0417931"></a>使用 [XeTeX] 输出中文LaTeX的 [SVG] 的方法<br />
+<li><a id="org9cc31b8"></a>使用 [XeTeX] 输出中文LaTeX的 [SVG] 的方法<br />
 <div class="outline-text-5" id="text-1-2-1-3">
 <p>
 在 XeTeX 里面 <b>一定是PDF转其它</b> 不存在XDV转其它
 </p>
 
-<pre class="example" id="orgbb17b6b">
+<pre class="example" id="org2bfb716">
 XDV，就是DVI的XeTeX包装版
 
 虽然XDV看上去是DVI的变种，但是实际上XDV还是PDF的实现方法，并不能完成 XDV to 其它的方法
@@ -433,7 +434,7 @@ pdf2svg 114514.pdf 114514.svg                    # 114514.pdf 再转换成 11451
 </p>
 </div>
 </li>
-<li><a id="org7aeeba8"></a>使用 [XeTeX] 输出 [中文LaTeX] 的 SVG 的方法<br />
+<li><a id="orgea62fa5"></a>使用 [XeTeX] 输出 [中文LaTeX] 的 SVG 的方法<br />
 <div class="outline-text-5" id="text-1-2-1-4">
 <p>
 首先有 el 的实现
@@ -486,7 +487,7 @@ pdf2svg 114514.pdf 114514.svg                    # 114514.pdf 再转换成 11451
 </p>
 
 <p>
-首先在中文LaTeX片段的 <b>字体选择方案: 中文字体 + 西文字体</b> 里，GPT 回答说
+首先在中文LaTeX片段的 <b>字体选择方案: 中文字体 + 西文字体</b> 里
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -556,7 +557,7 @@ pdf2svg 114514.pdf 114514.svg                    # 114514.pdf 再转换成 11451
 </p>
 
 <p>
-然后因为在 Emacs 里 <b>org-mode使用了TeX引擎的内置字体，Computer Modern字体，很漂亮</b> 来完成 <b>西文LaTeX片段的渲染的</b> (来源于: GPT)
+然后因为在 Emacs 里 <b>org-mode使用了TeX引擎的内置字体，Computer Modern字体，很漂亮</b> 来完成 <b>西文LaTeX片段的渲染的</b>
 </p>
 
 <p>
@@ -576,14 +577,14 @@ pdf2svg 114514.pdf 114514.svg                    # 114514.pdf 再转换成 11451
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org4794696"></a>省流版<br />
+<li><a id="org4abbd8c"></a>省流版<br />
 <div class="outline-text-6" id="text-1-2-1-4-1">
 <p>
 <a href="https://tex.stackexchange.com/questions/619573/problem-setting-a-main-font/619577#619577">XeTeX默认不识别texlive的额外字体的解决方法</a>
 </p>
 </div>
 </li>
-<li><a id="orgaa276b8"></a>详细版<br />
+<li><a id="org45a2020"></a>详细版<br />
 <div class="outline-text-6" id="text-1-2-1-4-2">
 <p>
 <b>前提声明: 我自己只测试了 archlinux 是这样的，我自己并不知道其它发行版也是不是这样。</b>
@@ -645,7 +646,7 @@ pdf2svg 114514.pdf 114514.svg                    # 114514.pdf 再转换成 11451
 <b>然后执行 <code>fc-cache -fsv</code> 就会看到，就说明安装好了 (我这里是只安装了 CMU 这一个字体)</b>
 </p>
 
-<pre class="example" id="org2072537">
+<pre class="example" id="org0b247e0">
 Font directories:
         /usr/share/fonts
         /usr/local/share/fonts
@@ -752,8 +753,8 @@ fc-list | grep '^/usr/share/texmf-dist/fonts/opentype/public/cm-unicode/'
 </li>
 </ol>
 </div>
-<div id="outline-container-orgca5e470" class="outline-4">
-<h4 id="orgca5e470"><span class="section-number-4">1.2.2.</span> 问题2: \!\!\!的符号过多</h4>
+<div id="outline-container-org7b08adc" class="outline-4">
+<h4 id="org7b08adc"><span class="section-number-4">1.2.2.</span> 问题2: \!\!\!的符号过多</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 造成这样的原因 <b>仅仅只是我过去过于懒惰导致的，不愿意加宏包，导致非常夸张的编辑卡顿问题</b>
@@ -780,8 +781,8 @@ fc-list | grep '^/usr/share/texmf-dist/fonts/opentype/public/cm-unicode/'
 </div>
 </div>
 </div>
-<div id="outline-container-org68195c5" class="outline-3">
-<h3 id="org68195c5"><span class="section-number-3">1.3.</span> 另类实现方法（千万别学！要渲染中文LaTeX片段请看上面！）</h3>
+<div id="outline-container-org64df09a" class="outline-3">
+<h3 id="org64df09a"><span class="section-number-3">1.3.</span> 另类实现方法（千万别学！要渲染中文LaTeX片段请看上面！）</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 先设置一个 <b>xelatex-chinese</b> 的自定义设置
@@ -873,7 +874,7 @@ fc-list | grep '^/usr/share/texmf-dist/fonts/opentype/public/cm-unicode/'
 必须先将光标放在片段的上下文范围内，并且需要赞成手动一个一个按，才能执行渲染，就像这样
 </p>
 
-<pre class="example" id="orgd69d29c">
+<pre class="example" id="org9e3f0e2">
 \( 光标必须放在此上下文范围里面，然后再按下快捷键执行 \)
 
 如果因为什么事情，要重新渲染所有LaTeX片段的话，那么就必须需要 [先放置光标 &gt; 手动一个一个地按下快捷键 &gt; 等待渲染] 才能完成。按得人都麻了。
@@ -885,7 +886,7 @@ fc-list | grep '^/usr/share/texmf-dist/fonts/opentype/public/cm-unicode/'
 必须自己实现删除左右边界空格的函数，否则就会出现LaTeX片段自带空格的情况出现，很不美观 (´_&gt;)
 </p>
 
-<pre class="example" id="org6208eac">
+<pre class="example" id="orgf6d46e1">
 \(删除左边界空格       删除右边界空格\)
 </pre>
 
@@ -897,7 +898,8 @@ fc-list | grep '^/usr/share/texmf-dist/fonts/opentype/public/cm-unicode/'
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-03-24 一 19:39</p>
+<p class="author">Author: kle</p>
+<p class="date">Created: 2025-08-03 Sun 00:30</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
