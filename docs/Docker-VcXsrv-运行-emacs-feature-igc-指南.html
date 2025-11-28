@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-11-28 Fri 13:23 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org6a92674">1. Docker + VcXsrv 运行 emacs-feature-igc 指南</a>
+<ul>
+<li><a href="#orgba6dd9e">1.1. VcXsrc 启动需要</a></li>
+<li><a href="#orgd143486">1.2. Docker 启动需要</a></li>
+<li><a href="#org69a5d05">1.3. 启动容器horcrux</a>
+<ul>
+<li><a href="#org6348d32">1.3.1. 持久化装载到docker-desktop里（即使关闭powershell窗口仍可以运行此horcrux）</a></li>
+<li><a href="#org629ec8f">1.3.2. 进入容器horcrux</a></li>
+</ul>
+</li>
+<li><a href="#orgcce9cb6">1.4. 重新打包容器horcrux</a></li>
+<li><a href="#org3b39e46">1.5. Emacs编译参数</a></li>
+<li><a href="#org06a0fe9">1.6. 记得编译telega</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6a92674" class="outline-2">
+<h2 id="org6a92674"><span class="section-number-2">1.</span> Docker + VcXsrv 运行 emacs-feature-igc 指南</h2>
+<div class="outline-text-2" id="text-1">
+
+</div>
+<div id="outline-container-orgba6dd9e" class="outline-3">
+<h3 id="orgba6dd9e"><span class="section-number-3">1.1.</span> VcXsrc 启动需要</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+启动 VcXsrv (XLaunch)：
+</p>
+
+<p>
+在您的 Windows 宿主机上，启动 VcXsrv。
+</p>
+
+<p>
+关键设置回顾：
+</p>
+
+<ul class="org-ul">
+<li>Display settings: 选择 "Multiple windows"，Display number 设为 0。</li>
+
+<li>Extra settings: 必须勾选 "Disable access control"。</li>
+
+<li><p>
+Additional parameters for X Server: 添加 -xkboptions ctrl:nocaps（Docker环境: 没有硬件层级的caps 2 control的方法）
+</p>
+
+<p>
+并且在init.el最开始（或者能让此配置加载的el文件地方），添加上
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(setq mac-command-modifier 'meta) ; 保持 Mac/Windows 上的 Meta 键行为
+(setq mac-option-modifier 'alt)  ; 保持 Alt 键行为
+(setq x-alt-keys-may-terminate-input nil) ; 避免 Alt/Meta 键的行为问题
+
+;; 核心代码：将 Caps Lock 按键符号翻译为 Control 修饰键
+(define-key key-translation-map (kbd "&lt;caps&gt;") (kbd "C-"))
+</pre>
+</div>
+
+<p>
+只能在 Emacs 上使用，因为这是 <code>elisp神力</code>
+</p>
+
+<p>
+虽然大写键的灯仍会亮起，但是在 <code>Emacs</code> 上，它统统翻译成了 <code>Control ("C-")</code>
+</p>
+
+<p>
+没有HHKB就这样咯，谁叫软软设计师键盘不塞一个硬件控制器进去呢？反正能用上Caps 2 Control就行了。
+</p></li>
+</ul>
+
+<p>
+启动它并保持在后台运行。
+</p>
+</div>
+</div>
+<div id="outline-container-orgd143486" class="outline-3">
+<h3 id="orgd143486"><span class="section-number-3">1.2.</span> Docker 启动需要</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+加载容器
+</p>
+
+<p>
+当您在任何一台安装了 Docker 的新电脑上时，您只需要执行以下两个命令即可“复活”您的 Emacs 环境：
+</p>
+
+<ol class="org-ol">
+<li>导入镜像 (Load)</li>
+</ol>
+<p>
+将 .tar 文件导入到新的 Docker 环境中：
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-powershell"># 语法：docker load -i [输入文件名]
+docker load -i emacs-igc-horcrux.tar
+结果： emacs-igc-horcrux:latest 镜像会出现在新电脑的镜像列表中。
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>运行容器 (Run)</li>
+</ol>
+<p>
+像第一次启动一样，运行您的新镜像，并设置 X11 转发：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-powershell">docker run -it --name new-emacs-igc --hostname emacs-igc \
+           -e DISPLAY=host.docker.internal:0.0 \
+           emacs-igc-horcrux:latest \
+           /bin/bash
+</pre>
+</div>
+
+<p>
+结果： 一个全新的、包含您所有配置和编译成果的 Emacs IGC 环境就启动了！
+</p>
+
+<p>
+通过这套流程，您可以确保您的复杂环境配置永远不会丢失，并可在任何地方快速部署。
+</p>
+
+
+<p>
+horcrux: 伏地魔的魂器，也就是我个人对Docker的“容器”概念一词的理解
+</p>
+</div>
+</div>
+<div id="outline-container-org69a5d05" class="outline-3">
+<h3 id="org69a5d05"><span class="section-number-3">1.3.</span> 启动容器horcrux</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org6348d32" class="outline-4">
+<h4 id="org6348d32"><span class="section-number-4">1.3.1.</span> 持久化装载到docker-desktop里（即使关闭powershell窗口仍可以运行此horcrux）</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<div class="org-src-container">
+<pre class="src src-powershell">docker run -it `
+  --name arch-emacs-igc `
+  -e DISPLAY=host.docker.internal:0.0 `
+  archlinux:base-devel
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org629ec8f" class="outline-4">
+<h4 id="org629ec8f"><span class="section-number-4">1.3.2.</span> 进入容器horcrux</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<div class="org-src-container">
+<pre class="src src-powershell"># 启动容器horcrux（约等于开机）
+docker start arch-emacs-igc
+
+# 进入容器horcrux（约等于进入桌面）
+docker exec -it arch-emacs-igc /bin/bash
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcce9cb6" class="outline-3">
+<h3 id="orgcce9cb6"><span class="section-number-3">1.4.</span> 重新打包容器horcrux</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Q: OKOK这个我懂，但是，请问Gemini？既然docker的环境称为“容器”，那我能不能像伏地魔一样，打包这个容器，以后直接用上就可以了啊？
+</p>
+
+<p>
+A: 这是一个绝妙的比喻！您想把您的 Emacs IGC 环境制作成一个 “魂器（Horcrux）”，在需要时随时召唤回来。
+</p>
+
+<p>
+‍♂️ 制作 Emacs “魂器” (Docker Image)
+答案是 完全可以，这也是 Docker 最核心的价值所在——创建可移植、可复现、带有所有配置的完整环境包。
+</p>
+
+<p>
+您需要的操作分为两步：首先是“封印”当前运行的容器，然后是“打包”这个封印。
+</p>
+
+<p>
+步骤一：封印容器 (Commit to an Image)
+您当前的 arch-emacs-igc 容器包含了您所有的编译成果、依赖库和配置 (.bashrc, Emacs Lisp 配置等)。我们需要将这个运行中的容器的状态，保存为一个静态的 Docker 镜像 (Image)。
+</p>
+
+<p>
+在您的 PowerShell 终端中执行（确保容器正在运行）：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-powershell"># 语法：docker commit [容器名称] [新镜像的名称:标签]
+docker commit arch-emacs-igc emacs-igc-horcrux:latest
+</pre>
+</div>
+<p>
+结果： 您的所有更改、安装和配置都被保存到了一个名为 emacs-igc-horcrux:latest 的新镜像中。
+</p>
+
+<p>
+<code>Vmmem 会在后台，进行创建一个新镜像</code>
+</p>
+
+<p>
+步骤二：打包镜像 (Save the Image)
+现在，您需要将这个静态镜像导出成一个单一的、可移植的文件，这样您就可以把它拷贝到 U 盘或上传到云端。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-powershell"># 语法：docker save -o [输出文件名] [镜像名称]
+docker save -o emacs-igc-horcrux.tar emacs-igc-horcrux:latest
+</pre>
+</div>
+<p>
+结果： 在您执行该命令的目录下，会生成一个名为 emacs-igc-horcrux.tar 的文件。
+</p>
+
+<p>
+恭喜！ 这个 .tar 文件就是您的 Emacs IGC 容器环境的完整“魂器”！
+</p>
+</div>
+</div>
+<div id="outline-container-org3b39e46" class="outline-3">
+<h3 id="org3b39e46"><span class="section-number-3">1.5.</span> Emacs编译参数</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+下载emacs
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">git clone https://github.com/emacs-mirror/emacs
+git checkout feature/igc
+chmod +x autogen.sh
+./autogen.sh
+</pre>
+</div>
+
+<p>
+编译参数
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">./configure --sysconfdir=/etc --prefix=/usr --with-harfbuzz --with-modules --with-x-toolkit=gtk3 --with-mps --with-gnutls --with-rsvg --with-imagemagick --with-native-compilation
+</pre>
+</div>
+
+<p>
+安装
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">make -j4
+make install
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org06a0fe9" class="outline-3">
+<h3 id="org06a0fe9"><span class="section-number-3">1.6.</span> 记得编译telega</h3>
+<div class="outline-text-3" id="text-1-6">
+<div class="org-src-container">
+<pre class="src src-sh">git clone https://github.com/tdlib/td
+mkdir -p build
+cd build
+cmake ../
+make -j4
+make install
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2025-11-28 Fri 13:23</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
